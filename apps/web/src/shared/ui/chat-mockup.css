@@ -1,0 +1,21 @@
+.ms-chat { width: min(100%, 380px); border: 1px solid var(--glass-border); border-radius: 32px; background: color-mix(in srgb, var(--ink-raised) 82%, transparent); box-shadow: var(--shadow-float); overflow: hidden; backdrop-filter: blur(16px); transform: rotate(-2deg); }
+.ms-chat__top { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4) var(--space-5); background: color-mix(in srgb, var(--green) 14%, var(--ink-raised)); border-bottom: 1px solid var(--glass-border); }
+.ms-chat__av { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: var(--radius-full); background: var(--green); color: var(--navy); }
+.ms-chat__who { display: grid; line-height: 1.3; }
+.ms-chat__who strong { color: var(--white); }
+.ms-chat__who small { display: inline-flex; align-items: center; gap: 6px; color: var(--text-on-ink-muted); font-size: 12px; }
+.ms-chat__body { display: grid; gap: var(--space-3); padding: var(--space-6) var(--space-5); min-height: 260px; align-content: start; }
+.ms-chat__b { max-width: 82%; padding: 12px 16px; border-radius: 20px; font-size: 14px; line-height: 21px; }
+.ms-chat__b--in { justify-self: end; border-bottom-right-radius: 6px; background: linear-gradient(135deg, var(--brand-deep), var(--logo-blue)); color: var(--white); }
+.ms-chat__b--out { justify-self: start; border-bottom-left-radius: 6px; background: var(--glass-strong); color: var(--white); }
+.ms-chat__typing { display: inline-flex; gap: 5px; }
+.ms-chat__typing span { width: 7px; height: 7px; border-radius: var(--radius-full); background: var(--text-on-ink-muted); animation: ms-typing 1.2s ease-in-out infinite; }
+.ms-chat__typing span:nth-child(2) { animation-delay: 0.15s; }
+.ms-chat__typing span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes ms-typing { 40% { transform: translateY(-5px); opacity: 1; } 0%, 80%, 100% { opacity: 0.45; } }
+.ms-chat__bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); margin: 0 var(--space-4) var(--space-4); padding: 8px 8px 8px 18px; border: 1px solid var(--glass-border); border-radius: var(--radius-full); color: var(--text-on-ink-muted); font-size: 14px; }
+.ms-chat__bar i { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: var(--radius-full); background: var(--green); color: var(--navy); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ms-chat__typing span { animation: none; }
+}

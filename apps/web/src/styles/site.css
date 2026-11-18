@@ -84,7 +84,7 @@ body { margin: 0; background: var(--ink); }
 .ms-drawer__label { margin-bottom: var(--space-2); color: var(--text-muted); font-size: var(--fs-small); font-weight: 600; }
 .ms-drawer .ms-sys { padding-inline: 0; }
 
-.ms-footer { position: relative; overflow: hidden; background: var(--ink); color: var(--text-on-ink-muted); font-size: var(--fs-small); line-height: 22px; }
+.ms-footer { position: relative; overflow: hidden; background: var(--ink); color: var(--text-on-ink-muted); font-size: var(--fs-small); line-height: 22px; padding-bottom: 88px; }
 .ms-footer::before { content: ""; position: absolute; left: 50%; top: 0; width: min(900px, 90%); height: 1px; transform: translateX(-50%); background: linear-gradient(90deg, transparent, var(--brand), var(--aqua), transparent); }
 .ms-footer::after { content: ""; position: absolute; left: 50%; top: -240px; width: 720px; height: 320px; transform: translateX(-50%); background: radial-gradient(closest-side, color-mix(in srgb, var(--brand) 26%, transparent), transparent); pointer-events: none; }
 .ms-footer__top { position: relative; display: grid; gap: var(--space-7); padding-block: var(--space-8) var(--space-6); }
@@ -137,4 +137,13 @@ body { margin: 0; background: var(--ink); }
   .ms-link:hover .ms-icon { transform: none; }
   .ms-spinner { animation-duration: 2400ms; }
   .ms-access__menu, .ms-drawer { animation: none; }
+}
+
+.ms-fab { position: fixed; right: max(var(--space-4), env(safe-area-inset-right, 0px)); bottom: max(var(--space-4), env(safe-area-inset-bottom, 0px)); z-index: 60; display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-width: 56px; height: 56px; padding-inline: 15px; border-radius: var(--radius-full); background: var(--green); color: var(--navy); font-size: var(--fs-small); font-weight: 700; text-decoration: none; box-shadow: 0 12px 32px color-mix(in srgb, var(--green) 45%, transparent), var(--shadow-lift); transition: background-color var(--duration-fast) var(--ease-standard), transform var(--duration-slow) var(--ease-out-expo); }
+.ms-fab:hover { background: var(--green-hover); transform: translateY(-2px); }
+.ms-fab__t { display: none; }
+
+@media (min-width: 768px) {
+  .ms-fab { padding-inline: 22px 24px; }
+  .ms-fab__t { display: inline; }
 }

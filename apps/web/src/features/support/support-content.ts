@@ -1,22 +1,49 @@
 import type { IconName } from '../../shared/ui/icon'
 
-export type SupportStep = { readonly icon: IconName; readonly title: string; readonly text: string }
+export type SupportPoint = {
+  readonly icon: IconName
+  readonly title: string
+  readonly text: string
+}
 
-export const SUPPORT_STEPS: readonly SupportStep[] = [
+export const SUPPORT_STRENGTHS: readonly SupportPoint[] = [
   {
-    icon: 'clipboard',
-    title: 'Abra um chamado',
-    text: 'Descreva a situação no MS Suporte. Tudo fica registrado e você acompanha o andamento.',
+    icon: 'message',
+    title: 'Atendimento rápido pelo WhatsApp',
+    text: 'Sua mensagem chega direto à equipe de consultores, sem formulário e sem burocracia.',
   },
   {
-    icon: 'phone-call',
-    title: 'Fale com a equipe',
-    text: 'Prefere conversar? Ligue para a MS e um consultor orienta você no uso do sistema.',
+    icon: 'headset',
+    title: 'Consultores que conhecem o setor',
+    text: 'Quem atende entende a rotina de funerárias, planos, cemitérios e crematórios.',
+  },
+  {
+    icon: 'clock',
+    title: 'Plantão em fins de semana e feriados',
+    text: 'O setor não para, e o atendimento também não.',
   },
   {
     icon: 'monitor',
-    title: 'Acesso remoto, se precisar',
-    text: 'Quando necessário, o consultor acessa o seu computador de forma remota para resolver na hora.',
+    title: 'Acesso remoto na hora',
+    text: 'Quando preciso, o consultor entra no seu computador e resolve com você.',
+  },
+]
+
+export const SUPPORT_FLOW: readonly SupportPoint[] = [
+  {
+    icon: 'message',
+    title: 'Chame no WhatsApp',
+    text: 'Conte o que aconteceu. Pode mandar texto, foto ou print da tela.',
+  },
+  {
+    icon: 'headset',
+    title: 'Um consultor assume',
+    text: 'Quem responde conhece o seu sistema e já começa a resolver na própria conversa.',
+  },
+  {
+    icon: 'monitor',
+    title: 'Resolvido, com acesso remoto se precisar',
+    text: 'Se a solução pedir, o consultor acessa o computador e faz junto com você.',
   },
 ]
 

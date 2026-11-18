@@ -8,6 +8,7 @@ import { PrivacyPage } from '../features/privacy'
 import { SiteFooter, SiteHeader } from '../features/site-shell'
 import { SolutionsPage } from '../features/solutions'
 import { SupportPage } from '../features/support'
+import { WhatsappFab } from '../shared/ui/whatsapp-fab'
 import { NotFoundPage } from './not-found-page'
 import { ScrollManager } from './scroll-manager'
 
@@ -27,5 +28,6 @@ export const App = () => (
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
     <SiteFooter />
+    <WhatsappFab />
   </div>
 )

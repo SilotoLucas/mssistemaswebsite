@@ -153,3 +153,11 @@ O site passa a ter as oito telas do plano. A navegação principal vira Soluçõ
 **Privacidade:** o texto é uma base escrita a partir do que o formulário coleta, não é parecer jurídico. Precisa de revisão da MS e de um advogado antes de ir ao ar, principalmente prazo de guarda, bases legais e o uso do Google Maps (serviço de terceiros).
 
 **Testes:** o front passa a ter testes de interface com `bun test`, `happy-dom` e Testing Library, em arquivos `*.ui.test.tsx`. Eles cobrem rotas, cabeçalho, formulário, busca de clientes, suporte, acessos e privacidade.
+
+## 019. Suporte pelo WhatsApp como diferencial
+
+**Data:** 18/11/2026
+
+O atendimento rápido dos consultores pelo WhatsApp é o maior trunfo da MS, então passa a guiar o site. A tela Suporte foi refeita: abertura com o botão do WhatsApp e uma conversa ilustrativa, os diferenciais do atendimento, o passo a passo da mensagem até a solução, outros canais (chamado e telefones), downloads oficiais e um fechamento com o WhatsApp. Um botão flutuante "Falar com consultor" aparece em todas as telas, e Suporte sobe para o segundo lugar do menu.
+
+**Cuidado:** o texto fala em atendimento rápido sem prometer prazo, porque a MS ainda não informou um tempo de resposta. Enquanto `VITE_WHATSAPP_NUMBER` estiver vazio, os botões levam à seção de atendimento da home. A conversa mostrada é ilustrativa.

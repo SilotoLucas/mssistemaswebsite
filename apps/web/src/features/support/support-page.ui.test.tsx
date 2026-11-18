@@ -1,16 +1,28 @@
 import { describe, expect, test } from 'bun:test'
 import { screen, within } from '@testing-library/react'
-import { SUPPORT_URL } from '../../shared/config/site-config'
+import { SUPPORT_URL, WHATSAPP_HREF } from '../../shared/config/site-config'
 import { renderWithRouter } from '../../test/render-with-router'
 import { SUPPORT_DOWNLOADS } from './support-content'
 import { SupportPage } from './support-page'
 
 describe('página de suporte', () => {
-  test('leva ao MS Suporte e mostra os telefones da MS', () => {
+  test('põe o WhatsApp como caminho principal e mantém o chamado como alternativa', () => {
     renderWithRouter(<SupportPage />)
-    const call = screen.getByRole('link', { name: 'Abrir chamado no MS Suporte' })
-    expect(call.getAttribute('href')).toBe(SUPPORT_URL)
+    const whatsapp = screen.getAllByRole('link', { name: 'Chamar no WhatsApp' })
+    expect(whatsapp.length).toBeGreaterThanOrEqual(2)
+    expect(whatsapp.every((link) => link.getAttribute('href') === WHATSAPP_HREF)).toBe(true)
+    const tickets = screen.getAllByRole('link', { name: /Abrir chamado/ })
+    expect(tickets.every((link) => link.getAttribute('href') === SUPPORT_URL)).toBe(true)
+  })
+
+  test('mostra os telefones fixos como outro canal', () => {
+    renderWithRouter(<SupportPage />)
     expect(screen.getAllByRole('link', { name: /\(14\) 38\d\d-\d{4}/ }).length).toBeGreaterThan(0)
+  })
+
+  test('não promete tempo de resposta', () => {
+    renderWithRouter(<SupportPage />)
+    expect(document.body.textContent).not.toMatch(/\d+\s*(min|minutos|horas|segundos)/i)
   })
 
   test('links de download são https, abrem em nova aba e não usam o site legado', () => {

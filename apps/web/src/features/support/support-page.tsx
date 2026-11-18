@@ -1,11 +1,13 @@
 import { COMPANY_PHONES } from '../../shared/config/company-info'
-import { SUPPORT_URL } from '../../shared/config/site-config'
+import { HAS_WHATSAPP, SUPPORT_URL, WHATSAPP_LABEL } from '../../shared/config/site-config'
+import { Aurora } from '../../shared/ui/aurora'
+import { ChatMockup } from '../../shared/ui/chat-mockup'
 import { Icon } from '../../shared/ui/icon'
 import { PageHero } from '../../shared/ui/page-hero'
 import { Reveal } from '../../shared/ui/reveal'
 import { SiteLink } from '../../shared/ui/site-link'
-import { DemoRequestSection } from '../demo-request'
-import { SUPPORT_DOWNLOADS, SUPPORT_STEPS } from './support-content'
+import { WhatsappButton } from '../../shared/ui/whatsapp-button'
+import { SUPPORT_DOWNLOADS, SUPPORT_FLOW, SUPPORT_STRENGTHS } from './support-content'
 import './support.css'
 
 export const SupportPage = () => (
@@ -13,43 +15,61 @@ export const SupportPage = () => (
     <title>Suporte | MS Sistemas</title>
     <meta
       name="description"
-      content="Abra um chamado, fale com a equipe da MS Sistemas e baixe as ferramentas oficiais de acesso remoto."
+      content="Suporte rápido da MS Sistemas: fale com um consultor pelo WhatsApp, abra um chamado ou peça acesso remoto."
     />
     <PageHero
       crumb="Suporte"
-      title="Suporte de quem conhece o seu sistema"
-      lead="Abra um chamado, ligue para a equipe ou peça um acesso remoto. Você escolhe o caminho mais cômodo."
-      showActions={false}
-      aside={
-        <div className="ms-su-quick">
-          <SiteLink className="ms-btn ms-btn--primary ms-btn--lg ms-btn--block" href={SUPPORT_URL}>
-            Abrir chamado no MS Suporte
+      title="Suporte rápido, direto no WhatsApp"
+      lead="O nosso suporte é o que mais nos orgulha. Chame no WhatsApp e fale com quem conhece o seu sistema e o setor."
+      actions={
+        <>
+          <WhatsappButton large />
+          <SiteLink className="ms-btn ms-btn--glass ms-btn--lg" href={SUPPORT_URL}>
+            Abrir chamado
           </SiteLink>
-          {COMPANY_PHONES.map((phone) => (
-            <SiteLink
-              className="ms-btn ms-btn--glass ms-btn--block"
-              href={phone.href}
-              key={phone.href}
-            >
-              <Icon name="phone-call" size={20} />
-              {phone.label}
-            </SiteLink>
-          ))}
+        </>
+      }
+      aside={
+        <div className="ms-su-chat">
+          <ChatMockup />
         </div>
       }
     />
-    <section className="ms-section ms-section--mist" id="como-funciona">
+    <section className="ms-section ms-section--mist" id="diferenciais">
+      <div className="ms-wrap">
+        <Reveal className="ms-su-head">
+          <p className="ms-eyebrow ms-eyebrow--light">Nosso diferencial</p>
+          <h2 className="ms-h2">
+            Suporte que <span className="ms-grad ms-grad--deep">resolve de verdade</span>
+          </h2>
+        </Reveal>
+        <ul className="ms-su-strengths">
+          {SUPPORT_STRENGTHS.map((item, index) => (
+            <li key={item.title}>
+              <Reveal className="ms-su-card" delay={index * 80}>
+                <span className="ms-su-card__i">
+                  <Icon name={item.icon} size={26} />
+                </span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </Reveal>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+    <section className="ms-section" id="como-funciona">
       <div className="ms-wrap">
         <Reveal className="ms-su-head">
           <p className="ms-eyebrow ms-eyebrow--light">Como funciona</p>
-          <h2 className="ms-h2">Três jeitos de ser atendido</h2>
+          <h2 className="ms-h2">Da mensagem à solução</h2>
         </Reveal>
-        <ol className="ms-su-steps">
-          {SUPPORT_STEPS.map((step, index) => (
+        <ol className="ms-su-flow">
+          {SUPPORT_FLOW.map((step, index) => (
             <li key={step.title}>
               <Reveal className="ms-su-step" delay={index * 90}>
-                <span className="ms-su-step__i">
-                  <Icon name={step.icon} size={26} />
+                <span className="ms-su-step__n" aria-hidden="true">
+                  {index + 1}
                 </span>
                 <h3>{step.title}</h3>
                 <p>{step.text}</p>
@@ -57,9 +77,25 @@ export const SupportPage = () => (
             </li>
           ))}
         </ol>
+        <div className="ms-su-other">
+          <p>Prefere outro canal?</p>
+          <SiteLink className="ms-btn ms-btn--secondary ms-btn--sm" href={SUPPORT_URL}>
+            Abrir chamado no MS Suporte
+          </SiteLink>
+          {COMPANY_PHONES.map((phone) => (
+            <SiteLink
+              className="ms-btn ms-btn--secondary ms-btn--sm"
+              href={phone.href}
+              key={phone.href}
+            >
+              <Icon name="phone-call" size={18} />
+              {phone.label}
+            </SiteLink>
+          ))}
+        </div>
       </div>
     </section>
-    <section className="ms-section" id="downloads">
+    <section className="ms-section ms-section--mist" id="downloads">
       <div className="ms-wrap">
         <Reveal className="ms-su-head">
           <p className="ms-eyebrow ms-eyebrow--light">Downloads</p>
@@ -95,6 +131,16 @@ export const SupportPage = () => (
         </ul>
       </div>
     </section>
-    <DemoRequestSection />
+    <section className="ms-section ms-su-final ms-dark" id="atendimento">
+      <Aurora />
+      <div className="ms-wrap ms-su-final__in">
+        <Reveal className="ms-su-final__c">
+          <h2 className="ms-h2">Chame um consultor agora</h2>
+          <p>O setor não para. Fale com a equipe da MS pelo WhatsApp.</p>
+          {HAS_WHATSAPP ? <strong>{WHATSAPP_LABEL}</strong> : null}
+          <WhatsappButton large />
+        </Reveal>
+      </div>
+    </section>
   </main>
 )

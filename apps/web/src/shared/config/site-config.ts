@@ -8,8 +8,8 @@ export type SystemAccess = {
 
 export const NAVIGATION: readonly NavigationLink[] = [
   { label: 'Soluções', href: '/solucoes' },
-  { label: 'Clientes', href: '/clientes' },
   { label: 'Suporte', href: '/suporte' },
+  { label: 'Clientes', href: '/clientes' },
   { label: 'Empresa', href: '/empresa' },
   { label: 'Contato', href: '/contato' },
 ]
