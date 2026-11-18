@@ -12,7 +12,25 @@ describe('conteúdo da empresa', () => {
     ])
   })
 
-  test('mantém as nove pessoas da equipe sem repetição', () => {
-    expect(new Set(TEAM_MEMBERS).size).toBe(9)
+  test('mantém as quinze pessoas da equipe sem repetição', () => {
+    expect(new Set(TEAM_MEMBERS).size).toBe(15)
+  })
+
+  test('traz a equipe atual e não traz quem saiu', () => {
+    const team: readonly string[] = TEAM_MEMBERS
+    for (const name of [
+      'Lucas',
+      'Pedro',
+      'Paulo',
+      'Vinícius',
+      'Marco',
+      'Kaique',
+      'David',
+      'Matheus',
+    ]) {
+      expect(team).toContain(name)
+    }
+    expect(team).not.toContain('Leandro')
+    expect(team).not.toContain('André')
   })
 })

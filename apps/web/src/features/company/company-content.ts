@@ -45,10 +45,16 @@ export const TEAM_MEMBERS = [
   'Marcello',
   'Alessandro',
   'Bill',
-  'Leandro',
-  'André',
   'Mario',
   'Neri',
+  'Lucas',
+  'Pedro',
+  'Paulo',
+  'Vinícius',
+  'Marco',
+  'Kaique',
+  'David',
+  'Matheus',
 ] as const
 
 export const COMPANY_PARTNERS = ['Granito Pagamentos', 'Rede Parcerias', 'iugu'] as const
