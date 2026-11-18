@@ -52,7 +52,7 @@ export const TEAM_MEMBERS = [
   'Paulo',
   'Vinícius',
   'Marco',
-  'Kaique',
+  'Kaick',
   'David',
   'Matheus',
 ] as const

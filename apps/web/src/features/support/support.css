@@ -33,5 +33,6 @@
 }
 
 @media (min-width: 1200px) {
+  .ms-ph__g:has(.ms-su-chat) { align-items: start; }
   .ms-page .ms-su-strengths { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }

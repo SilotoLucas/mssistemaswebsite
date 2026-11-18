@@ -161,3 +161,11 @@ O site passa a ter as oito telas do plano. A navegação principal vira Soluçõ
 O atendimento rápido dos consultores pelo WhatsApp é o maior trunfo da MS, então passa a guiar o site. A tela Suporte foi refeita: abertura com o botão do WhatsApp e uma conversa ilustrativa, os diferenciais do atendimento, o passo a passo da mensagem até a solução, outros canais (chamado e telefones), downloads oficiais e um fechamento com o WhatsApp. Um botão flutuante "Falar com consultor" aparece em todas as telas, e Suporte sobe para o segundo lugar do menu.
 
 **Cuidado:** o texto fala em atendimento rápido sem prometer prazo, porque a MS ainda não informou um tempo de resposta. O WhatsApp da MS (14) 99785-6833 fica em `shared/config/company-info.ts`, para o build automático não depender de `.env`. A variável `VITE_WHATSAPP_NUMBER` continua valendo como troca opcional. As conversas mostradas são ilustrativas.
+
+## 020. Telas pequenas de desktop
+
+**Data:** 18/11/2026
+
+O design foi conferido em 1024, 1280, 1366 e 1536 de largura, além de 1920, em todas as oito telas, sem rolagem lateral. A abertura da home e das telas internas agora ajusta o tamanho do título e os respiros à largura e à altura da janela, para que os botões fiquem na primeira tela em monitores de 1366×768 ou menores. No Suporte, o texto da abertura fica alinhado ao topo, para o botão do WhatsApp não descer com as conversas. O botão flutuante do WhatsApp some em `/contato`, onde cobria o campo de e-mail do formulário.
+
+**Limite conhecido:** abaixo de 1200 px de largura o site usa o layout de tablet, com menu em gaveta e seções em coluna única.

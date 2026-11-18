@@ -24,7 +24,7 @@ describe('conteúdo da empresa', () => {
       'Paulo',
       'Vinícius',
       'Marco',
-      'Kaique',
+      'Kaick',
       'David',
       'Matheus',
     ]) {
