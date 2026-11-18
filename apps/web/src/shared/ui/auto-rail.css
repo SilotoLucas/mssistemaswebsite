@@ -1,0 +1,10 @@
+.ms-rail { --rail-item: min(76vw, 320px); min-width: 0; }
+.ms-rail__view { margin-inline: -4px; padding: 4px; overflow: clip; -webkit-mask-image: linear-gradient(90deg, black 94%, transparent); mask-image: linear-gradient(90deg, black 94%, transparent); }
+.ms-page .ms-rail__track { display: flex; align-items: stretch; gap: var(--space-4); width: max-content; will-change: transform; backface-visibility: hidden; }
+.ms-rail__track > li { flex: none; width: var(--rail-item); scroll-margin-top: calc(var(--header-height) + 76px); }
+.ms-rail__line { display: block; height: 3px; margin-top: var(--space-5); border-radius: var(--radius-full); background: var(--border-subtle); overflow: hidden; }
+.ms-rail__line span { display: block; height: 100%; background: var(--brand-deep); transform: scaleX(0); transform-origin: left; }
+
+@media (min-width: 1200px) {
+  .ms-rail { --rail-item: 352px; }
+}

@@ -1,0 +1,33 @@
+html:has(.ms-modal[open]) { overflow: hidden; scrollbar-gutter: stable; }
+.ms-modal { width: 100%; max-width: 100%; max-height: min(88dvh, 720px); margin: auto 0 0; padding: 0; border: 0; border-radius: var(--radius-lg) var(--radius-lg) 0 0; background: var(--white); color: var(--text); font-family: var(--font-body); box-shadow: var(--shadow-menu); overflow: hidden; }
+.ms-modal[open] { display: flex; animation: ms-modal-in 280ms var(--ease-standard); }
+.ms-modal::backdrop { background: var(--overlay); animation: ms-modal-fade 220ms ease-out; }
+.ms-modal__panel { display: flex; flex-direction: column; width: 100%; min-height: 0; }
+.ms-modal__head { display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-5) var(--space-4) var(--space-4) var(--space-5); border-bottom: 1px solid var(--border-subtle); }
+.ms-modal__titles { display: grid; flex: 1; gap: var(--space-1); min-width: 0; color: var(--text-muted); font-size: var(--fs-small); line-height: 22px; }
+.ms-page .ms-modal .ms-modal__titles h2 { margin: 0; color: var(--navy); font-family: var(--font-display); font-size: var(--fs-h3-desktop); line-height: 30px; font-weight: 700; letter-spacing: -0.01em; }
+.ms-modal__titles p { margin: 0; }
+.ms-modal__close { display: inline-flex; flex: none; align-items: center; justify-content: center; width: var(--tap-min); height: var(--tap-min); padding: 0; border: 0; border-radius: var(--radius-full); background: none; color: var(--navy); cursor: pointer; transition: background-color var(--duration-fast) var(--ease-standard); }
+.ms-modal__close:hover { background: var(--tile-idle); }
+.ms-modal__close:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+.ms-modal__body { padding: var(--space-5); overflow-y: auto; overscroll-behavior: contain; }
+
+@keyframes ms-modal-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ms-modal-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (min-width: 768px) {
+  .ms-modal { width: min(calc(100% - 48px), 760px); margin: auto; border-radius: var(--radius-lg); }
+  .ms-modal__head { padding: var(--space-6) var(--space-5) var(--space-5) var(--space-6); }
+  .ms-modal__body { padding: var(--space-6); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ms-modal[open], .ms-modal::backdrop { animation: none; }
+}

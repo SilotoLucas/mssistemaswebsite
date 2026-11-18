@@ -1,0 +1,9 @@
+{
+  "threshold": 0,
+  "minLines": 8,
+  "minTokens": 70,
+  "reporters": ["console"],
+  "path": ["apps/web/src", "packages", "tools/quality/src"],
+  "ignore": ["**/node_modules/**", "**/dist/**", "**/tokens.json", "**/tokens.css"],
+  "exitCode": 1
+}

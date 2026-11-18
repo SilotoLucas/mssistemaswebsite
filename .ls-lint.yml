@@ -1,0 +1,24 @@
+ls:
+  apps:
+    .dir: kebab-case
+    .ts: kebab-case
+    .tsx: kebab-case
+    .css: kebab-case
+    .webp: kebab-case
+  packages:
+    .dir: kebab-case
+    .ts: kebab-case
+  tools:
+    .dir: kebab-case
+    .ts: kebab-case
+    .css: kebab-case
+ignore:
+  - node_modules
+  - apps/web/node_modules
+  - apps/web/dist
+  - packages/application/node_modules
+  - packages/domain/node_modules
+  - packages/design-tokens/node_modules
+  - tools/quality/node_modules
+  - .git
+  - .reports

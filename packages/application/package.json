@@ -1,0 +1,11 @@
+{
+  "name": "@ms/application",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@ms/domain": "workspace:*"
+  }
+}

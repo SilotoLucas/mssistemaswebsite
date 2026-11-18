@@ -1,0 +1,8 @@
+pre-commit:
+  commands:
+    gate-rapido:
+      run: bun run validate:quick
+pre-push:
+  commands:
+    gate-completo:
+      run: bun run validate

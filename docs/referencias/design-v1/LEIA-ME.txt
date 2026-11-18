@@ -1,0 +1,14 @@
+MS Sistemas - Home V1
+
+Para ver: abra o arquivo index.html no navegador.
+
+Antes de publicar:
+1. WhatsApp: em assets/js/main.js, preencha WHATSAPP_MS com DDD e número, só com dígitos.
+2. Formulário: o envio é simulado. Conecte o destino real dos pedidos de demonstração.
+3. Telas da Área do Cliente e do App: são redesenhos com dados de exemplo.
+
+Pastas:
+assets/css     estilos e tokens
+assets/js      menus e formulário
+assets/img     logo oficial
+design-system  tokens.json e guia de identidade

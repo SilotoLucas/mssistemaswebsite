@@ -1,0 +1,8 @@
+{
+  "name": "@ms/design-tokens",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./tokens.json": "./tokens.json"
+  }
+}

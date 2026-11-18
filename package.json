@@ -1,0 +1,30 @@
+{
+  "name": "mssistemaswebsite",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.4.4",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "tools/*"
+  ],
+  "scripts": {
+    "dev": "bun run --filter @ms/web dev",
+    "build": "bun run --filter @ms/web build",
+    "preview": "bun run --filter @ms/web preview",
+    "tokens": "bun run tools/quality/src/generate-tokens.ts",
+    "test": "bun test",
+    "validate:quick": "bun run tools/quality/src/validate.ts --quick",
+    "validate": "bun run tools/quality/src/validate.ts"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.6.5",
+    "@ls-lint/ls-lint": "2.3.2",
+    "@types/bun": "1.4.4",
+    "dependency-cruiser": "18.7.2",
+    "jscpd": "5.4.2",
+    "knip": "6.44.1",
+    "lefthook": "2.2.2",
+    "typescript": "5.9.3"
+  }
+}

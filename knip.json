@@ -1,0 +1,42 @@
+{
+  "ignore": [
+    "docs/**"
+  ],
+  "workspaces": {
+    ".": {
+      "ignoreDependencies": [
+        "lefthook",
+        "@ls-lint/ls-lint",
+        "dependency-cruiser",
+        "jscpd",
+        "@biomejs/biome"
+      ]
+    },
+    "apps/web": {
+      "project": [
+        "src/**/*.{ts,tsx}"
+      ]
+    },
+    "packages/domain": {
+      "project": [
+        "src/**/*.ts"
+      ]
+    },
+    "packages/application": {
+      "project": [
+        "src/**/*.ts"
+      ]
+    },
+    "tools/quality": {
+      "entry": [
+        "src/validate.ts",
+        "src/generate-tokens.ts",
+        "src/project-gates.ts",
+        "src/architecture-gate.ts"
+      ],
+      "project": [
+        "src/**/*.ts"
+      ]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "@ms/quality",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@ms/design-tokens": "workspace:*"
+  }
+}
