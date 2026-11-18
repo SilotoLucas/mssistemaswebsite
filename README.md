@@ -25,6 +25,7 @@ O site abre em `http://127.0.0.1:5173`.
 ## Documentação
 
 - `AGENTS.md`: comandos, camadas e proibições.
+- `docs/design.md`: padrão visual aprovado, leitura obrigatória antes de mexer na interface.
 - `docs/arquitetura.md`: estrutura, matriz de importação e versões.
 - `docs/decisoes.md`: decisões do projeto e seus motivos.
 - `docs/referencias`: metodologia, análise do site atual e design aprovado.

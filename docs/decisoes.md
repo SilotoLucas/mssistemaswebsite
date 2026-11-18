@@ -177,3 +177,11 @@ O design foi conferido em 1024, 1280, 1366 e 1536 de largura, além de 1920, em 
 O site é publicado na mesma VM do Abanou, atrás do Caddy que já é o proxy único, pela rede `borda` e por um arquivo em `/opt/borda/sites`. O build roda dentro do Docker (Node 24 com Bun 1.4.0) e o resultado é servido por um Caddy mínimo. Um timer do systemd confere o GitHub a cada 2 minutos e publica commit novo da branch configurada, como no Abanou. O endereço inicial é `mssistemas.194.5.152.64.sslip.io`, com HTTPS válido e sem domínio próprio. A branch inicial é `feat/redesign-visual`, para a `main` continuar com o site original.
 
 **Pendente:** trocar para o domínio da empresa quando houver, e decidir se a branch do deploy vira `main` depois da aprovação. O guia está em `docs/deploy.md`.
+
+## 022. Guia do design atual
+
+**Data:** 18/11/2026
+
+O padrão visual aprovado passa a ficar escrito em `docs/design.md`: ritmo da página, cores, tipografia, botões, efeitos, responsividade, convenções de CSS e tom de voz. As instruções do `AGENTS.md` e de `.claude/rules/web.md` mandavam seguir o design V1, que pede estilo claro e minimalista e proíbe gradientes e glassmorphism, o oposto do visual aprovado nas decisões 016 a 020. Quem seguia essas instruções chegava a um resultado diferente do aprovado.
+
+**Regra:** `docs/design.md` vence o design V1 no visual. O V1 continua como base de identidade e conteúdo.

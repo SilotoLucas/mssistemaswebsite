@@ -40,7 +40,9 @@ Uma porta só nasce quando existe um segundo implementador real, um teste sem I/
 
 ## Design
 
-- O design aprovado está em `docs/referencias/design-v1`.
+- **Leia `docs/design.md` antes de criar ou alterar qualquer interface.** Ele é o padrão visual aprovado (abertura escura com aurora, vidro, seções que alternam branco e névoa, movimento suave) e vence o design V1.
+- `docs/referencias/design-v1` serve só de base de identidade e conteúdo. O estilo claro e minimalista dele foi substituído (decisão 016).
+- Reaproveite componentes e classes que já existem (`PageHero`, `Reveal`, `Aurora`, `ms-btn`, `ms-eyebrow`, `ms-glass`). Não crie estilo novo quando existir um equivalente.
 - Cores, espaçamentos e fontes vêm de `packages/design-tokens/tokens.json`.
 - A logo é usada sem alterações, apenas sobre fundos claros.
 - Textos em português do Brasil, com WCAG 2.1 AA e áreas de toque de pelo menos 44 px.
