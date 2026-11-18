@@ -150,7 +150,7 @@
   .ms-hero { padding-block: calc(var(--header-height) + clamp(24px, 5vh, 72px)) clamp(72px, 14vh, 144px); min-height: min(100svh, 940px); display: flex; align-items: center; }
   .ms-hero__grid { grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--space-6); }
   .ms-hero h1 { font-size: clamp(44px, min(4.8vw, 8.4vh), var(--fs-h1-desktop)); }
-  .ms-stage { max-width: none; margin-right: -80px; }
+  .ms-stage { max-width: none; margin-right: calc(-1 * min(80px, max(0px, (100vw - 1200px) / 2 - 48px))); }
   .ms-bento { grid-template-columns: repeat(12, minmax(0, 1fr)); }
   .ms-bento__cell--1, .ms-bento__cell--4 { grid-column: span 7; }
   .ms-bento__cell--2, .ms-bento__cell--3 { grid-column: span 5; }
