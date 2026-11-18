@@ -14,6 +14,7 @@ Site institucional da MS Consultoria & Sistemas. Nesta fase existe somente o fro
 | `bun test` | Roda os testes unitários e de interface |
 | `bun run validate:quick` | Gate rápido, a cada iteração |
 | `bun run validate` | Gate completo, antes de propor commit |
+| `deploy/atualizar.sh` | Publica na VM, ver `docs/deploy.md` |
 
 ## Camadas
 

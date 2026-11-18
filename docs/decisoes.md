@@ -169,3 +169,11 @@ O atendimento rápido dos consultores pelo WhatsApp é o maior trunfo da MS, ent
 O design foi conferido em 1024, 1280, 1366 e 1536 de largura, além de 1920, em todas as oito telas, sem rolagem lateral. A abertura da home e das telas internas agora ajusta o tamanho do título e os respiros à largura e à altura da janela, para que os botões fiquem na primeira tela em monitores de 1366×768 ou menores. No Suporte, o texto da abertura fica alinhado ao topo, para o botão do WhatsApp não descer com as conversas. O botão flutuante do WhatsApp some em `/contato`, onde cobria o campo de e-mail do formulário.
 
 **Limite conhecido:** abaixo de 1200 px de largura o site usa o layout de tablet, com menu em gaveta e seções em coluna única.
+
+## 021. Deploy do front na VM
+
+**Data:** 18/11/2026
+
+O site é publicado na mesma VM do Abanou, atrás do Caddy que já é o proxy único, pela rede `borda` e por um arquivo em `/opt/borda/sites`. O build roda dentro do Docker (Node 24 com Bun 1.4.0) e o resultado é servido por um Caddy mínimo. Um timer do systemd confere o GitHub a cada 2 minutos e publica commit novo da branch configurada, como no Abanou. O endereço inicial é `mssistemas.194.5.152.64.sslip.io`, com HTTPS válido e sem domínio próprio. A branch inicial é `feat/redesign-visual`, para a `main` continuar com o site original.
+
+**Pendente:** trocar para o domínio da empresa quando houver, e decidir se a branch do deploy vira `main` depois da aprovação. O guia está em `docs/deploy.md`.

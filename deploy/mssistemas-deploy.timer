@@ -1,0 +1,10 @@
+[Unit]
+Description=MS Sistemas: procura commit novo a cada 2 minutos
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=2min
+RandomizedDelaySec=15s
+
+[Install]
+WantedBy=timers.target

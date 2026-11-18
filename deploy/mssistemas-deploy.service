@@ -1,0 +1,10 @@
+[Unit]
+Description=MS Sistemas: deploy automático do site
+After=network-online.target docker.service
+Wants=network-online.target
+Requires=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/mssistemas/deploy/atualizar.sh
+TimeoutStartSec=30min
