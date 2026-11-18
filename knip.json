@@ -13,6 +13,9 @@
       ]
     },
     "apps/web": {
+      "entry": [
+        "src/**/*.ui.test.tsx"
+      ],
       "project": [
         "src/**/*.{ts,tsx}"
       ]

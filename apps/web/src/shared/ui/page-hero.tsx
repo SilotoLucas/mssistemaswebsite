@@ -9,9 +9,10 @@ type PageHeroProps = {
   readonly title: string
   readonly lead: string
   readonly aside?: ReactNode
+  readonly showActions?: boolean
 }
 
-export const PageHero = ({ crumb, title, lead, aside }: PageHeroProps) => (
+export const PageHero = ({ crumb, title, lead, aside, showActions = true }: PageHeroProps) => (
   <section className="ms-ph ms-dark">
     <Aurora />
     <div className="ms-wrap ms-ph__g">
@@ -23,12 +24,14 @@ export const PageHero = ({ crumb, title, lead, aside }: PageHeroProps) => (
         </nav>
         <h1>{title}</h1>
         <p className="ms-ph__p">{lead}</p>
-        <div className="ms-ph__cta">
-          <SiteLink className="ms-btn ms-btn--primary ms-btn--lg" href="#demonstracao">
-            Solicitar demonstração
-          </SiteLink>
-          <WhatsappButton />
-        </div>
+        {showActions ? (
+          <div className="ms-ph__cta">
+            <SiteLink className="ms-btn ms-btn--primary ms-btn--lg" href="/contato#demonstracao">
+              Solicitar demonstração
+            </SiteLink>
+            <WhatsappButton />
+          </div>
+        ) : null}
       </div>
       {aside}
     </div>

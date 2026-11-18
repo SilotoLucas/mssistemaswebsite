@@ -1,3 +1,8 @@
+import {
+  COMPANY_ADDRESS_LINES,
+  COMPANY_EMAIL,
+  COMPANY_PHONES,
+} from '../../shared/config/company-info'
 import { NAVIGATION, SYSTEM_ACCESS } from '../../shared/config/site-config'
 import { BrandLogo } from '../../shared/ui/brand-logo'
 import { Icon } from '../../shared/ui/icon'
@@ -46,20 +51,23 @@ export const SiteFooter = () => (
             <p className="ms-footer__t">Contato</p>
             <address>
               <span>
-                Rua Florindo Silva, 51
+                {COMPANY_ADDRESS_LINES[0]}
                 <br />
-                Botucatu/SP, CEP 18610-150
+                {COMPANY_ADDRESS_LINES[1]}
               </span>
-              <a href="tel:+551438156846">(14) 3815-6846</a>
-              <a href="tel:+551438140749">(14) 3814-0749</a>
-              <a href="mailto:contato@mssistemas.com.br">contato@mssistemas.com.br</a>
+              {COMPANY_PHONES.map((phone) => (
+                <a href={phone.href} key={phone.href}>
+                  {phone.label}
+                </a>
+              ))}
+              <a href={`mailto:${COMPANY_EMAIL}`}>{COMPANY_EMAIL}</a>
             </address>
           </div>
         </div>
       </div>
       <div className="ms-footer__bottom">
         <p>Parceiros: Granito, Rede Parcerias e iugu</p>
-        <a href="#privacidade">Política de Privacidade</a>
+        <SiteLink href="/politica-de-privacidade">Política de Privacidade</SiteLink>
       </div>
     </div>
   </footer>

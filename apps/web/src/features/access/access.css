@@ -1,0 +1,14 @@
+.ms-page .ms-ac-grid { display: grid; gap: var(--space-4); }
+.ms-ac-card { display: grid; align-content: start; gap: var(--space-4); height: 100%; padding: var(--space-6) var(--space-5); border: 1px solid var(--line-light); border-radius: var(--radius-lg); background: var(--white); box-shadow: var(--shadow-menu); }
+.ms-ac-card__i { display: inline-flex; align-items: center; justify-content: center; width: 60px; height: 60px; border-radius: var(--radius-md); background: linear-gradient(135deg, var(--brand-deep), var(--logo-blue)); color: var(--white); }
+.ms-page .ms-ac-card h2 { font-size: 24px; line-height: 32px; letter-spacing: -0.02em; }
+.ms-ac-card__a { color: var(--text-muted); }
+.ms-page .ms-ac-card__u { display: grid; gap: var(--space-2); align-content: start; }
+.ms-ac-card__u li { display: flex; align-items: center; gap: var(--space-2); color: var(--navy); font-size: var(--fs-small); line-height: 22px; }
+.ms-ac-card__u .ms-icon { flex: none; color: var(--green); }
+.ms-ac-card .ms-btn { align-self: end; }
+
+@media (min-width: 900px) {
+  .ms-page .ms-ac-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ms-ac-card { grid-template-rows: auto auto auto 1fr auto; }
+}

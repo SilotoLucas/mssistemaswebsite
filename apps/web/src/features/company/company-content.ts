@@ -53,13 +53,6 @@ export const TEAM_MEMBERS = [
 
 export const COMPANY_PARTNERS = ['Granito Pagamentos', 'Rede Parcerias', 'iugu'] as const
 
-export const COMPANY_PHONES = [
-  { label: '(14) 3815-6846', href: 'tel:+551438156846' },
-  { label: '(14) 3814-0749', href: 'tel:+551438140749' },
-] as const
-
-export const COMPANY_EMAIL = 'contato@mssistemas.com.br'
-
 const ADDRESS_QUERY = 'Rua Florindo Silva, 51, Botucatu - SP, 18610-150'
 
 export const MAP_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(ADDRESS_QUERY)}&z=16&output=embed`

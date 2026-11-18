@@ -139,3 +139,17 @@ A abertura da home deixa de ser um carrossel de quatro slides. Ela passa a ser u
 **Substitui:** a parte da decisão 011 que trata do carrossel da abertura da home.
 
 **Cuidado:** o número do WhatsApp só aparece na seção de atendimento quando `VITE_WHATSAPP_NUMBER` está preenchido. As conversas e telas mostradas são ilustrativas, sem dados de clientes.
+
+## 018. Telas Clientes, Suporte, Contato, Acessar sistemas e Privacidade
+
+**Data:** 18/11/2026
+
+O site passa a ter as oito telas do plano. A navegação principal vira Soluções, Clientes, Suporte, Empresa e Contato. O botão "Solicitar demonstração" do cabeçalho e das telas internas leva a `/contato#demonstracao`. Os dados de contato (telefones, e-mail, endereço) saem da feature Empresa e vão para `shared/config/company-info.ts`, e o mapa de estados da home vai para `shared/config/brazil-states.ts`.
+
+**Clientes:** a lista de cidades vem das três páginas regionais do site atual e foi curada à mão: grafias corrigidas, duplicatas removidas e itens descartados por serem bairros ou estarem no estado errado (Augusto Franco e Bugio, que são bairros de Aracaju; Jurinu; Sobradinho em Goiás, que fica no DF; Catalão, Cáceres, Nova Mutum, Ibó, Monte Caseros). Também saíram por dúvida: Tapaciguara, Cipó, Castelo, Planalto (MG) e Bela Vista (PR). Sobradinho em Pernambuco ficou, mas a MS precisa confirmar. A MS deve revisar a lista inteira antes da publicação.
+
+**Suporte:** só links oficiais dos fabricantes (TeamViewer, AnyDesk, .NET Framework). Ficaram de fora o Skype (encerrado em maio de 2025), o UltraVNC (link quebrado) e o Ammy (ferramenta antiga, bloqueada por antivírus). MS Suporte e MS Conexão RDP continuam "falar com um consultor", como no site atual. Os telefones de plantão não aparecem, porque não há número confirmado.
+
+**Privacidade:** o texto é uma base escrita a partir do que o formulário coleta, não é parecer jurídico. Precisa de revisão da MS e de um advogado antes de ir ao ar, principalmente prazo de guarda, bases legais e o uso do Google Maps (serviço de terceiros).
+
+**Testes:** o front passa a ter testes de interface com `bun test`, `happy-dom` e Testing Library, em arquivos `*.ui.test.tsx`. Eles cobrem rotas, cabeçalho, formulário, busca de clientes, suporte, acessos e privacidade.

@@ -1,0 +1,19 @@
+.ms-pv { display: grid; gap: var(--space-6); align-items: start; }
+.ms-pv__toc { padding: var(--space-5); border: 1px solid var(--line-light); border-radius: var(--radius-lg); background: var(--white); }
+.ms-pv__toc p { margin-bottom: var(--space-3); color: var(--navy); font-weight: 700; }
+.ms-page .ms-pv__toc ol { display: grid; gap: 2px; counter-reset: toc; }
+.ms-pv__toc li { counter-increment: toc; }
+.ms-pv__toc a { display: flex; align-items: center; gap: var(--space-3); min-height: var(--tap-min); color: var(--text-muted); font-size: var(--fs-small); line-height: 20px; text-decoration: none; }
+.ms-pv__toc a::before { content: counter(toc, decimal-leading-zero); color: var(--brand-deep); font-variant-numeric: tabular-nums; font-weight: 700; }
+.ms-pv__toc a:hover { color: var(--navy); }
+.ms-pv__body { display: grid; gap: var(--space-4); min-width: 0; }
+.ms-pv__sec { display: grid; gap: var(--space-3); padding: var(--space-5); border: 1px solid var(--line-light); border-radius: var(--radius-lg); background: var(--white); scroll-margin-top: calc(var(--header-height) + var(--space-4)); }
+.ms-page .ms-pv__sec h2 { font-size: 22px; line-height: 30px; letter-spacing: -0.01em; }
+.ms-pv__sec p { max-width: 68ch; color: var(--text-muted); }
+.ms-page .ms-pv__sec ul { display: grid; gap: var(--space-2); padding-left: var(--space-5); list-style: disc; color: var(--text-muted); }
+.ms-pv__contact { color: var(--navy); font-weight: 600; }
+
+@media (min-width: 1000px) {
+  .ms-pv { grid-template-columns: 280px minmax(0, 1fr); gap: var(--space-7); }
+  .ms-pv__toc { position: sticky; top: calc(var(--header-height) + var(--space-4)); }
+}

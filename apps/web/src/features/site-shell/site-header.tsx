@@ -51,7 +51,7 @@ export const SiteHeader = () => {
                 <SystemLinks />
               </div>
             </div>
-            <SiteLink className="ms-btn ms-btn--primary ms-btn--sm" href="#demonstracao">
+            <SiteLink className="ms-btn ms-btn--primary ms-btn--sm" href="/contato#demonstracao">
               <span className="ms-cta-full">Solicitar demonstração</span>
               <span className="ms-cta-short">Demonstração</span>
             </SiteLink>

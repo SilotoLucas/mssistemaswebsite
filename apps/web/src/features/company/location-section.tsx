@@ -1,15 +1,14 @@
 import type { ReactNode } from 'react'
-import { SUPPORT_URL, WHATSAPP_LABEL } from '../../shared/config/site-config'
+import {
+  COMPANY_ADDRESS_LINES,
+  COMPANY_EMAIL,
+  COMPANY_PHONES,
+} from '../../shared/config/company-info'
+import { HAS_WHATSAPP, SUPPORT_URL, WHATSAPP_LABEL } from '../../shared/config/site-config'
 import { Icon, type IconName } from '../../shared/ui/icon'
 import { TextLink } from '../../shared/ui/text-link'
 import { WhatsappButton } from '../../shared/ui/whatsapp-button'
-import {
-  COMPANY_EMAIL,
-  COMPANY_PARTNERS,
-  COMPANY_PHONES,
-  MAP_DIRECTIONS_URL,
-  MAP_EMBED_URL,
-} from './company-content'
+import { COMPANY_PARTNERS, MAP_DIRECTIONS_URL, MAP_EMBED_URL } from './company-content'
 
 type ContactRowProps = {
   readonly icon: IconName
@@ -40,9 +39,9 @@ export const LocationSection = () => (
         <div className="ms-co-contact">
           <ContactRow icon="pin" label="Endereço">
             <address>
-              Rua Florindo Silva, 51, Jardim Paraíso II
+              {COMPANY_ADDRESS_LINES[0]}
               <br />
-              Botucatu/SP, CEP 18610-150
+              {COMPANY_ADDRESS_LINES[1]}
             </address>
           </ContactRow>
           <ContactRow icon="phone-call" label="Telefones">
@@ -55,7 +54,7 @@ export const LocationSection = () => (
             </ul>
           </ContactRow>
           <ContactRow icon="message" label="WhatsApp">
-            <p className="ms-co-wa">{WHATSAPP_LABEL}</p>
+            {HAS_WHATSAPP ? <p className="ms-co-wa">{WHATSAPP_LABEL}</p> : null}
             <WhatsappButton />
           </ContactRow>
           <ContactRow icon="mail" label="E-mail">

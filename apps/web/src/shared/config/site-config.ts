@@ -7,11 +7,11 @@ export type SystemAccess = {
 }
 
 export const NAVIGATION: readonly NavigationLink[] = [
-  { label: 'Atendimento', href: '/#atendimento' },
   { label: 'Soluções', href: '/solucoes' },
-  { label: 'Clientes', href: '/#clientes' },
+  { label: 'Clientes', href: '/clientes' },
+  { label: 'Suporte', href: '/suporte' },
   { label: 'Empresa', href: '/empresa' },
-  { label: 'Contato', href: '#demonstracao' },
+  { label: 'Contato', href: '/contato' },
 ]
 
 export const SYSTEM_ACCESS: readonly SystemAccess[] = [

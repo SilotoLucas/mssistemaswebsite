@@ -1,6 +1,7 @@
 import type { DemoRequestField } from '@ms/domain'
 import { type HTMLInputTypeAttribute, useEffect, useRef } from 'react'
 import { Icon } from '../../shared/ui/icon'
+import { SiteLink } from '../../shared/ui/site-link'
 import { FieldError, FormField } from './form-field'
 import { useDemoRequestForm } from './use-demo-request-form'
 
@@ -147,8 +148,9 @@ export const DemoRequestForm = () => {
               <Icon name="check" size={16} />
             </span>
             <span className="ms-check__t">
-              Li e aceito a <a href="#privacidade">Política de Privacidade</a> e autorizo o contato
-              da MS sobre este pedido.
+              Li e aceito a{' '}
+              <SiteLink href="/politica-de-privacidade">Política de Privacidade</SiteLink> e
+              autorizo o contato da MS sobre este pedido.
             </span>
           </label>
           <FieldError field="privacyAccepted" code={form.errors.privacyAccepted} />

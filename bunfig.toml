@@ -4,3 +4,4 @@ minimumReleaseAge = 1209600
 
 [test]
 root = "."
+preload = ["./apps/web/src/test/register-dom.ts", "./apps/web/src/test/setup.ts"]

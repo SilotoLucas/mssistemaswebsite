@@ -1,6 +1,6 @@
 # MS Sistemas Website
 
-Site institucional da MS Consultoria & Sistemas. Nesta fase existe somente o front-end, começando pela home.
+Site institucional da MS Consultoria & Sistemas. Nesta fase existe somente o front-end, com as oito telas do plano.
 
 ## Comandos
 
@@ -11,7 +11,7 @@ Site institucional da MS Consultoria & Sistemas. Nesta fase existe somente o fro
 | `bun run build` | Gera o site em `apps/web/dist` |
 | `bun run preview` | Serve o build em `http://127.0.0.1:4173` |
 | `bun run tokens` | Gera `tokens.css` a partir de `tokens.json` |
-| `bun test` | Roda os testes unitários |
+| `bun test` | Roda os testes unitários e de interface |
 | `bun run validate:quick` | Gate rápido, a cada iteração |
 | `bun run validate` | Gate completo, antes de propor commit |
 
