@@ -138,7 +138,7 @@ A abertura da home deixa de ser um carrossel de quatro slides. Ela passa a ser u
 
 **Substitui:** a parte da decisão 011 que trata do carrossel da abertura da home.
 
-**Cuidado:** o número do WhatsApp só aparece na seção de atendimento quando `VITE_WHATSAPP_NUMBER` está preenchido. As conversas e telas mostradas são ilustrativas, sem dados de clientes.
+**Cuidado:** as conversas e telas mostradas são ilustrativas, sem dados de clientes.
 
 ## 018. Telas Clientes, Suporte, Contato, Acessar sistemas e Privacidade
 
@@ -160,4 +160,4 @@ O site passa a ter as oito telas do plano. A navegação principal vira Soluçõ
 
 O atendimento rápido dos consultores pelo WhatsApp é o maior trunfo da MS, então passa a guiar o site. A tela Suporte foi refeita: abertura com o botão do WhatsApp e uma conversa ilustrativa, os diferenciais do atendimento, o passo a passo da mensagem até a solução, outros canais (chamado e telefones), downloads oficiais e um fechamento com o WhatsApp. Um botão flutuante "Falar com consultor" aparece em todas as telas, e Suporte sobe para o segundo lugar do menu.
 
-**Cuidado:** o texto fala em atendimento rápido sem prometer prazo, porque a MS ainda não informou um tempo de resposta. Enquanto `VITE_WHATSAPP_NUMBER` estiver vazio, os botões levam à seção de atendimento da home. A conversa mostrada é ilustrativa.
+**Cuidado:** o texto fala em atendimento rápido sem prometer prazo, porque a MS ainda não informou um tempo de resposta. O WhatsApp da MS (14) 99785-6833 fica em `shared/config/company-info.ts`, para o build automático não depender de `.env`. A variável `VITE_WHATSAPP_NUMBER` continua valendo como troca opcional. As conversas mostradas são ilustrativas.

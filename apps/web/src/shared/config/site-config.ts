@@ -1,3 +1,6 @@
+import { formatWhatsapp } from '@ms/domain'
+import { COMPANY_WHATSAPP_NUMBER } from './company-info'
+
 export type NavigationLink = { readonly label: string; readonly href: string }
 
 export type SystemAccess = {
@@ -34,10 +37,8 @@ export const SYSTEM_ACCESS: readonly SystemAccess[] = [
 
 export const SUPPORT_URL = 'https://suporte.mssistemas.com.br'
 
-const whatsappNumber: string = import.meta.env.VITE_WHATSAPP_NUMBER ?? ''
+const whatsappNumber: string = import.meta.env.VITE_WHATSAPP_NUMBER || COMPANY_WHATSAPP_NUMBER
 
-export const HAS_WHATSAPP = Boolean(whatsappNumber)
+export const WHATSAPP_HREF = `https://wa.me/55${whatsappNumber}`
 
-export const WHATSAPP_HREF = whatsappNumber ? `https://wa.me/55${whatsappNumber}` : '/#atendimento'
-
-export const WHATSAPP_LABEL = whatsappNumber || '[Número do WhatsApp]'
+export const WHATSAPP_LABEL = formatWhatsapp(whatsappNumber)

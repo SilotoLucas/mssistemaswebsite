@@ -18,7 +18,7 @@ O site abre em `http://127.0.0.1:5173`.
 
 ## Antes de publicar
 
-1. Copie `.env.example` para `.env` e preencha `VITE_WHATSAPP_NUMBER` com DDD e número, só com dígitos.
+1. Opcional: copie `.env.example` para `.env` e preencha `VITE_WHATSAPP_NUMBER` (DDD e número, só dígitos) para trocar o WhatsApp padrão.
 2. Troque `simulated-demo-request-sender.ts` pelo envio real dos pedidos de demonstração.
 3. Publique a Política de Privacidade.
 

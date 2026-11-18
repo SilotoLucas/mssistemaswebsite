@@ -59,5 +59,5 @@ Uma porta só nasce quando existe um segundo implementador real, um teste sem I/
 
 - Mantenha o TypeScript 5.9.3. Na versão 7, o `dependency-cruiser` analisa zero módulos e o gate fica verde sem verificar nada.
 - O Bun instala pacotes por workspace. Tipos do Vite entram por `apps/web/src/env.d.ts`.
-- O WhatsApp é lido de `VITE_WHATSAPP_NUMBER`. Sem esse valor, os botões levam à seção de atendimento.
+- O WhatsApp da MS fica em `shared/config/company-info.ts`. `VITE_WHATSAPP_NUMBER` troca o número sem mexer no código.
 - O envio do formulário é simulado por `simulated-demo-request-sender.ts`.

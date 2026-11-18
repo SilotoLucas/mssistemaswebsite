@@ -4,7 +4,7 @@ import {
   COMPANY_EMAIL,
   COMPANY_PHONES,
 } from '../../shared/config/company-info'
-import { HAS_WHATSAPP, SUPPORT_URL, WHATSAPP_LABEL } from '../../shared/config/site-config'
+import { SUPPORT_URL, WHATSAPP_LABEL } from '../../shared/config/site-config'
 import { Icon, type IconName } from '../../shared/ui/icon'
 import { TextLink } from '../../shared/ui/text-link'
 import { WhatsappButton } from '../../shared/ui/whatsapp-button'
@@ -54,7 +54,7 @@ export const LocationSection = () => (
             </ul>
           </ContactRow>
           <ContactRow icon="message" label="WhatsApp">
-            {HAS_WHATSAPP ? <p className="ms-co-wa">{WHATSAPP_LABEL}</p> : null}
+            <p className="ms-co-wa">{WHATSAPP_LABEL}</p>
             <WhatsappButton />
           </ContactRow>
           <ContactRow icon="mail" label="E-mail">

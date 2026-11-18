@@ -9,3 +9,5 @@ export const COMPANY_ADDRESS_LINES = [
   'Rua Florindo Silva, 51, Jardim Paraíso II',
   'Botucatu/SP, CEP 18610-150',
 ] as const
+
+export const COMPANY_WHATSAPP_NUMBER = '14997856833'

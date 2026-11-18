@@ -1,7 +1,7 @@
 import { COMPANY_PHONES } from '../../shared/config/company-info'
-import { HAS_WHATSAPP, SUPPORT_URL, WHATSAPP_LABEL } from '../../shared/config/site-config'
+import { SUPPORT_URL, WHATSAPP_LABEL } from '../../shared/config/site-config'
 import { Aurora } from '../../shared/ui/aurora'
-import { ChatMockup } from '../../shared/ui/chat-mockup'
+import { ChatMockups } from '../../shared/ui/chat-mockup'
 import { Icon } from '../../shared/ui/icon'
 import { PageHero } from '../../shared/ui/page-hero'
 import { Reveal } from '../../shared/ui/reveal'
@@ -31,7 +31,7 @@ export const SupportPage = () => (
       }
       aside={
         <div className="ms-su-chat">
-          <ChatMockup />
+          <ChatMockups />
         </div>
       }
     />
@@ -137,7 +137,7 @@ export const SupportPage = () => (
         <Reveal className="ms-su-final__c">
           <h2 className="ms-h2">Chame um consultor agora</h2>
           <p>O setor não para. Fale com a equipe da MS pelo WhatsApp.</p>
-          {HAS_WHATSAPP ? <strong>{WHATSAPP_LABEL}</strong> : null}
+          <strong>{WHATSAPP_LABEL}</strong>
           <WhatsappButton large />
         </Reveal>
       </div>

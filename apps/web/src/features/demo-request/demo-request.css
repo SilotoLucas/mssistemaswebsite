@@ -2,7 +2,7 @@
 .ms-final { display: grid; gap: var(--space-7); align-items: center; }
 .ms-final__copy { display: grid; gap: var(--space-4); align-content: start; justify-items: start; }
 .ms-final__copy > p:not(.ms-eyebrow) { font-size: var(--fs-lead-mobile); line-height: 1.6; max-width: 52ch; }
-.ms-final__points { display: grid; gap: var(--space-3); margin-top: var(--space-2); }
+.ms-page .ms-final__points { display: grid; gap: var(--space-3); margin-top: var(--space-2); }
 .ms-final__points li { display: flex; align-items: center; gap: var(--space-3); color: var(--navy); font-weight: 600; }
 .ms-final__points span { display: inline-flex; flex: none; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: var(--radius-full); background: var(--brand-deep); color: var(--white); }
 .ms-formcard { padding: var(--space-5); background: var(--white); border: 1px solid var(--line-light); border-radius: 28px; box-shadow: var(--shadow-lift); min-width: 0; }

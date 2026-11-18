@@ -1,6 +1,6 @@
-import { HAS_WHATSAPP, SUPPORT_URL, WHATSAPP_LABEL } from '../../../shared/config/site-config'
+import { SUPPORT_URL, WHATSAPP_LABEL } from '../../../shared/config/site-config'
 import { Aurora } from '../../../shared/ui/aurora'
-import { ChatMockup } from '../../../shared/ui/chat-mockup'
+import { ChatMockups } from '../../../shared/ui/chat-mockup'
 import { Icon, type IconName } from '../../../shared/ui/icon'
 import { Reveal } from '../../../shared/ui/reveal'
 import { WhatsappButton } from '../../../shared/ui/whatsapp-button'
@@ -45,12 +45,10 @@ export const SupportSection = () => (
           O setor não para, e o nosso atendimento também não. Fale pelo WhatsApp com uma equipe
           especializada e resolva com rapidez.
         </p>
-        {HAS_WHATSAPP ? (
-          <div className="ms-wanum">
-            <span>WhatsApp da MS</span>
-            <strong>{WHATSAPP_LABEL}</strong>
-          </div>
-        ) : null}
+        <div className="ms-wanum">
+          <span>WhatsApp da MS</span>
+          <strong>{WHATSAPP_LABEL}</strong>
+        </div>
         <div className="ms-sup__cta">
           <WhatsappButton />
           <a className="ms-btn ms-btn--glass" href={SUPPORT_URL}>
@@ -72,7 +70,7 @@ export const SupportSection = () => (
         </ul>
       </Reveal>
       <Reveal className="ms-sup__visual" delay={150}>
-        <ChatMockup />
+        <ChatMockups />
       </Reveal>
     </div>
   </section>
