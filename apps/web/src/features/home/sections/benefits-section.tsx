@@ -1,6 +1,14 @@
-import { type IconDetail, IconDetailList } from './icon-detail-list'
+import { Icon, type IconName } from '../../../shared/ui/icon'
+import { Reveal } from '../../../shared/ui/reveal'
+import { trackPointer } from '../../../shared/ui/spotlight'
 
-const BENEFITS: readonly IconDetail[] = [
+type Benefit = {
+  readonly icon: IconName
+  readonly title: string
+  readonly text: string
+}
+
+const BENEFITS: readonly Benefit[] = [
   { icon: 'layers', title: 'Menos retrabalho', text: 'Informações integradas entre as áreas.' },
   {
     icon: 'receipt',
@@ -15,12 +23,30 @@ const BENEFITS: readonly IconDetail[] = [
 ]
 
 export const BenefitsSection = () => (
-  <section className="ms-section ms-section--mist">
+  <section className="ms-section ms-ben-sec">
     <div className="ms-wrap">
-      <div className="ms-intro">
-        <h2 className="ms-h2">Menos tarefas repetidas, mais controle</h2>
+      <Reveal className="ms-intro ms-intro--center">
+        <p className="ms-eyebrow ms-eyebrow--light">Resultados</p>
+        <h2 className="ms-h2">
+          Menos tarefas repetidas, <span className="ms-grad ms-grad--deep">mais controle</span>
+        </h2>
+      </Reveal>
+      <div className="ms-bens">
+        {BENEFITS.map((benefit, index) => (
+          <Reveal delay={index * 100} key={benefit.title}>
+            <article className="ms-ben ms-spot" onPointerMove={trackPointer}>
+              <span className="ms-ben__n" aria-hidden="true">
+                0{index + 1}
+              </span>
+              <span className="ms-ben__i">
+                <Icon name={benefit.icon} size={26} />
+              </span>
+              <h3 className="ms-h3">{benefit.title}</h3>
+              <p>{benefit.text}</p>
+            </article>
+          </Reveal>
+        ))}
       </div>
-      <IconDetailList items={BENEFITS} listClassName="ms-bens" itemClassName="ms-ben" />
     </div>
   </section>
 )

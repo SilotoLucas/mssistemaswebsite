@@ -1,3 +1,8 @@
+import type { CSSProperties } from 'react'
+import { Aurora } from '../../../shared/ui/aurora'
+import { CountUp } from '../../../shared/ui/count-up'
+import { Reveal } from '../../../shared/ui/reveal'
+
 type StateTile = {
   readonly code: string
   readonly name: string
@@ -37,11 +42,29 @@ const STATE_TILES: readonly StateTile[] = [
 ]
 
 export const PresenceSection = () => (
-  <section className="ms-section" id="clientes">
+  <section className="ms-section ms-pres-sec ms-dark" id="clientes">
+    <Aurora />
     <div className="ms-wrap ms-pres">
-      <div className="ms-pres__copy">
-        <h2 className="ms-h2">Empresas de todo o Brasil confiam na MS</h2>
-        <p>Clientes em 18 estados, do Rio Grande do Sul ao Amazonas.</p>
+      <Reveal className="ms-pres__copy">
+        <p className="ms-eyebrow">Presença nacional</p>
+        <h2>
+          Empresas de todo o Brasil <span className="ms-grad">confiam na MS</span>
+        </h2>
+        <p className="ms-pres__lead">Clientes em 18 estados, do Rio Grande do Sul ao Amazonas.</p>
+        <div className="ms-pres__stats">
+          <p>
+            <strong>
+              <CountUp target={18} />
+            </strong>
+            <span>estados atendidos</span>
+          </p>
+          <p>
+            <strong>
+              <CountUp target={300} prefix="+" />
+            </strong>
+            <span>cidades</span>
+          </p>
+        </div>
         <div className="ms-legend" aria-hidden="true">
           <span>
             <i />
@@ -52,22 +75,24 @@ export const PresenceSection = () => (
             Demais estados
           </span>
         </div>
-      </div>
-      <ul className="ms-map" aria-label="Mapa do Brasil por estados. 18 estados atendidos.">
-        {STATE_TILES.map((tile) => (
-          <li
-            className={tile.served ? 'is-on' : undefined}
-            style={{ gridColumn: tile.column, gridRow: tile.row }}
-            title={tile.served ? `${tile.name}: atendido` : tile.name}
-            key={tile.code}
-          >
-            <span aria-hidden="true">{tile.code}</span>
-            <span className="ms-sr">
-              {tile.name}, {tile.served ? 'atendido' : 'sem atendimento listado'}
-            </span>
-          </li>
-        ))}
-      </ul>
+      </Reveal>
+      <Reveal delay={120}>
+        <ul className="ms-map" aria-label="Mapa do Brasil por estados. 18 estados atendidos.">
+          {STATE_TILES.map((tile, index) => (
+            <li
+              className={tile.served ? 'is-on' : undefined}
+              style={{ gridColumn: tile.column, gridRow: tile.row, '--i': index } as CSSProperties}
+              title={tile.served ? `${tile.name}: atendido` : tile.name}
+              key={tile.code}
+            >
+              <span aria-hidden="true">{tile.code}</span>
+              <span className="ms-sr">
+                {tile.name}, {tile.served ? 'atendido' : 'sem atendimento listado'}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </Reveal>
     </div>
   </section>
 )

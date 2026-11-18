@@ -1,8 +1,10 @@
 import { DemoRequestSection } from '../demo-request'
+import './home.css'
 import { BenefitsSection } from './sections/benefits-section'
 import { ClientPortalSection } from './sections/client-portal-section'
 import { EcosystemSection } from './sections/ecosystem-section'
 import { HeroSection } from './sections/hero-section'
+import { ModulesMarquee } from './sections/modules-marquee'
 import { PresenceSection } from './sections/presence-section'
 import { ProofSection } from './sections/proof-section'
 import { SegmentsSection } from './sections/segments-section'
@@ -17,10 +19,11 @@ export const HomePage = () => (
     />
     <HeroSection />
     <ProofSection />
-    <SupportSection />
+    <ModulesMarquee />
     <SegmentsSection />
     <ClientPortalSection />
     <EcosystemSection />
+    <SupportSection />
     <BenefitsSection />
     <PresenceSection />
     <DemoRequestSection />

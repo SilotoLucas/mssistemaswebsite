@@ -119,3 +119,23 @@ A tela usa os textos do site legado, com a visão corrigida para "melhor custo-b
 A tela Empresa incorpora o Google Maps com carregamento sob demanda e mostra telefones fixos, WhatsApp e e-mail. Os celulares de plantão ficaram de fora até a MS definir quais continuam públicos.
 
 **Atenção:** o mapa é um serviço de terceiros e deve constar na Política de Privacidade.
+
+## 016. Redesign visual da home
+
+**Data:** 18/11/2026
+
+A pedido do dono do projeto, o visual passa a ser mais ousado, com referência em sites de software atuais. A abertura é escura, com degradês animados (aurora), grade sutil, títulos grandes com realce em degradê, mockups da Área do Cliente e do App flutuando em perspectiva e cartões de vidro. O cabeçalho vira uma pílula flutuante clara, o que mantém a logo sempre sobre fundo claro. Entram revelação ao rolar, números que contam, brilho que segue o cursor nos cartões e uma faixa com os módulos. As telas Soluções e Empresa herdam o cabeçalho, o botão e o `PageHero`.
+
+**Impacto nos tokens:** novas cores (`ink-raised`, `aqua`, `iris`, `glass`, `glass-strong`, `glass-border`, `glass-light`, `line-light`, `text-on-ink-muted`), sombras (`shadow-lift`, `shadow-float`, `shadow-glow`, `shadow-pill`), tempos (`duration-slow`, `ease-out-expo`), títulos maiores e `header-height` de 88 px.
+
+**Substitui:** a regra de manter o estilo claro e minimalista da decisão 004 apenas na home e no shell. O design V1 continua como base de conteúdo e de identidade.
+
+## 017. Hero sem carrossel e nova ordem da home
+
+**Data:** 18/11/2026
+
+A abertura da home deixa de ser um carrossel de quatro slides. Ela passa a ser uma cena única, com o texto principal e os produtos à vista, porque o carrossel escondia o mockup e repetia conteúdo que já tem seção própria. Os carrosséis de Soluções e Empresa continuam como estão. A ordem da home passa a ser: abertura, números, módulos, segmentos, Área do Cliente e App, ecossistema, atendimento, resultados, presença e demonstração.
+
+**Substitui:** a parte da decisão 011 que trata do carrossel da abertura da home.
+
+**Cuidado:** o número do WhatsApp só aparece na seção de atendimento quando `VITE_WHATSAPP_NUMBER` está preenchido. As conversas e telas mostradas são ilustrativas, sem dados de clientes.

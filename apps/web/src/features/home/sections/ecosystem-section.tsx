@@ -1,58 +1,36 @@
-import { Icon, type IconName } from '../../../shared/ui/icon'
+import { Icon } from '../../../shared/ui/icon'
+import { Reveal } from '../../../shared/ui/reveal'
+import { trackPointer } from '../../../shared/ui/spotlight'
 import { TextLink } from '../../../shared/ui/text-link'
-
-type ModuleGroup = {
-  readonly icon: IconName
-  readonly title: string
-  readonly modules: readonly string[]
-}
-
-const MODULE_GROUPS: readonly ModuleGroup[] = [
-  {
-    icon: 'dashboard',
-    title: 'Gestão',
-    modules: ['Financeiro', 'Filiais', 'Frota', 'Equipamentos', 'CRM', 'Dashboard'],
-  },
-  {
-    icon: 'phone',
-    title: 'Equipe em campo',
-    modules: ['Cobrança Móvel', 'Venda com Tablet', 'P.O.S'],
-  },
-  {
-    icon: 'globe',
-    title: 'Canais digitais',
-    modules: ['Portal do Associado', 'Venda Web', 'ChatBot', 'SMS', 'Condolência Online'],
-  },
-  {
-    icon: 'monitor',
-    title: 'Atendimento presencial',
-    modules: ['Totem de Autoatendimento', 'Totem Cemitério', 'QR Code', 'Painel de Velório'],
-  },
-]
+import { MODULE_GROUPS } from '../home-content'
 
 export const EcosystemSection = () => (
-  <section className="ms-section">
-    <div className="ms-wrap">
-      <div className="ms-intro">
-        <h2 className="ms-h2">Tudo conectado, do escritório ao campo</h2>
-      </div>
-      <div className="ms-eco">
-        {MODULE_GROUPS.map((group) => (
-          <div className="ms-eco__g" key={group.title}>
-            <span className="ms-eco__n">
-              <Icon name={group.icon} size={22} />
-            </span>
-            <h3>{group.title}</h3>
-            <ul>
-              {group.modules.map((module) => (
-                <li key={module}>{module}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-      <div className="ms-eco__more">
+  <section className="ms-section ms-section--mist ms-eco-sec">
+    <div className="ms-wrap ms-eco">
+      <Reveal className="ms-eco__head">
+        <p className="ms-eyebrow ms-eyebrow--light">Ecossistema</p>
+        <h2 className="ms-h2">
+          Tudo conectado, <span className="ms-grad ms-grad--deep">do escritório ao campo</span>
+        </h2>
+        <p>Cada módulo usa as mesmas informações, sem digitar o mesmo dado duas vezes.</p>
         <TextLink label="Ver todas as soluções" href="/solucoes" />
+      </Reveal>
+      <div className="ms-eco__grid">
+        {MODULE_GROUPS.map((group, index) => (
+          <Reveal delay={index * 90} key={group.title}>
+            <article className="ms-eco__g ms-spot" onPointerMove={trackPointer}>
+              <span className="ms-eco__n">
+                <Icon name={group.icon} size={24} />
+              </span>
+              <h3>{group.title}</h3>
+              <ul>
+                {group.modules.map((module) => (
+                  <li key={module}>{module}</li>
+                ))}
+              </ul>
+            </article>
+          </Reveal>
+        ))}
       </div>
     </div>
   </section>

@@ -1,23 +1,23 @@
-.ms-ph { position: relative; padding-block: var(--space-7) var(--space-8); background: var(--navy); color: var(--text-on-dark); overflow: hidden; }
+.ms-ph { position: relative; isolation: isolate; padding-block: calc(var(--header-height) + var(--space-7)) var(--space-8); background: var(--ink); color: var(--text-on-dark); overflow: hidden; }
 .ms-ph__g { position: relative; display: grid; gap: var(--space-7); align-items: center; }
 .ms-ph__c { display: grid; gap: var(--space-5); justify-items: start; min-width: 0; }
-.ms-page .ms-ph h1 { max-width: 16ch; color: var(--white); font-size: var(--fs-h1-mobile); line-height: 42px; letter-spacing: -0.015em; }
-.ms-ph__p { max-width: 50ch; font-size: var(--fs-lead-mobile); line-height: 28px; }
+.ms-page .ms-ph h1 { max-width: 16ch; color: var(--white); font-size: var(--fs-h1-mobile); line-height: 1.04; letter-spacing: -0.04em; }
+.ms-ph__p { max-width: 50ch; font-size: var(--fs-lead-mobile); line-height: 1.6; }
 .ms-ph__cta { display: flex; flex-wrap: wrap; gap: var(--space-3); }
-.ms-ph .ms-btn--primary { border-color: var(--sky); }
-.ms-crumb { display: flex; align-items: center; gap: var(--space-2); font-size: var(--fs-small); line-height: 22px; }
+.ms-crumb { display: flex; align-items: center; gap: var(--space-2); padding-inline: var(--space-4); border: 1px solid var(--glass-border); border-radius: var(--radius-full); background: var(--glass); font-size: var(--fs-small); line-height: 22px; backdrop-filter: blur(10px); }
 .ms-crumb a { display: inline-flex; align-items: center; justify-content: center; min-width: var(--tap-min); min-height: var(--tap-min); color: var(--sky); font-weight: 600; text-underline-offset: 3px; }
 .ms-crumb [aria-current="page"] { color: var(--white); font-weight: 600; }
-.ms-ph__car { padding: var(--space-5); background: var(--ink); border: 1px solid var(--border-on-dark); border-radius: var(--radius-lg); }
+.ms-ph__car { padding: var(--space-5); background: var(--glass); border: 1px solid var(--glass-border); border-radius: 28px; backdrop-filter: blur(14px); box-shadow: var(--shadow-float); }
 .ms-ph__car .ms-car__bar { margin-top: var(--space-5); }
 
 @media (min-width: 768px) {
-  .ms-ph { padding-block: 72px 96px; }
-  .ms-page .ms-ph h1 { font-size: var(--fs-h1-tablet); line-height: 52px; letter-spacing: -0.02em; }
-  .ms-ph__p { font-size: var(--fs-lead-desktop); line-height: 32px; }
+  .ms-ph { padding-block: calc(var(--header-height) + 56px) 112px; }
+  .ms-page .ms-ph h1 { font-size: var(--fs-h1-tablet); }
+  .ms-ph__p { font-size: var(--fs-lead-desktop); }
+  .ms-ph__car { padding: var(--space-6); }
 }
 
 @media (min-width: 1200px) {
-  .ms-page .ms-ph h1 { font-size: var(--fs-h1-desktop); line-height: 60px; }
+  .ms-page .ms-ph h1 { font-size: var(--fs-h1-desktop); }
   .ms-ph__g { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: var(--space-8); }
 }

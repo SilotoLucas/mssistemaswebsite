@@ -8,7 +8,9 @@ export const SiteFooter = () => (
     <div className="ms-wrap">
       <div className="ms-footer__top">
         <div className="ms-footer__brand">
-          <BrandLogo width={121} height={60} />
+          <span className="ms-footer__logo">
+            <BrandLogo width={97} height={48} />
+          </span>
           <p>Software de gestão para funerárias, planos, cemitérios e crematórios desde 2005.</p>
           <div className="ms-social">
             <a href="https://www.facebook.com/mssist" aria-label="Facebook da MS Sistemas">

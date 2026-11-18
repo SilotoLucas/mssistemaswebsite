@@ -36,6 +36,8 @@ export const SUPPORT_URL = 'https://suporte.mssistemas.com.br'
 
 const whatsappNumber: string = import.meta.env.VITE_WHATSAPP_NUMBER ?? ''
 
+export const HAS_WHATSAPP = Boolean(whatsappNumber)
+
 export const WHATSAPP_HREF = whatsappNumber ? `https://wa.me/55${whatsappNumber}` : '/#atendimento'
 
 export const WHATSAPP_LABEL = whatsappNumber || '[Número do WhatsApp]'

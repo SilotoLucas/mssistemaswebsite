@@ -1,154 +1,107 @@
-import type { ReactNode } from 'react'
-import { Carousel, type CarouselSlide } from '../../../shared/ui/carousel'
-import { Icon } from '../../../shared/ui/icon'
+import { Aurora } from '../../../shared/ui/aurora'
+import { Icon, type IconName } from '../../../shared/ui/icon'
 import { SiteLink } from '../../../shared/ui/site-link'
-import { TextLink } from '../../../shared/ui/text-link'
-import { WhatsappButton } from '../../../shared/ui/whatsapp-button'
 import { ClientAppScreen } from '../screens/client-app-screen'
 import { ClientAreaScreen } from '../screens/client-area-screen'
-import './hero-section.css'
+import { useStageTilt } from './use-stage-tilt'
 
-const WHATSAPP_POINTS = [
-  'Sua mensagem chega direto à nossa equipe',
-  'Quem atende conhece a rotina do setor',
+type Chip = {
+  readonly icon: IconName
+  readonly title: string
+  readonly caption: string
+  readonly className: string
+}
+
+const TRUST_POINTS = [
+  'Suporte especializado no setor',
   'Plantão em fins de semana e feriados',
+  'Atendimento pelo WhatsApp',
 ] as const
 
-const HeroSlide = ({
-  tone,
-  copy,
-  visual,
-}: {
-  readonly tone: 'white' | 'mist' | 'fog'
-  readonly copy: ReactNode
-  readonly visual: ReactNode
-}) => (
-  <div className={`ms-hs ms-hs--${tone}`}>
-    <div className="ms-wrap ms-hero__grid">
-      <div className="ms-hero__copy">{copy}</div>
-      {visual}
-    </div>
-  </div>
-)
-
-const HERO_SLIDES: readonly CarouselSlide[] = [
+const CHIPS: readonly Chip[] = [
   {
-    key: 'gestao',
-    label: 'Gestão completa',
-    content: (
-      <HeroSlide
-        tone="white"
-        copy={
-          <>
-            <h1>Gestão completa para funerárias, planos, cemitérios e crematórios</h1>
-            <p className="ms-lead">
-              Do contrato à cobrança, do atendimento ao pós-venda: tudo integrado em um só sistema,
-              com suporte especializado de quem conhece o setor desde 2005.
-            </p>
-            <div className="ms-hero__cta">
-              <SiteLink className="ms-btn ms-btn--primary" href="#demonstracao">
-                Solicitar demonstração
-              </SiteLink>
-              <SiteLink className="ms-btn ms-btn--secondary" href="/solucoes">
-                Conhecer as soluções
-              </SiteLink>
-            </div>
-          </>
-        }
-        visual={
-          <aside className="ms-wacard" aria-label="Atendimento pelo WhatsApp">
-            <span className="ms-wa-i">
-              <Icon name="message" />
-            </span>
-            <p className="ms-wacard__t">Atendimento rápido pelo WhatsApp</p>
-            <p>Fale direto com a equipe da MS, que conhece a rotina do seu setor.</p>
-            <WhatsappButton block />
-          </aside>
-        }
-      />
-    ),
+    icon: 'credit-card',
+    title: 'Carteirinha digital',
+    caption: 'App do Cliente',
+    className: 'ms-chip--a',
   },
   {
-    key: 'whatsapp',
-    label: 'Atendimento pelo WhatsApp',
-    content: (
-      <HeroSlide
-        tone="mist"
-        copy={
-          <>
-            <h2>Atendimento rápido pelo WhatsApp</h2>
-            <p className="ms-lead">
-              O setor não para, e o nosso atendimento também não. Fale com uma equipe especializada
-              e resolva com rapidez.
-            </p>
-            <div className="ms-hero__cta">
-              <WhatsappButton />
-            </div>
-          </>
-        }
-        visual={
-          <ul className="ms-hs__points">
-            {WHATSAPP_POINTS.map((point) => (
+    icon: 'receipt',
+    title: 'Segunda via do boleto',
+    caption: 'Área do Cliente',
+    className: 'ms-chip--b',
+  },
+  {
+    icon: 'message',
+    title: 'Atendimento rápido',
+    caption: 'Pelo WhatsApp',
+    className: 'ms-chip--c',
+  },
+]
+
+export const HeroSection = () => {
+  const heroRef = useStageTilt<HTMLElement>()
+
+  return (
+    <section className="ms-hero ms-dark" ref={heroRef}>
+      <Aurora />
+      <div className="ms-wrap ms-hero__grid">
+        <div className="ms-hero__copy">
+          <p className="ms-eyebrow ms-hero__tag">
+            <span className="ms-pulse" aria-hidden="true" />
+            Software de gestão desde 2005
+          </p>
+          <h1>
+            Gestão completa para{' '}
+            <span className="ms-grad">funerárias, planos, cemitérios e crematórios</span>
+          </h1>
+          <p className="ms-lead">
+            Do contrato à cobrança, do atendimento ao pós-venda: tudo integrado em um só sistema,
+            com suporte especializado de quem conhece o setor.
+          </p>
+          <div className="ms-hero__cta">
+            <SiteLink className="ms-btn ms-btn--primary ms-btn--lg" href="#demonstracao">
+              Solicitar demonstração
+              <Icon name="arrow-right" size={20} />
+            </SiteLink>
+            <SiteLink className="ms-btn ms-btn--glass ms-btn--lg" href="/solucoes">
+              Conhecer as soluções
+            </SiteLink>
+          </div>
+          <ul className="ms-hero__trust">
+            {TRUST_POINTS.map((point) => (
               <li key={point}>
-                <Icon name="check" size={20} />
+                <Icon name="check" size={16} />
                 {point}
               </li>
             ))}
           </ul>
-        }
-      />
-    ),
-  },
-  {
-    key: 'area-do-cliente',
-    label: 'Área do Cliente',
-    content: (
-      <HeroSlide
-        tone="fog"
-        copy={
-          <>
-            <h2>Área do Cliente</h2>
-            <p className="ms-lead">
-              Dados, dependentes, boletos e carteirinha virtual em um só lugar para o seu associado.
-            </p>
-            <TextLink label="Conhecer a Área do Cliente" href="#area-do-cliente" />
-          </>
-        }
-        visual={
-          <div className="ms-shot">
-            <ClientAreaScreen />
+        </div>
+        <div className="ms-stage" aria-hidden="true">
+          <span className="ms-stage__glow" />
+          <div className="ms-stage__pc">
+            <div className="ms-shot">
+              <ClientAreaScreen />
+            </div>
           </div>
-        }
-      />
-    ),
-  },
-  {
-    key: 'app-do-cliente',
-    label: 'App do Cliente',
-    content: (
-      <HeroSlide
-        tone="mist"
-        copy={
-          <>
-            <h2>App do Cliente</h2>
-            <p className="ms-lead">
-              Carteirinha digital, segunda via do boleto e avisos na palma da mão do seu associado.
-            </p>
-            <TextLink label="Conhecer o App do Cliente" href="#area-do-cliente" />
-          </>
-        }
-        visual={
-          <div className="ms-shot ms-hs__phone">
-            <ClientAppScreen />
+          <div className="ms-stage__phone">
+            <div className="ms-shot">
+              <ClientAppScreen />
+            </div>
           </div>
-        }
-      />
-    ),
-  },
-]
-
-export const HeroSection = () => (
-  <div className="ms-hero ms-hero--car">
-    <Carousel label="Destaques da MS Sistemas" slides={HERO_SLIDES} barClassName="ms-wrap" />
-  </div>
-)
+          {CHIPS.map((chip) => (
+            <div className={`ms-chip ${chip.className}`} key={chip.title}>
+              <span className="ms-chip__i">
+                <Icon name={chip.icon} size={20} />
+              </span>
+              <span className="ms-chip__t">
+                <strong>{chip.title}</strong>
+                <small>{chip.caption}</small>
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

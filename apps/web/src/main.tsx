@@ -4,6 +4,8 @@ import { BrowserRouter } from 'react-router'
 import { App } from './app/app'
 import './styles/tokens.css'
 import './styles/site.css'
+import './styles/effects.css'
+import './styles/mockups.css'
 
 const container = document.getElementById('root')
 
