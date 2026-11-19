@@ -1,9 +1,30 @@
 import { useCallback, useEffect, useRef } from 'react'
-import { easeOutCubic, nearestStep, shortestDelta, wrapOffset } from './rail-math'
+import {
+  CLICK_GUARD_MS,
+  DRAG_THRESHOLD_PX,
+  horizontalWheelDelta,
+  isHorizontalGesture,
+  isPrimaryPress,
+} from './gesture'
+import { easeOutCubic, nearestStep, shortestDelta, snapAfterDrag, wrapOffset } from './rail-math'
 
 const AUTO_ADVANCE_MS = 3500
 const GLIDE_MS = 800
 const TICK_MS = 100
+const FLICK_MS = 160
+const STALE_VELOCITY_MS = 80
+const WHEEL_SETTLE_MS = 160
+
+type Drag = {
+  readonly id: number
+  readonly startX: number
+  readonly startY: number
+  origin: number
+  lastX: number
+  lastTime: number
+  velocity: number
+  active: boolean
+}
 
 const prefersReducedMotion = (): boolean =>
   window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -17,7 +38,7 @@ export const useAutoRail = (count: number, held: boolean) => {
   const frame = useRef(0)
   const metrics = useRef({ step: 0, setWidth: 0 })
   const elapsedMs = useRef(0)
-  const blocked = useRef({ keyboard: false, offscreen: true })
+  const blocked = useRef({ keyboard: false, offscreen: true, dragging: false })
   const heldRef = useRef(held)
 
   useEffect(() => {
@@ -112,8 +133,8 @@ export const useAutoRail = (count: number, held: boolean) => {
     let lastTick = performance.now()
     const timer = setInterval(() => {
       const now = performance.now()
-      const { keyboard, offscreen } = blocked.current
-      if (!(keyboard || offscreen || heldRef.current || document.hidden)) {
+      const { keyboard, offscreen, dragging } = blocked.current
+      if (!(keyboard || offscreen || dragging || heldRef.current || document.hidden)) {
         elapsedMs.current += now - lastTick
       }
       lastTick = now
@@ -146,6 +167,104 @@ export const useAutoRail = (count: number, held: boolean) => {
       viewport.removeEventListener('focusout', onFocusOut)
     }
   }, [count, showCard])
+
+  useEffect(() => {
+    const viewport = viewportRef.current
+    if (!viewport) return
+    let drag: Drag | null = null
+    let guardUntil = 0
+    let wheelTimer = 0
+
+    const settle = (velocity: number) => {
+      const { step } = metrics.current
+      if (step) glideTo(snapAfterDrag(offset.current, velocity, step, FLICK_MS))
+    }
+
+    const onPointerDown = (event: PointerEvent) => {
+      if (!isPrimaryPress(event)) return
+      drag = {
+        id: event.pointerId,
+        startX: event.clientX,
+        startY: event.clientY,
+        origin: offset.current,
+        lastX: event.clientX,
+        lastTime: event.timeStamp,
+        velocity: 0,
+        active: false,
+      }
+    }
+
+    const onPointerMove = (event: PointerEvent) => {
+      if (!drag || event.pointerId !== drag.id) return
+      const dx = event.clientX - drag.startX
+      if (!drag.active) {
+        if (!isHorizontalGesture(dx, event.clientY - drag.startY, DRAG_THRESHOLD_PX)) return
+        cancelAnimationFrame(frame.current)
+        drag.active = true
+        drag.origin = offset.current + dx
+        blocked.current.dragging = true
+        viewport.classList.add('is-dragging')
+        viewport.setPointerCapture?.(event.pointerId)
+      }
+      const elapsed = event.timeStamp - drag.lastTime
+      if (elapsed > 0) drag.velocity = (event.clientX - drag.lastX) / elapsed
+      drag.lastX = event.clientX
+      drag.lastTime = event.timeStamp
+      offset.current = drag.origin - dx
+      paint()
+    }
+
+    const onPointerEnd = (event: PointerEvent) => {
+      if (!drag || event.pointerId !== drag.id) return
+      const finished = drag
+      drag = null
+      if (!finished.active) return
+      blocked.current.dragging = false
+      viewport.classList.remove('is-dragging')
+      guardUntil = performance.now() + CLICK_GUARD_MS
+      const fresh = event.timeStamp - finished.lastTime < STALE_VELOCITY_MS
+      settle(fresh ? finished.velocity : 0)
+    }
+
+    const onClick = (event: MouseEvent) => {
+      if (performance.now() >= guardUntil) return
+      guardUntil = 0
+      event.preventDefault()
+      event.stopPropagation()
+    }
+
+    const onWheel = (event: WheelEvent) => {
+      const delta = horizontalWheelDelta(event)
+      if (!(delta && metrics.current.step)) return
+      event.preventDefault()
+      cancelAnimationFrame(frame.current)
+      elapsedMs.current = 0
+      offset.current += delta
+      paint()
+      window.clearTimeout(wheelTimer)
+      wheelTimer = window.setTimeout(() => settle(0), WHEEL_SETTLE_MS)
+    }
+
+    const onDragStart = (event: DragEvent) => event.preventDefault()
+
+    viewport.addEventListener('pointerdown', onPointerDown)
+    viewport.addEventListener('pointermove', onPointerMove)
+    viewport.addEventListener('pointerup', onPointerEnd)
+    viewport.addEventListener('pointercancel', onPointerEnd)
+    viewport.addEventListener('click', onClick, true)
+    viewport.addEventListener('wheel', onWheel, { passive: false })
+    viewport.addEventListener('dragstart', onDragStart)
+    return () => {
+      window.clearTimeout(wheelTimer)
+      viewport.removeEventListener('pointerdown', onPointerDown)
+      viewport.removeEventListener('pointermove', onPointerMove)
+      viewport.removeEventListener('pointerup', onPointerEnd)
+      viewport.removeEventListener('pointercancel', onPointerEnd)
+      viewport.removeEventListener('click', onClick, true)
+      viewport.removeEventListener('wheel', onWheel)
+      viewport.removeEventListener('dragstart', onDragStart)
+    }
+  }, [glideTo, paint])
 
   return { viewportRef, trackRef, progressRef, showCard }
 }

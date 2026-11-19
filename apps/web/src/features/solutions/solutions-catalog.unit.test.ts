@@ -20,4 +20,19 @@ describe('catálogo de soluções', () => {
     )
     expect(empty).toEqual([])
   })
+
+  test('vídeos usam um código válido do YouTube', () => {
+    const ids = SOLUTION_GROUPS.flatMap((group) => group.solutions).flatMap((solution) =>
+      solution.videoId ? [solution.videoId] : [],
+    )
+    expect(ids.length).toBeGreaterThan(0)
+    for (const id of ids) expect(id).toMatch(/^[A-Za-z0-9_-]{11}$/)
+  })
+
+  test('cada vídeo aparece em uma única solução', () => {
+    const ids = SOLUTION_GROUPS.flatMap((group) => group.solutions).flatMap((solution) =>
+      solution.videoId ? [solution.videoId] : [],
+    )
+    expect(new Set(ids).size).toBe(ids.length)
+  })
 })

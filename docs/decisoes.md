@@ -185,3 +185,26 @@ O site é publicado na mesma VM do Abanou, atrás do Caddy que já é o proxy ú
 O padrão visual aprovado passa a ficar escrito em `docs/design.md`: ritmo da página, cores, tipografia, botões, efeitos, responsividade, convenções de CSS e tom de voz. As instruções do `AGENTS.md` e de `.claude/rules/web.md` mandavam seguir o design V1, que pede estilo claro e minimalista e proíbe gradientes e glassmorphism, o oposto do visual aprovado nas decisões 016 a 020. Quem seguia essas instruções chegava a um resultado diferente do aprovado.
 
 **Regra:** `docs/design.md` vence o design V1 no visual. O V1 continua como base de identidade e conteúdo.
+
+## 023. Vídeo de apresentação no modal das soluções
+
+**Data:** 19/11/2026
+
+O modal de uma solução pode mostrar o vídeo de apresentação do módulo, abaixo da lista de funções. Basta preencher `videoId` no catálogo (`solutions-catalog.ts`) com o código do vídeo no YouTube. Soluções sem vídeo continuam como antes.
+
+Os vídeos vêm do canal oficial da MS no YouTube (`@mssistemas8611`, 27 vídeos). O canal `@mssistemas` é de outra empresa. Têm vídeo 14 das 24 soluções: Planos Funerários, Funerárias, Cemitérios, Controle de Frota, Dashboard, Cobrança Móvel, Venda de Planos com Tablet, P.O.S, Portal do Associado, ChatBot, SMS Marketing, Totem de Autoatendimento, Totem Cemitério e Painel de Velório. Quando havia dois vídeos do mesmo módulo, ficou o mais recente. Ficaram sem vídeo: Crematórios, Clínicas, Controle Financeiro, Controle de Filiais, Controle de Equipamentos, CRM, Veículos de Apoio, Venda Web, Condolência Online e QR Code Cemitério. Do canal, não entraram os institucionais, Caixa PIX, MSCLOUD, Aplicativo, Display Cemitério e Adm Camping, porque nenhum corresponde a uma solução do catálogo.
+
+O vídeo toca dentro do site, pelo componente `YoutubeVideo` de `shared/ui`. Até o clique, aparece só um botão e nada do YouTube é carregado. Depois do clique, o player abre no endereço `youtube-nocookie.com` (modo de privacidade aprimorada), já tocando. Fechar o modal tira o player da página, então o vídeo para.
+
+**Cuidado:** o YouTube é serviço de terceiros. A Política de Privacidade ganhou a seção "Conteúdo de terceiros", que cita o YouTube e o Google Maps. Esse texto também entra na revisão jurídica pendente da decisão 018.
+
+## 024. Arrastar os carrosséis
+
+**Data:** 19/11/2026
+
+Os carrosséis continuam automáticos, que é o padrão, mas agora também respondem à mão de quem visita. Nas faixas de cartões (`AutoRail`, em Soluções e na equipe da Empresa), os cartões seguem o mouse ou o dedo e, ao soltar, encaixam no cartão mais próximo. Um gesto rápido avança um cartão. O trackpad lateral e Shift com a roda do mouse também movem a faixa. Nos slides (`Carousel`, nas aberturas de Soluções e Empresa), um gesto lateral de pelo menos 40 px passa ao próximo slide ou volta ao anterior, com a animação no sentido do gesto.
+
+Depois de um arraste, a contagem automática recomeça do zero. Arrastar não abre o cartão nem segue um link: o clique que vem logo depois do gesto é descartado. A roda vertical continua rolando a página, e no celular o movimento vertical continua rolando a tela (`touch-action: pan-y`). Os gestos ficam em `shared/ui/gesture.ts`.
+
+**Substitui:** a parte da decisão 013 que tirou a troca manual dos carrosséis. Setas e botões de pausa continuam fora.
+

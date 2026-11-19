@@ -8,6 +8,7 @@ const ICON_PATHS = {
     </>
   ),
   'chevron-down': <path d="m6 9 6 6 6-6" />,
+  play: <path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.4-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5Z" />,
   menu: (
     <>
       <path d="M4 6h16" />

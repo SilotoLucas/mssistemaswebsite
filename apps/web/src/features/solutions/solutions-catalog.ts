@@ -6,6 +6,7 @@ export type Solution = {
   readonly name: string
   readonly summary: string
   readonly features: readonly string[]
+  readonly videoId?: string
 }
 
 export type SolutionGroup = {
@@ -28,6 +29,7 @@ export const SOLUTION_GROUPS: readonly SolutionGroup[] = [
         icon: 'shield',
         name: 'Planos Funerários',
         summary: 'Gestão de funerárias e planos de assistência familiar.',
+        videoId: 'PJuVVmKkwOE',
         features: [
           'Planos mensais, bimestrais, trimestrais e rateio de óbitos por faixa etária',
           'Cobrança de seguros de vida, equipamentos de convalescença, transportes e taxas',
@@ -46,6 +48,7 @@ export const SOLUTION_GROUPS: readonly SolutionGroup[] = [
         icon: 'clipboard',
         name: 'Funerárias',
         summary: 'Registro dos dados do óbito e venda de produtos e serviços.',
+        videoId: 'ymyX2M4RuA0',
         features: [
           'Documentação do óbito para registro em cartório',
           'Ordem de serviço para preparação do corpo',
@@ -60,6 +63,7 @@ export const SOLUTION_GROUPS: readonly SolutionGroup[] = [
         icon: 'pin',
         name: 'Cemitérios',
         summary: 'Parte contratual e administrativa de cadastros e cobranças.',
+        videoId: 'I4QQv2BYno4',
         features: [
           'Preparado para qualquer engenharia de jazigos',
           'Sepultamentos e exumações, com histórico por jazigo',
@@ -137,6 +141,7 @@ export const SOLUTION_GROUPS: readonly SolutionGroup[] = [
         icon: 'truck',
         name: 'Controle de Frota',
         summary: 'Veículos, motoristas, manutenções e despesas.',
+        videoId: 'zlwDWU0mPjs',
         features: [
           'Cadastro de veículos e motoristas',
           'Manutenções preventivas e corretivas',
@@ -190,6 +195,7 @@ export const SOLUTION_GROUPS: readonly SolutionGroup[] = [
         icon: 'chart',
         name: 'Dashboard',
         summary: 'Indicadores da empresa em qualquer dispositivo.',
+        videoId: 'c_0ZaxRds_o',
         features: [
           'Receitas e despesas on-line',
           'Vendas e inadimplência',
@@ -209,6 +215,7 @@ export const SOLUTION_GROUPS: readonly SolutionGroup[] = [
         icon: 'phone',
         name: 'Cobrança Móvel',
         summary: 'Cobrança a domicílio pelo smartphone.',
+        videoId: 'DOhSeDlkZSk',
         features: [
           'Cobrança e consulta por smartphone',
           'Integração com o sistema de planos',
@@ -220,6 +227,7 @@ export const SOLUTION_GROUPS: readonly SolutionGroup[] = [
         icon: 'tablet',
         name: 'Venda de Planos com Tablet',
         summary: 'Substitui as propostas em papel.',
+        videoId: 'pvFlrhU67nM',
         features: [
           'Cadastro mais ágil dos contratos',
           'Menos tempo para entregar contratos novos',
@@ -231,6 +239,7 @@ export const SOLUTION_GROUPS: readonly SolutionGroup[] = [
         icon: 'credit-card',
         name: 'P.O.S para Ponto de Recebimento',
         summary: 'Recebimento remoto em pontos de apoio ou com cobradores.',
+        videoId: '1cc8B3fjYtA',
         features: ['Baixas on-line', 'Emissão de recibos', 'Relatórios de recebimento'],
       },
     ],
@@ -246,6 +255,7 @@ export const SOLUTION_GROUPS: readonly SolutionGroup[] = [
         icon: 'user',
         name: 'Portal do Associado',
         summary: 'Serviços e informações do plano contratado.',
+        videoId: 'UzMKHQ2t2ks',
         features: ['Acesso on-line às informações do plano', 'Serviços para o associado'],
       },
       {
@@ -260,6 +270,7 @@ export const SOLUTION_GROUPS: readonly SolutionGroup[] = [
         icon: 'bot',
         name: 'ChatBot MS Sistemas',
         summary: 'Atendimento automatizado para os seus clientes.',
+        videoId: 'WfIgO2pPig0',
         features: ['Atendimento automatizado', 'Acesso por WhatsApp e QR Code'],
       },
       {
@@ -274,6 +285,7 @@ export const SOLUTION_GROUPS: readonly SolutionGroup[] = [
         icon: 'message',
         name: 'SMS Marketing',
         summary: 'Comunicação automática com os clientes por SMS.',
+        videoId: 'j2K1LwtdbEg',
         features: [
           'Boas-vindas e acompanhamento de tarefas',
           'Mensagens para aniversariantes',
@@ -295,6 +307,7 @@ export const SOLUTION_GROUPS: readonly SolutionGroup[] = [
         icon: 'monitor',
         name: 'Totem de Autoatendimento',
         summary: 'Terminal ligado ao sistema de planos.',
+        videoId: '_iHxb6AWg_4',
         features: [
           'Mesmo banco de dados do sistema de planos',
           'Mesmo fluxo do atendimento no balcão',
@@ -305,6 +318,7 @@ export const SOLUTION_GROUPS: readonly SolutionGroup[] = [
         icon: 'pin',
         name: 'Totem Cemitério',
         summary: 'Localização de jazigos para os visitantes.',
+        videoId: 'zNyJOw1fGB8',
         features: [
           'Busca do jazigo pelo nome do falecido',
           'Indicação de como chegar',
@@ -323,6 +337,7 @@ export const SOLUTION_GROUPS: readonly SolutionGroup[] = [
         icon: 'tv',
         name: 'Painel de Velório',
         summary: 'Informações na recepção e na sala velatória em TV LCD.',
+        videoId: 'o1ww6oLPWn4',
         features: [
           'Início e término do velório',
           'Horário e local do sepultamento',

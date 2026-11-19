@@ -38,6 +38,7 @@
 .ms-sol-modal__list { display: grid; gap: var(--space-3) var(--space-5); margin: 0; padding: 0; list-style: none; font-size: var(--fs-small); line-height: 22px; }
 .ms-sol-modal__list li { display: flex; gap: var(--space-2); }
 .ms-sol-modal__list .ms-icon { margin-top: 2px; color: var(--brand-deep); }
+.ms-sol-modal__video { margin-top: var(--space-5); padding-top: var(--space-5); border-top: 1px solid var(--border-subtle); }
 
 @media (min-width: 768px) {
   .ms-sg { padding-block: 88px; }

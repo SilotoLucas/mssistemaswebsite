@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test'
-import { easeOutCubic, nearestStep, shortestDelta, wrapOffset } from './rail-math'
+import { easeOutCubic, nearestStep, shortestDelta, snapAfterDrag, wrapOffset } from './rail-math'
 
 describe('trilho contínuo', () => {
   test('mantém o deslocamento dentro de um conjunto de cartões', () => {
@@ -21,5 +21,16 @@ describe('trilho contínuo', () => {
   test('começa e termina a animação nos extremos', () => {
     expect(easeOutCubic(0)).toBe(0)
     expect(easeOutCubic(1)).toBe(1)
+  })
+
+  test('ao soltar o arraste, encaixa no cartão mais próximo', () => {
+    expect(snapAfterDrag(400, 0, 368, 160)).toBe(368)
+    expect(snapAfterDrag(560, 0, 368, 160)).toBe(736)
+  })
+
+  test('um gesto rápido avança no sentido do movimento, no máximo um cartão', () => {
+    expect(snapAfterDrag(368, -1.5, 368, 160)).toBe(736)
+    expect(snapAfterDrag(368, 1.5, 368, 160)).toBe(0)
+    expect(snapAfterDrag(368, -50, 368, 160)).toBe(736)
   })
 })

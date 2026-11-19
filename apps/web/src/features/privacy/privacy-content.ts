@@ -79,6 +79,14 @@ export const POLICY_SECTIONS: readonly PolicySection[] = [
     ],
   },
   {
+    id: 'conteudo-de-terceiros',
+    title: 'Conteúdo de terceiros',
+    paragraphs: [
+      'Algumas páginas mostram conteúdo de outras empresas: o mapa da página Empresa vem do Google Maps, e os vídeos de apresentação das soluções vêm do YouTube.',
+      'O vídeo só é carregado quando você clica para assistir, no modo de privacidade aprimorada do YouTube. Ao carregar esse conteúdo, o Google pode registrar dados de navegação, conforme a política de privacidade dele.',
+    ],
+  },
+  {
     id: 'seguranca',
     title: 'Como protegemos',
     paragraphs: [

@@ -89,9 +89,11 @@ Todos já existem. Reaproveite, não crie variantes.
 | Brilho que segue o cursor | Classe `ms-spot` (e `ms-spot--dark`) no cartão, com `spotlight.ts`. |
 | Números que contam | Componente `CountUp`. |
 | Selo com ponto pulsante | `ms-eyebrow` com `ms-pulse` (disponibilidade, atendimento). |
-| Faixas que rolam | `AutoRail` e `ms-marq`. |
+| Faixas que rolam | `AutoRail` e `ms-marq`. O `AutoRail` anda sozinho e aceita arraste com mouse, dedo e trackpad. |
+| Slides | `Carousel`. Anda sozinho e troca de slide com um gesto lateral de mouse ou dedo. |
 | Telas do produto flutuando | `ms-stage` com `ms-chip` e mockups de `features/home/screens`. |
 | Conversas de WhatsApp | `ChatMockups`, com as duas conversas ilustrativas. |
+| Vídeo de apresentação | `YoutubeVideo`, com o código do vídeo. Mostra um botão e só carrega o player do YouTube no clique. |
 
 Regras de movimento:
 

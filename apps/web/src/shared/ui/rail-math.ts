@@ -9,4 +9,14 @@ export const shortestDelta = (from: number, to: number, setWidth: number): numbe
   return delta > setWidth / 2 ? delta - setWidth : delta
 }
 
+export const snapAfterDrag = (
+  offset: number,
+  velocity: number,
+  step: number,
+  flickMs: number,
+): number => {
+  const fling = Math.max(-step, Math.min(step, -velocity * flickMs))
+  return nearestStep(offset + fling, step)
+}
+
 export const easeOutCubic = (progress: number): number => 1 - (1 - progress) ** 3

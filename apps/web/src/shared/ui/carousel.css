@@ -1,6 +1,6 @@
 .ms-car { --car-line: var(--border-subtle); --car-fill: var(--brand-deep); position: relative; min-width: 0; }
 .ms-dark .ms-car, .ms-car.ms-dark { --car-line: var(--border-on-dark); --car-fill: var(--sky); }
-.ms-car__track { display: grid; min-width: 0; overflow: clip; }
+.ms-car__track { display: grid; min-width: 0; overflow: clip; touch-action: pan-y; user-select: none; }
 .ms-car__slide { grid-area: 1 / 1; min-width: 0; visibility: hidden; will-change: transform; backface-visibility: hidden; }
 .ms-car__slide.is-on { visibility: visible; }
 .ms-car__bar { pointer-events: none; }
@@ -12,4 +12,9 @@
 
 @keyframes ms-car-fill {
   to { transform: scaleX(1); }
+}
+
+@media (pointer: fine) {
+  .ms-car__track { cursor: grab; }
+  .ms-car__track:active { cursor: grabbing; }
 }
