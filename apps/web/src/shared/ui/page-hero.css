@@ -9,6 +9,7 @@
 .ms-crumb [aria-current="page"] { color: var(--white); font-weight: 600; }
 .ms-ph__car { padding: var(--space-5); background: var(--glass); border: 1px solid var(--glass-border); border-radius: 28px; backdrop-filter: blur(14px); box-shadow: var(--shadow-float); }
 .ms-ph__car .ms-car__bar { margin-top: var(--space-5); }
+.ms-ph__extra { position: relative; margin-top: var(--space-7); }
 
 @media (min-width: 768px) {
   .ms-ph { padding-block: calc(var(--header-height) + 56px) 112px; }

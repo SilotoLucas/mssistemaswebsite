@@ -1,4 +1,4 @@
-import type { IconName } from '../../shared/ui/icon'
+import type { IconName } from '../ui/icon'
 
 export type Solution = {
   readonly slug: string

@@ -3,10 +3,10 @@ import { err, ok, type Result } from '../result'
 export const DEMO_REQUEST_FIELDS = [
   'name',
   'company',
-  'segment',
   'cityState',
   'whatsapp',
   'email',
+  'segment',
   'privacyAccepted',
 ] as const
 
@@ -19,6 +19,7 @@ export type DemoRequestDraft = {
   readonly cityState: string
   readonly whatsapp: string
   readonly email: string
+  readonly interests: readonly string[]
   readonly privacyAccepted: boolean
 }
 
@@ -78,6 +79,14 @@ export const validateDemoRequest = (
   if (Object.keys(errors).length > 0 || !draft.privacyAccepted) return err(errors)
   return ok({ ...draft, privacyAccepted: true })
 }
+
+export const toggleInterest = (
+  interests: readonly string[],
+  interest: string,
+): readonly string[] =>
+  interests.includes(interest)
+    ? interests.filter((item) => item !== interest)
+    : [...interests, interest]
 
 export const formatWhatsapp = (value: string): string => {
   const digits = digitsOf(value).slice(0, MOBILE_DIGITS)

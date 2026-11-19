@@ -1,5 +1,5 @@
 import { COMPANY_PHONES } from '../../shared/config/company-info'
-import { SUPPORT_URL, WHATSAPP_LABEL } from '../../shared/config/site-config'
+import { SUPPORT_URL, WHATSAPP_LABEL, whatsappMessageHref } from '../../shared/config/site-config'
 import { Aurora } from '../../shared/ui/aurora'
 import { ChatMockups } from '../../shared/ui/chat-mockup'
 import { Icon } from '../../shared/ui/icon'
@@ -122,7 +122,10 @@ export const SupportPage = () => (
                   Baixar<span className="ms-sr"> {item.name} (abre o site do fabricante)</span>
                 </SiteLink>
               ) : (
-                <SiteLink className="ms-btn ms-btn--secondary ms-btn--sm" href="/contato">
+                <SiteLink
+                  className="ms-btn ms-btn--secondary ms-btn--sm"
+                  href={whatsappMessageHref(`Olá! Preciso do instalador do ${item.name}.`)}
+                >
                   Falar com consultor<span className="ms-sr"> sobre {item.name}</span>
                 </SiteLink>
               )}

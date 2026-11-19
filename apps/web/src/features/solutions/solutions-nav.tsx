@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
+import { SOLUTION_GROUPS } from '../../shared/config/solutions-catalog'
 import { SiteLink } from '../../shared/ui/site-link'
-import { SOLUTION_GROUPS } from './solutions-catalog'
 import { useActiveGroup } from './use-active-group'
 
 const GROUP_SLUGS = SOLUTION_GROUPS.map((group) => group.slug)

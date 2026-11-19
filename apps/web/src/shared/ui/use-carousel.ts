@@ -9,12 +9,34 @@ const SLIDE_EASING = 'cubic-bezier(0.22, 0.8, 0.2, 1)'
 
 type Press = { readonly id: number; readonly x: number; readonly y: number }
 
+const FADE_SHIFT = 0.06
+const FADE_SCALE = 0.97
+
+export type CarouselTransition = 'slide' | 'fade'
+
 const slideFrames = (from: number, to: number): Keyframe[] => [
   { transform: `translate3d(${from}%, 0, 0)`, visibility: 'visible' },
   { transform: `translate3d(${to}%, 0, 0)`, visibility: 'visible' },
 ]
 
-export const useCarousel = (count: number, intervalMs: number) => {
+const fadeFrames = (from: number, to: number): Keyframe[] => [
+  {
+    opacity: from === 0 ? 1 : 0,
+    transform: `translate3d(${from * FADE_SHIFT}%, 0, 0) scale(${from === 0 ? 1 : FADE_SCALE})`,
+    visibility: 'visible',
+  },
+  {
+    opacity: to === 0 ? 1 : 0,
+    transform: `translate3d(${to * FADE_SHIFT}%, 0, 0) scale(${to === 0 ? 1 : FADE_SCALE})`,
+    visibility: 'visible',
+  },
+]
+
+export const useCarousel = (
+  count: number,
+  intervalMs: number,
+  transition: CarouselTransition = 'slide',
+) => {
   const [index, setIndex] = useState(0)
   const [held, setHeld] = useState(false)
   const rootRef = useRef<HTMLElement>(null)
@@ -40,9 +62,10 @@ export const useCarousel = (count: number, intervalMs: number) => {
     if (!slides) return
     const timing = { duration: SLIDE_MS, easing: SLIDE_EASING }
     const side = direction.current * 100
-    slides[index]?.animate(slideFrames(side, 0), timing)
-    slides[leaving]?.animate(slideFrames(0, -side), timing)
-  }, [index])
+    const frames = transition === 'fade' ? fadeFrames : slideFrames
+    slides[index]?.animate(frames(side, 0), timing)
+    slides[leaving]?.animate(frames(0, -side), timing)
+  }, [index, transition])
 
   useEffect(() => {
     if (held) return

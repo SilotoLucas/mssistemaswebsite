@@ -1,3 +1,4 @@
+import { SERVED_STATE_COUNT } from '../../../shared/config/brazil-states'
 import { CountUp } from '../../../shared/ui/count-up'
 import { Reveal } from '../../../shared/ui/reveal'
 
@@ -9,7 +10,7 @@ type ProofItem = {
 
 const PROOF_ITEMS: readonly ProofItem[] = [
   { label: 'atuação no setor', target: null, prefix: '' },
-  { label: 'estados atendidos', target: 18, prefix: '' },
+  { label: 'estados atendidos', target: SERVED_STATE_COUNT, prefix: '' },
   { label: 'cidades', target: 300, prefix: '+' },
   { label: 'soluções integradas', target: 24, prefix: '' },
 ]

@@ -1,17 +1,8 @@
-import { Aurora } from '../../../shared/ui/aurora'
+import dashboardShot from '../../../assets/ms-dashboard.webp'
+import { DASHBOARD_FEATURES } from '../../../shared/config/small-business'
 import { Icon } from '../../../shared/ui/icon'
 import { Reveal } from '../../../shared/ui/reveal'
 import { ClientAppScreen } from '../screens/client-app-screen'
-import { ClientAreaScreen } from '../screens/client-area-screen'
-
-const AREA_FEATURES = [
-  'Dados cadastrais em dia',
-  'Dependentes',
-  'Boletos e pagamentos',
-  'Clube de descontos',
-  'Carteirinha virtual',
-  'Atendimento pelo WhatsApp',
-] as const
 
 const APP_FEATURES = [
   'Carteirinha digital',
@@ -44,35 +35,41 @@ const FeatureCard = ({ title, caption, items }: FeatureCardProps) => (
   </div>
 )
 
-export const ClientPortalSection = () => (
-  <section className="ms-por ms-dark" id="area-do-cliente">
-    <Aurora />
+export const DashboardAppSection = () => (
+  <section className="ms-por ms-por--alt ms-dark" id="dashboard-e-app">
     <div className="ms-wrap">
       <Reveal className="ms-por__head">
-        <p className="ms-eyebrow">Área do Cliente e App</p>
+        <p className="ms-eyebrow">MS Dashboard e App do Cliente</p>
         <h2>
-          Seu associado com <span className="ms-grad">tudo à mão</span>
+          Os números para você, <span className="ms-grad">o app para o seu associado</span>
         </h2>
         <p className="ms-por__i">
-          Com a Área do Cliente e o App do Cliente, sua empresa oferece mais praticidade e menos
-          burocracia.
+          O gestor acompanha a empresa pelo MS Dashboard, e o associado resolve tudo pelo App do
+          Cliente que a sua empresa oferece.
         </p>
       </Reveal>
       <Reveal className="ms-por__stage">
         <div className="ms-por__glow" aria-hidden="true" />
         <div className="ms-shot ms-shot--p">
-          <ClientAreaScreen />
+          <img
+            className="ms-dbx__shot"
+            src={dashboardShot}
+            alt="Tela do MS Dashboard com os gráficos de fluxo previsto e realizado e de inadimplência"
+            width={1350}
+            height={608}
+            loading="lazy"
+          />
         </div>
-        <div className="ms-shot ms-shot--a">
+        <div className="ms-shot ms-shot--a" aria-hidden="true">
           <ClientAppScreen />
         </div>
       </Reveal>
       <div className="ms-por__cards">
         <Reveal>
-          <FeatureCard title="Área do Cliente" caption="No computador" items={AREA_FEATURES} />
+          <FeatureCard title="MS Dashboard" caption="Para o gestor" items={DASHBOARD_FEATURES} />
         </Reveal>
         <Reveal delay={120}>
-          <FeatureCard title="App do Cliente" caption="No celular" items={APP_FEATURES} />
+          <FeatureCard title="App do Cliente" caption="Para o seu associado" items={APP_FEATURES} />
         </Reveal>
       </div>
     </div>

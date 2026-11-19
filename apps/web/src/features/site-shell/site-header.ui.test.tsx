@@ -54,7 +54,7 @@ describe('cabeçalho', () => {
     expect(isHidden(document.getElementById('ms-drawer'))).toBe(true)
   })
 
-  test('abre o menu de sistemas com os três acessos e fecha ao clicar fora', async () => {
+  test('abre o menu de sistemas com os acessos e fecha ao clicar fora', async () => {
     const user = userEvent.setup()
     renderWithRouter(<SiteHeader />)
     const trigger = screen.getByRole('button', { name: 'Acessar sistemas' })

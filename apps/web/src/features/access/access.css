@@ -9,6 +9,6 @@
 .ms-ac-card .ms-btn { align-self: end; }
 
 @media (min-width: 900px) {
-  .ms-page .ms-ac-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ms-page .ms-ac-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
   .ms-ac-card { grid-template-rows: auto auto auto 1fr auto; }
 }

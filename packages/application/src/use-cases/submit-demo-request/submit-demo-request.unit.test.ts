@@ -10,6 +10,7 @@ const draft: DemoRequestDraft = {
   cityState: 'Botucatu/SP',
   whatsapp: '(14) 99999-8888',
   email: 'contato@exemplo.com.br',
+  interests: [],
   privacyAccepted: true,
 }
 

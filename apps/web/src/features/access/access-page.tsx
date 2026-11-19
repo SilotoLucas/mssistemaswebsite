@@ -10,10 +10,7 @@ import './access.css'
 export const AccessPage = () => (
   <main>
     <title>Acessar sistemas | MS Sistemas</title>
-    <meta
-      name="description"
-      content="Escolha o acesso certo: MS Suporte, Portal do Associado ou MS Dashboard."
-    />
+    <meta name="description" content="Escolha o acesso certo: MS Suporte ou MS Dashboard." />
     <PageHero
       crumb="Acessar sistemas"
       title="Escolha o acesso certo"

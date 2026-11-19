@@ -19,16 +19,6 @@ export const ACCESS_GUIDES: readonly AccessGuide[] = [
     ],
   },
   {
-    name: 'Portal do Associado',
-    icon: 'user',
-    audience: 'Para o associado do plano contratado na sua funerária.',
-    uses: [
-      'Consultar dados do plano',
-      'Acompanhar serviços do contrato',
-      'Acessar informações do associado',
-    ],
-  },
-  {
     name: 'MS Dashboard',
     icon: 'chart',
     audience: 'Para gestores que acompanham os números da empresa.',

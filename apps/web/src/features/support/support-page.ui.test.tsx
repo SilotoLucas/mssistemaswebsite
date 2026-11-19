@@ -31,6 +31,7 @@ describe('página de suporte', () => {
     const external = within(section)
       .getAllByRole('link')
       .filter((link) => link.getAttribute('href')?.startsWith('http'))
+      .filter((link) => !link.getAttribute('href')?.startsWith(WHATSAPP_HREF))
     expect(external).toHaveLength(SUPPORT_DOWNLOADS.filter((item) => item.href).length)
     for (const link of external) {
       expect(link.getAttribute('href')).toStartWith('https://')
@@ -39,13 +40,15 @@ describe('página de suporte', () => {
     }
   })
 
-  test('ferramentas sem link público mandam falar com um consultor', () => {
+  test('ferramentas sem link público mandam falar com um consultor no WhatsApp', () => {
     renderWithRouter(<SupportPage />)
     const section = document.getElementById('downloads') as HTMLElement
     const pending = SUPPORT_DOWNLOADS.filter((item) => item.href === null)
-    expect(within(section).getAllByRole('link', { name: /Falar com consultor/ })).toHaveLength(
-      pending.length,
-    )
+    const consultants = within(section).getAllByRole('link', { name: /Falar com consultor/ })
+    expect(consultants).toHaveLength(pending.length)
+    for (const link of consultants) {
+      expect(link.getAttribute('href')).toStartWith(`${WHATSAPP_HREF}?text=`)
+    }
   })
 
   test('não oferece ferramentas descontinuadas', () => {

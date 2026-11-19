@@ -134,7 +134,7 @@ A pedido do dono do projeto, o visual passa a ser mais ousado, com referência e
 
 **Data:** 18/11/2026
 
-A abertura da home deixa de ser um carrossel de quatro slides. Ela passa a ser uma cena única, com o texto principal e os produtos à vista, porque o carrossel escondia o mockup e repetia conteúdo que já tem seção própria. Os carrosséis de Soluções e Empresa continuam como estão. A ordem da home passa a ser: abertura, números, módulos, segmentos, Área do Cliente e App, ecossistema, atendimento, resultados, presença e demonstração.
+A abertura da home deixa de ser um carrossel de quatro slides. Ela passa a ser uma cena única, com o texto principal e os produtos à vista, porque o carrossel escondia o mockup e repetia conteúdo que já tem seção própria. Os carrosséis de Soluções e Empresa continuam como estão. A ordem da home passa a ser: abertura, números, módulos, segmentos, Área do Cliente e App (trocada pelo SmallBusiness na decisão 030), ecossistema, atendimento, resultados, presença e demonstração.
 
 **Substitui:** a parte da decisão 011 que trata do carrossel da abertura da home.
 
@@ -228,3 +228,108 @@ Os originais, as versões transparentes em resolução cheia e o ícone de 512 p
 
 A pedido do dono do projeto, os parceiros (Granito Pagamentos, Rede Parcerias e iugu) saíram do site: do bloco da tela Empresa e do rodapé. O botão flutuante do WhatsApp, presente em todas as telas, passa a dizer "Fale conosco". Os links "Falar com consultor" da área de downloads do Suporte continuam, porque pedem o instalador a um consultor.
 
+
+## 027. Tela de vídeos
+
+**Data:** 19/11/2026
+
+A pedido do dono do projeto, o site ganha a tela `/videos`, no menu entre Soluções e Suporte. Ela reúne os 14 vídeos de apresentação que já aparecem nos modais de Soluções. O dado vem do catálogo de soluções: um módulo novo com `videoId` entra na tela sozinho, desde que ganhe duração e capa em `features/videos/video-library.ts`. Um teste avisa se faltar.
+
+- Palco: player grande na abertura escura, com a capa do vídeo desfocada atrás, como brilho de ambiente.
+- Fila: lista com capa, duração e área. Escolher um vídeo na fila já começa a tocar. Os filtros por grupo ficam num carrossel de uma linha, que se move com o mouse, o dedo ou as setas das pontas. Cada seta só aparece quando há mais filtros daquele lado, e o filtro escolhido vai para o centro. As setas são uma exceção à decisão 024, pedida pelo dono do projeto: o carrossel não anda sozinho, e sem as setas os filtros pareciam cortados.
+- Ações: tirar dúvidas no WhatsApp com a mensagem pronta, ver as funções do sistema (abre o modal em Soluções), próximo vídeo, copiar o link e modo cinema no computador.
+- Link próprio: `/videos?video=<slug>` abre direto naquele vídeo, para o consultor mandar ao cliente. O modal de Soluções ganhou o link "Ver todos os vídeos".
+
+As capas foram baixadas do YouTube, cortadas em 16:9 e ficam em `apps/web/src/assets/videos`. Assim, nada do Google carrega antes do clique no play. As durações e o total de minutos vêm das páginas dos vídeos no canal, sem arredondar para cima.
+
+## 028. Clientes e Contato ocultas, menu "Vídeos do sistema" e acessos sem o Portal
+
+**Data:** 19/11/2026
+
+A pedido do dono do projeto:
+
+- As telas Clientes e Contato saem do ar por enquanto. A lista `HIDDEN_PAGES`, em `shared/config/site-config.ts`, tira as duas do menu e do rodapé, e quem abre `/clientes` ou `/contato` volta para a página inicial. O código e os testes das telas continuam no projeto. Para trazer uma delas de volta, basta tirá-la da lista.
+- Com o Contato oculto, o botão "Solicitar demonstração" do cabeçalho leva ao formulário da página inicial (`/#demonstracao`). Nas aberturas internas, o botão leva ao formulário da própria página. Os links "Falar com consultor" dos downloads do Suporte abrem o WhatsApp com a mensagem pronta.
+- O item do menu passa a se chamar "Vídeos do sistema".
+- O Portal do Associado sai dos acessos aos sistemas (menu "Acessar sistemas", rodapé e tela Acessar sistemas). O módulo Portal do Associado continua em Soluções, porque é um produto que a MS vende.
+
+## 029. Abertura da home com vitrine em slides e o SmallBusiness
+
+**Data:** 19/11/2026
+
+A pedido do dono do projeto, o lado esquerdo da abertura da home fica fixo (título, texto, botões e garantias), e o lado direito vira uma vitrine em slides com transição suave. São quatro slides:
+
+- **Área do Cliente:** a tela no navegador, para o associado ver boletos, dependentes e cadastro.
+- **App do Cliente:** o celular em destaque, apresentado como uma ferramenta que o cliente da MS oferece aos associados dele.
+- **MS Dashboard:** um print real do painel, com o nome do cliente trocado por "MS SISTEMAS" na mesma fonte e cor do sistema, com o menu aberto e os dois gráficos. O print aparece inteiro, sem cortes e sem nada por cima: os chips ficam acima e abaixo da tela. A imagem fica na resolução original, sem redução, para o texto continuar nítido. A versão editada fica em `docs/referencias/dashboard`. O print original, com o nome do cliente, não foi guardado no projeto.
+- **SmallBusiness:** o pacote compacto do sistema da MS, hospedado na nuvem, com os módulos Plano, Funerária, Cobrança e Caixa, começo rápido e bom custo-benefício. O link "Conhecer o SmallBusiness" abre o WhatsApp com a mensagem pronta.
+
+A vitrine usa o `Carousel` com a nova opção `transition="fade"`, em que um slide se funde no outro com um leve deslize, em vez de correr de lado. Ela continua automática (7 segundos por slide) e aceita o gesto de arrastar, como os outros carrosséis. Com movimento reduzido, a troca acontece sem animação.
+
+A logo do SmallBusiness recebida tinha os cantos pretos. Eles foram deixados transparentes. O original e a versão transparente ficam em `docs/referencias/smallbusiness`.
+
+**Substitui:** a parte da decisão 017 que tirou o carrossel da abertura da home. Agora só o lado direito muda, e o texto principal fica sempre à vista.
+
+## 030. Seção SmallBusiness e Dashboard na home
+
+**Data:** 19/11/2026
+
+A pedido do dono do projeto, a seção "Área do Cliente e App" da home sai. No lugar dela entra a seção SmallBusiness (`#smallbusiness`), com o pacote compacto como foco principal:
+
+- Logo do SmallBusiness em destaque, com os módulos incluídos: Plano, Funerária, Cobrança e Caixa.
+- Selos: hospedado na nuvem, até 5 máquinas, começo rápido e ótimo custo-benefício.
+- Botão "Quero conhecer o SmallBusiness", que abre o WhatsApp com a mensagem pronta.
+
+Logo depois vem uma seção própria, "MS Dashboard e App do Cliente" (`#dashboard-e-app`), separada por uma linha e um fundo levemente mais claro. Ela segue o modelo da antiga seção da Área do Cliente: o print do Dashboard ao lado do App do Cliente, sem um cobrir o outro, e dois cards embaixo. O card "Para o gestor" traz as funções do Dashboard que já estão em Soluções, e o card "Para o seu associado" traz as do App.
+
+**Regra do pacote:** o SmallBusiness pode ser instalado em até 5 máquinas. Esse número fica em `SMALL_BUSINESS_MAX_MACHINES`, em `features/home/small-business-content.ts`, que também alimenta o slide da abertura.
+
+A Área do Cliente continua só nos slides da abertura da home.
+
+**Substitui:** a seção "Área do Cliente e App" da decisão 017.
+
+## 031. Vitrine sem a Área do Cliente e interesses no pedido de demonstração
+
+**Data:** 19/11/2026
+
+A pedido do dono do projeto:
+
+- **Vitrine da abertura:** o slide da Área do Cliente saiu. Ficaram três slides: App do Cliente, MS Dashboard e SmallBusiness. A tela de exemplo da Área do Cliente (`client-area-screen.tsx`) foi apagada, porque não tinha mais uso.
+- **Slide do Dashboard:** o chip "Tablet, celular ou notebook" saiu. Entraram quatro chips com os painéis reais do sistema: Fluxo previsto x realizado, Inadimplência, Vendas no período e Contas a receber. No celular aparecem dois, para não cobrir a tela.
+- **Formulário de demonstração:** novo campo opcional "Quais soluções interessam?". O SmallBusiness vem primeiro, em destaque. Depois vêm todos os módulos do catálogo, agrupados pelas mesmas áreas de Soluções, em grupos que abrem e fecham. Cada grupo mostra quantos módulos foram marcados. As escolhas vão no pedido, no campo `interests`. A função pura `toggleInterest`, no domínio, marca e desmarca cada item.
+
+Para o formulário usar o catálogo sem criar um ciclo entre as features Soluções e Demonstração, o catálogo foi movido para `shared/config/solutions-catalog.ts`. Os dados do SmallBusiness foram para `shared/config/small-business.ts`.
+
+## 032. Santa Catarina atendida e vitrine mais lenta
+
+**Data:** 19/11/2026
+
+A pedido do dono do projeto, Santa Catarina passa a constar como estado atendido. O total de estados deixou de ser escrito à mão. Agora ele vem do mapa (`SERVED_STATE_COUNT`, em `shared/config/brazil-states.ts`) e aparece igual na home, na faixa de números, na tela Empresa e nos testes: 19 estados.
+
+SC entrou na lista de clientes (`clients-data.ts`) sem cidades, porque elas ainda não foram informadas. A tela Clientes está oculta (decisão 028). Antes de publicá-la de novo, falta a lista de cidades de SC.
+
+Cada slide da vitrine da abertura passa a ficar 11 segundos na tela, em vez de 7, para dar tempo de ler os textos.
+
+## 033. Tela própria para o pedido de demonstração
+
+**Data:** 19/11/2026
+
+A pedido do dono do projeto, o formulário de demonstração saiu das outras telas e ganhou uma tela própria: `/demonstracao`. Ela parte do `PageHero`: à esquerda ficam o título, os três pontos e o WhatsApp para quem prefere falar agora; à direita fica o formulário completo, com a escolha de interesses. O botão flutuante do WhatsApp não aparece nessa tela, como já acontecia no Contato, para não cobrir o botão de envio.
+
+O componente `DemoRequestSection`, que continua no fim das outras telas, virou um atalho: mantém o texto e os pontos, e no lugar do formulário mostra um card com "Solicitar demonstração" (leva para `/demonstracao`) e "Chamar no WhatsApp".
+
+Todos os botões "Solicitar demonstração" (cabeçalho, abertura da home, aberturas internas, atalho e tela de vídeos) levam para `/demonstracao`, pelo `DEMO_HREF` de `shared/config/site-config.ts`.
+
+**Substitui:** a parte da decisão 028 que levava o botão do cabeçalho ao formulário da home.
+
+## 034. Segmentos do levantamento comercial no formulário
+
+**Data:** 19/11/2026
+
+A pedido do dono do projeto, o formulário de demonstração usa os segmentos do levantamento comercial por telefone da MS (documento interno, que não foi copiado para o site). Dele vieram dois segmentos que faltavam: **Clínica** e **Material Convalescente**.
+
+- **Segmento da empresa:** a lista nativa do navegador virou um grupo de botões (um só marcado), com Planos Funerários, Funerária, Cemitério, Crematório, Clínica, Material Convalescente e Outro.
+- **Quais soluções interessam?** Primeiro vem o SmallBusiness. Logo abaixo, em "Sistema por segmento", aparecem caixas de seleção à mostra: Plano, Funerária, Cemitério, Crematório, Clínica e Material Convalescente. Depois, em "Outros módulos", vêm as demais áreas de Soluções em grupos que abrem e fecham, cada um com o ícone da área e o total marcado.
+- A ordem dos campos passou a ser Nome, Empresa, Cidade/UF, WhatsApp, E-mail e Segmento. O foco do erro segue a mesma ordem (`DEMO_REQUEST_FIELDS`).
+
+As opções ficam em `features/demo-request/demo-options.ts`.

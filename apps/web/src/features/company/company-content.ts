@@ -1,3 +1,4 @@
+import { SERVED_STATE_COUNT } from '../../shared/config/brazil-states'
 import type { IconName } from '../../shared/ui/icon'
 
 type IconLabel = { readonly name: string; readonly icon: IconName }
@@ -15,7 +16,7 @@ export const COMPANY_MILESTONES = [
     text: 'A MS nasce com foco na automação de funerárias, cemitérios e crematórios.',
   },
   {
-    mark: '18',
+    mark: String(SERVED_STATE_COUNT),
     title: 'Estados atendidos',
     text: 'Clientes do Rio Grande do Sul ao Amazonas.',
   },

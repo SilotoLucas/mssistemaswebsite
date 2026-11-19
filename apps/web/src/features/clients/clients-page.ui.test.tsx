@@ -2,6 +2,7 @@ import { describe, expect, test } from 'bun:test'
 import { screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { renderWithRouter } from '../../test/render-with-router'
+import { CLIENT_STATES } from './clients-data'
 import { ClientsPage } from './clients-page'
 
 const grid = () => document.querySelector('.ms-cl-grid') as HTMLElement
@@ -9,7 +10,7 @@ const grid = () => document.querySelector('.ms-cl-grid') as HTMLElement
 describe('página de clientes', () => {
   test('lista todos os estados no início', () => {
     renderWithRouter(<ClientsPage />)
-    expect(within(grid()).getAllByRole('heading', { level: 2 })).toHaveLength(18)
+    expect(within(grid()).getAllByRole('heading', { level: 2 })).toHaveLength(CLIENT_STATES.length)
   })
 
   test('a busca filtra as cidades e atualiza o resumo', async () => {
@@ -27,7 +28,7 @@ describe('página de clientes', () => {
     await user.type(screen.getByLabelText('Buscar cidade ou estado'), 'xyzxyz')
     expect(screen.getByText(/Não encontramos essa cidade/)).toBeDefined()
     await user.click(screen.getByRole('button', { name: 'Limpar busca' }))
-    expect(within(grid()).getAllByRole('heading', { level: 2 })).toHaveLength(18)
+    expect(within(grid()).getAllByRole('heading', { level: 2 })).toHaveLength(CLIENT_STATES.length)
   })
 
   test('o filtro de região marca o botão ativo e reduz os estados', async () => {
@@ -37,6 +38,8 @@ describe('página de clientes', () => {
     expect(button.getAttribute('aria-pressed')).toBe('false')
     await user.click(button)
     expect(button.getAttribute('aria-pressed')).toBe('true')
-    expect(within(grid()).getAllByRole('heading', { level: 2 }).length).toBeLessThan(18)
+    expect(within(grid()).getAllByRole('heading', { level: 2 }).length).toBeLessThan(
+      CLIENT_STATES.length,
+    )
   })
 })

@@ -1,13 +1,13 @@
 import { describe, expect, test } from 'bun:test'
-import { STATE_TILES } from '../../shared/config/brazil-states'
+import { SERVED_STATE_COUNT, STATE_TILES } from '../../shared/config/brazil-states'
 import { normalizeText } from './client-search'
 import { CLIENT_STATES } from './clients-data'
 
 describe('dados de clientes', () => {
-  test('cobre 18 estados, sem repetir', () => {
+  test('cobre os estados atendidos do mapa, sem repetir', () => {
     const codes = CLIENT_STATES.map((state) => state.code)
-    expect(codes).toHaveLength(18)
-    expect(new Set(codes).size).toBe(18)
+    expect(codes).toHaveLength(SERVED_STATE_COUNT)
+    expect(new Set(codes).size).toBe(SERVED_STATE_COUNT)
   })
 
   test('os estados atendidos coincidem com o mapa da home', () => {

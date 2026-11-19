@@ -1,4 +1,4 @@
-import { NAVIGATION } from '../../shared/config/site-config'
+import { DEMO_HREF, NAVIGATION } from '../../shared/config/site-config'
 import { BrandMark } from '../../shared/ui/brand-mark'
 import { Icon } from '../../shared/ui/icon'
 import { SiteLink } from '../../shared/ui/site-link'
@@ -51,7 +51,7 @@ export const SiteHeader = () => {
                 <SystemLinks />
               </div>
             </div>
-            <SiteLink className="ms-btn ms-btn--primary ms-btn--sm" href="/contato#demonstracao">
+            <SiteLink className="ms-btn ms-btn--primary ms-btn--sm" href={DEMO_HREF}>
               <span className="ms-cta-full">Solicitar demonstração</span>
               <span className="ms-cta-short">Demonstração</span>
             </SiteLink>

@@ -1,9 +1,9 @@
 import { describe, expect, test } from 'bun:test'
 import { screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { SOLUTION_GROUPS } from '../../shared/config/solutions-catalog'
 import { renderWithRouter } from '../../test/render-with-router'
 import { SolutionRail } from './solution-rail'
-import { SOLUTION_GROUPS } from './solutions-catalog'
 
 const segmentGroup = SOLUTION_GROUPS[0]
 

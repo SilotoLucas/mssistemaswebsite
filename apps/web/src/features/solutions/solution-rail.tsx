@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
+import type { SolutionGroup } from '../../shared/config/solutions-catalog'
 import { AutoRail } from '../../shared/ui/auto-rail'
 import { Icon } from '../../shared/ui/icon'
 import { Modal } from '../../shared/ui/modal'
+import { TextLink } from '../../shared/ui/text-link'
 import { YoutubeVideo } from '../../shared/ui/youtube-video'
 import { SolutionCard } from './solution-card'
-import type { SolutionGroup } from './solutions-catalog'
 
 export const SolutionRail = ({ group }: { readonly group: SolutionGroup }) => {
   const { hash } = useLocation()
@@ -71,6 +72,7 @@ export const SolutionRail = ({ group }: { readonly group: SolutionGroup }) => {
         {open && selected?.videoId ? (
           <div className="ms-sol-modal__video">
             <YoutubeVideo key={selected.slug} videoId={selected.videoId} title={selected.name} />
+            <TextLink label="Ver todos os vídeos" href={`/videos?video=${selected.slug}`} />
           </div>
         ) : null}
       </Modal>

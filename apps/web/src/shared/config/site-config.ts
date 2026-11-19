@@ -9,24 +9,31 @@ export type SystemAccess = {
   readonly href: string
 }
 
-export const NAVIGATION: readonly NavigationLink[] = [
+export const HIDDEN_PAGES: readonly string[] = ['/clientes', '/contato']
+
+export const isPagePublished = (path: string): boolean => !HIDDEN_PAGES.includes(path)
+
+export const DEMO_HREF = '/demonstracao'
+
+const ALL_PAGES: readonly NavigationLink[] = [
+  { label: 'Início', href: '/' },
   { label: 'Soluções', href: '/solucoes' },
+  { label: 'Vídeos do sistema', href: '/videos' },
   { label: 'Suporte', href: '/suporte' },
   { label: 'Clientes', href: '/clientes' },
   { label: 'Empresa', href: '/empresa' },
   { label: 'Contato', href: '/contato' },
 ]
 
+export const NAVIGATION: readonly NavigationLink[] = ALL_PAGES.filter((link) =>
+  isPagePublished(link.href),
+)
+
 export const SYSTEM_ACCESS: readonly SystemAccess[] = [
   {
     name: 'MS Suporte',
     description: 'Chamados e atendimento',
     href: 'https://suporte.mssistemas.com.br',
-  },
-  {
-    name: 'Portal do Associado',
-    description: 'Serviços do plano contratado',
-    href: 'https://apps.mssistemas.com.br/areacliente',
   },
   {
     name: 'MS Dashboard',
@@ -42,3 +49,6 @@ const whatsappNumber: string = import.meta.env.VITE_WHATSAPP_NUMBER || COMPANY_W
 export const WHATSAPP_HREF = `https://wa.me/55${whatsappNumber}`
 
 export const WHATSAPP_LABEL = formatWhatsapp(whatsappNumber)
+
+export const whatsappMessageHref = (message: string): string =>
+  `${WHATSAPP_HREF}?text=${encodeURIComponent(message)}`

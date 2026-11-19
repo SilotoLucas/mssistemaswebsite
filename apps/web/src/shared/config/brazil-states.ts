@@ -32,6 +32,8 @@ export const STATE_TILES: readonly StateTile[] = [
   { code: 'PR', name: 'Paraná', column: 3, row: 6, served: true },
   { code: 'SP', name: 'São Paulo', column: 4, row: 6, served: true },
   { code: 'RJ', name: 'Rio de Janeiro', column: 5, row: 6, served: true },
-  { code: 'SC', name: 'Santa Catarina', column: 3, row: 7, served: false },
+  { code: 'SC', name: 'Santa Catarina', column: 3, row: 7, served: true },
   { code: 'RS', name: 'Rio Grande do Sul', column: 3, row: 8, served: true },
 ]
+
+export const SERVED_STATE_COUNT = STATE_TILES.filter((tile) => tile.served).length

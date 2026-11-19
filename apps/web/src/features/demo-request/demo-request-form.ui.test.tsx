@@ -9,7 +9,7 @@ const SEND_TIMEOUT_MS = 4000
 const fillValidForm = async (user: ReturnType<typeof userEvent.setup>) => {
   await user.type(screen.getByLabelText('Nome'), 'Maria Souza')
   await user.type(screen.getByLabelText('Empresa'), 'Funerária Exemplo')
-  await user.selectOptions(screen.getByLabelText('Segmento'), 'Funerária')
+  await user.click(screen.getByRole('radio', { name: 'Funerária' }))
   await user.type(screen.getByLabelText('Cidade/UF'), 'Botucatu/SP')
   await user.type(screen.getByLabelText('WhatsApp'), '14999998888')
   await user.type(screen.getByLabelText('E-mail'), 'maria@exemplo.com.br')

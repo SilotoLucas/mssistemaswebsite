@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { DEMO_HREF } from '../config/site-config'
 import { Aurora } from './aurora'
 import './page-hero.css'
 import { SiteLink } from './site-link'
@@ -11,6 +12,7 @@ type PageHeroProps = {
   readonly aside?: ReactNode
   readonly showActions?: boolean
   readonly actions?: ReactNode
+  readonly children?: ReactNode
 }
 
 export const PageHero = ({
@@ -20,6 +22,7 @@ export const PageHero = ({
   aside,
   showActions = true,
   actions,
+  children,
 }: PageHeroProps) => (
   <section className="ms-ph ms-dark">
     <Aurora />
@@ -35,7 +38,7 @@ export const PageHero = ({
         {actions ? <div className="ms-ph__cta">{actions}</div> : null}
         {showActions && !actions ? (
           <div className="ms-ph__cta">
-            <SiteLink className="ms-btn ms-btn--primary ms-btn--lg" href="/contato#demonstracao">
+            <SiteLink className="ms-btn ms-btn--primary ms-btn--lg" href={DEMO_HREF}>
               Solicitar demonstração
             </SiteLink>
             <WhatsappButton />
@@ -44,5 +47,6 @@ export const PageHero = ({
       </div>
       {aside}
     </div>
+    {children ? <div className="ms-wrap ms-ph__extra">{children}</div> : null}
   </section>
 )

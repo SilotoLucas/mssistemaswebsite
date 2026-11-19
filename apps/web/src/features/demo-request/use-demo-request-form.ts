@@ -5,6 +5,7 @@ import {
   type DemoRequestErrors,
   type DemoRequestField,
   formatWhatsapp,
+  toggleInterest,
   validateDemoRequest,
   validateDemoRequestField,
 } from '@ms/domain'
@@ -20,6 +21,7 @@ const EMPTY_DRAFT: DemoRequestDraft = {
   cityState: '',
   whatsapp: '',
   email: '',
+  interests: [],
   privacyAccepted: false,
 }
 
@@ -72,11 +74,15 @@ export const useDemoRequestForm = () => {
     setStatus(result.ok ? 'sent' : 'failed')
   }
 
+  const toggle = (interest: string) => {
+    setDraft((current) => ({ ...current, interests: toggleInterest(current.interests, interest) }))
+  }
+
   const reset = () => {
     setDraft(EMPTY_DRAFT)
     setErrors({})
     setStatus('editing')
   }
 
-  return { draft, errors, status, change, blur, submit, reset }
+  return { draft, errors, status, change, blur, toggle, submit, reset }
 }

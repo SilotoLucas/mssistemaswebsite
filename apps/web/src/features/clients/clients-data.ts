@@ -186,6 +186,12 @@ export const CLIENT_STATES: readonly ClientState[] = [
     cities: ['Santa Maria'],
   },
   {
+    code: 'SC',
+    name: 'Santa Catarina',
+    region: 'sul-sudeste',
+    cities: [],
+  },
+  {
     code: 'GO',
     name: 'Goiás',
     region: 'centro-oeste',

@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react'
-import { STATE_TILES } from '../../../shared/config/brazil-states'
+import { SERVED_STATE_COUNT, STATE_TILES } from '../../../shared/config/brazil-states'
 import { Aurora } from '../../../shared/ui/aurora'
 import { CountUp } from '../../../shared/ui/count-up'
 import { Reveal } from '../../../shared/ui/reveal'
@@ -13,11 +13,13 @@ export const PresenceSection = () => (
         <h2>
           Empresas de todo o Brasil <span className="ms-grad">confiam na MS</span>
         </h2>
-        <p className="ms-pres__lead">Clientes em 18 estados, do Rio Grande do Sul ao Amazonas.</p>
+        <p className="ms-pres__lead">
+          Clientes em {SERVED_STATE_COUNT} estados, do Rio Grande do Sul ao Amazonas.
+        </p>
         <div className="ms-pres__stats">
           <p>
             <strong>
-              <CountUp target={18} />
+              <CountUp target={SERVED_STATE_COUNT} />
             </strong>
             <span>estados atendidos</span>
           </p>
@@ -40,7 +42,10 @@ export const PresenceSection = () => (
         </div>
       </Reveal>
       <Reveal delay={120}>
-        <ul className="ms-map" aria-label="Mapa do Brasil por estados. 18 estados atendidos.">
+        <ul
+          className="ms-map"
+          aria-label={`Mapa do Brasil por estados. ${SERVED_STATE_COUNT} estados atendidos.`}
+        >
           {STATE_TILES.map((tile, index) => (
             <li
               className={tile.served ? 'is-on' : undefined}

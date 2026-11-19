@@ -1,3 +1,4 @@
+import { SERVED_STATE_COUNT } from '../../shared/config/brazil-states'
 import { AutoRail } from '../../shared/ui/auto-rail'
 import { Carousel, type CarouselSlide } from '../../shared/ui/carousel'
 import { Icon } from '../../shared/ui/icon'
@@ -36,7 +37,7 @@ export const CompanyPage = () => (
     <PageHero
       crumb="Empresa"
       title="Desde 2005 simplificando a gestão do setor"
-      lead="A MS Consultoria & Sistemas nasceu em Botucatu/SP e atende empresas em 18 estados, com software de gestão e suporte especializado."
+      lead={`A MS Consultoria & Sistemas nasceu em Botucatu/SP e atende empresas em ${SERVED_STATE_COUNT} estados, com software de gestão e suporte especializado.`}
       aside={
         <Carousel
           label="O que move a MS"

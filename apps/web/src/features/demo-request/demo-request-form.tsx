@@ -3,6 +3,8 @@ import { type HTMLInputTypeAttribute, useEffect, useRef } from 'react'
 import { Icon } from '../../shared/ui/icon'
 import { SiteLink } from '../../shared/ui/site-link'
 import { FieldError, FormField } from './form-field'
+import { InterestPicker } from './interest-picker'
+import { SegmentField } from './segment-field'
 import { useDemoRequestForm } from './use-demo-request-form'
 
 type TextFieldConfig = {
@@ -11,6 +13,7 @@ type TextFieldConfig = {
   readonly type: HTMLInputTypeAttribute
   readonly autoComplete: string
   readonly placeholder?: string
+  readonly wide?: boolean
 }
 
 const LEADING_FIELDS: readonly TextFieldConfig[] = [
@@ -39,10 +42,9 @@ const TRAILING_FIELDS: readonly TextFieldConfig[] = [
     type: 'email',
     autoComplete: 'email',
     placeholder: 'voce@empresa.com.br',
+    wide: true,
   },
 ]
-
-const SEGMENTS = ['Planos Funerários', 'Funerária', 'Cemitério', 'Crematório', 'Outro'] as const
 
 const SuccessPanel = ({
   name,
@@ -86,6 +88,7 @@ export const DemoRequestForm = () => {
       field={config.field}
       code={form.errors[config.field]}
       label={config.label}
+      wide={config.wide ?? false}
       key={config.field}
     >
       <input
@@ -110,28 +113,14 @@ export const DemoRequestForm = () => {
       <form className="ms-form" noValidate onSubmit={form.submit}>
         <div className="ms-form__grid">
           {LEADING_FIELDS.map(renderTextField)}
-          <FormField field="segment" code={form.errors.segment} label="Segmento">
-            <div className="ms-selectw">
-              <select
-                className="ms-input"
-                id="segment"
-                name="segment"
-                value={form.draft.segment}
-                required
-                aria-invalid={form.errors.segment ? true : undefined}
-                aria-describedby="segment-error"
-                onChange={(event) => form.change('segment', event.target.value)}
-              >
-                <option value="">Selecione</option>
-                {SEGMENTS.map((segment) => (
-                  <option key={segment}>{segment}</option>
-                ))}
-              </select>
-              <Icon name="chevron-down" size={20} />
-            </div>
-          </FormField>
           {TRAILING_FIELDS.map(renderTextField)}
         </div>
+        <SegmentField
+          value={form.draft.segment}
+          code={form.errors.segment}
+          onChange={(segment) => form.change('segment', segment)}
+        />
+        <InterestPicker selected={form.draft.interests} onToggle={form.toggle} />
         <div className={`ms-field${form.errors.privacyAccepted ? ' is-invalid' : ''}`}>
           <label className="ms-check" htmlFor="privacyAccepted">
             <span className="ms-check__box">

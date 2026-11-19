@@ -17,11 +17,12 @@ export const FieldError = ({ field, code }: FieldErrorProps) => (
 
 type FormFieldProps = FieldErrorProps & {
   readonly label: string
+  readonly wide?: boolean
   readonly children: ReactNode
 }
 
-export const FormField = ({ field, code, label, children }: FormFieldProps) => (
-  <div className={`ms-field${code ? ' is-invalid' : ''}`}>
+export const FormField = ({ field, code, label, wide = false, children }: FormFieldProps) => (
+  <div className={`ms-field${wide ? ' ms-field--wide' : ''}${code ? ' is-invalid' : ''}`}>
     <label htmlFor={field}>{label}</label>
     {children}
     <FieldError field={field} code={code} />

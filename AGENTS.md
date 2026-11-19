@@ -1,6 +1,6 @@
 # MS Sistemas Website
 
-Site institucional da MS Consultoria & Sistemas. Nesta fase existe somente o front-end, com as oito telas do plano.
+Site institucional da MS Consultoria & Sistemas. Nesta fase existe somente o front-end, com as dez telas do plano (Clientes e Contato estão ocultas por enquanto, ver `HIDDEN_PAGES`).
 
 ## Comandos
 

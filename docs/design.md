@@ -93,7 +93,9 @@ Todos já existem. Reaproveite, não crie variantes.
 | Slides | `Carousel`. Anda sozinho e troca de slide com um gesto lateral de mouse ou dedo. |
 | Telas do produto flutuando | `ms-stage` com `ms-chip` e mockups de `features/home/screens`. |
 | Conversas de WhatsApp | `ChatMockups`, com as duas conversas ilustrativas. |
+| Vitrine com troca suave | `Carousel` com `transition="fade"`. Usado na abertura da home. |
 | Vídeo de apresentação | `YoutubeVideo`, com o código do vídeo. Mostra um botão e só carrega o player do YouTube no clique. |
+| Sala de vídeos | `PageHero` com conteúdo abaixo do título (`children`). O palco da tela Vídeos usa a capa do vídeo desfocada como brilho de ambiente, e a capa vem do próprio site. |
 
 Regras de movimento:
 

@@ -1,18 +1,24 @@
 import { describe, expect, test } from 'bun:test'
 import { screen, waitFor } from '@testing-library/react'
-import { NAVIGATION } from '../shared/config/site-config'
+import { HIDDEN_PAGES, NAVIGATION } from '../shared/config/site-config'
+import { WhatsappFab } from '../shared/ui/whatsapp-fab'
 import { renderRoute } from '../test/render-route'
+import { renderWithRouter } from '../test/render-with-router'
 
-const ROUTES = [
+const ALL_ROUTES = [
   ['/', 'MS Sistemas'],
   ['/solucoes', 'Soluções | MS Sistemas'],
+  ['/videos', 'Vídeos | MS Sistemas'],
   ['/clientes', 'Clientes | MS Sistemas'],
   ['/suporte', 'Suporte | MS Sistemas'],
   ['/empresa', 'Empresa | MS Sistemas'],
   ['/contato', 'Contato | MS Sistemas'],
+  ['/demonstracao', 'Solicitar demonstração | MS Sistemas'],
   ['/acessar-sistemas', 'Acessar sistemas | MS Sistemas'],
   ['/politica-de-privacidade', 'Política de Privacidade | MS Sistemas'],
 ] as const
+
+const ROUTES = ALL_ROUTES.filter(([path]) => !HIDDEN_PAGES.includes(path))
 
 describe('rotas', () => {
   for (const [path, title] of ROUTES) {
@@ -32,12 +38,15 @@ describe('rotas', () => {
     }
   })
 
-  test('o botão flutuante do WhatsApp aparece nas telas e some no formulário de contato', () => {
+  test('o botão flutuante do WhatsApp aparece nas telas e some nas telas de formulário', () => {
     const home = renderRoute('/')
     expect(screen.getByRole('link', { name: 'Fale conosco pelo WhatsApp' })).toBeDefined()
     home.unmount()
-    renderRoute('/contato')
-    expect(screen.queryByRole('link', { name: 'Fale conosco pelo WhatsApp' })).toBeNull()
+    for (const path of ['/contato', '/demonstracao']) {
+      const fab = renderWithRouter(<WhatsappFab />, path)
+      expect(screen.queryByRole('link', { name: 'Fale conosco pelo WhatsApp' })).toBeNull()
+      fab.unmount()
+    }
   })
 
   test('endereço desconhecido mostra a página não encontrada', () => {
@@ -56,4 +65,23 @@ describe('rotas', () => {
       unmount()
     }
   })
+})
+
+describe('telas ocultas', () => {
+  for (const path of HIDDEN_PAGES) {
+    test(`${path} volta para a página inicial e sai do menu`, async () => {
+      const home = renderRoute('/')
+      const homeTitle = screen.getByRole('heading', { level: 1 }).textContent
+      home.unmount()
+      renderRoute(path)
+      await waitFor(() =>
+        expect(screen.getByRole('heading', { level: 1 }).textContent).toBe(homeTitle),
+      )
+      expect(NAVIGATION.some((link) => link.href === path)).toBe(false)
+      const hiddenLinks = [...document.querySelectorAll('a')].filter((link) =>
+        link.getAttribute('href')?.startsWith(path),
+      )
+      expect(hiddenLinks).toHaveLength(0)
+    })
+  }
 })

@@ -3,7 +3,7 @@ import { WHATSAPP_HREF } from '../config/site-config'
 import { Icon } from './icon'
 import { SiteLink } from './site-link'
 
-const ROUTES_WITHOUT_FAB: readonly string[] = ['/contato']
+const ROUTES_WITHOUT_FAB: readonly string[] = ['/contato', '/demonstracao']
 
 export const WhatsappFab = () => {
   const { pathname } = useLocation()

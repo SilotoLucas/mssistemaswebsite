@@ -1,13 +1,10 @@
+import { DEMO_HREF } from '../../shared/config/site-config'
 import { Icon } from '../../shared/ui/icon'
 import { Reveal } from '../../shared/ui/reveal'
-import { DemoRequestForm } from './demo-request-form'
+import { SiteLink } from '../../shared/ui/site-link'
+import { WhatsappButton } from '../../shared/ui/whatsapp-button'
+import { DemoPoints } from './demo-points'
 import './demo-request.css'
-
-const POINTS = [
-  'Um consultor entra em contato com você',
-  'Conheça os módulos que fazem sentido para a sua empresa',
-  'Atendimento de quem conhece o setor desde 2005',
-] as const
 
 export const DemoRequestSection = () => (
   <section className="ms-section ms-demo" id="demonstracao">
@@ -22,19 +19,27 @@ export const DemoRequestSection = () => (
           Conte um pouco sobre a sua empresa. Um consultor entra em contato para combinar a
           demonstração.
         </p>
-        <ul className="ms-final__points">
-          {POINTS.map((point) => (
-            <li key={point}>
-              <span>
-                <Icon name="check" size={14} />
-              </span>
-              {point}
-            </li>
-          ))}
-        </ul>
+        <DemoPoints className="ms-final__points" />
       </Reveal>
       <Reveal delay={120}>
-        <DemoRequestForm />
+        <div className="ms-formcard ms-dm-cta">
+          <span className="ms-dm-cta__i">
+            <Icon name="calendar" size={28} />
+          </span>
+          <h3 className="ms-h3">Peça a sua demonstração</h3>
+          <p>
+            Informe nome, empresa, cidade e WhatsApp. Se quiser, marque o SmallBusiness ou os
+            módulos que interessam.
+          </p>
+          <SiteLink className="ms-btn ms-btn--primary ms-btn--lg ms-btn--block" href={DEMO_HREF}>
+            Solicitar demonstração
+            <Icon name="arrow-right" size={20} />
+          </SiteLink>
+          <div className="ms-dm-cta__or">
+            <span>ou</span>
+          </div>
+          <WhatsappButton block />
+        </div>
       </Reveal>
     </div>
   </section>

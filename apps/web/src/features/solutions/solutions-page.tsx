@@ -1,10 +1,10 @@
+import { SOLUTION_COUNT, SOLUTION_GROUPS } from '../../shared/config/solutions-catalog'
 import { Carousel, type CarouselSlide } from '../../shared/ui/carousel'
 import { Icon } from '../../shared/ui/icon'
 import { PageHero } from '../../shared/ui/page-hero'
 import { TextLink } from '../../shared/ui/text-link'
 import { DemoRequestSection } from '../demo-request'
 import { SolutionRail } from './solution-rail'
-import { SOLUTION_COUNT, SOLUTION_GROUPS } from './solutions-catalog'
 import { SolutionsNav } from './solutions-nav'
 import './solutions.css'
 

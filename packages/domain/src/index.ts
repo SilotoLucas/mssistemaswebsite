@@ -6,6 +6,7 @@ export {
   type DemoRequestErrors,
   type DemoRequestField,
   formatWhatsapp,
+  toggleInterest,
   validateDemoRequest,
   validateDemoRequestField,
 } from './demo-request/demo-request'

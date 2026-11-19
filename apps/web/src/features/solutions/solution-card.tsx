@@ -1,5 +1,5 @@
+import type { Solution } from '../../shared/config/solutions-catalog'
 import { Icon } from '../../shared/ui/icon'
-import type { Solution } from './solutions-catalog'
 
 type SolutionCardProps = {
   readonly solution: Solution
