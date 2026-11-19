@@ -208,3 +208,23 @@ Depois de um arraste, a contagem automática recomeça do zero. Arrastar não ab
 
 **Substitui:** a parte da decisão 013 que tirou a troca manual dos carrosséis. Setas e botões de pausa continuam fora.
 
+## 025. Logo 3D no site
+
+**Data:** 19/11/2026
+
+A pedido do dono do projeto, o site passa a usar a logo 3D nova (globo e "MS" em azul e roxo). Os arquivos recebidos tinham fundo escuro, reflexo no chão e, no ícone, um xadrez desenhado no lugar da transparência. Eles foram recortados com o `rembg` (modelo `isnet-general-use`), e as bordas foram limpas para não guardar o tom escuro do fundo. O reflexo do chão saiu.
+
+- Cabeçalho: logo sem texto, direto na pílula clara.
+- Rodapé: logo completa, com o texto branco, sobre o fundo escuro.
+- Ícone da aba: só o globo, porque o "MS" e o quadrado ficam ilegíveis em 16 px. Na tela inicial do celular, o ícone quadrado, com os cantos realmente transparentes.
+
+Os originais, as versões transparentes em resolução cheia e o ícone de 512 px ficam em `docs/referencias/logo-3d`. A logo antiga (`ms-logo.webp`) fica só nas telas de exemplo da Área do Cliente e do App, que imitam o sistema atual.
+
+**Substitui:** a regra do briefing e da decisão 016 de usar a logo só sobre fundo claro.
+
+## 026. Sem parceiros no site e botão "Fale conosco"
+
+**Data:** 19/11/2026
+
+A pedido do dono do projeto, os parceiros (Granito Pagamentos, Rede Parcerias e iugu) saíram do site: do bloco da tela Empresa e do rodapé. O botão flutuante do WhatsApp, presente em todas as telas, passa a dizer "Fale conosco". Os links "Falar com consultor" da área de downloads do Suporte continuam, porque pedem o instalador a um consultor.
+

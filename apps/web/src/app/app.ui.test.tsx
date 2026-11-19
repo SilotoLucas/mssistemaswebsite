@@ -34,10 +34,10 @@ describe('rotas', () => {
 
   test('o botão flutuante do WhatsApp aparece nas telas e some no formulário de contato', () => {
     const home = renderRoute('/')
-    expect(screen.getByRole('link', { name: 'Falar com um consultor no WhatsApp' })).toBeDefined()
+    expect(screen.getByRole('link', { name: 'Fale conosco pelo WhatsApp' })).toBeDefined()
     home.unmount()
     renderRoute('/contato')
-    expect(screen.queryByRole('link', { name: 'Falar com um consultor no WhatsApp' })).toBeNull()
+    expect(screen.queryByRole('link', { name: 'Fale conosco pelo WhatsApp' })).toBeNull()
   })
 
   test('endereço desconhecido mostra a página não encontrada', () => {

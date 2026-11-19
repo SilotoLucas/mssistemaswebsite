@@ -16,7 +16,7 @@ Site de software moderno: abertura escura com degradês animados e telas do prod
 
 Toda página segue esta alternância, de cima para baixo:
 
-1. **Cabeçalho flutuante:** pílula clara (`glass-light` com desfoque), sempre sobre o conteúdo, para a logo ficar sobre fundo claro.
+1. **Cabeçalho flutuante:** pílula clara (`glass-light` com desfoque), sempre sobre o conteúdo, com a logo 3D sem texto.
 2. **Abertura escura (`ink`)** com `Aurora`. Na home é `hero-section`. Nas telas internas use sempre o `PageHero` (`shared/ui/page-hero.tsx`): trilha de navegação, `h1`, subtítulo, botões e, à direita, um `aside` com mockup ou cartão de vidro.
 3. **Seções que alternam `white` e `mist`** (classe `ms-section` e `ms-section--mist`), cada uma com cabeçalho de seção: `ms-eyebrow ms-eyebrow--light`, depois `h2.ms-h2` com uma palavra em `ms-grad ms-grad--deep`.
 4. **Seções escuras pontuais** (`ms-section--dark` ou `ink`) para o que merece destaque: Área do Cliente, atendimento, fechamento.
@@ -125,7 +125,13 @@ Regras de movimento:
 
 ## Logo
 
-Use `ms-logo.webp` sem nenhuma alteração e só sobre fundo claro: por isso o cabeçalho é uma pílula clara e a logo do rodapé fica numa pastilha branca. Tamanhos: 97 × 48 px (81 × 40 abaixo de 1200 px). Mantenha livre ao redor pelo menos metade da altura.
+A logo do site é a 3D, recortada com fundo transparente, pelo componente `BrandMark`:
+
+- `compact` (globo e "MS", sem texto): serve em fundo claro e escuro. No cabeçalho, 44 px de altura (38 px abaixo de 1200 px).
+- `full` (com "consultoria & sistemas" e "soluções inteligentes" em branco): só em fundo escuro, porque o texto é branco. No rodapé, 250 px de largura.
+- Ícone da aba: só o globo (`public/favicon-32.png` e `public/favicon.png`), que continua legível em 16 px. Na tela inicial do celular, o ícone quadrado completo (`public/apple-touch-icon.png`).
+
+Não ponha a logo em pastilha, selo ou caixa, nem aplique máscara ou mesclagem: os arquivos já são transparentes. Mantenha livre ao redor pelo menos metade da altura. Para gerar outro tamanho, parta das versões transparentes em `docs/referencias/logo-3d`, nunca do arquivo usado no site. A `ms-logo.webp` antiga continua só nas telas de exemplo da Área do Cliente e do App.
 
 ## Checklist antes de entregar uma tela ou ajuste
 

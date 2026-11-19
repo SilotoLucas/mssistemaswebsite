@@ -8,7 +8,7 @@ import { SUPPORT_URL, WHATSAPP_LABEL } from '../../shared/config/site-config'
 import { Icon, type IconName } from '../../shared/ui/icon'
 import { TextLink } from '../../shared/ui/text-link'
 import { WhatsappButton } from '../../shared/ui/whatsapp-button'
-import { COMPANY_PARTNERS, MAP_DIRECTIONS_URL, MAP_EMBED_URL } from './company-content'
+import { MAP_DIRECTIONS_URL, MAP_EMBED_URL } from './company-content'
 
 type ContactRowProps = {
   readonly icon: IconName
@@ -80,14 +80,6 @@ export const LocationSection = () => (
             Como chegar
           </a>
         </div>
-      </div>
-      <div className="ms-co-partners">
-        <h3>Parceiros</h3>
-        <ul>
-          {COMPANY_PARTNERS.map((partner) => (
-            <li key={partner}>{partner}</li>
-          ))}
-        </ul>
       </div>
     </div>
   </section>

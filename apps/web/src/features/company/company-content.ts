@@ -57,8 +57,6 @@ export const TEAM_MEMBERS = [
   'Matheus',
 ] as const
 
-export const COMPANY_PARTNERS = ['Granito Pagamentos', 'Rede Parcerias', 'iugu'] as const
-
 const ADDRESS_QUERY = 'Rua Florindo Silva, 51, Botucatu - SP, 18610-150'
 
 export const MAP_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(ADDRESS_QUERY)}&z=16&output=embed`

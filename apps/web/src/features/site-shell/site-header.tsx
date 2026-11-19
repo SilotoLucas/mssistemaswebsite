@@ -1,5 +1,5 @@
 import { NAVIGATION } from '../../shared/config/site-config'
-import { BrandLogo } from '../../shared/ui/brand-logo'
+import { BrandMark } from '../../shared/ui/brand-mark'
 import { Icon } from '../../shared/ui/icon'
 import { SiteLink } from '../../shared/ui/site-link'
 import { SystemLinks } from './system-links'
@@ -29,7 +29,7 @@ export const SiteHeader = () => {
             href="/"
             aria-label="MS Consultoria &amp; Sistemas, página inicial"
           >
-            <BrandLogo width={97} height={48} />
+            <BrandMark variant="compact" />
           </SiteLink>
           <nav className="ms-nav" aria-label="Principal">
             <NavigationLinks />

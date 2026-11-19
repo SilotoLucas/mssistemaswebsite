@@ -4,7 +4,7 @@ import {
   COMPANY_PHONES,
 } from '../../shared/config/company-info'
 import { NAVIGATION, SYSTEM_ACCESS } from '../../shared/config/site-config'
-import { BrandLogo } from '../../shared/ui/brand-logo'
+import { BrandMark } from '../../shared/ui/brand-mark'
 import { Icon } from '../../shared/ui/icon'
 import { SiteLink } from '../../shared/ui/site-link'
 
@@ -14,7 +14,7 @@ export const SiteFooter = () => (
       <div className="ms-footer__top">
         <div className="ms-footer__brand">
           <span className="ms-footer__logo">
-            <BrandLogo width={97} height={48} />
+            <BrandMark variant="full" />
           </span>
           <p>Software de gestão para funerárias, planos, cemitérios e crematórios desde 2005.</p>
           <div className="ms-social">
@@ -66,7 +66,6 @@ export const SiteFooter = () => (
         </div>
       </div>
       <div className="ms-footer__bottom">
-        <p>Parceiros: Granito, Rede Parcerias e iugu</p>
         <SiteLink href="/politica-de-privacidade">Política de Privacidade</SiteLink>
       </div>
     </div>

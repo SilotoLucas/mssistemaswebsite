@@ -9,13 +9,9 @@ export const WhatsappFab = () => {
   const { pathname } = useLocation()
   if (ROUTES_WITHOUT_FAB.includes(pathname)) return null
   return (
-    <SiteLink
-      className="ms-fab"
-      href={WHATSAPP_HREF}
-      aria-label="Falar com um consultor no WhatsApp"
-    >
+    <SiteLink className="ms-fab" href={WHATSAPP_HREF} aria-label="Fale conosco pelo WhatsApp">
       <Icon name="message" size={26} />
-      <span className="ms-fab__t">Falar com consultor</span>
+      <span className="ms-fab__t">Fale conosco</span>
     </SiteLink>
   )
 }

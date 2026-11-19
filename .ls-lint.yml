@@ -5,6 +5,7 @@ ls:
     .tsx: kebab-case
     .css: kebab-case
     .webp: kebab-case
+    .png: kebab-case
   packages:
     .dir: kebab-case
     .ts: kebab-case

@@ -44,7 +44,7 @@ Uma porta só nasce quando existe um segundo implementador real, um teste sem I/
 - `docs/referencias/design-v1` serve só de base de identidade e conteúdo. O estilo claro e minimalista dele foi substituído (decisão 016).
 - Reaproveite componentes e classes que já existem (`PageHero`, `Reveal`, `Aurora`, `ms-btn`, `ms-eyebrow`, `ms-glass`). Não crie estilo novo quando existir um equivalente.
 - Cores, espaçamentos e fontes vêm de `packages/design-tokens/tokens.json`.
-- A logo é usada sem alterações, apenas sobre fundos claros.
+- A logo é a 3D do componente `BrandMark`: `compact` (sem texto) em fundo claro ou escuro, `full` (com texto branco) só em fundo escuro. As versões transparentes e os originais ficam em `docs/referencias/logo-3d`.
 - Textos em português do Brasil, com WCAG 2.1 AA e áreas de toque de pelo menos 44 px.
 
 ## Nunca

@@ -60,9 +60,9 @@ body { margin: 0; background: var(--ink); }
 
 .ms-header { position: sticky; top: 0; z-index: 40; height: 0; }
 .ms-header__shell { position: absolute; top: 12px; left: 0; right: 0; }
-.ms-header__bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); height: 64px; padding: 0 10px 0 20px; border: 1px solid var(--line-light); border-radius: var(--radius-full); background: var(--glass-light); box-shadow: var(--shadow-pill); backdrop-filter: blur(18px) saturate(1.6); }
+.ms-header__bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); height: 64px; padding: 0 10px 0 16px; border: 1px solid var(--line-light); border-radius: var(--radius-full); background: var(--glass-light); box-shadow: var(--shadow-pill); backdrop-filter: blur(18px) saturate(1.6); }
 .ms-header__logo { display: block; flex: none; border-radius: var(--radius-sm); }
-.ms-header__logo img { width: 81px; height: 40px; }
+.ms-page .ms-header__logo .ms-mark { width: auto; height: 38px; }
 .ms-nav { display: none; }
 .ms-nav a, .ms-access__btn { position: relative; display: inline-flex; align-items: center; gap: var(--space-1); min-height: var(--tap-min); padding-inline: var(--space-4); border: 0; border-radius: var(--radius-full); background: none; color: var(--navy); font-family: var(--font-body); font-size: var(--fs-small); line-height: 20px; font-weight: 600; text-decoration: none; cursor: pointer; transition: color var(--duration-fast) var(--ease-standard), background-color var(--duration-fast) var(--ease-standard); }
 .ms-nav a:hover, .ms-access__btn:hover, .ms-access__btn[aria-expanded="true"] { background: color-mix(in srgb, var(--brand) 14%, transparent); color: var(--brand-deep); }
@@ -89,8 +89,8 @@ body { margin: 0; background: var(--ink); }
 .ms-footer::after { content: ""; position: absolute; left: 50%; top: -240px; width: 720px; height: 320px; transform: translateX(-50%); background: radial-gradient(closest-side, color-mix(in srgb, var(--brand) 26%, transparent), transparent); pointer-events: none; }
 .ms-footer__top { position: relative; display: grid; gap: var(--space-7); padding-block: var(--space-8) var(--space-6); }
 .ms-footer__brand { display: grid; gap: var(--space-4); justify-items: start; max-width: 340px; }
-.ms-footer__logo { display: inline-flex; padding: 10px 16px; border-radius: var(--radius-lg); background: var(--white); }
-.ms-footer__logo img { width: 97px; height: 48px; }
+.ms-footer__logo { display: block; width: min(250px, 100%); }
+.ms-page .ms-footer__logo .ms-mark { width: 100%; height: auto; }
 .ms-footer__cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6) var(--space-4); }
 .ms-footer__t { margin-bottom: var(--space-3); color: var(--white); font-family: var(--font-display); font-size: var(--fs-small); font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
 .ms-footer a { color: var(--text-on-ink-muted); text-decoration: none; border-radius: var(--radius-sm); transition: color var(--duration-fast) var(--ease-standard); }
@@ -117,7 +117,7 @@ body { margin: 0; background: var(--ink); }
 @media (min-width: 1200px) {
   .ms-wrap { padding-inline: var(--gutter-desktop); }
   .ms-section { padding-block: 136px; }
-  .ms-header__logo img { width: 97px; height: 48px; }
+  .ms-page .ms-header__logo .ms-mark { height: 44px; }
   .ms-nav { display: flex; gap: var(--space-1); }
   .ms-access { display: block; }
   .ms-burger { display: none; }
