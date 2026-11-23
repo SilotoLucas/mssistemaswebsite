@@ -1,10 +1,11 @@
 import type { DemoRequestField } from '@ms/domain'
-import { type HTMLInputTypeAttribute, useEffect, useRef } from 'react'
+import type { HTMLInputTypeAttribute } from 'react'
 import { Icon } from '../../shared/ui/icon'
 import { SiteLink } from '../../shared/ui/site-link'
 import { FieldError, FormField } from './form-field'
 import { InterestPicker } from './interest-picker'
 import { SegmentField } from './segment-field'
+import { SuccessPanel } from './success-panel'
 import { useDemoRequestForm } from './use-demo-request-form'
 
 type TextFieldConfig = {
@@ -46,39 +47,18 @@ const TRAILING_FIELDS: readonly TextFieldConfig[] = [
   },
 ]
 
-const SuccessPanel = ({
-  name,
-  onReset,
-}: {
-  readonly name: string
-  readonly onReset: () => void
-}) => {
-  const panelRef = useRef<HTMLDivElement>(null)
-  useEffect(() => panelRef.current?.focus(), [])
-  return (
-    <div className="ms-success" role="status" tabIndex={-1} ref={panelRef}>
-      <span className="ms-success__i">
-        <Icon name="check" />
-      </span>
-      <h3 className="ms-h3">Pedido recebido, {name}</h3>
-      <p>
-        Um consultor da MS vai falar com você pelo WhatsApp informado para combinar a demonstração.
-      </p>
-      <button className="ms-btn ms-btn--secondary" type="button" onClick={onReset}>
-        Enviar outro pedido
-      </button>
-    </div>
-  )
-}
-
 export const DemoRequestForm = () => {
   const form = useDemoRequestForm()
   const sending = form.status === 'sending'
 
   if (form.status === 'sent') {
     return (
-      <div className="ms-formcard">
-        <SuccessPanel name={form.draft.name.trim().split(' ')[0] ?? ''} onReset={form.reset} />
+      <div className="ms-formcard ms-formcard--done">
+        <SuccessPanel
+          name={form.draft.name.trim().split(' ')[0] ?? ''}
+          whatsapp={form.draft.whatsapp}
+          onReset={form.reset}
+        />
       </div>
     )
   }

@@ -77,6 +77,12 @@ describe('formulário de demonstração', () => {
       timeout: SEND_TIMEOUT_MS,
     })
     expect(screen.getByText('Pedido recebido, Maria')).toBeDefined()
+    const steps = screen.getByRole('list')
+    expect(steps.querySelectorAll('li')).toHaveLength(3)
+    expect(steps.textContent).toContain('WhatsApp (')
+    expect(screen.getByRole('link', { name: 'Ver vídeos do sistema' }).getAttribute('href')).toBe(
+      '/videos',
+    )
   })
 
   test('volta ao formulário vazio em "Enviar outro pedido"', async () => {
