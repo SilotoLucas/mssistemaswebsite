@@ -333,3 +333,37 @@ A pedido do dono do projeto, o formulário de demonstração usa os segmentos do
 - A ordem dos campos passou a ser Nome, Empresa, Cidade/UF, WhatsApp, E-mail e Segmento. O foco do erro segue a mesma ordem (`DEMO_REQUEST_FIELDS`).
 
 As opções ficam em `features/demo-request/demo-options.ts`.
+
+## 035. Distrito Federal atendido e mapa no formato do Brasil
+
+**Data:** 23/11/2026
+
+A pedido do dono do projeto, o Distrito Federal passa a constar como atendido. O total vai a 20 estados, contado pelo próprio mapa (decisão 032).
+
+O mapa de quadros da home continua com todos os quadros do mesmo tamanho, na disposição original (7 colunas e 8 linhas). Antes da escolha, foram testados um mapa com estados grandes ocupando mais quadros e uma reorganização do litoral, e o dono do projeto comparou três opções desenhadas em `docs/referencias/mapa/opcoes-mapa.png`: quadros como antes, quadros escalonados e hexágonos. A escolhida foi a opção A, quadros como antes, com o DF aceso ao lado de Goiás. Um teste (`brazil-states.unit.test.ts`) garante que os 27 estados estão no mapa, que nenhum quadro cobre outro e que todos cabem na grade.
+
+O DF entrou na lista de clientes sem cidades, como SC. As duas listas precisam ser completadas antes de a tela Clientes voltar ao ar.
+
+## 036. Mais de um segmento no pedido de demonstração
+
+**Data:** 23/11/2026
+
+A pedido do dono do projeto, o campo "Segmento da empresa" passa a aceitar mais de uma escolha, porque muitas empresas atuam, por exemplo, com plano e funerária ao mesmo tempo. Os botões viraram caixas de seleção múltipla, e cada segmento marcado mostra um sinal de conferido.
+
+No domínio, o campo `segment` (texto) virou `segments` (lista). Continua obrigatório marcar ao menos um, com a mensagem "Marque ao menos um segmento da empresa.". A função `toggleInterest` foi renomeada para `toggleChoice`, porque agora serve tanto para os segmentos quanto para os interesses.
+
+**Substitui:** a escolha única de segmento da decisão 034.
+
+## 037. Revisão de telas e carrossel de filtros que travava
+
+**Data:** 23/11/2026
+
+A pedido do dono do projeto, todas as telas foram revisadas em 320, 375, 390, 768, 1024, 1200, 1280, 1440 e 1920 px. Em cada uma foram medidos a rolagem lateral, os elementos que saem da tela, os textos cortados e as áreas de toque abaixo de 44 px. Também foram testados os fluxos principais no celular: menu, modal de Soluções aberto por link, formulário de demonstração até a confirmação, fila e filtros de vídeos, gesto na vitrine da abertura e arraste nas faixas de cartões.
+
+Problemas encontrados e corrigidos:
+
+- **Carrossel de filtros da tela Vídeos travava.** Partindo do início, a seta disparava a rolagem suave do navegador, e ela era cancelada no meio, quando a seta da esquerda e o esmaecimento apareciam. A rolagem agora é animada quadro a quadro pelo próprio site, sem encaixe automático (`scroll-snap`). O esmaecimento das pontas passou a ser uma camada por cima da faixa, e não uma máscara aplicada nela.
+- **Logo do cabeçalho:** a área de toque tinha 38 px de altura e passou a ter 44 px.
+- **Painel de números da tela Vídeos:** em telas de até 420 px, o texto "vídeos de apresentação" passava da coluna. Agora a fonte é menor e a palavra pode quebrar.
+
+Nenhuma tela teve rolagem lateral em nenhuma das larguras testadas.

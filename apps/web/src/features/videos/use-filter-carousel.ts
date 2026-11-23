@@ -4,6 +4,9 @@ import { prefersReducedMotion } from '../../shared/ui/motion'
 
 const EDGE_PX = 4
 const PAGE_RATIO = 0.7
+const GLIDE_MS = 420
+
+const easeOutCubic = (progress: number): number => 1 - (1 - progress) ** 3
 
 type Edges = { readonly start: boolean; readonly end: boolean }
 
@@ -14,6 +17,7 @@ const readEdges = (track: HTMLElement): Edges => ({
 
 export const useFilterCarousel = (activeKey: string) => {
   const trackRef = useRef<HTMLDivElement>(null)
+  const glideRef = useRef(0)
   const [edges, setEdges] = useState<Edges>({ start: false, end: false })
 
   const refresh = useCallback(() => {
@@ -21,13 +25,29 @@ export const useFilterCarousel = (activeKey: string) => {
     if (track) setEdges(readEdges(track))
   }, [])
 
-  const page = (direction: 1 | -1) => {
+  const glideTo = useCallback((left: number) => {
     const track = trackRef.current
     if (!track) return
-    track.scrollBy({
-      left: direction * track.clientWidth * PAGE_RATIO,
-      behavior: prefersReducedMotion() ? 'auto' : 'smooth',
-    })
+    cancelAnimationFrame(glideRef.current)
+    const max = track.scrollWidth - track.clientWidth
+    const target = Math.min(Math.max(left, 0), Math.max(max, 0))
+    if (prefersReducedMotion()) {
+      track.scrollLeft = target
+      return
+    }
+    const from = track.scrollLeft
+    const startedAt = performance.now()
+    const step = (now: number) => {
+      const progress = Math.min((now - startedAt) / GLIDE_MS, 1)
+      track.scrollLeft = from + (target - from) * easeOutCubic(progress)
+      if (progress < 1) glideRef.current = requestAnimationFrame(step)
+    }
+    glideRef.current = requestAnimationFrame(step)
+  }, [])
+
+  const page = (direction: 1 | -1) => {
+    const track = trackRef.current
+    if (track) glideTo(track.scrollLeft + direction * track.clientWidth * PAGE_RATIO)
   }
 
   useEffect(() => {
@@ -45,13 +65,14 @@ export const useFilterCarousel = (activeKey: string) => {
     }
   }, [refresh])
 
+  useEffect(() => () => cancelAnimationFrame(glideRef.current), [])
+
   useEffect(() => {
     const track = trackRef.current
     const chip = track?.querySelector<HTMLElement>(`[data-key="${activeKey}"]`)
     if (!(track && chip)) return
-    const left = chip.offsetLeft - (track.clientWidth - chip.offsetWidth) / 2
-    track.scrollTo({ left, behavior: prefersReducedMotion() ? 'auto' : 'smooth' })
-  }, [activeKey])
+    glideTo(chip.offsetLeft - (track.clientWidth - chip.offsetWidth) / 2)
+  }, [activeKey, glideTo])
 
   useEffect(() => {
     const track = trackRef.current
@@ -61,6 +82,7 @@ export const useFilterCarousel = (activeKey: string) => {
     let guardUntil = 0
 
     const onDown = (event: PointerEvent) => {
+      cancelAnimationFrame(glideRef.current)
       if (event.pointerType !== 'mouse' || !isPrimaryPress(event)) return
       origin = { x: event.clientX, scroll: track.scrollLeft }
       dragging = false

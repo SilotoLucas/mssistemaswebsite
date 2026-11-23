@@ -21,25 +21,38 @@ const interestBoxes = () =>
 describe('segmento da empresa', () => {
   test('mostra os segmentos como botões, incluindo Clínica e Material Convalescente', () => {
     renderWithRouter(<DemoRequestForm />)
-    const group = screen.getByRole('group', { name: 'Segmento da empresa' })
+    const group = screen.getByRole('group', { name: /Segmento da empresa/ })
     const options = within(group)
-      .getAllByRole('radio')
-      .map((radio) => (radio as HTMLInputElement).value)
+      .getAllByRole('checkbox')
+      .map((box) => (box as HTMLInputElement).value)
     expect(options).toEqual([...COMPANY_SEGMENTS])
     expect(options).toContain('Clínica')
     expect(options).toContain('Material Convalescente')
     expect(document.querySelector('select')).toBeNull()
   })
 
-  test('marca um segmento por vez', async () => {
+  test('deixa marcar mais de um segmento e desmarcar de novo', async () => {
     const user = userEvent.setup()
     renderWithRouter(<DemoRequestForm />)
-    const funeraria = screen.getByRole('radio', { name: 'Funerária' }) as HTMLInputElement
-    const clinica = screen.getByRole('radio', { name: 'Clínica' }) as HTMLInputElement
+    const group = screen.getByRole('group', { name: /Segmento da empresa/ })
+    const funeraria = within(group).getByRole('checkbox', { name: 'Funerária' }) as HTMLInputElement
+    const clinica = within(group).getByRole('checkbox', { name: 'Clínica' }) as HTMLInputElement
     await user.click(funeraria)
     await user.click(clinica)
-    expect(funeraria.checked).toBe(false)
+    expect(funeraria.checked).toBe(true)
     expect(clinica.checked).toBe(true)
+    await user.click(funeraria)
+    expect(funeraria.checked).toBe(false)
+  })
+
+  test('pede ao menos um segmento ao enviar e tira o erro quando um é marcado', async () => {
+    const user = userEvent.setup()
+    renderWithRouter(<DemoRequestForm />)
+    await user.click(screen.getByRole('button', { name: 'Solicitar demonstração' }))
+    expect(screen.getByText('Marque ao menos um segmento da empresa.')).toBeDefined()
+    const group = screen.getByRole('group', { name: /Segmento da empresa/ })
+    await user.click(within(group).getByRole('checkbox', { name: 'Cemitério' }))
+    expect(document.getElementById('segments-error')?.hidden).toBe(true)
   })
 })
 

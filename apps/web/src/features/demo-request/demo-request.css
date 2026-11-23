@@ -102,10 +102,13 @@
 .ms-segpick__opts { display: flex; flex-wrap: wrap; gap: var(--space-2); }
 .ms-segpick__opt { position: relative; display: inline-flex; cursor: pointer; }
 .ms-segpick__opt input { position: absolute; width: 1px; height: 1px; margin: 0; opacity: 0; }
-.ms-segpick__opt span { display: inline-flex; align-items: center; min-height: var(--tap-min); padding: 0 var(--space-4); border: 1px solid var(--border-control); border-radius: var(--radius-full); background: var(--white); color: var(--navy); font-size: var(--fs-small); font-weight: 600; transition: background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard); }
+.ms-segpick__opt span { display: inline-flex; align-items: center; gap: 6px; min-height: var(--tap-min); padding: 0 var(--space-4); border: 1px solid var(--border-control); border-radius: var(--radius-full); background: var(--white); color: var(--navy); font-size: var(--fs-small); font-weight: 600; transition: background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard); }
 .ms-segpick__opt:hover span { border-color: var(--brand-deep); background: var(--mist); }
 .ms-segpick__opt input:checked + span { border-color: var(--brand-deep); background: var(--brand-deep); color: var(--white); box-shadow: 0 6px 18px color-mix(in srgb, var(--brand-deep) 30%, transparent); }
 .ms-segpick__opt input:focus-visible + span { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+.ms-segpick__opt span .ms-icon { display: none; }
+.ms-segpick__opt input:checked + span .ms-icon { display: inline-block; }
+.ms-segpick__hint { margin-left: var(--space-1); color: var(--text-muted); font-weight: 400; }
 .ms-segpick.is-invalid .ms-segpick__opt span { border-color: var(--danger); }
 
 .ms-interest__block { display: grid; gap: var(--space-2); min-inline-size: 0; margin: var(--space-2) 0 0; padding: 0; border: 0; }

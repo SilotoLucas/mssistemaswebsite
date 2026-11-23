@@ -63,6 +63,20 @@ describe('página de vídeos', () => {
     expect(within(queue()).getAllByRole('listitem')).toHaveLength(expected.length)
   })
 
+  test('a seta anda os filtros mesmo partindo do início', async () => {
+    renderWithRouter(<VideosPage />, '/videos')
+    const track = document.querySelector('.ms-vd-filters__track') as HTMLElement
+    const next = document.querySelector('.ms-vd-filters__arrow--next') as HTMLButtonElement
+    Object.defineProperty(track, 'scrollWidth', { value: 900, configurable: true })
+    Object.defineProperty(track, 'clientWidth', { value: 300, configurable: true })
+    track.scrollLeft = 0
+    act(() => {
+      next.click()
+    })
+    await waitFor(() => expect(track.scrollLeft).toBeGreaterThan(200), { timeout: 2000 })
+    expect(track.scrollLeft).toBeLessThanOrEqual(600)
+  })
+
   test('o carrossel de filtros só mostra a seta do lado que tem mais filtros', () => {
     renderWithRouter(<VideosPage />, '/videos')
     const track = document.querySelector('.ms-vd-filters__track') as HTMLElement

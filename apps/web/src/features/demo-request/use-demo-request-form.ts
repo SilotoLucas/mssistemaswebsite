@@ -5,7 +5,7 @@ import {
   type DemoRequestErrors,
   type DemoRequestField,
   formatWhatsapp,
-  toggleInterest,
+  toggleChoice,
   validateDemoRequest,
   validateDemoRequestField,
 } from '@ms/domain'
@@ -17,7 +17,7 @@ type FormStatus = 'editing' | 'sending' | 'failed' | 'sent'
 const EMPTY_DRAFT: DemoRequestDraft = {
   name: '',
   company: '',
-  segment: '',
+  segments: [],
   cityState: '',
   whatsapp: '',
   email: '',
@@ -75,7 +75,13 @@ export const useDemoRequestForm = () => {
   }
 
   const toggle = (interest: string) => {
-    setDraft((current) => ({ ...current, interests: toggleInterest(current.interests, interest) }))
+    setDraft((current) => ({ ...current, interests: toggleChoice(current.interests, interest) }))
+  }
+
+  const toggleSegment = (segment: string) => {
+    const next = { ...draft, segments: toggleChoice(draft.segments, segment) }
+    setDraft(next)
+    if (errors.segments) setErrors(withFieldError(errors, 'segments', next))
   }
 
   const reset = () => {
@@ -84,5 +90,5 @@ export const useDemoRequestForm = () => {
     setStatus('editing')
   }
 
-  return { draft, errors, status, change, blur, toggle, submit, reset }
+  return { draft, errors, status, change, blur, toggle, toggleSegment, submit, reset }
 }

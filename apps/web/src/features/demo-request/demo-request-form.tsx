@@ -8,7 +8,7 @@ import { SegmentField } from './segment-field'
 import { useDemoRequestForm } from './use-demo-request-form'
 
 type TextFieldConfig = {
-  readonly field: Exclude<DemoRequestField, 'segment' | 'privacyAccepted'>
+  readonly field: Exclude<DemoRequestField, 'segments' | 'privacyAccepted'>
   readonly label: string
   readonly type: HTMLInputTypeAttribute
   readonly autoComplete: string
@@ -116,9 +116,9 @@ export const DemoRequestForm = () => {
           {TRAILING_FIELDS.map(renderTextField)}
         </div>
         <SegmentField
-          value={form.draft.segment}
-          code={form.errors.segment}
-          onChange={(segment) => form.change('segment', segment)}
+          values={form.draft.segments}
+          code={form.errors.segments}
+          onToggle={form.toggleSegment}
         />
         <InterestPicker selected={form.draft.interests} onToggle={form.toggle} />
         <div className={`ms-field${form.errors.privacyAccepted ? ' is-invalid' : ''}`}>

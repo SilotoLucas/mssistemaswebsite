@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test'
 import {
   type DemoRequestDraft,
   formatWhatsapp,
-  toggleInterest,
+  toggleChoice,
   validateDemoRequest,
   validateDemoRequestField,
 } from './demo-request'
@@ -10,7 +10,7 @@ import {
 const validDraft: DemoRequestDraft = {
   name: 'Pessoa Teste',
   company: 'Empresa Exemplo',
-  segment: 'Funerária',
+  segments: ['Funerária'],
   cityState: 'Botucatu/SP',
   whatsapp: '(14) 99999-8888',
   email: 'contato@exemplo.com.br',
@@ -27,7 +27,7 @@ describe('validateDemoRequest', () => {
     const result = validateDemoRequest({
       name: '',
       company: '',
-      segment: '',
+      segments: [],
       cityState: '',
       whatsapp: '',
       email: '',
@@ -39,7 +39,7 @@ describe('validateDemoRequest', () => {
       error: {
         name: 'name-too-short',
         company: 'company-required',
-        segment: 'segment-required',
+        segments: 'segment-required',
         cityState: 'city-state-invalid',
         whatsapp: 'whatsapp-invalid',
         email: 'email-invalid',
@@ -83,16 +83,30 @@ describe('formatWhatsapp', () => {
   })
 })
 
-describe('toggleInterest', () => {
+describe('toggleChoice', () => {
   test('marca um interesse novo no fim da lista', () => {
-    expect(toggleInterest(['SmallBusiness'], 'Cemitérios')).toEqual(['SmallBusiness', 'Cemitérios'])
+    expect(toggleChoice(['SmallBusiness'], 'Cemitérios')).toEqual(['SmallBusiness', 'Cemitérios'])
   })
 
   test('desmarca um interesse que já estava marcado', () => {
-    expect(toggleInterest(['SmallBusiness', 'Cemitérios'], 'SmallBusiness')).toEqual(['Cemitérios'])
+    expect(toggleChoice(['SmallBusiness', 'Cemitérios'], 'SmallBusiness')).toEqual(['Cemitérios'])
   })
 
   test('aceita pedido sem nenhum interesse marcado', () => {
     expect(validateDemoRequest({ ...validDraft, interests: [] }).ok).toBe(true)
+  })
+})
+
+describe('segmentos da empresa', () => {
+  test('aceita mais de um segmento', () => {
+    expect(validateDemoRequest({ ...validDraft, segments: ['Funerária', 'Cemitério'] }).ok).toBe(
+      true,
+    )
+  })
+
+  test('exige ao menos um segmento', () => {
+    expect(validateDemoRequestField('segments', { ...validDraft, segments: [] })).toBe(
+      'segment-required',
+    )
   })
 })

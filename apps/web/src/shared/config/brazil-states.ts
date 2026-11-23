@@ -6,6 +6,9 @@ export type StateTile = {
   readonly served: boolean
 }
 
+export const MAP_COLUMNS = 7
+export const MAP_ROWS = 8
+
 export const STATE_TILES: readonly StateTile[] = [
   { code: 'RR', name: 'Roraima', column: 3, row: 1, served: false },
   { code: 'AP', name: 'Amapá', column: 4, row: 1, served: false },
@@ -21,7 +24,7 @@ export const STATE_TILES: readonly StateTile[] = [
   { code: 'PI', name: 'Piauí', column: 5, row: 3, served: true },
   { code: 'PB', name: 'Paraíba', column: 6, row: 3, served: true },
   { code: 'GO', name: 'Goiás', column: 3, row: 4, served: true },
-  { code: 'DF', name: 'Distrito Federal', column: 4, row: 4, served: false },
+  { code: 'DF', name: 'Distrito Federal', column: 4, row: 4, served: true },
   { code: 'BA', name: 'Bahia', column: 5, row: 4, served: true },
   { code: 'PE', name: 'Pernambuco', column: 6, row: 4, served: true },
   { code: 'AL', name: 'Alagoas', column: 7, row: 4, served: true },

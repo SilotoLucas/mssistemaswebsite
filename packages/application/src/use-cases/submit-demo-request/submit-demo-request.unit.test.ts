@@ -6,7 +6,7 @@ import { createSubmitDemoRequest } from './submit-demo-request.use-case'
 const draft: DemoRequestDraft = {
   name: 'Pessoa Teste',
   company: 'Empresa Exemplo',
-  segment: 'Cemitério',
+  segments: ['Cemitério', 'Planos Funerários'],
   cityState: 'Botucatu/SP',
   whatsapp: '(14) 99999-8888',
   email: 'contato@exemplo.com.br',

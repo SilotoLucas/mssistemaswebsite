@@ -6,7 +6,7 @@ export const DEMO_REQUEST_FIELDS = [
   'cityState',
   'whatsapp',
   'email',
-  'segment',
+  'segments',
   'privacyAccepted',
 ] as const
 
@@ -15,7 +15,7 @@ export type DemoRequestField = (typeof DEMO_REQUEST_FIELDS)[number]
 export type DemoRequestDraft = {
   readonly name: string
   readonly company: string
-  readonly segment: string
+  readonly segments: readonly string[]
   readonly cityState: string
   readonly whatsapp: string
   readonly email: string
@@ -55,7 +55,7 @@ const FIELD_RULES: Record<
 > = {
   name: (draft) => (draft.name.trim().length >= MIN_NAME_LENGTH ? null : 'name-too-short'),
   company: (draft) => (draft.company.trim() ? null : 'company-required'),
-  segment: (draft) => (draft.segment ? null : 'segment-required'),
+  segments: (draft) => (draft.segments.length > 0 ? null : 'segment-required'),
   cityState: (draft) =>
     CITY_STATE_PATTERN.test(draft.cityState.trim()) ? null : 'city-state-invalid',
   whatsapp: (draft) => (hasValidWhatsappLength(draft.whatsapp) ? null : 'whatsapp-invalid'),
@@ -80,13 +80,8 @@ export const validateDemoRequest = (
   return ok({ ...draft, privacyAccepted: true })
 }
 
-export const toggleInterest = (
-  interests: readonly string[],
-  interest: string,
-): readonly string[] =>
-  interests.includes(interest)
-    ? interests.filter((item) => item !== interest)
-    : [...interests, interest]
+export const toggleChoice = (choices: readonly string[], choice: string): readonly string[] =>
+  choices.includes(choice) ? choices.filter((item) => item !== choice) : [...choices, choice]
 
 export const formatWhatsapp = (value: string): string => {
   const digits = digitsOf(value).slice(0, MOBILE_DIGITS)

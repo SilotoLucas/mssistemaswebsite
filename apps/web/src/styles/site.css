@@ -61,7 +61,7 @@ body { margin: 0; background: var(--ink); }
 .ms-header { position: sticky; top: 0; z-index: 40; height: 0; }
 .ms-header__shell { position: absolute; top: 12px; left: 0; right: 0; }
 .ms-header__bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); height: 64px; padding: 0 10px 0 16px; border: 1px solid var(--line-light); border-radius: var(--radius-full); background: var(--glass-light); box-shadow: var(--shadow-pill); backdrop-filter: blur(18px) saturate(1.6); }
-.ms-header__logo { display: block; flex: none; border-radius: var(--radius-sm); }
+.ms-header__logo { display: flex; flex: none; align-items: center; min-height: var(--tap-min); border-radius: var(--radius-sm); }
 .ms-page .ms-header__logo .ms-mark { width: auto; height: 38px; }
 .ms-nav { display: none; }
 .ms-nav a, .ms-access__btn { position: relative; display: inline-flex; align-items: center; gap: var(--space-1); min-height: var(--tap-min); padding-inline: var(--space-4); border: 0; border-radius: var(--radius-full); background: none; color: var(--navy); font-family: var(--font-body); font-size: var(--fs-small); line-height: 20px; font-weight: 600; text-decoration: none; cursor: pointer; transition: color var(--duration-fast) var(--ease-standard), background-color var(--duration-fast) var(--ease-standard); }

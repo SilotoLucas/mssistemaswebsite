@@ -1,5 +1,10 @@
 import type { CSSProperties } from 'react'
-import { SERVED_STATE_COUNT, STATE_TILES } from '../../../shared/config/brazil-states'
+import {
+  MAP_COLUMNS,
+  MAP_ROWS,
+  SERVED_STATE_COUNT,
+  STATE_TILES,
+} from '../../../shared/config/brazil-states'
 import { Aurora } from '../../../shared/ui/aurora'
 import { CountUp } from '../../../shared/ui/count-up'
 import { Reveal } from '../../../shared/ui/reveal'
@@ -45,11 +50,18 @@ export const PresenceSection = () => (
         <ul
           className="ms-map"
           aria-label={`Mapa do Brasil por estados. ${SERVED_STATE_COUNT} estados atendidos.`}
+          style={{ '--map-cols': MAP_COLUMNS, '--map-rows': MAP_ROWS } as CSSProperties}
         >
           {STATE_TILES.map((tile, index) => (
             <li
               className={tile.served ? 'is-on' : undefined}
-              style={{ gridColumn: tile.column, gridRow: tile.row, '--i': index } as CSSProperties}
+              style={
+                {
+                  gridColumn: tile.column,
+                  gridRow: tile.row,
+                  '--i': index,
+                } as CSSProperties
+              }
               title={tile.served ? `${tile.name}: atendido` : tile.name}
               key={tile.code}
             >

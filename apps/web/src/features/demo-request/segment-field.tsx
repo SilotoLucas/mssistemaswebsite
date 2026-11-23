@@ -1,36 +1,41 @@
 import type { DemoRequestErrorCode } from '@ms/domain'
+import { Icon } from '../../shared/ui/icon'
 import { COMPANY_SEGMENTS } from './demo-options'
 import { FieldError } from './form-field'
 
 type SegmentFieldProps = {
-  readonly value: string
+  readonly values: readonly string[]
   readonly code: DemoRequestErrorCode | undefined
-  readonly onChange: (segment: string) => void
+  readonly onToggle: (segment: string) => void
 }
 
-export const SegmentField = ({ value, code, onChange }: SegmentFieldProps) => (
+export const SegmentField = ({ values, code, onToggle }: SegmentFieldProps) => (
   <fieldset
     className={`ms-field ms-segpick${code ? ' is-invalid' : ''}`}
-    aria-describedby="segment-error"
+    aria-describedby="segments-error"
   >
-    <legend className="ms-field__l">Segmento da empresa</legend>
+    <legend className="ms-field__l">
+      Segmento da empresa <span className="ms-segpick__hint">Marque um ou mais</span>
+    </legend>
     <div className="ms-segpick__opts">
       {COMPANY_SEGMENTS.map((segment, index) => (
         <label className="ms-segpick__opt" key={segment}>
           <input
-            type="radio"
-            name="segment"
-            id={index === 0 ? 'segment' : undefined}
+            type="checkbox"
+            name="segments"
+            id={index === 0 ? 'segments' : undefined}
             value={segment}
-            checked={value === segment}
-            required
+            checked={values.includes(segment)}
             aria-invalid={code ? true : undefined}
-            onChange={() => onChange(segment)}
+            onChange={() => onToggle(segment)}
           />
-          <span>{segment}</span>
+          <span>
+            <Icon name="check" size={14} />
+            {segment}
+          </span>
         </label>
       ))}
     </div>
-    <FieldError field="segment" code={code} />
+    <FieldError field="segments" code={code} />
   </fieldset>
 )

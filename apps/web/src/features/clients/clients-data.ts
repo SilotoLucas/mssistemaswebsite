@@ -192,6 +192,12 @@ export const CLIENT_STATES: readonly ClientState[] = [
     cities: [],
   },
   {
+    code: 'DF',
+    name: 'Distrito Federal',
+    region: 'centro-oeste',
+    cities: [],
+  },
+  {
     code: 'GO',
     name: 'Goiás',
     region: 'centro-oeste',
