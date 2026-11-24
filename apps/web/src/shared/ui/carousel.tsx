@@ -16,6 +16,7 @@ type CarouselProps = {
   readonly barClassName?: string
   readonly intervalMs?: number
   readonly transition?: CarouselTransition
+  readonly tabs?: readonly ReactNode[]
 }
 
 const DEFAULT_INTERVAL_MS = 6000
@@ -27,6 +28,7 @@ export const Carousel = ({
   barClassName = '',
   intervalMs = DEFAULT_INTERVAL_MS,
   transition = 'slide',
+  tabs,
 }: CarouselProps) => {
   const carousel = useCarousel(slides.length, intervalMs, transition)
 
@@ -38,6 +40,25 @@ export const Carousel = ({
       aria-label={label}
       ref={carousel.rootRef}
     >
+      {tabs ? (
+        <div className="ms-car__tabs">
+          {slides.map((slide, index) => (
+            <button
+              type="button"
+              className={`ms-car__tab${index === carousel.index ? ' is-on' : ''}`}
+              aria-current={index === carousel.index}
+              aria-label={`Mostrar ${slide.label}`}
+              onClick={() => carousel.goTo(index)}
+              key={slide.key}
+            >
+              {tabs[index]}
+              <span className="ms-car__line" aria-hidden="true">
+                <span className="ms-car__fill" />
+              </span>
+            </button>
+          ))}
+        </div>
+      ) : null}
       <div className="ms-car__track" aria-live="off">
         {slides.map((slide, index) => (
           <article
@@ -54,7 +75,7 @@ export const Carousel = ({
       </div>
       <div className="ms-car__bar">
         <div className={`ms-car__in ${barClassName}`} aria-hidden="true">
-          {slides.map((slide, index) => (
+          {(tabs ? [] : slides).map((slide, index) => (
             <span
               className={`ms-car__line${index === carousel.index ? ' is-on' : ''}`}
               key={slide.key}

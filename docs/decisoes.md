@@ -493,3 +493,14 @@ O dono do projeto notou que, ao diminuir a janela no desktop, fontes, cartões e
 - **Mapa:** a largura do mapa respeita a altura da janela, para não passar de uma tela.
 - **Telas abaixo de 768 px não mudaram.**
 - **Conferência:** capturas em 390, 768, 1024, 1200, 1272×585, 1366×768, 1536, 1920 e 1280×720 de todas as rotas, sem rolagem lateral.
+
+## 046. Nova vitrine de soluções digitais na home
+
+**Data:** 24/11/2026
+
+O dono do projeto achou a seção "Três soluções digitais…" simples demais. Ela continua sendo um carrossel com troca automática, mas foi refeita:
+
+- **Abas:** o `Carousel` ganhou a opção `tabs`. Cada solução tem uma aba com logo, nome e público, e a barra de tempo do slide fica dentro da aba atual. Clicar na aba leva ao slide. No celular a aba mostra só a logo.
+- **Painel:** à esquerda fica um palco com brilho, grade e anéis na cor de cada solução (SmallBusiness em violeta, MS App em água, Dashboard em azul-claro). À direita ficam etiqueta, título, resumo, os quatro primeiros recursos em cartões e os botões "Conhecer o…" e "Solicitar demonstração".
+- **Sem repetição:** saíram a lista de destaques e as etiquetas de módulo do visual do SmallBusiness, que repetiam os recursos. Os cartões dos módulos do SmallBusiness levam à tela Soluções.
+- **Topo da seção:** em 1024 px ou mais, o título fica à esquerda e o texto de apoio à direita.

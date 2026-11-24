@@ -55,3 +55,17 @@ describe('carrossel de slides', () => {
     expect(screen.queryByRole('button', { name: 'Próximo slide' })).toBeNull()
   })
 })
+
+describe('carrossel com abas', () => {
+  test('cada aba leva ao seu slide e fica marcada como atual', () => {
+    render(<Carousel label="Pilares" slides={slides} tabs={slides.map((slide) => slide.label)} />)
+    fireEvent.click(screen.getByRole('button', { name: 'Mostrar Compromisso' }))
+    expect(visible()).toEqual(['Compromisso'])
+    expect(
+      screen.getByRole('button', { name: 'Mostrar Compromisso' }).getAttribute('aria-current'),
+    ).toBe('true')
+    expect(
+      screen.getByRole('button', { name: 'Mostrar Inovação' }).getAttribute('aria-current'),
+    ).toBe('false')
+  })
+})

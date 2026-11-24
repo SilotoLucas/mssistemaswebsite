@@ -162,31 +162,65 @@
 .ms-hs__link { color: var(--sky); font-weight: 600; text-underline-offset: 3px; white-space: nowrap; }
 
 .ms-por { position: relative; isolation: isolate; overflow: clip; padding-block: clamp(64px, min(11vw, 14vh), 152px); background: var(--ink); scroll-margin-top: var(--header-height); }
-.ms-por__head { display: grid; gap: var(--space-4); justify-items: start; max-width: 880px; margin-bottom: clamp(40px, 6vw, 72px); }
-.ms-page .ms-por h2 { font-size: clamp(34px, min(4.6vw, 8vh), 68px); line-height: 1.04; letter-spacing: -0.045em; }
+.ms-por__head { display: grid; gap: var(--space-4); margin-bottom: clamp(28px, 4vw, 48px); }
+.ms-por__ht { display: grid; gap: var(--space-4); justify-items: start; }
+.ms-page .ms-por h2 { max-width: 18ch; font-size: clamp(34px, min(4.6vw, 8vh), 64px); line-height: 1.04; letter-spacing: -0.045em; }
 .ms-por__i { max-width: 52ch; color: var(--text-on-dark); font-size: var(--fs-lead-desktop); line-height: 1.6; }
-.ms-pdh__car .ms-car__bar { margin-top: var(--space-5); }
+.ms-pdh__car .ms-car__tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); margin-bottom: var(--space-4); }
+.ms-pdh__car .ms-car__tab { position: relative; display: grid; gap: var(--space-3); min-height: var(--tap-min); padding: var(--space-3); border: 1px solid var(--glass-border); border-radius: 20px; background: var(--glass); color: var(--text-on-ink-muted); font: inherit; text-align: left; cursor: pointer; transition: background-color var(--duration-base) var(--ease-standard), border-color var(--duration-base) var(--ease-standard), color var(--duration-base) var(--ease-standard); }
+.ms-pdh__car .ms-car__tab:hover { border-color: color-mix(in srgb, var(--sky) 50%, transparent); background: var(--glass-strong); color: var(--white); }
+.ms-pdh__car .ms-car__tab.is-on { border-color: color-mix(in srgb, var(--aqua) 55%, transparent); background: linear-gradient(150deg, color-mix(in srgb, var(--brand) 30%, transparent), var(--glass)); color: var(--white); box-shadow: 0 18px 40px color-mix(in srgb, var(--ink) 60%, transparent); }
+.ms-pdh__car .ms-car__tab .ms-car__line { width: 100%; height: 3px; }
+.ms-pdh__car .ms-car__bar { justify-content: flex-end; margin-top: var(--space-4); }
 .ms-pdh__car .ms-car__slide { display: grid; }
-.ms-pdh { --duo-h: clamp(240px, min(36vw, 48vh), 440px); display: grid; gap: var(--space-6); align-items: center; height: 100%; padding: var(--space-5); border-radius: 28px; color: var(--text-on-dark); text-decoration: none; transition: border-color var(--duration-base) var(--ease-standard), background-color var(--duration-base) var(--ease-standard); }
-.ms-pdh__v { display: grid; min-width: 0; min-height: 260px; align-items: center; }
-.ms-pdh__c { display: grid; justify-items: start; gap: var(--space-3); min-width: 0; }
-.ms-pdh__tag { color: var(--aqua); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
-.ms-page .ms-pdh__t { color: var(--white); font-family: var(--font-display); font-size: clamp(24px, min(2.8vw, 5.4vh), 40px); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; text-wrap: balance; }
-.ms-pdh__p { color: var(--text-on-ink-muted); font-size: var(--fs-lead-mobile); line-height: 1.55; }
-.ms-page .ms-pdh__list { display: grid; gap: var(--space-2); margin-block: var(--space-1) var(--space-2); }
-.ms-pdh__list li { display: flex; align-items: center; gap: var(--space-2); color: var(--text-on-dark); font-weight: 600; }
-.ms-pdh__list .ms-icon { flex: none; color: var(--aqua); }
+.ms-pdh__tab { display: flex; align-items: center; gap: var(--space-3); min-width: 0; }
+.ms-page .ms-pdh__tabi { width: 36px; height: 36px; border-radius: 11px; }
+.ms-pdh__tabt { display: none; min-width: 0; line-height: 1.25; }
+.ms-pdh__tabt strong { display: block; color: inherit; font-family: var(--font-display); font-size: 16px; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ms-pdh__tabt small { display: block; color: var(--text-on-ink-muted); font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ms-pdh { --pdh-a: var(--brand); --duo-h: clamp(240px, min(34vw, 46vh), 420px); position: relative; display: grid; gap: var(--space-5); align-items: center; height: 100%; padding: var(--space-4); overflow: hidden; border: 1px solid var(--glass-border); border-radius: 32px; background: radial-gradient(120% 90% at 100% 0%, color-mix(in srgb, var(--pdh-a) 16%, transparent), transparent 60%), linear-gradient(160deg, var(--ink-raised), var(--ink)); box-shadow: var(--shadow-float); color: var(--text-on-dark); }
+.ms-pdh--smallbusiness { --pdh-a: var(--iris); }
+.ms-pdh--app { --pdh-a: var(--aqua); }
+.ms-pdh--dashboard { --pdh-a: var(--sky); }
+.ms-pdh__stage { position: relative; isolation: isolate; display: grid; place-items: center; min-width: 0; min-height: 280px; padding: var(--space-6) var(--space-4); border-radius: 24px; background: radial-gradient(closest-side, color-mix(in srgb, var(--pdh-a) 34%, transparent), transparent 75%), linear-gradient(180deg, color-mix(in srgb, var(--white) 5%, transparent), transparent); }
+.ms-pdh__stage::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background-image: linear-gradient(color-mix(in srgb, var(--white) 6%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--white) 6%, transparent) 1px, transparent 1px); background-size: 32px 32px; mask-image: radial-gradient(closest-side, black, transparent); }
+.ms-pdh__rings { position: absolute; z-index: -1; width: min(86%, 460px); aspect-ratio: 1; border: 1px solid color-mix(in srgb, var(--pdh-a) 30%, transparent); border-radius: var(--radius-full); box-shadow: 0 0 0 clamp(24px, 4vw, 48px) color-mix(in srgb, var(--pdh-a) 6%, transparent), 0 0 0 clamp(48px, 8vw, 96px) color-mix(in srgb, var(--pdh-a) 3%, transparent); animation: ms-pdh-pulse 6s ease-in-out infinite alternate; }
+@keyframes ms-pdh-pulse { to { transform: scale(1.05); opacity: 0.7; } }
+.ms-pdh__c { display: grid; justify-items: start; gap: var(--space-4); min-width: 0; padding: var(--space-2) var(--space-2) var(--space-3); }
+.ms-pdh__tag { display: inline-flex; align-items: center; gap: var(--space-2); padding: 4px 14px 4px 4px; border: 1px solid var(--glass-border); border-radius: var(--radius-full); background: var(--glass); color: var(--white); font-family: var(--font-display); font-size: 14px; font-weight: 800; }
+.ms-page .ms-pdh__logo { width: 28px; height: 28px; border-radius: var(--radius-full); }
+.ms-page .ms-pdh__t { color: var(--white); font-family: var(--font-display); font-size: clamp(26px, min(2.8vw, 5.2vh), 40px); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; text-wrap: balance; }
+.ms-pdh__p { max-width: 50ch; color: var(--text-on-ink-muted); font-size: var(--fs-lead-mobile); line-height: 1.55; }
+.ms-page .ms-pdh__feats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); width: 100%; }
+.ms-pdh__feats li { display: flex; min-width: 0; }
+.ms-pdh__f { display: flex; align-items: center; gap: var(--space-3); width: 100%; min-height: var(--tap-min); padding: var(--space-2) var(--space-3) var(--space-2) var(--space-2); border: 1px solid var(--glass-border); border-radius: 16px; background: var(--glass); color: var(--white); font-size: var(--fs-small); font-weight: 700; line-height: 1.3; text-decoration: none; }
+.ms-pdh__f.is-link { transition: border-color var(--duration-fast) var(--ease-standard), background-color var(--duration-fast) var(--ease-standard); }
+.ms-pdh__f.is-link:hover { border-color: var(--pdh-a); background: var(--glass-strong); }
+.ms-pdh__fi { display: inline-flex; flex: none; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 10px; background: linear-gradient(135deg, var(--brand-deep), var(--logo-blue)); color: var(--white); }
+.ms-pdh__ft { min-width: 0; }
+.ms-pdh__cta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); margin-top: var(--space-1); }
+.ms-pdh__demo { display: inline-flex; align-items: center; min-height: var(--tap-min); color: var(--sky); font-weight: 700; text-underline-offset: 4px; }
+.ms-pdh__demo:hover { color: var(--white); }
+.ms-page .ms-pdh .ms-pdv__mods { display: none; }
 .ms-pdh__go .ms-icon { transition: transform var(--duration-base) var(--ease-out-expo); }
 .ms-pdh__go:hover .ms-icon { transform: translateX(4px); }
 
 @media (min-width: 768px) {
   .ms-hs__t { font-size: clamp(20px, 1.7vw, 24px); }
-  .ms-pdh { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 3vw, 48px); padding: var(--card-pad-tall); }
+  .ms-pdh__tabt { display: block; }
+  .ms-pdh__car .ms-car__tab { padding: var(--space-3) var(--space-4) var(--space-3) var(--space-3); }
   .ms-pdh__p { font-size: var(--fs-lead-desktop); }
+}
+
+@media (min-width: 1024px) {
+  .ms-por__head { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: end; gap: var(--space-7); }
+  .ms-pdh { grid-template-columns: minmax(0, 11fr) minmax(0, 10fr); gap: clamp(24px, 3vw, 48px); padding: var(--space-4) clamp(24px, 3vw, 48px) var(--space-4) var(--space-4); }
+  .ms-pdh__stage { align-self: stretch; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .ms-eco__open .ms-icon, .ms-eco__g:hover .ms-eco__open .ms-icon { transform: none; transition: none; }
   .ms-hs__stage .ms-pdv { transform: none; transition: none; }
   .ms-pdh__go:hover .ms-icon { transform: none; }
+  .ms-pdh__rings { animation: none; }
 }

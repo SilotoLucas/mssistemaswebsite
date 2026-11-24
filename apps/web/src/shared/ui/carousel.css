@@ -9,6 +9,8 @@
 .ms-car__fill { display: block; height: 100%; background: var(--car-fill); transform: scaleX(0); transform-origin: left; }
 .ms-car__line.is-on .ms-car__fill { animation: ms-car-fill var(--car-interval) linear forwards; }
 .ms-car.is-held .ms-car__line.is-on .ms-car__fill { animation-play-state: paused; }
+.ms-car__tab.is-on .ms-car__fill { animation: ms-car-fill var(--car-interval) linear forwards; }
+.ms-car.is-held .ms-car__tab.is-on .ms-car__fill { animation-play-state: paused; }
 
 @keyframes ms-car-fill {
   to { transform: scaleX(1); }

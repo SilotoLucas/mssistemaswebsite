@@ -53,6 +53,14 @@ export const useCarousel = (
     [count],
   )
 
+  const goTo = useCallback((target: number) => {
+    elapsedMs.current = 0
+    setIndex((current) => {
+      if (target !== current) direction.current = target > current ? 1 : -1
+      return target
+    })
+  }, [])
+
   useLayoutEffect(() => {
     const leaving = shownIndex.current
     if (leaving === index) return
@@ -139,5 +147,5 @@ export const useCarousel = (
     }
   }, [count, go])
 
-  return { index, held, rootRef, go }
+  return { index, held, rootRef, go, goTo }
 }
