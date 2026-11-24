@@ -1,4 +1,5 @@
 import { SERVED_STATE_COUNT } from '../../shared/config/brazil-states'
+import { SOLUTION_COUNT } from '../../shared/config/solutions-catalog'
 import type { IconName } from '../../shared/ui/icon'
 
 type IconLabel = { readonly name: string; readonly icon: IconName }
@@ -26,7 +27,7 @@ export const COMPANY_MILESTONES = [
     text: 'Presença nas regiões Sul, Sudeste, Centro-Oeste, Norte e Nordeste.',
   },
   {
-    mark: '24',
+    mark: String(SOLUTION_COUNT),
     title: 'Soluções integradas',
     text: 'Da gestão administrativa ao atendimento digital.',
   },

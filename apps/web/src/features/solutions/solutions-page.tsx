@@ -36,7 +36,7 @@ export const SolutionsPage = () => (
     <title>Soluções | MS Sistemas</title>
     <meta
       name="description"
-      content="Conheça as 24 soluções da MS Sistemas para planos funerários, funerárias, cemitérios, crematórios e clínicas."
+      content={`Conheça as ${SOLUTION_COUNT} soluções da MS Sistemas para planos funerários, funerárias, cemitérios, crematórios e clínicas.`}
     />
     <PageHero
       crumb="Soluções"
