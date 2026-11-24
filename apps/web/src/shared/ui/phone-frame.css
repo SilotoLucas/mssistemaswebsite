@@ -1,0 +1,3 @@
+.ms-phone { position: relative; overflow: hidden; aspect-ratio: 9 / 18.6; border: 6px solid var(--ink); border-radius: 30px; background: var(--ink); box-shadow: 0 0 0 1px var(--glass-border), var(--shadow-float); }
+.ms-phone::before { content: ""; position: absolute; top: 8px; left: 50%; z-index: 1; width: 9px; height: 9px; border-radius: var(--radius-full); background: var(--ink); box-shadow: 0 0 0 2px color-mix(in srgb, var(--white) 12%, transparent); transform: translateX(-50%); }
+.ms-page .ms-phone img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; user-select: none; pointer-events: none; }

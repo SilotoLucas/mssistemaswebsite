@@ -18,6 +18,7 @@ export const DEMO_HREF = '/demonstracao'
 const ALL_PAGES: readonly NavigationLink[] = [
   { label: 'Início', href: '/' },
   { label: 'Soluções', href: '/solucoes' },
+  { label: 'Produtos', href: '/produtos' },
   { label: 'Vídeos do sistema', href: '/videos' },
   { label: 'Suporte', href: '/suporte' },
   { label: 'Clientes', href: '/clientes' },

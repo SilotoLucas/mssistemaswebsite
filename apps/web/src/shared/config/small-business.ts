@@ -1,6 +1,5 @@
 import type { IconName } from '../ui/icon'
 import { whatsappMessageHref } from './site-config'
-import { SOLUTION_GROUPS } from './solutions-catalog'
 
 export type SmallBusinessItem = { readonly icon: IconName; readonly label: string }
 
@@ -30,8 +29,3 @@ export const SMALL_BUSINESS_HIGHLIGHTS: readonly string[] = [
 ]
 
 export const SMALL_BUSINESS_HREF = whatsappMessageHref('Olá! Quero conhecer o SmallBusiness.')
-
-export const DASHBOARD_FEATURES: readonly string[] =
-  SOLUTION_GROUPS.flatMap((group) => group.solutions).find(
-    (solution) => solution.slug === 'dashboard',
-  )?.features ?? []

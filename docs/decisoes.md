@@ -396,3 +396,23 @@ O dono do projeto enviou o descritivo de todos os módulos ("Módulos.docx"). O 
   - O formulário de demonstração ganhou Plano PET e Funerária PET.
   - A seção SmallBusiness ganhou a lista do dia a dia.
 - **`docs/modulos.md`** guarda o descritivo completo, com o slug de cada módulo, para as próximas edições.
+
+## 040. Páginas de produto e novas telas do MS App
+
+**Data:** 24/11/2026
+
+A pedido do dono do projeto, os três produtos ganharam páginas próprias: SmallBusiness, MS App e MS Dashboard.
+
+- **Rotas:**
+  - `/produtos` lista os três produtos, e "Produtos" entrou no menu, depois de Soluções.
+  - Cada produto tem `/produtos/<slug>`: abertura com o visual do produto, recursos, detalhes, "como funciona" ou "para quem é" quando há, vantagens, vídeo quando há (Dashboard), outros produtos e fechamento escuro com demonstração e WhatsApp.
+  - Um endereço de produto que não existe volta para `/produtos`.
+- **Conteúdo:**
+  - Vem do descritivo de módulos (`docs/modulos.md`), das regras passadas pelo dono (SmallBusiness em até 5 máquinas) e do que aparece nas telas do app.
+  - Os dados ficam em `shared/config/products.ts`. Não há preço.
+- **Home:** as seções SmallBusiness e "Dashboard e App" viraram um carrossel de produtos com a mesma troca suave da abertura. O slide inteiro leva à página do produto. Os slides da abertura também ganharam o link "Conhecer o ...".
+- **MS App:**
+  - O "App do Cliente" passou a se chamar MS App, com o ícone novo.
+  - A tela de exemplo feita em HTML saiu e entraram as telas reais enviadas pelo dono: acesso pelo CPF, tela inicial e lembrete de parcela, numa moldura de celular (`PhoneFrame`).
+  - Nas imagens, o nome de uma pessoa foi trocado pelo nome de exemplo "José da Silva", e a barra de status e a de navegação do celular foram cortadas. Na tela inicial, o "??" sobrando em "Que bom ter você por aqui!" foi apagado.
+- **Limpeza:** saíram as telas de exemplo em HTML (`features/home/screens`), o `mockups.css`, o `BrandLogo` e a `ms-logo.webp` antiga.

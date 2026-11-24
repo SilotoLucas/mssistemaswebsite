@@ -1,6 +1,6 @@
 # MS Sistemas Website
 
-Site institucional da MS Consultoria & Sistemas. Nesta fase existe somente o front-end, com as dez telas do plano (Clientes e Contato estão ocultas por enquanto, ver `HIDDEN_PAGES`).
+Site institucional da MS Consultoria & Sistemas. Nesta fase existe somente o front-end, com as telas do plano em `docs/plano-telas.md` (Clientes e Contato estão ocultas por enquanto, ver `HIDDEN_PAGES`). Os produtos (SmallBusiness, MS App e MS Dashboard) ficam em `shared/config/products.ts`.
 
 ## Comandos
 
@@ -47,6 +47,7 @@ Uma porta só nasce quando existe um segundo implementador real, um teste sem I/
 - Cores, espaçamentos e fontes vêm de `packages/design-tokens/tokens.json`.
 - A logo é a 3D do componente `BrandMark`: `compact` (sem texto) em fundo claro ou escuro, `full` (com texto branco) só em fundo escuro. As versões transparentes e os originais ficam em `docs/referencias/logo-3d`.
 - Textos em português do Brasil, com WCAG 2.1 AA e áreas de toque de pelo menos 44 px.
+- As telas e o ícone do MS App ficam em `apps/web/src/assets/app`. Os originais enviados, sem tratamento, ficam em `docs/referencias/ms-app/originais` (ver o `README.md` da pasta).
 - O descritivo dos módulos do sistema fica em `docs/modulos.md`. Consulte-o antes de escrever sobre um módulo e mantenha-o igual ao catálogo `shared/config/solutions-catalog.ts`.
 
 ## Nunca

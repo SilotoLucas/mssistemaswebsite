@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { DEMO_HREF } from '../config/site-config'
+import { DEMO_HREF, type NavigationLink } from '../config/site-config'
 import { Aurora } from './aurora'
 import './page-hero.css'
 import { SiteLink } from './site-link'
@@ -7,6 +7,7 @@ import { WhatsappButton } from './whatsapp-button'
 
 type PageHeroProps = {
   readonly crumb: string
+  readonly parent?: NavigationLink
   readonly title: string
   readonly lead: string
   readonly aside?: ReactNode
@@ -17,6 +18,7 @@ type PageHeroProps = {
 
 export const PageHero = ({
   crumb,
+  parent,
   title,
   lead,
   aside,
@@ -31,6 +33,12 @@ export const PageHero = ({
         <nav className="ms-crumb" aria-label="Você está em">
           <SiteLink href="/">Início</SiteLink>
           <span aria-hidden="true">/</span>
+          {parent ? (
+            <>
+              <SiteLink href={parent.href}>{parent.label}</SiteLink>
+              <span aria-hidden="true">/</span>
+            </>
+          ) : null}
           <span aria-current="page">{crumb}</span>
         </nav>
         <h1>{title}</h1>

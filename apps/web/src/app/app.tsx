@@ -7,6 +7,7 @@ import { ContactPage } from '../features/contact'
 import { DemoRequestPage } from '../features/demo-request'
 import { HomePage } from '../features/home'
 import { PrivacyPage } from '../features/privacy'
+import { ProductPage, ProductsPage } from '../features/products'
 import { SiteFooter, SiteHeader } from '../features/site-shell'
 import { SolutionsPage } from '../features/solutions'
 import { SupportPage } from '../features/support'
@@ -26,6 +27,8 @@ export const App = () => (
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/solucoes" element={<SolutionsPage />} />
+      <Route path="/produtos" element={<ProductsPage />} />
+      <Route path="/produtos/:slug" element={<ProductPage />} />
       <Route path="/videos" element={<VideosPage />} />
       <Route path="/clientes" element={publishedOr('/clientes', <ClientsPage />)} />
       <Route path="/suporte" element={<SupportPage />} />

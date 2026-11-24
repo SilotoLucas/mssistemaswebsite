@@ -1,6 +1,5 @@
 import { describe, expect, test } from 'bun:test'
 import { screen, within } from '@testing-library/react'
-import { WHATSAPP_HREF } from '../../../shared/config/site-config'
 import { renderWithRouter } from '../../../test/render-with-router'
 import { HeroShowcase } from './hero-showcase'
 
@@ -10,22 +9,20 @@ const slides = () =>
   )
 
 describe('vitrine da abertura da home', () => {
-  test('mostra App do Cliente, MS Dashboard e SmallBusiness, sem a Área do Cliente', () => {
+  test('mostra MS App, MS Dashboard e SmallBusiness, sem a Área do Cliente', () => {
     renderWithRouter(<HeroShowcase />)
-    expect(slides()).toEqual([
-      '1 de 3: App do Cliente',
-      '2 de 3: MS Dashboard',
-      '3 de 3: SmallBusiness',
-    ])
+    expect(slides()).toEqual(['1 de 3: MS App', '2 de 3: MS Dashboard', '3 de 3: SmallBusiness'])
   })
 
   test('o slide do app diz que é uma ferramenta para os associados do cliente', () => {
     renderWithRouter(<HeroShowcase />)
     const app = document.querySelectorAll<HTMLElement>('.ms-car__slide')[0] as HTMLElement
     expect(app.textContent).toContain('Um app para você oferecer aos seus associados')
+    const link = within(app).getByRole('link', { name: 'Conhecer o MS App' })
+    expect(link.getAttribute('href')).toBe('/produtos/app')
   })
 
-  test('o SmallBusiness mostra a logo, os quatro módulos e leva ao WhatsApp', () => {
+  test('o SmallBusiness mostra a logo, os quatro módulos e leva à página do produto', () => {
     renderWithRouter(<HeroShowcase />)
     const slide = document.querySelectorAll<HTMLElement>('.ms-car__slide')[2] as HTMLElement
     const scope = within(slide)
@@ -41,13 +38,15 @@ describe('vitrine da abertura da home', () => {
     ])
     expect(slide.textContent).toContain('Hospedado na nuvem')
     const link = scope.getByRole('link', { name: 'Conhecer o SmallBusiness', hidden: true })
-    expect(link.getAttribute('href')).toStartWith(`${WHATSAPP_HREF}?text=`)
+    expect(link.getAttribute('href')).toBe('/produtos/smallbusiness')
   })
 
   test('o slide do Dashboard mostra os painéis do sistema e não fala em aparelhos', () => {
     renderWithRouter(<HeroShowcase />)
     const slide = document.querySelectorAll<HTMLElement>('.ms-car__slide')[1] as HTMLElement
     const chips = [...slide.querySelectorAll('.ms-chip strong')].map((chip) => chip.textContent)
+    const link = within(slide).getByRole('link', { name: 'Conhecer o MS Dashboard', hidden: true })
+    expect(link.getAttribute('href')).toBe('/produtos/dashboard')
     expect(chips).toEqual([
       'Fluxo previsto x realizado',
       'Inadimplência',

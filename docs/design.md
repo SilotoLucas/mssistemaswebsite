@@ -91,7 +91,9 @@ Todos já existem. Reaproveite, não crie variantes.
 | Selo com ponto pulsante | `ms-eyebrow` com `ms-pulse` (disponibilidade, atendimento). |
 | Faixas que rolam | `AutoRail` e `ms-marq`. O `AutoRail` anda sozinho e aceita arraste com mouse, dedo e trackpad. |
 | Slides | `Carousel`. Anda sozinho e troca de slide com um gesto lateral de mouse ou dedo. |
-| Telas do produto flutuando | `ms-stage` com `ms-chip` e mockups de `features/home/screens`. |
+| Telas do produto flutuando | `ms-stage` com `ms-chip`. As telas do app usam o `PhoneFrame` (`shared/ui/phone-frame.tsx`) com as imagens de `assets/app`. |
+| Visual de cada produto | `ProductVisual` (`features/products`), com prefixo `ms-pdv-`. Serve na abertura da página do produto, no carrossel de produtos da home e nos cartões. O prefixo `ms-pv-` é da Política de Privacidade. |
+| Páginas de produto | `PageHero` com `parent` (Início / Produtos / produto), seções brancas e névoa alternadas automaticamente e fechamento escuro com demonstração e WhatsApp. O conteúdo fica em `shared/config/products.ts`. |
 | Conversas de WhatsApp | `ChatMockups`, com as duas conversas ilustrativas. |
 | Vitrine com troca suave | `Carousel` com `transition="fade"`. Usado na abertura da home. |
 | Vídeo de apresentação | `YoutubeVideo`, com o código do vídeo. Mostra um botão e só carrega o player do YouTube no clique. |
@@ -133,7 +135,7 @@ A logo do site é a 3D, recortada com fundo transparente, pelo componente `Brand
 - `full` (com "consultoria & sistemas" e "soluções inteligentes" em branco): só em fundo escuro, porque o texto é branco. No rodapé, 250 px de largura.
 - Ícone da aba: só o globo (`public/favicon-32.png` e `public/favicon.png`), que continua legível em 16 px. Na tela inicial do celular, o ícone quadrado completo (`public/apple-touch-icon.png`).
 
-Não ponha a logo em pastilha, selo ou caixa, nem aplique máscara ou mesclagem: os arquivos já são transparentes. Mantenha livre ao redor pelo menos metade da altura. Para gerar outro tamanho, parta das versões transparentes em `docs/referencias/logo-3d`, nunca do arquivo usado no site. A `ms-logo.webp` antiga continua só nas telas de exemplo da Área do Cliente e do App.
+Não ponha a logo em pastilha, selo ou caixa, nem aplique máscara ou mesclagem: os arquivos já são transparentes. Mantenha livre ao redor pelo menos metade da altura. Para gerar outro tamanho, parta das versões transparentes em `docs/referencias/logo-3d`, nunca do arquivo usado no site. A `ms-logo.webp` antiga saiu do site junto com as telas de exemplo feitas em HTML.
 
 ## Checklist antes de entregar uma tela ou ajuste
 

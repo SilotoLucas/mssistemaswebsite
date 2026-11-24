@@ -1,7 +1,6 @@
 import { describe, expect, test } from 'bun:test'
 import { WHATSAPP_HREF } from './site-config'
 import {
-  DASHBOARD_FEATURES,
   SMALL_BUSINESS_HREF,
   SMALL_BUSINESS_MAX_MACHINES,
   SMALL_BUSINESS_MODULES,
@@ -26,9 +25,5 @@ describe('pacote SmallBusiness', () => {
   test('leva o interessado ao WhatsApp com a mensagem pronta', () => {
     expect(SMALL_BUSINESS_HREF).toStartWith(`${WHATSAPP_HREF}?text=`)
     expect(decodeURIComponent(SMALL_BUSINESS_HREF)).toContain('SmallBusiness')
-  })
-
-  test('usa as funções do Dashboard que já estão no catálogo de soluções', () => {
-    expect(DASHBOARD_FEATURES.length).toBeGreaterThan(0)
   })
 })
