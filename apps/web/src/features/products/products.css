@@ -90,7 +90,7 @@ a.ms-pchip:hover { border-color: var(--sky); background: var(--ink-raised); }
 
 .ms-page .ms-pd-steps { display: grid; gap: var(--space-4); }
 .ms-pd-step { display: grid; align-content: start; gap: var(--space-3); height: 100%; padding: var(--space-6) var(--space-5); border: 1px solid var(--line-light); border-radius: 20px; background: var(--white); box-shadow: var(--shadow-menu); }
-.ms-pd-step__n { width: fit-content; font-family: var(--font-display); font-size: 52px; font-weight: 800; line-height: 1; letter-spacing: -0.04em; }
+.ms-pd-step__n { width: fit-content; font-family: var(--font-display); font-size: clamp(40px, 4vw, 52px); font-weight: 800; line-height: 1; letter-spacing: -0.04em; }
 .ms-page .ms-pd-step h3 { font-size: 20px; line-height: 28px; }
 .ms-pd-step p { color: var(--text-muted); }
 
@@ -163,13 +163,13 @@ a.ms-pchip:hover { border-color: var(--sky); background: var(--ink-raised); }
 @media (min-width: 768px) {
   .ms-pst { aspect-ratio: 1 / 0.86; }
   .ms-pst__chip { padding-right: 18px; }
-  .ms-pd-facts__panel { padding: var(--space-6); }
+  .ms-pd-facts__panel { padding: var(--card-pad); }
   .ms-page .ms-pd-facts__list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); }
   .ms-page .ms-pd-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .ms-page .ms-pd-perks { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-4); }
   .ms-page .ms-pd-day h3, .ms-page .ms-pd-areas h3 { font-size: var(--fs-h3-desktop); }
   .ms-page .ms-pd-day__list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4) var(--space-6); }
-  .ms-tour__stage { height: 520px; }
+  .ms-tour__stage { height: clamp(340px, 62vh, 520px); }
   .ms-page .ms-pd-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .ms-page .ms-pd-reasons { grid-template-columns: repeat(var(--pd-md, 1), minmax(0, 1fr)); }
   .ms-page .ms-pd-others { grid-template-columns: repeat(2, minmax(0, 1fr)); }

@@ -49,7 +49,7 @@ Todas vêm de variáveis de `tokens.css` (gerado de `tokens.json`). Nunca escrev
 - Títulos: **Manrope** (`--font-display`), peso 800, `letter-spacing` negativo (`-0.03em` no `h2`, `-0.04em` no `h1`), `text-wrap: balance`.
 - Texto: **Inter** (`--font-body`), 16 px, `line-height` 1,65.
 - Tamanhos pelos tokens: `fs-h1-*`, `fs-h2-*`, `fs-h3-*`, `fs-lead-*`, `fs-body`, `fs-small`. Use as classes `ms-h2` e `ms-h3`.
-- O `h1` da abertura usa `clamp` com a largura e a altura da janela para caber na primeira tela em monitores pequenos (decisão 020). Reaproveite a regra do `PageHero`, não reinvente.
+- **Escala fluida (decisão 045):** a partir de 768 px os tamanhos de título, subtítulo e texto, o espaço entre seções e o respiro dos cartões vêm de tokens com `clamp` que acompanham a largura e a altura da janela (`fs-h1-desktop`, `fs-h2-desktop`, `fs-h3-desktop`, `fs-lead-desktop`, `fs-body-desktop`, `fs-card-title`, `fs-stat`, `section-pad`, `section-pad-lg`, `card-pad`, `card-pad-tall`). Use esses tokens em vez de `px` fixo. Número ou título acima de 20 px que não seja mobile deve usar `clamp` com `vw`, e `vh` quando precisar caber na altura da tela.
 - Um único `h1` por página.
 - Realce de palavra em título: `<span className="ms-grad">` sobre escuro e `ms-grad ms-grad--deep` sobre claro. Uma ou duas palavras por título.
 
@@ -108,7 +108,7 @@ Regras de movimento:
 
 - Três layouts: mobile (menos de 768 px), tablet (768 a 1199 px) e desktop (1200 px ou mais). Abaixo de 1200 px o menu vira gaveta e as seções ficam em coluna única.
 - Escreva o CSS mobile primeiro e suba com `@media (min-width: 768px)` e `@media (min-width: 1200px)`.
-- Confira sempre em 390, 768, 1024, 1366 (monitor pequeno, é o da apresentação), 1536 e 1920 de largura. Sem rolagem lateral em nenhuma. Na abertura, os botões precisam caber na primeira tela em 1366×768.
+- Confira sempre em 390, 768, 1024, 1366 (monitor pequeno, é o da apresentação), 1536 e 1920 de largura. Sem rolagem lateral em nenhuma. Na abertura, os botões precisam caber na primeira tela em 1366×768 e em 1272×585 (notebook em 150% de escala). Confira também 1280×720 e 1440×900.
 
 ## Convenções de CSS
 

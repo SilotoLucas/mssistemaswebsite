@@ -89,7 +89,7 @@
 }
 
 @media (min-width: 768px) {
-  .ms-page .ms-vd-info h2 { font-size: 34px; }
+  .ms-page .ms-vd-info h2 { font-size: clamp(26px, 2.6vw, 34px); }
   .ms-vd-poster__play { width: 92px; height: 92px; margin: -46px 0 0 -46px; }
   .ms-vd-poster__bar { right: var(--space-5); bottom: var(--space-4); left: var(--space-5); font-size: var(--fs-body); }
 }
@@ -124,5 +124,5 @@
 
 @media (min-width: 768px) {
   .ms-vd-stats div { padding: var(--space-5); }
-  .ms-vd-stats dd { font-size: 48px; }
+  .ms-vd-stats dd { font-size: clamp(34px, 3.6vw, 48px); }
 }

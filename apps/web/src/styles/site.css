@@ -42,7 +42,7 @@ body { margin: 0; background: var(--ink); }
 .ms-btn--glass:hover, .ms-btn--on-dark:hover, .ms-btn--on-dark.is-hover { background: var(--glass-strong); border-color: var(--sky); color: var(--white); }
 .ms-btn--light { background: var(--white); color: var(--navy); }
 .ms-btn--light:hover { background: var(--mist); }
-.ms-btn--lg { min-height: 56px; padding: 14px 32px; font-size: 17px; }
+.ms-btn--lg { min-height: clamp(48px, 7.5vh, 56px); padding: 12px clamp(24px, 2.4vw, 32px); font-size: clamp(16px, 1.3vw, 17px); }
 .ms-btn--sm { min-height: var(--tap-min); padding: 9px 20px; font-size: var(--fs-small); line-height: 20px; white-space: nowrap; }
 .ms-btn--block { width: 100%; }
 .ms-btn[disabled], .ms-btn.is-disabled { background: var(--tile-idle); border-color: var(--tile-idle); color: var(--text-muted); cursor: not-allowed; box-shadow: none; transform: none; }
@@ -106,9 +106,10 @@ body { margin: 0; background: var(--ink); }
 
 @media (min-width: 768px) {
   .ms-wrap { padding-inline: max(var(--gutter-tablet), env(safe-area-inset-left, 0px)); }
-  .ms-section { padding-block: 104px; }
+  .ms-section { padding-block: var(--section-pad); }
   .ms-h2 { font-size: var(--fs-h2-desktop); }
   .ms-h3 { font-size: var(--fs-h3-desktop); }
+  .ms-page { font-size: var(--fs-body-desktop); }
   .ms-intro p { font-size: var(--fs-lead-desktop); }
   .ms-footer__cols { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .ms-footer__bottom { grid-template-columns: 1fr auto; align-items: center; }
@@ -116,7 +117,7 @@ body { margin: 0; background: var(--ink); }
 
 @media (min-width: 1200px) {
   .ms-wrap { padding-inline: var(--gutter-desktop); }
-  .ms-section { padding-block: 136px; }
+  .ms-section { padding-block: var(--section-pad-lg); }
   .ms-page .ms-header__logo .ms-mark { height: 44px; }
   .ms-nav { display: flex; gap: var(--space-1); }
   .ms-access { display: block; }

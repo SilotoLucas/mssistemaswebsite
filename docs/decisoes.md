@@ -478,3 +478,18 @@ O dono do projeto não quer uma tela "Soluções digitais", porque ficava pareci
 - **Páginas:** a trilha é "Início / nome da solução", e o bloco de outras soluções usa a etiqueta "Mais da MS".
 - **Botões para a tela Soluções (`/solucoes`)** da decisão 043 continuam como estavam.
 - **Mapa de presença:** Mato Grosso (MT) passou a constar como atendido, sem lista de cidades, como SC e DF. O total vai a 21 estados, contado pelo próprio mapa. Mato Grosso do Sul (MS) já constava.
+
+## 045. Escala fluida para telas de desktop menores
+
+**Data:** 24/11/2026
+
+O dono do projeto notou que, ao diminuir a janela no desktop, fontes, cartões e slides ficavam grandes demais para a tela e nem tudo cabia. Os tamanhos saltavam só em 768 e 1200 px e não consideravam a altura.
+
+- **Tokens fluidos** (`tokens.json`): `fs-h1-tablet`, `fs-h1-desktop`, `fs-h2-desktop`, `fs-h3-desktop` e `fs-lead-desktop` passam a ser `clamp` com `vw` e, nos títulos grandes, `vh`. Entram `fs-body-desktop` (15 a 16 px), `fs-card-title`, `fs-stat`, `section-pad`, `section-pad-lg`, `card-pad` e `card-pad-tall`.
+- **Seções:** o espaço vertical caiu de 104 e 136 px fixos para valores que acompanham a altura da janela (64 a 104 px e 72 a 136 px). Em 1272×585 o ganho é de uns 60 px por seção.
+- **Cartões e números:** os números grandes (01, 02, 56 px das estatísticas, 72 px dos benefícios), os títulos de cartão e o respiro dos cartões e do slide de soluções passam a encolher com a largura.
+- **Soluções digitais da home:** o título da seção era `clamp(38px, 6vw, 84px)` e chegava a 76 px em 1272 px. Agora vai de 34 a 68 px, limitado também pela altura. O slide usa o visual com altura limitada por `vh`.
+- **Abertura:** espaços, intervalos e margens da abertura acompanham a altura, e o botão grande (`ms-btn--lg`) vai de 48 a 56 px. Em 1272×585 a chamada e os botões passam a caber na primeira tela.
+- **Mapa:** a largura do mapa respeita a altura da janela, para não passar de uma tela.
+- **Telas abaixo de 768 px não mudaram.**
+- **Conferência:** capturas em 390, 768, 1024, 1200, 1272×585, 1366×768, 1536, 1920 e 1280×720 de todas as rotas, sem rolagem lateral.
