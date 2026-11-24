@@ -56,7 +56,7 @@ a.ms-pchip:hover { border-color: var(--sky); background: var(--ink-raised); }
 .ms-pd-card__more { display: inline-flex; align-items: center; gap: var(--space-2); margin-top: var(--space-2); color: var(--brand-deep); font-size: var(--fs-small); font-weight: 700; }
 .ms-pd-card__more .ms-icon { transition: transform var(--duration-base) var(--ease-out-expo); }
 .ms-pd-card:hover .ms-pd-card__more .ms-icon { transform: translateX(4px); }
-.ms-pd-facts__panel .ms-link { margin-top: var(--space-5); }
+.ms-pd-facts__panel .ms-link { margin-top: var(--space-3); padding-top: var(--space-3); border-top: 1px solid var(--line-light); width: 100%; }
 
 .ms-pd-show { position: relative; isolation: isolate; overflow: clip; background: linear-gradient(160deg, var(--navy), var(--ink) 75%); }
 .ms-page .ms-pd-perks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
@@ -178,6 +178,8 @@ a.ms-pchip:hover { border-color: var(--sky); background: var(--ink-raised); }
 }
 
 @media (min-width: 1200px) {
+  .ms-pd-facts__panel:has(.ms-link) { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--space-6); }
+  .ms-pd-facts__panel .ms-link { width: auto; margin-top: 0; padding-top: 0; padding-left: var(--space-6); border-top: 0; border-left: 1px solid var(--line-light); align-self: stretch; }
   .ms-page .ms-pd-grid { grid-template-columns: repeat(var(--pd-cols, 3), minmax(0, 1fr)); }
   .ms-page .ms-pd-reasons { grid-template-columns: repeat(var(--pd-lg, 2), minmax(0, 1fr)); }
   .ms-tour { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--space-8); }
