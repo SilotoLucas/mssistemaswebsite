@@ -217,12 +217,12 @@ export const PRODUCTS: readonly Product[] = [
     stepsTitle: 'Como o associado usa',
     steps: [
       {
-        title: 'Entra com o CPF',
-        text: 'O acesso é pelo CPF, e no primeiro acesso o associado cadastra a senha.',
+        title: 'Acesso rápido',
+        text: 'O associado entra de forma rápida e simples, com o acesso que a sua empresa definir.',
       },
       {
-        title: 'Vê tudo na tela inicial',
-        text: 'Parcelas em destaque e atalhos para o plano, os dependentes, o financeiro e a carteirinha.',
+        title: 'Todos os acessos facilitados',
+        text: 'Parcelas em destaque e atalhos para o plano, os dependentes, o financeiro, a carteirinha e a telemedicina, tudo à mão na tela inicial.',
       },
       {
         title: 'Recebe lembretes',

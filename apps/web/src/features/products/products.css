@@ -24,9 +24,9 @@ a.ms-pchip:hover { border-color: var(--sky); background: var(--ink-raised); }
 .ms-page .ms-pdv__mods { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-2); }
 .ms-pdv__mods .ms-pchip { padding-right: 14px; box-shadow: none; }
 .ms-pdv--app { margin-inline: auto; }
-.ms-pdv__duo { position: relative; height: var(--duo-h, clamp(300px, 34vw, 460px)); aspect-ratio: 0.85; }
+.ms-pdv__duo { position: relative; height: var(--duo-h, clamp(300px, 34vw, 460px)); aspect-ratio: 0.9; }
 .ms-pdv__ph { position: absolute; bottom: 0; height: 88%; }
-.ms-pdv__ph--back { left: 0; filter: brightness(0.8) saturate(0.9); }
+.ms-pdv__ph--back { left: 0; filter: brightness(0.93); }
 .ms-pdv__ph--front { right: 0; z-index: 2; height: 100%; }
 .ms-pdv--dash { max-width: 640px; margin-inline: auto; }
 .ms-pdv__chip { position: absolute; z-index: 2; box-shadow: var(--shadow-float); }

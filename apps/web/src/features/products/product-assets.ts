@@ -34,13 +34,13 @@ export const APP_SCREENS = [
     src: appLogin,
     width: 566,
     height: 1260,
-    alt: 'Tela de acesso do MS App, em que o associado informa o CPF',
+    alt: 'Tela de acesso do MS App, com o campo de acesso do associado',
   },
   {
     key: 'inicio',
     src: appHome,
     width: 745,
-    height: 1441,
+    height: 1485,
     alt: 'Tela inicial do MS App com as parcelas e os atalhos para plano, dependentes, financeiro e carteirinha. Dados de exemplo.',
   },
   {

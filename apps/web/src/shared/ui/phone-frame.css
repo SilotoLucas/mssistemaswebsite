@@ -1,4 +1,4 @@
 .ms-phone { position: relative; container-type: inline-size; aspect-ratio: var(--ar); }
 .ms-phone__body { position: relative; box-sizing: border-box; width: 100%; padding: 7cqw 2cqw 6cqw; border-radius: 11cqw; background: var(--ink); box-shadow: 0 0 0 1px var(--glass-border), var(--shadow-float); }
 .ms-phone__cam { position: absolute; top: 2.4cqw; left: 50%; width: 11cqw; height: 2.2cqw; border-radius: var(--radius-full); background: var(--ink-raised); transform: translateX(-50%); }
-.ms-page .ms-phone__body img { display: block; width: 100%; height: auto; user-select: none; pointer-events: none; }
+.ms-page .ms-phone__body img { display: block; width: 100%; height: auto; border-radius: 6cqw; user-select: none; pointer-events: none; }

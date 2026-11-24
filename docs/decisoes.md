@@ -444,3 +444,8 @@ O dono do projeto pediu para manter os slides com os três produtos na abertura 
 - **Sem recorte:** o `PhoneFrame` arredondava a tela com a imagem por baixo, e cortava os cantos, onde ficam a logo e o sino de avisos. Agora a moldura tem uma faixa de câmera em cima e uma barra embaixo, e a imagem entra inteira, na proporção original.
 - **Nitidez:** a imagem era esticada em uma caixa de proporção um pouco diferente da dela, o que a deixava borrada. Agora ela tem largura e altura naturais. As telas foram refeitas a partir dos originais, em WebP qualidade 96, com as mesmas edições de privacidade.
 - **MS App em `/produtos`:** as faixas e a abertura da página do app usam os dois celulares sobrepostos.
+
+**Ajustes seguintes (24/11/2026):**
+- O celular de trás ficou mais claro e quase sem sobreposição, para o login aparecer melhor.
+- A tela interna do celular ganhou cantos arredondados, e a tela inicial do app ganhou uma faixa de 44 px no topo, com a cor do cabeçalho, para a logo não encostar na borda.
+- No passeio do MS App, o acesso não é mais só pelo CPF, porque é uma configuração de cada cliente. Os passos agora são "Acesso rápido", "Todos os acessos facilitados" e "Recebe lembretes".
