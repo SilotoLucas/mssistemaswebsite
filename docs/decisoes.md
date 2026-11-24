@@ -501,6 +501,7 @@ O dono do projeto notou que, ao diminuir a janela no desktop, fontes, cartões e
 O dono do projeto achou a seção "Três soluções digitais…" simples demais. Ela continua sendo um carrossel com troca automática, mas foi refeita:
 
 - **Abas:** o `Carousel` ganhou a opção `tabs`. Cada solução tem uma aba com logo, nome e público, e a barra de tempo do slide fica dentro da aba atual. Clicar na aba leva ao slide. No celular a aba mostra só a logo.
-- **Painel:** à esquerda fica um palco com brilho, grade e anéis na cor de cada solução (SmallBusiness em violeta, MS App em água, Dashboard em azul-claro). À direita ficam etiqueta, título, resumo, os quatro primeiros recursos em cartões e os botões "Conhecer o…" e "Solicitar demonstração".
+- **Painel:** à esquerda fica um palco com brilho suave e grade na cor de cada solução (SmallBusiness em violeta, MS App em água, Dashboard em azul-claro). À direita ficam etiqueta, título, resumo, os quatro primeiros recursos em cartões e os botões "Conhecer o…" e "Solicitar demonstração".
 - **Sem repetição:** saíram a lista de destaques e as etiquetas de módulo do visual do SmallBusiness, que repetiam os recursos. Os cartões dos módulos do SmallBusiness levam à tela Soluções.
 - **Topo da seção:** em 1024 px ou mais, o título fica à esquerda e o texto de apoio à direita.
+- **Sem anéis:** os anéis em degradê atrás do visual ficaram estranhos para o dono do projeto e saíram. O palco ficou só com o brilho e a grade.

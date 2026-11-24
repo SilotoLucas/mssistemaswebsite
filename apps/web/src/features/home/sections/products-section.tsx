@@ -36,7 +36,6 @@ const FeatureTile = ({ feature }: { readonly feature: Product['features'][number
 const ProductSlide = ({ product }: { readonly product: Product }) => (
   <div className={`ms-pdh ms-pdh--${product.slug}`}>
     <div className="ms-pdh__stage">
-      <span className="ms-pdh__rings" aria-hidden="true" />
       <ProductVisual slug={product.slug} decorative />
     </div>
     <div className="ms-pdh__c">
