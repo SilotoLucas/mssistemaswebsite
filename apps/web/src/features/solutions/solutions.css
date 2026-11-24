@@ -18,11 +18,11 @@
 .ms-sg { --sg-a: var(--brand); position: relative; isolation: isolate; overflow: clip; padding-block: var(--space-8); background: radial-gradient(70% 60% at 100% 0%, color-mix(in srgb, var(--sg-a) 14%, transparent), transparent 70%), radial-gradient(50% 50% at 0% 100%, color-mix(in srgb, var(--sg-a) 8%, transparent), transparent 70%), var(--white); scroll-margin-top: calc(var(--header-height) + 60px); }
 .ms-sg--dark { background: radial-gradient(70% 70% at 100% 0%, color-mix(in srgb, var(--sg-a) 26%, transparent), transparent 70%), radial-gradient(60% 60% at 0% 100%, color-mix(in srgb, var(--brand) 22%, transparent), transparent 70%), linear-gradient(160deg, var(--navy), var(--ink) 70%); }
 .ms-sg--por-segmento { --sg-a: var(--brand); }
-.ms-sg--financeiro { --sg-a: var(--green); }
-.ms-sg--gestao { --sg-a: var(--iris); }
+.ms-sg--financeiro { --sg-a: var(--sky); }
+.ms-sg--gestao { --sg-a: var(--logo-blue); }
 .ms-sg--equipe-em-campo { --sg-a: var(--aqua); }
-.ms-sg--canais-digitais { --sg-a: var(--logo-blue); }
-.ms-sg--atendimento-presencial { --sg-a: var(--iris); }
+.ms-sg--canais-digitais { --sg-a: var(--brand); }
+.ms-sg--atendimento-presencial { --sg-a: var(--sky); }
 .ms-sols-nav + .ms-sg { padding-top: 120px; }
 .ms-sg__mark { position: absolute; top: clamp(16px, 3vw, 40px); right: max(-24px, calc(50% - 720px)); z-index: -1; color: color-mix(in srgb, var(--sg-a) 12%, transparent); transform: rotate(-12deg); pointer-events: none; }
 .ms-sg--dark .ms-sg__mark { color: color-mix(in srgb, var(--sg-a) 14%, transparent); }

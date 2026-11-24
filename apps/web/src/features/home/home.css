@@ -179,7 +179,7 @@
 .ms-pdh__tabt strong { display: block; color: inherit; font-family: var(--font-display); font-size: 16px; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .ms-pdh__tabt small { display: block; color: var(--text-on-ink-muted); font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .ms-pdh { --pdh-a: var(--brand); --duo-h: clamp(240px, min(34vw, 46vh), 420px); position: relative; display: grid; gap: var(--space-5); align-items: center; height: 100%; padding: var(--space-4); overflow: hidden; border: 1px solid var(--glass-border); border-radius: 32px; background: radial-gradient(120% 90% at 100% 0%, color-mix(in srgb, var(--pdh-a) 16%, transparent), transparent 60%), linear-gradient(160deg, var(--ink-raised), var(--ink)); box-shadow: var(--shadow-float); color: var(--text-on-dark); }
-.ms-pdh--smallbusiness { --pdh-a: var(--iris); }
+.ms-pdh--smallbusiness { --pdh-a: var(--logo-blue); }
 .ms-pdh--app { --pdh-a: var(--aqua); }
 .ms-pdh--dashboard { --pdh-a: var(--sky); }
 .ms-pdh__stage { position: relative; isolation: isolate; display: grid; place-items: center; min-width: 0; min-height: 280px; padding: var(--space-6) var(--space-4); }

@@ -501,7 +501,7 @@ O dono do projeto notou que, ao diminuir a janela no desktop, fontes, cartões e
 O dono do projeto achou a seção "Três soluções digitais…" simples demais. Ela continua sendo um carrossel com troca automática, mas foi refeita:
 
 - **Abas:** o `Carousel` ganhou a opção `tabs`. Cada solução tem uma aba com logo, nome e público, e a barra de tempo do slide fica dentro da aba atual. Clicar na aba leva ao slide. No celular a aba mostra só a logo.
-- **Painel:** à esquerda fica um palco com brilho suave e grade na cor de cada solução (SmallBusiness em violeta, MS App em água, Dashboard em azul-claro). À direita ficam etiqueta, título, resumo, os quatro primeiros recursos em cartões e os botões "Conhecer o…" e "Solicitar demonstração".
+- **Painel:** à esquerda fica um palco com brilho suave e grade na cor de cada solução (SmallBusiness em azul da logo, MS App em água, Dashboard em azul-claro). À direita ficam etiqueta, título, resumo, os quatro primeiros recursos em cartões e os botões "Conhecer o…" e "Solicitar demonstração".
 - **Sem repetição:** saíram a lista de destaques e as etiquetas de módulo do visual do SmallBusiness, que repetiam os recursos. Os cartões dos módulos do SmallBusiness levam à tela Soluções.
 - **Topo da seção:** em 1024 px ou mais, o título fica à esquerda e o texto de apoio à direita.
 - **Sem anéis:** os anéis em degradê atrás do visual ficaram estranhos para o dono do projeto e saíram. O palco ficou só com o brilho e a grade.
@@ -513,7 +513,7 @@ O dono do projeto achou a seção "Três soluções digitais…" simples demais.
 
 O dono do projeto achou a tela Soluções sem vida: todos os grupos eram iguais, em fundo claro. O fluxo, os modais, os vídeos e os textos dos módulos continuam iguais.
 
-- **Cor por grupo:** Por segmento em azul, Financeiro e caixa em verde, Gestão e Atendimento presencial em violeta, Equipe em campo em água e Canais digitais em azul da logo. A cor aparece no fundo, no ícone, nos cartões e na barra do trilho.
+- **Cor por grupo:** só tons da marca, já usados no site. Por segmento e Canais digitais em azul (`brand`), Gestão em azul da logo (`logo-blue`), Financeiro e caixa e Atendimento presencial em azul-céu (`sky`) e Equipe em campo em água (`aqua`). A cor aparece no fundo, no ícone, nos cartões e na barra do trilho. O verde e o violeta da primeira versão saíram a pedido do dono do projeto.
 - **Ritmo:** os grupos alternam claro (branco com brilho da cor) e escuro (azul-marinho com brilho, cartões de vidro), como o resto do site.
 - **Cabeçalho do grupo:** ícone em degradê, número do grupo (01 a 06) com a contagem de soluções, título, descrição e o ícone do grupo grande e apagado ao fundo.
 - **Cartões:** ícone em degradê, luz que segue o mouse, linha de cor no topo e leve subida ao passar o mouse. Com movimento reduzido, não sobem nem giram.
