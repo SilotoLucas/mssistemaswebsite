@@ -505,3 +505,4 @@ O dono do projeto achou a seção "Três soluções digitais…" simples demais.
 - **Sem repetição:** saíram a lista de destaques e as etiquetas de módulo do visual do SmallBusiness, que repetiam os recursos. Os cartões dos módulos do SmallBusiness levam à tela Soluções.
 - **Topo da seção:** em 1024 px ou mais, o título fica à esquerda e o texto de apoio à direita.
 - **Sem anéis:** os anéis em degradê atrás do visual ficaram estranhos para o dono do projeto e saíram. O palco ficou só com o brilho e a grade.
+- **Sem sombreado:** o palco ainda formava uma caixa mais clara com grade, somada ao brilho azul do visual e à sombra pesada do painel do Dashboard. Saíram a caixa e a grade; ficou só um brilho leve na cor da solução, e a sombra da moldura do Dashboard ficou mais suave.
