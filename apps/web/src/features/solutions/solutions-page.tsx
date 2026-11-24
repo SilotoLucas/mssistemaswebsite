@@ -2,6 +2,7 @@ import { SOLUTION_COUNT, SOLUTION_GROUPS } from '../../shared/config/solutions-c
 import { Carousel, type CarouselSlide } from '../../shared/ui/carousel'
 import { Icon } from '../../shared/ui/icon'
 import { PageHero } from '../../shared/ui/page-hero'
+import { Reveal } from '../../shared/ui/reveal'
 import { TextLink } from '../../shared/ui/text-link'
 import { DemoRequestSection } from '../demo-request'
 import { SolutionRail } from './solution-rail'
@@ -52,18 +53,29 @@ export const SolutionsPage = () => (
       }
     />
     <SolutionsNav />
-    {SOLUTION_GROUPS.map((group) => (
-      <section className="ms-sg" id={group.slug} key={group.slug}>
+    {SOLUTION_GROUPS.map((group, index) => (
+      <section
+        className={`ms-sg ms-sg--${group.slug}${index % 2 === 1 ? ' ms-sg--dark ms-dark' : ''}`}
+        id={group.slug}
+        key={group.slug}
+      >
+        <span className="ms-sg__mark" aria-hidden="true">
+          <Icon name={group.icon} size={360} />
+        </span>
         <div className="ms-wrap">
-          <div className="ms-sg__c">
+          <Reveal className="ms-sg__head">
             <span className="ms-sg__i">
-              <Icon name={group.icon} size={24} />
+              <Icon name={group.icon} size={28} />
             </span>
-            <div>
+            <div className="ms-sg__tx">
+              <p className="ms-sg__k">
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                {group.solutions.length} soluções
+              </p>
               <h2>{group.name}</h2>
-              <p>{group.description}</p>
+              <p className="ms-sg__d">{group.description}</p>
             </div>
-          </div>
+          </Reveal>
           <SolutionRail group={group} />
         </div>
       </section>

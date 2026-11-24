@@ -1,5 +1,6 @@
 import type { Solution } from '../../shared/config/solutions-catalog'
 import { Icon } from '../../shared/ui/icon'
+import { trackPointer } from '../../shared/ui/spotlight'
 
 type SolutionCardProps = {
   readonly solution: Solution
@@ -8,7 +9,7 @@ type SolutionCardProps = {
 }
 
 export const SolutionCard = ({ solution, copy, onOpen }: SolutionCardProps) => (
-  <article className="ms-sol">
+  <article className="ms-sol ms-spot" onPointerMove={trackPointer}>
     <span className="ms-sol__tile">
       <Icon name={solution.icon} size={24} />
     </span>

@@ -506,3 +506,14 @@ O dono do projeto achou a seção "Três soluções digitais…" simples demais.
 - **Topo da seção:** em 1024 px ou mais, o título fica à esquerda e o texto de apoio à direita.
 - **Sem anéis:** os anéis em degradê atrás do visual ficaram estranhos para o dono do projeto e saíram. O palco ficou só com o brilho e a grade.
 - **Sem sombreado:** o palco ainda formava uma caixa mais clara com grade, somada ao brilho azul do visual e à sombra pesada do painel do Dashboard. Saíram a caixa e a grade; ficou só um brilho leve na cor da solução, e a sombra da moldura do Dashboard ficou mais suave.
+
+## 047. Mais cor e ritmo na tela Soluções
+
+**Data:** 24/11/2026
+
+O dono do projeto achou a tela Soluções sem vida: todos os grupos eram iguais, em fundo claro. O fluxo, os modais, os vídeos e os textos dos módulos continuam iguais.
+
+- **Cor por grupo:** Por segmento em azul, Financeiro e caixa em verde, Gestão e Atendimento presencial em violeta, Equipe em campo em água e Canais digitais em azul da logo. A cor aparece no fundo, no ícone, nos cartões e na barra do trilho.
+- **Ritmo:** os grupos alternam claro (branco com brilho da cor) e escuro (azul-marinho com brilho, cartões de vidro), como o resto do site.
+- **Cabeçalho do grupo:** ícone em degradê, número do grupo (01 a 06) com a contagem de soluções, título, descrição e o ícone do grupo grande e apagado ao fundo.
+- **Cartões:** ícone em degradê, luz que segue o mouse, linha de cor no topo e leve subida ao passar o mouse. Com movimento reduzido, não sobem nem giram.
