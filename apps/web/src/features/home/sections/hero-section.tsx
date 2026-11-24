@@ -2,7 +2,7 @@ import { DEMO_HREF } from '../../../shared/config/site-config'
 import { Aurora } from '../../../shared/ui/aurora'
 import { Icon } from '../../../shared/ui/icon'
 import { SiteLink } from '../../../shared/ui/site-link'
-import { HeroShowcase } from './hero-showcase'
+import { ProductsStage } from '../../products'
 import { useStageTilt } from './use-stage-tilt'
 
 const TRUST_POINTS = [
@@ -49,7 +49,7 @@ export const HeroSection = () => {
             ))}
           </ul>
         </div>
-        <HeroShowcase />
+        <ProductsStage />
       </div>
     </section>
   )

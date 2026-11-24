@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test'
-import { screen, waitFor, within } from '@testing-library/react'
+import { fireEvent, screen, waitFor, within } from '@testing-library/react'
 import { PRODUCTS, productHref } from '../shared/config/products'
 import { renderRoute } from '../test/render-route'
 
@@ -29,10 +29,33 @@ describe('páginas de produto', () => {
     expect(links).toEqual(['/produtos/smallbusiness', '/produtos/dashboard'])
   })
 
-  test('o MS App mostra as três telas do app', () => {
+  test('o MS App mostra uma tela por vez e troca pelo passo escolhido', () => {
     renderRoute('/produtos/app')
-    const details = document.getElementById('detalhes') as HTMLElement
-    expect(details.querySelectorAll('.ms-pd-screens .ms-phone')).toHaveLength(3)
+    const tabs = screen.getAllByRole('tab')
+    expect(tabs).toHaveLength(3)
+    expect(tabs[0]?.getAttribute('aria-selected')).toBe('true')
+    const panel = screen.getByRole('tabpanel')
+    expect(panel.querySelectorAll('.ms-tour__slot.is-on')).toHaveLength(1)
+    fireEvent.click(tabs[2] as HTMLElement)
+    expect(tabs[2]?.getAttribute('aria-selected')).toBe('true')
+    expect(tabs[0]?.getAttribute('aria-selected')).toBe('false')
+  })
+
+  test('o MS Dashboard mostra a tela do painel em uma moldura de navegador', () => {
+    renderRoute('/produtos/dashboard')
+    expect(document.querySelector('#detalhes .ms-bf')).not.toBeNull()
+  })
+
+  test('só mostra a seção "para quem é" quando o produto tem passos', () => {
+    renderRoute('/produtos/dashboard')
+    expect(document.getElementById('para-quem')).toBeNull()
+    renderRoute('/produtos/smallbusiness')
+    expect(document.getElementById('para-quem')).not.toBeNull()
+  })
+
+  test('o SmallBusiness mostra o que vem no pacote', () => {
+    renderRoute('/produtos/smallbusiness')
+    expect(document.querySelectorAll('#detalhes .ms-pd-perk').length).toBeGreaterThan(0)
   })
 
   test('só o MS Dashboard tem vídeo', () => {

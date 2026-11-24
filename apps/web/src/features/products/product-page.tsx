@@ -8,16 +8,17 @@ import { Reveal } from '../../shared/ui/reveal'
 import { SiteLink } from '../../shared/ui/site-link'
 import { ProductCard } from './product-card'
 import {
-  DetailsSection,
+  AudienceSection,
+  FactsSection,
   FeaturesSection,
   ProductClosing,
   ReasonsSection,
-  StepsSection,
+  ShowcaseSection,
   VideoSection,
 } from './product-sections'
 import { ProductVisual } from './product-visual'
 
-type SectionRender = (product: Product, tone: string) => ReactNode
+type LightSection = (product: Product, tone: string) => ReactNode
 
 const TONES = ['', 'ms-section--mist'] as const
 
@@ -30,7 +31,7 @@ const OtherProducts = ({ product, tone }: { readonly product: Product; readonly 
           Conheça também <span className="ms-grad ms-grad--deep">os outros produtos</span>
         </h2>
       </Reveal>
-      <ul className="ms-pd-tiles">
+      <ul className="ms-pd-others">
         {PRODUCTS.filter((other) => other.slug !== product.slug).map((other, index) => (
           <li key={other.slug}>
             <Reveal delay={index * 100}>
@@ -43,18 +44,41 @@ const OtherProducts = ({ product, tone }: { readonly product: Product; readonly 
   </section>
 )
 
-const sectionsFor = (product: Product): readonly SectionRender[] => [
+const lightSections = (product: Product): readonly LightSection[] => [
   (item, tone) => <FeaturesSection product={item} tone={tone} key="recursos" />,
-  (item, tone) => <DetailsSection product={item} tone={tone} key="detalhes" />,
-  ...(product.steps
-    ? [(item: Product, tone: string) => <StepsSection product={item} tone={tone} key="passos" />]
-    : []),
+  ...(product.slug === 'app' || !product.steps
+    ? []
+    : [
+        (item: Product, tone: string) => (
+          <AudienceSection product={item} tone={tone} key="para-quem" />
+        ),
+      ]),
+]
+
+const closingSections = (product: Product): readonly LightSection[] => [
   (item, tone) => <ReasonsSection product={item} tone={tone} key="vantagens" />,
   ...(product.videoId
     ? [(item: Product, tone: string) => <VideoSection product={item} tone={tone} key="video" />]
     : []),
   (item, tone) => <OtherProducts product={item} tone={tone} key="outros" />,
 ]
+
+const ProductBody = ({ product }: { readonly product: Product }) => {
+  const [features, ...afterShowcase] = lightSections(product)
+  const ordered: readonly (LightSection | 'showcase')[] = [
+    ...(features ? [features] : []),
+    'showcase',
+    ...afterShowcase,
+    ...closingSections(product),
+  ]
+  let lightIndex = 0
+  return ordered.map((section) => {
+    if (section === 'showcase') return <ShowcaseSection product={product} key="detalhes" />
+    const tone = TONES[lightIndex % 2] ?? ''
+    lightIndex += 1
+    return section(product, tone)
+  })
+}
 
 const ProductContent = ({ product }: { readonly product: Product }) => (
   <main>
@@ -82,7 +106,8 @@ const ProductContent = ({ product }: { readonly product: Product }) => (
         </div>
       }
     />
-    {sectionsFor(product).map((render, index) => render(product, TONES[index % 2] ?? ''))}
+    <FactsSection product={product} />
+    <ProductBody product={product} />
     <ProductClosing product={product} />
   </main>
 )

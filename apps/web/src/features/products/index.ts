@@ -1,3 +1,4 @@
 export { ProductPage } from './product-page'
-export { ProductVisual } from './product-visual'
+export { ProductThumb } from './product-thumb'
 export { ProductsPage } from './products-page'
+export { ProductsStage } from './products-stage'

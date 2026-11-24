@@ -1,28 +1,16 @@
 import { type Product, productHref } from '../../shared/config/products'
 import { Icon } from '../../shared/ui/icon'
 import { SiteLink } from '../../shared/ui/site-link'
-import { ProductVisual } from './product-visual'
+import { ProductThumb } from './product-thumb'
 
-type ProductCardProps = {
-  readonly product: Product
-  readonly headingLevel?: 'h2' | 'h3'
-}
-
-export const ProductCard = ({ product, headingLevel = 'h3' }: ProductCardProps) => {
-  const Heading = headingLevel
-  return (
-    <SiteLink className="ms-pd-tile" href={productHref(product.slug)}>
-      <span className="ms-pd-tile__v">
-        <ProductVisual slug={product.slug} decorative />
-      </span>
-      <span className="ms-pd-tile__c">
-        <Heading className="ms-pd-tile__t">{product.name}</Heading>
-        <span className="ms-pd-tile__p">{product.pitch}</span>
-        <span className="ms-pd-tile__l">
-          Conhecer o {product.name}
-          <Icon name="arrow-right" size={18} />
-        </span>
-      </span>
-    </SiteLink>
-  )
-}
+export const ProductCard = ({ product }: { readonly product: Product }) => (
+  <SiteLink className="ms-pd-other" href={productHref(product.slug)}>
+    <ProductThumb slug={product.slug} className="ms-pd-other__v" />
+    <span className="ms-pd-other__c">
+      <span className="ms-pd-other__a">{product.audience}</span>
+      <h3 className="ms-pd-other__t">{product.name}</h3>
+      <span className="ms-pd-other__p">{product.pitch}</span>
+    </span>
+    <Icon name="arrow-right" size={20} />
+  </SiteLink>
+)

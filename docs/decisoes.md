@@ -416,3 +416,16 @@ A pedido do dono do projeto, os três produtos ganharam páginas próprias: Smal
   - A tela de exemplo feita em HTML saiu e entraram as telas reais enviadas pelo dono: acesso pelo CPF, tela inicial e lembrete de parcela, numa moldura de celular (`PhoneFrame`).
   - Nas imagens, o nome de uma pessoa foi trocado pelo nome de exemplo "José da Silva", e a barra de status e a de navegação do celular foram cortadas. Na tela inicial, o "??" sobrando em "Que bom ter você por aqui!" foi apagado.
 - **Limpeza:** saíram as telas de exemplo em HTML (`features/home/screens`), o `mockups.css`, o `BrandLogo` e a `ms-logo.webp` antiga.
+
+## 041. Refeita a vitrine de produtos: abertura, home e páginas
+
+**Data:** 24/11/2026
+
+O dono do projeto não aprovou o que a decisão 040 entregou em design. Os problemas eram: os mesmos três slides (SmallBusiness, MS App e Dashboard) na abertura e de novo mais abaixo na home; telas do app pequenas, inclinadas e recortadas; e páginas de produto idênticas entre si.
+
+- **Abertura da home:** saíram os slides. Entrou o `ProductsStage`, com o painel e o celular do app planos, inteiros e nítidos, e três atalhos em vidro que levam às páginas dos produtos. O texto da esquerda não mudou.
+- **Produtos na home:** o carrossel virou uma seção em bento, com o SmallBusiness em cartão grande e os outros dois ao lado. Ela fala de para quem cada produto serve e não mostra as telas da abertura.
+- **`/produtos`:** abertura com o palco, três cartões de escolha sobrepostos e uma faixa por produto (visual, público, acesso, destaques e botão). Fechamento claro.
+- **Páginas de produto:** cada produto tem a sua seção escura de detalhes. O SmallBusiness mostra o pacote e o dia a dia. O Dashboard mostra o painel em moldura de navegador. O MS App tem um passeio de três telas (`AppTour`), com uma tela por vez e passos clicáveis.
+- **Imagens:** as telas do app seguem com o tratamento de privacidade da decisão 040, mas agora aparecem inteiras, na proporção original e sem inclinação (`PhoneFrame`, `BrowserFrame`).
+- **Limpeza:** saíram `hero-showcase`, o carrossel de produtos da home, a opção `fade` do `Carousel` e o CSS antigo (`ms-stage`, `ms-chip`, `ms-hs`, `ms-sb`, `ms-pdh`).

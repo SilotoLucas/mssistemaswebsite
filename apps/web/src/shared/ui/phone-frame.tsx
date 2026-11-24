@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react'
 import './phone-frame.css'
 
 type PhoneFrameProps = {
@@ -17,7 +18,10 @@ export const PhoneFrame = ({
   className = '',
   lazy = false,
 }: PhoneFrameProps) => (
-  <div className={`ms-phone ${className}`}>
+  <div
+    className={`ms-phone ${className}`}
+    style={{ '--ar': `${width} / ${height}` } as CSSProperties}
+  >
     <img
       src={src}
       alt={alt}

@@ -1,27 +1,28 @@
 import { describe, expect, test } from 'bun:test'
+import { screen } from '@testing-library/react'
 import { PRODUCTS, productHref } from '../../../shared/config/products'
 import { renderWithRouter } from '../../../test/render-with-router'
 import { ProductsSection } from './products-section'
 
-describe('carrossel de produtos da home', () => {
-  test('tem um slide para cada produto, e o slide inteiro leva à página do produto', () => {
+describe('ProductsSection', () => {
+  test('mostra os três produtos em cartões que levam à página de cada um', () => {
     renderWithRouter(<ProductsSection />)
-    const slides = [...document.querySelectorAll<HTMLElement>('#produtos .ms-car__slide')]
-    expect(slides).toHaveLength(PRODUCTS.length)
-    slides.forEach((slide, index) => {
-      const product = PRODUCTS[index]
-      const link = slide.querySelector('a.ms-pdh')
-      expect(link?.getAttribute('href')).toBe(productHref(product?.slug ?? 'app'))
-      expect(link?.textContent).toContain(product?.headline ?? '')
-    })
+    for (const product of PRODUCTS) {
+      const link = screen.getByRole('link', { name: new RegExp(`Conhecer o ${product.name}`) })
+      expect(link.getAttribute('href')).toBe(productHref(product.slug))
+    }
   })
 
-  test('tem setas e um atalho para todos os produtos', () => {
+  test('tem o link para ver todos os produtos', () => {
     renderWithRouter(<ProductsSection />)
-    expect(document.querySelector('#produtos [aria-label="Próximo slide"]')).not.toBeNull()
-    const all = [...document.querySelectorAll('#produtos a')].find(
-      (link) => link.textContent === 'Ver todos os produtos',
+    expect(screen.getByRole('link', { name: 'Ver todos os produtos' }).getAttribute('href')).toBe(
+      '/produtos',
     )
-    expect(all?.getAttribute('href')).toBe('/produtos')
+  })
+
+  test('não repete as telas da abertura: não há imagens do app nem do painel', () => {
+    const { container } = renderWithRouter(<ProductsSection />)
+    expect(container.querySelector('.ms-phone')).toBeNull()
+    expect(container.querySelector('.ms-bf')).toBeNull()
   })
 })

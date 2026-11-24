@@ -91,11 +91,11 @@ Todos já existem. Reaproveite, não crie variantes.
 | Selo com ponto pulsante | `ms-eyebrow` com `ms-pulse` (disponibilidade, atendimento). |
 | Faixas que rolam | `AutoRail` e `ms-marq`. O `AutoRail` anda sozinho e aceita arraste com mouse, dedo e trackpad. |
 | Slides | `Carousel`. Anda sozinho e troca de slide com um gesto lateral de mouse ou dedo. |
-| Telas do produto flutuando | `ms-stage` com `ms-chip`. As telas do app usam o `PhoneFrame` (`shared/ui/phone-frame.tsx`) com as imagens de `assets/app`. |
-| Visual de cada produto | `ProductVisual` (`features/products`), com prefixo `ms-pdv-`. Serve na abertura da página do produto, no carrossel de produtos da home e nos cartões. O prefixo `ms-pv-` é da Política de Privacidade. |
-| Páginas de produto | `PageHero` com `parent` (Início / Produtos / produto), seções brancas e névoa alternadas automaticamente e fechamento escuro com demonstração e WhatsApp. O conteúdo fica em `shared/config/products.ts`. |
+| Palco dos produtos | `ProductsStage` (`features/products`): painel numa moldura de navegador (`BrowserFrame`), celular do app (`PhoneFrame`) e três atalhos em vidro (`ms-pchip`) para as páginas dos produtos. Imagens planas e inteiras, sem inclinação e sem recorte, com leve parallax do cursor. Fica na abertura da home e da página Produtos. |
+| Visual de cada produto | `ProductVisual` (`features/products`), com prefixo `ms-pdv-`, e `ProductThumb` para o ícone pequeno. Mostra cada produto do seu jeito: logo e módulos (SmallBusiness), três telas lado a lado (MS App) e o painel em navegador (MS Dashboard). Serve na abertura da página do produto e nas faixas de `/produtos`. O prefixo `ms-pv-` é da Política de Privacidade. |
+| Páginas de produto | `PageHero` com `parent`, faixa de destaques sobreposta, recursos em cartões, uma seção escura própria de cada produto (pacote do SmallBusiness, painel do Dashboard, passeio com `AppTour` no MS App), vantagens, vídeo quando há, outros produtos e fechamento escuro. `/produtos` é uma página de faixas alternadas, uma por produto. O conteúdo fica em `shared/config/products.ts`. |
 | Conversas de WhatsApp | `ChatMockups`, com as duas conversas ilustrativas. |
-| Vitrine com troca suave | `Carousel` com `transition="fade"`. Usado na abertura da home. |
+| Produtos na home | Seção escura em bento (`ms-pb`): SmallBusiness em cartão grande, MS App e MS Dashboard ao lado. Fala do produto por quem ele serve e não repete as telas da abertura. Não use slides para mostrar produto. |
 | Vídeo de apresentação | `YoutubeVideo`, com o código do vídeo. Mostra um botão e só carrega o player do YouTube no clique. |
 | Sala de vídeos | `PageHero` com conteúdo abaixo do título (`children`). O palco da tela Vídeos usa a capa do vídeo desfocada como brilho de ambiente, e a capa vem do próprio site. |
 
