@@ -15,6 +15,8 @@ export const SEGMENT_MODULES = [
   'Crematório',
   'Clínica',
   'Material Convalescente',
+  'Plano PET',
+  'Funerária PET',
 ] as const
 
 export const SMALL_BUSINESS_INTEREST = 'SmallBusiness'

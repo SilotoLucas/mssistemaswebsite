@@ -378,3 +378,21 @@ Nenhuma tela teve rolagem lateral em nenhuma das larguras testadas.
 - **Links para outros sites abrem em nova aba.** O `SiteLink` põe `target="_blank"` e `rel="noopener noreferrer"` em todo endereço `http` ou `https`. Páginas do próprio site, telefone e e-mail seguem na mesma aba. Links externos escritos à mão passaram a usar o `SiteLink`.
 - **Suporte.** Na conversa ilustrativa do relatório, o cliente propõe amanhã às 10h e o consultor confirma. O cartão "Plantão em fins de semana e feriados" ficou só com o título, sem texto de apoio.
 - **Faixa de módulos da Home.** Cada módulo da faixa que corre virou um link para o seu cartão na tela Soluções (`/solucoes#<slug>`), que abre já com os detalhes daquele módulo. A faixa para de correr com o mouse em cima ou com o foco do teclado, para dar tempo de clicar.
+
+## 039. Módulos pelo descritivo oficial da MS
+
+**Data:** 24/11/2026
+
+O dono do projeto enviou o descritivo de todos os módulos ("Módulos.docx"). O catálogo da tela Soluções foi refeito a partir dele, sem os valores e sem o Mapa de Calor, e passou de 24 para 38 módulos em seis grupos: Por segmento, Financeiro e caixa (grupo novo), Gestão, Equipe em campo, Canais digitais e Atendimento presencial.
+
+- **Módulos novos no site:** Plano PET, Funerária PET, Caixa Matriz, Caixa PIX, MS Cobrança, MS Principal, Compras, Administração de Produtos, MS Patrimônio, MSCLOUD, Pré-Cadastro, Gestor de Frotas, App do Associado e WhatsApp Marketing.
+- **Correções:**
+  - "Veículos de Apoio" virou "CIB: Controle Integrado de Benefícios" (slug `cib`).
+  - Condolência Online passou a descrever o aplicativo na sala de velório e foi para Atendimento presencial.
+  - O Dashboard passou a listar os painéis reais do sistema.
+  - Funerárias deixou de citar nota fiscal, que o descritivo não traz.
+- **Fora do catálogo:**
+  - A faixa e os cartões de módulos da Home ganharam os módulos novos.
+  - O formulário de demonstração ganhou Plano PET e Funerária PET.
+  - A seção SmallBusiness ganhou a lista do dia a dia.
+- **`docs/modulos.md`** guarda o descritivo completo, com o slug de cada módulo, para as próximas edições.

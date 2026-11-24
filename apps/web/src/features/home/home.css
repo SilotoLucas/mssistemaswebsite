@@ -118,6 +118,9 @@
 .ms-page .ms-sbx__perks { display: flex; flex-wrap: wrap; gap: var(--space-2); }
 .ms-sbx__perks li { display: inline-flex; align-items: center; gap: var(--space-2); padding: 8px 14px; border: 1px solid var(--glass-border); border-radius: var(--radius-full); background: var(--glass); color: var(--text-on-dark); font-size: var(--fs-small); font-weight: 600; }
 .ms-sbx__perks .ms-icon { color: var(--aqua); }
+.ms-page .ms-sbx__list { display: grid; gap: var(--space-2); width: 100%; }
+.ms-sbx__list li { display: flex; align-items: flex-start; gap: var(--space-2); color: var(--text-on-dark); font-size: var(--fs-small); line-height: 22px; }
+.ms-sbx__list .ms-icon { flex: none; margin-top: 3px; color: var(--aqua); }
 .ms-page .ms-dbx__shot { display: block; width: 100%; height: auto; border: 1px solid var(--glass-border); border-radius: var(--radius-md); box-shadow: var(--shadow-float); }
 .ms-feats { display: grid; gap: var(--space-3); }
 .ms-feats li { display: flex; align-items: center; gap: var(--space-3); color: var(--text-on-dark); }

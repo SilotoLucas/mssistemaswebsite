@@ -2,8 +2,13 @@ import { describe, expect, test } from 'bun:test'
 import { SOLUTION_COUNT, SOLUTION_GROUPS } from './solutions-catalog'
 
 describe('catálogo de soluções', () => {
-  test('mantém as 24 soluções divulgadas na home', () => {
-    expect(SOLUTION_COUNT).toBe(24)
+  test('mantém as 38 soluções do descritivo de módulos (docs/modulos.md)', () => {
+    expect(SOLUTION_COUNT).toBe(38)
+  })
+
+  test('não divulga preços', () => {
+    const text = JSON.stringify(SOLUTION_GROUPS)
+    expect(text).not.toMatch(/R\$\s*\d/)
   })
 
   test('usa endereços únicos para grupos e soluções', () => {

@@ -58,9 +58,13 @@ export const MODULE_GROUPS: readonly ModuleGroup[] = [
     title: 'Gestão',
     modules: [
       { label: 'Financeiro', slug: 'controle-financeiro' },
+      { label: 'Caixa', slug: 'caixa-matriz' },
+      { label: 'Caixa PIX', slug: 'caixa-pix' },
+      { label: 'Cobrança Bancária', slug: 'cobranca-bancaria' },
       { label: 'Filiais', slug: 'filiais-online' },
       { label: 'Frota', slug: 'frota' },
-      { label: 'Equipamentos', slug: 'equipamentos' },
+      { label: 'Compras', slug: 'compras' },
+      { label: 'Patrimônio', slug: 'patrimonio' },
       { label: 'CRM', slug: 'crm' },
       { label: 'Dashboard', slug: 'dashboard' },
     ],
@@ -71,7 +75,9 @@ export const MODULE_GROUPS: readonly ModuleGroup[] = [
     modules: [
       { label: 'Cobrança Móvel', slug: 'cobranca-movel' },
       { label: 'Venda com Tablet', slug: 'venda-com-tablet' },
+      { label: 'Pré-Cadastro', slug: 'pre-cadastro' },
       { label: 'P.O.S', slug: 'pos' },
+      { label: 'Gestor de Frotas', slug: 'app-frota' },
     ],
   },
   {
@@ -79,10 +85,11 @@ export const MODULE_GROUPS: readonly ModuleGroup[] = [
     title: 'Canais digitais',
     modules: [
       { label: 'Portal do Associado', slug: 'portal-do-associado' },
+      { label: 'App do Associado', slug: 'app-do-associado' },
       { label: 'Venda Web', slug: 'venda-web' },
       { label: 'ChatBot', slug: 'chatbot' },
+      { label: 'WhatsApp Marketing', slug: 'whatsapp-marketing' },
       { label: 'SMS', slug: 'sms-marketing' },
-      { label: 'Condolência Online', slug: 'condolencia-online' },
     ],
   },
   {
@@ -93,6 +100,7 @@ export const MODULE_GROUPS: readonly ModuleGroup[] = [
       { label: 'Totem Cemitério', slug: 'totem-cemiterio' },
       { label: 'QR Code', slug: 'qr-code-cemiterio' },
       { label: 'Painel de Velório', slug: 'painel-de-velorio' },
+      { label: 'Condolência Online', slug: 'condolencia-online' },
     ],
   },
 ]

@@ -1,5 +1,6 @@
 import smallBusinessLogo from '../../../assets/smallbusiness-logo.webp'
 import {
+  SMALL_BUSINESS_HIGHLIGHTS,
   SMALL_BUSINESS_HREF,
   SMALL_BUSINESS_MODULES,
   SMALL_BUSINESS_PERKS,
@@ -19,8 +20,9 @@ export const SmallBusinessSection = () => (
           O sistema da MS em <span className="ms-grad">versão compacta</span>
         </h2>
         <p className="ms-por__i">
-          Os módulos essenciais em um pacote enxuto, hospedado na nuvem, para começar rápido e com
-          ótimo custo-benefício.
+          Para pequenas empresas que querem sair das planilhas e dos controles manuais: os módulos
+          essenciais da MS, 100% na nuvem e com visual moderno, para começar rápido e com ótimo
+          custo-benefício.
         </p>
       </Reveal>
       <Reveal className="ms-sbx">
@@ -44,6 +46,15 @@ export const SmallBusinessSection = () => (
                   <Icon name={item.icon} size={22} />
                 </span>
                 {item.label}
+              </li>
+            ))}
+          </ul>
+          <p className="ms-por__cap">No dia a dia</p>
+          <ul className="ms-sbx__list">
+            {SMALL_BUSINESS_HIGHLIGHTS.map((item) => (
+              <li key={item}>
+                <Icon name="check" size={16} />
+                {item}
               </li>
             ))}
           </ul>
