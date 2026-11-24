@@ -1,5 +1,4 @@
-import { PRODUCTS, PRODUCTS_HREF, type Product, productHref } from '../../../shared/config/products'
-import { DIGITAL_SOLUTIONS } from '../../../shared/config/site-config'
+import { PRODUCTS, type Product, productHref } from '../../../shared/config/products'
 import { Aurora } from '../../../shared/ui/aurora'
 import { Carousel, type CarouselSlide } from '../../../shared/ui/carousel'
 import { Icon } from '../../../shared/ui/icon'
@@ -45,7 +44,7 @@ export const ProductsSection = () => (
     <Aurora />
     <div className="ms-wrap">
       <Reveal className="ms-por__head">
-        <p className="ms-eyebrow">{DIGITAL_SOLUTIONS.label}</p>
+        <p className="ms-eyebrow">Soluções digitais</p>
         <h2>
           Três soluções digitais para a sua empresa <span className="ms-grad">ir mais longe</span>
         </h2>
@@ -63,11 +62,6 @@ export const ProductsSection = () => (
           transition="fade"
         />
       </Reveal>
-      <div className="ms-pdh__all">
-        <SiteLink className="ms-btn ms-btn--glass" href={PRODUCTS_HREF}>
-          Ver todas as soluções digitais
-        </SiteLink>
-      </div>
     </div>
   </section>
 )

@@ -65,7 +65,6 @@ body { margin: 0; background: var(--ink); }
 .ms-page .ms-header__logo .ms-mark { width: auto; height: 38px; }
 .ms-nav { display: none; }
 .ms-nav a, .ms-access__btn { position: relative; display: inline-flex; align-items: center; gap: var(--space-1); min-height: var(--tap-min); padding-inline: var(--space-4); border: 0; border-radius: var(--radius-full); background: none; color: var(--navy); font-family: var(--font-body); font-size: var(--fs-small); line-height: 20px; font-weight: 600; text-decoration: none; cursor: pointer; transition: color var(--duration-fast) var(--ease-standard), background-color var(--duration-fast) var(--ease-standard); }
-.ms-nav a, .ms-access__btn { white-space: nowrap; }
 .ms-nav a:hover, .ms-access__btn:hover, .ms-access__btn[aria-expanded="true"] { background: color-mix(in srgb, var(--brand) 14%, transparent); color: var(--brand-deep); }
 .ms-header__actions { display: flex; align-items: center; gap: var(--space-2); }
 .ms-access { position: relative; display: none; }
@@ -124,14 +123,6 @@ body { margin: 0; background: var(--ink); }
   .ms-burger { display: none; }
   .ms-drawer { display: none; }
   .ms-footer__top { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--space-7); }
-}
-
-@media (min-width: 1200px) and (max-width: 1439px) {
-  .ms-nav a, .ms-access__btn { padding-inline: var(--space-3); }
-}
-
-@media (min-width: 1200px) and (max-width: 1279px) {
-  .ms-nav a, .ms-access__btn { padding-inline: var(--space-2); }
 }
 
 @media (max-width: 359px) {

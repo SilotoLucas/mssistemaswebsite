@@ -7,21 +7,20 @@ import { ContactPage } from '../features/contact'
 import { DemoRequestPage } from '../features/demo-request'
 import { HomePage } from '../features/home'
 import { PrivacyPage } from '../features/privacy'
-import { ProductPage, ProductsPage } from '../features/products'
+import { ProductPage } from '../features/products'
 import { SiteFooter, SiteHeader } from '../features/site-shell'
 import { SolutionsPage } from '../features/solutions'
 import { SupportPage } from '../features/support'
 import { VideosPage } from '../features/videos'
-import { DIGITAL_SOLUTIONS, isPagePublished } from '../shared/config/site-config'
+import { PRODUCTS, productHref } from '../shared/config/products'
+import { isPagePublished } from '../shared/config/site-config'
 import { WhatsappFab } from '../shared/ui/whatsapp-fab'
 import { NotFoundPage } from './not-found-page'
 import { ScrollManager } from './scroll-manager'
 
 const LegacyProductRedirect = () => {
   const { slug } = useParams()
-  return (
-    <Navigate to={slug ? `${DIGITAL_SOLUTIONS.href}/${slug}` : DIGITAL_SOLUTIONS.href} replace />
-  )
+  return <Navigate to={slug ? `/${slug}` : '/'} replace />
 }
 
 const publishedOr = (path: string, page: ReactNode): ReactNode =>
@@ -34,8 +33,13 @@ export const App = () => (
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/solucoes" element={<SolutionsPage />} />
-      <Route path={DIGITAL_SOLUTIONS.href} element={<ProductsPage />} />
-      <Route path={`${DIGITAL_SOLUTIONS.href}/:slug`} element={<ProductPage />} />
+      {PRODUCTS.map((product) => (
+        <Route
+          key={product.slug}
+          path={productHref(product.slug)}
+          element={<ProductPage slug={product.slug} />}
+        />
+      ))}
       <Route path="/produtos" element={<LegacyProductRedirect />} />
       <Route path="/produtos/:slug" element={<LegacyProductRedirect />} />
       <Route path="/videos" element={<VideosPage />} />

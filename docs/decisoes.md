@@ -465,3 +465,16 @@ O dono do projeto lembrou que a MS é uma empresa de software e não tem produto
   - A faixa de módulos e os cartões de segmento da Home já levavam para lá. A função `solutionHref` foi para `shared/config/solutions-catalog.ts`.
 - **Menu:** o nome maior quebrava em duas linhas no notebook, então o menu ganhou `nowrap` e espaçamento menor entre 1200 e 1439 px.
 - **Número:** o contador "soluções integradas" da Home estava fixo em 24. Agora usa `SOLUTION_COUNT`, que é a contagem real do catálogo (38).
+
+## 044. Sem tela de lista: cada solução digital tem a sua rota
+
+**Data:** 24/11/2026
+
+O dono do projeto não quer uma tela "Soluções digitais", porque ficava parecida demais com a tela Soluções (decisão 043 revisada).
+
+- **Rotas:** SmallBusiness, MS App e MS Dashboard abrem em `/smallbusiness`, `/app` e `/dashboard`. Saíram `/solucoes-digitais`, a página de lista (`ProductsPage`), o palco (`ProductsStage`) e o item "Soluções digitais" do menu (`DIGITAL_SOLUTIONS`).
+- **Endereços antigos:** `/produtos` leva para o início e `/produtos/<slug>` para `/<slug>`. Uma rota que não existe cai na página não encontrada.
+- **Home:** a seção de baixo mantém só o carrossel, com o botão de cada slide levando à rota da solução. Saiu o botão "Ver todas as soluções digitais". O texto "Soluções digitais" continua só como etiqueta e título da seção.
+- **Páginas:** a trilha é "Início / nome da solução", e o bloco de outras soluções usa a etiqueta "Mais da MS".
+- **Botões para a tela Soluções (`/solucoes`)** da decisão 043 continuam como estavam.
+- **Mapa de presença:** Mato Grosso (MT) passou a constar como atendido, sem lista de cidades, como SC e DF. O total vai a 21 estados, contado pelo próprio mapa. Mato Grosso do Sul (MS) já constava.

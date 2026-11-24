@@ -198,6 +198,12 @@ export const CLIENT_STATES: readonly ClientState[] = [
     cities: [],
   },
   {
+    code: 'MT',
+    name: 'Mato Grosso',
+    region: 'centro-oeste',
+    cities: [],
+  },
+  {
     code: 'GO',
     name: 'Goiás',
     region: 'centro-oeste',

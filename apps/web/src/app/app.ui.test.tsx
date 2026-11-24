@@ -8,10 +8,9 @@ import { renderWithRouter } from '../test/render-with-router'
 const ALL_ROUTES = [
   ['/', 'MS Sistemas'],
   ['/solucoes', 'Soluções | MS Sistemas'],
-  ['/solucoes-digitais', 'Soluções digitais | MS Sistemas'],
-  ['/solucoes-digitais/smallbusiness', 'SmallBusiness | MS Sistemas'],
-  ['/solucoes-digitais/app', 'MS App | MS Sistemas'],
-  ['/solucoes-digitais/dashboard', 'MS Dashboard | MS Sistemas'],
+  ['/smallbusiness', 'SmallBusiness | MS Sistemas'],
+  ['/app', 'MS App | MS Sistemas'],
+  ['/dashboard', 'MS Dashboard | MS Sistemas'],
   ['/videos', 'Vídeos | MS Sistemas'],
   ['/clientes', 'Clientes | MS Sistemas'],
   ['/suporte', 'Suporte | MS Sistemas'],

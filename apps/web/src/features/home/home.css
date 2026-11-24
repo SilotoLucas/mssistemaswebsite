@@ -177,7 +177,6 @@
 .ms-pdh__list .ms-icon { flex: none; color: var(--aqua); }
 .ms-pdh__go .ms-icon { transition: transform var(--duration-base) var(--ease-out-expo); }
 .ms-pdh__go:hover .ms-icon { transform: translateX(4px); }
-.ms-pdh__all { display: flex; justify-content: center; margin-top: var(--space-6); }
 
 @media (min-width: 768px) {
   .ms-hs__t { font-size: 24px; }

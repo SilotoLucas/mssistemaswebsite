@@ -19,7 +19,7 @@ export const STATE_TILES: readonly StateTile[] = [
   { code: 'RN', name: 'Rio Grande do Norte', column: 7, row: 2, served: true },
   { code: 'AC', name: 'Acre', column: 1, row: 3, served: false },
   { code: 'RO', name: 'Rondônia', column: 2, row: 3, served: true },
-  { code: 'MT', name: 'Mato Grosso', column: 3, row: 3, served: false },
+  { code: 'MT', name: 'Mato Grosso', column: 3, row: 3, served: true },
   { code: 'TO', name: 'Tocantins', column: 4, row: 3, served: false },
   { code: 'PI', name: 'Piauí', column: 5, row: 3, served: true },
   { code: 'PB', name: 'Paraíba', column: 6, row: 3, served: true },

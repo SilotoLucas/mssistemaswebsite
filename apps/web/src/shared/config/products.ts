@@ -1,5 +1,5 @@
 import type { IconName } from '../ui/icon'
-import { DIGITAL_SOLUTIONS, whatsappMessageHref } from './site-config'
+import { whatsappMessageHref } from './site-config'
 import {
   SMALL_BUSINESS_HIGHLIGHTS,
   SMALL_BUSINESS_HREF,
@@ -24,7 +24,6 @@ export type Product = {
   readonly slug: ProductSlug
   readonly name: string
   readonly audience: string
-  readonly access: string
   readonly headline: string
   readonly pitch: string
   readonly lead: string
@@ -42,16 +41,13 @@ export type Product = {
   readonly whatsappHref: string
 }
 
-export const productHref = (slug: ProductSlug): string => `${DIGITAL_SOLUTIONS.href}/${slug}`
-
-export const PRODUCTS_HREF: string = DIGITAL_SOLUTIONS.href
+export const productHref = (slug: ProductSlug): string => `/${slug}`
 
 export const PRODUCTS: readonly Product[] = [
   {
     slug: 'smallbusiness',
     name: 'SmallBusiness',
     audience: 'Para a pequena empresa',
-    access: 'Pelo navegador, na nuvem',
     headline: 'O sistema da MS na medida da pequena empresa',
     pitch: 'Plano, funerária, cobrança e caixa em um pacote enxuto, 100% na nuvem.',
     lead: 'Para quem quer sair das planilhas e dos controles manuais: os módulos essenciais da MS, acessados pelo navegador, com começo rápido e ótimo custo-benefício.',
@@ -143,7 +139,6 @@ export const PRODUCTS: readonly Product[] = [
     slug: 'app',
     name: 'MS App',
     audience: 'Para os seus associados',
-    access: 'No celular, Android e iOS',
     headline: 'O app que a sua empresa oferece aos associados',
     pitch: 'Plano, parcelas, carteirinha e contato com a empresa no celular do associado.',
     lead: 'Com o MS App, cada associado consulta o plano, acompanha as parcelas, mostra a carteirinha e fala com a sua empresa direto do celular, no Android e no iOS.',
@@ -242,7 +237,6 @@ export const PRODUCTS: readonly Product[] = [
     slug: 'dashboard',
     name: 'MS Dashboard',
     audience: 'Para quem decide',
-    access: 'On-line, de onde estiver',
     headline: 'Os números da empresa em um só painel',
     pitch: 'Recebimentos, financeiro, previsto x realizado e inadimplência em gráficos.',
     lead: 'Consulte on-line, com um clique, as informações que importam para decidir: recebimentos de todos os caixas, financeiro, fluxo do plano e inadimplência, direto do sistema.',

@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react'
-import { Navigate, useParams } from 'react-router'
-import { findProduct, PRODUCTS, PRODUCTS_HREF, type Product } from '../../shared/config/products'
-import { DEMO_HREF, DIGITAL_SOLUTIONS } from '../../shared/config/site-config'
+import { findProduct, PRODUCTS, type Product, type ProductSlug } from '../../shared/config/products'
+import { DEMO_HREF } from '../../shared/config/site-config'
 import { Icon } from '../../shared/ui/icon'
 import { PageHero } from '../../shared/ui/page-hero'
 import { Reveal } from '../../shared/ui/reveal'
@@ -26,7 +25,7 @@ const OtherProducts = ({ product, tone }: { readonly product: Product; readonly 
   <section className={`ms-section ${tone}`} id="outras-solucoes">
     <div className="ms-wrap">
       <Reveal className="ms-pd-head">
-        <p className="ms-eyebrow ms-eyebrow--light">{DIGITAL_SOLUTIONS.label}</p>
+        <p className="ms-eyebrow ms-eyebrow--light">Mais da MS</p>
         <h2 className="ms-h2">
           Conheça também <span className="ms-grad ms-grad--deep">as outras soluções</span>
         </h2>
@@ -85,7 +84,6 @@ const ProductContent = ({ product }: { readonly product: Product }) => (
     <title>{`${product.name} | MS Sistemas`}</title>
     <meta name="description" content={`${product.name}: ${product.pitch}`} />
     <PageHero
-      parent={{ label: DIGITAL_SOLUTIONS.label, href: PRODUCTS_HREF }}
       crumb={product.name}
       title={product.headline}
       lead={product.lead}
@@ -112,9 +110,8 @@ const ProductContent = ({ product }: { readonly product: Product }) => (
   </main>
 )
 
-export const ProductPage = () => {
-  const { slug } = useParams()
+export const ProductPage = ({ slug }: { readonly slug: ProductSlug }) => {
   const product = findProduct(slug)
-  if (!product) return <Navigate to={PRODUCTS_HREF} replace />
+  if (!product) return null
   return <ProductContent product={product} key={product.slug} />
 }
