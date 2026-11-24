@@ -429,3 +429,18 @@ O dono do projeto não aprovou o que a decisão 040 entregou em design. Os probl
 - **Páginas de produto:** cada produto tem a sua seção escura de detalhes. O SmallBusiness mostra o pacote e o dia a dia. O Dashboard mostra o painel em moldura de navegador. O MS App tem um passeio de três telas (`AppTour`), com uma tela por vez e passos clicáveis.
 - **Imagens:** as telas do app seguem com o tratamento de privacidade da decisão 040, mas agora aparecem inteiras, na proporção original e sem inclinação (`PhoneFrame`, `BrowserFrame`).
 - **Limpeza:** saíram `hero-showcase`, o carrossel de produtos da home, a opção `fade` do `Carousel` e o CSS antigo (`ms-stage`, `ms-chip`, `ms-hs`, `ms-sb`, `ms-pdh`).
+
+## 042. Slides de volta, MS App sem recorte e duas telas sobrepostas
+
+**Data:** 24/11/2026
+
+O dono do projeto pediu para manter os slides com os três produtos na abertura da home, na troca automática de antes. O que ele não aprovou foi a distribuição das imagens dentro do slide, não o slide. Também pediu que as telas do app aparecessem sem perder informação nem nitidez. Esta decisão corrige a 041 nesses pontos.
+
+- **Slides:**
+  - A abertura da home (`HeroShowcase`) voltou a ser um carrossel de três slides, SmallBusiness, MS App e MS Dashboard, com troca suave a cada 11 s.
+  - A seção "Três produtos para a sua empresa ir mais longe" voltou a ser um carrossel (9 s), com o produto à esquerda e os destaques à direita. O bento da decisão 041 saiu.
+  - A opção `transition="fade"` do `Carousel` voltou.
+- **Composição:** cada slide mostra o visual do produto inteiro e centralizado, com uma legenda curta. Sem inclinação e sem chips espalhados. O slide do MS App mostra dois celulares sobrepostos, o menu na frente e o login atrás.
+- **Sem recorte:** o `PhoneFrame` arredondava a tela com a imagem por baixo, e cortava os cantos, onde ficam a logo e o sino de avisos. Agora a moldura tem uma faixa de câmera em cima e uma barra embaixo, e a imagem entra inteira, na proporção original.
+- **Nitidez:** a imagem era esticada em uma caixa de proporção um pouco diferente da dela, o que a deixava borrada. Agora ela tem largura e altura naturais. As telas foram refeitas a partir dos originais, em WebP qualidade 96, com as mesmas edições de privacidade.
+- **MS App em `/produtos`:** as faixas e a abertura da página do app usam os dois celulares sobrepostos.

@@ -1,7 +1,7 @@
 import type { CSSProperties, ReactNode } from 'react'
 import './carousel.css'
 import { SlideNav } from './slide-nav'
-import { useCarousel } from './use-carousel'
+import { type CarouselTransition, useCarousel } from './use-carousel'
 
 export type CarouselSlide = {
   readonly key: string
@@ -15,6 +15,7 @@ type CarouselProps = {
   readonly className?: string
   readonly barClassName?: string
   readonly intervalMs?: number
+  readonly transition?: CarouselTransition
 }
 
 const DEFAULT_INTERVAL_MS = 6000
@@ -25,8 +26,9 @@ export const Carousel = ({
   className = '',
   barClassName = '',
   intervalMs = DEFAULT_INTERVAL_MS,
+  transition = 'slide',
 }: CarouselProps) => {
-  const carousel = useCarousel(slides.length, intervalMs)
+  const carousel = useCarousel(slides.length, intervalMs, transition)
 
   return (
     <section

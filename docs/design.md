@@ -90,12 +90,12 @@ Todos já existem. Reaproveite, não crie variantes.
 | Números que contam | Componente `CountUp`. |
 | Selo com ponto pulsante | `ms-eyebrow` com `ms-pulse` (disponibilidade, atendimento). |
 | Faixas que rolam | `AutoRail` e `ms-marq`. O `AutoRail` anda sozinho e aceita arraste com mouse, dedo e trackpad. |
-| Slides | `Carousel`. Anda sozinho e troca de slide com um gesto lateral de mouse ou dedo. |
-| Palco dos produtos | `ProductsStage` (`features/products`): painel numa moldura de navegador (`BrowserFrame`), celular do app (`PhoneFrame`) e três atalhos em vidro (`ms-pchip`) para as páginas dos produtos. Imagens planas e inteiras, sem inclinação e sem recorte, com leve parallax do cursor. Fica na abertura da home e da página Produtos. |
-| Visual de cada produto | `ProductVisual` (`features/products`), com prefixo `ms-pdv-`, e `ProductThumb` para o ícone pequeno. Mostra cada produto do seu jeito: logo e módulos (SmallBusiness), três telas lado a lado (MS App) e o painel em navegador (MS Dashboard). Serve na abertura da página do produto e nas faixas de `/produtos`. O prefixo `ms-pv-` é da Política de Privacidade. |
+| Slides | `Carousel`. Anda sozinho e troca de slide com um gesto lateral de mouse ou dedo. Aceita `transition="fade"` (troca suave) para vitrines. |
+| Palco dos produtos | `ProductsStage` (`features/products`): painel numa moldura de navegador, celular do app e três atalhos em vidro (`ms-pchip`) para as páginas dos produtos. Fica na abertura da página Produtos. |
+| Visual de cada produto | `ProductVisual` (`features/products`), com prefixo `ms-pdv-`, e `ProductThumb` para o ícone pequeno. Cada produto tem o seu: logo e módulos (SmallBusiness), dois celulares sobrepostos, com o menu na frente e o login atrás (MS App), e o painel em navegador (MS Dashboard). Tem altura própria pela variável `--duo-h`. Serve nos slides da home, nas faixas de `/produtos` e na abertura da página do produto. O prefixo `ms-pv-` é da Política de Privacidade. |
 | Páginas de produto | `PageHero` com `parent`, faixa de destaques sobreposta, recursos em cartões, uma seção escura própria de cada produto (pacote do SmallBusiness, painel do Dashboard, passeio com `AppTour` no MS App), vantagens, vídeo quando há, outros produtos e fechamento escuro. `/produtos` é uma página de faixas alternadas, uma por produto. O conteúdo fica em `shared/config/products.ts`. |
 | Conversas de WhatsApp | `ChatMockups`, com as duas conversas ilustrativas. |
-| Produtos na home | Seção escura em bento (`ms-pb`): SmallBusiness em cartão grande, MS App e MS Dashboard ao lado. Fala do produto por quem ele serve e não repete as telas da abertura. Não use slides para mostrar produto. |
+| Vitrine de produtos na home | A abertura (`HeroShowcase`) e a seção "Três produtos…" (`ProductsSection`) são carrosséis de três slides, com troca suave. O slide da abertura mostra o visual e uma legenda curta. O da seção de baixo mostra o produto à esquerda e os destaques e o botão à direita. Os dois usam `ProductVisual`. |
 | Vídeo de apresentação | `YoutubeVideo`, com o código do vídeo. Mostra um botão e só carrega o player do YouTube no clique. |
 | Sala de vídeos | `PageHero` com conteúdo abaixo do título (`children`). O palco da tela Vídeos usa a capa do vídeo desfocada como brilho de ambiente, e a capa vem do próprio site. |
 
@@ -146,3 +146,4 @@ Não ponha a logo em pastilha, selo ou caixa, nem aplique máscara ou mesclagem:
 5. Conferido em 390, 768, 1024, 1366, 1536 e 1920, sem rolagem lateral?
 6. Nenhum dado inventado?
 7. `bun run validate` verde?
+| Moldura de celular | `PhoneFrame` (`shared/ui`). Mostra a tela inteira, sem recorte nos cantos: a câmera e a barra de baixo ficam na moldura, e as medidas seguem a largura do celular (`cqw`). Passe sempre a largura e a altura reais da imagem. |

@@ -5,7 +5,6 @@ import { BrowserFrame } from '../../shared/ui/browser-frame'
 import { Icon } from '../../shared/ui/icon'
 import { PhoneFrame } from '../../shared/ui/phone-frame'
 import {
-  APP_LOGO,
   APP_SCREENS,
   DASHBOARD_ADDRESS,
   DASHBOARD_SHOT,
@@ -42,41 +41,26 @@ const SmallBusinessVisual = ({ decorative }: VisualProps) => (
 )
 
 const AppVisual = ({ decorative }: VisualProps) => {
-  const [login, home, reminder] = APP_SCREENS
+  const [login, home] = APP_SCREENS
   return (
     <div className="ms-pdv ms-pdv--app">
       <span className="ms-pdv__glow" aria-hidden="true" />
-      <div className="ms-pdv__phones">
+      <div className="ms-pdv__duo">
         <PhoneFrame
-          className="ms-pdv__ph ms-pdv__ph--l"
+          className="ms-pdv__ph ms-pdv__ph--back"
           src={login.src}
           alt={alt(decorative, login.alt)}
           width={login.width}
           height={login.height}
         />
         <PhoneFrame
-          className="ms-pdv__ph ms-pdv__ph--c"
+          className="ms-pdv__ph ms-pdv__ph--front"
           src={home.src}
           alt={alt(decorative, home.alt)}
           width={home.width}
           height={home.height}
         />
-        <PhoneFrame
-          className="ms-pdv__ph ms-pdv__ph--r"
-          src={reminder.src}
-          alt={alt(decorative, reminder.alt)}
-          width={reminder.width}
-          height={reminder.height}
-        />
       </div>
-      <img
-        className="ms-pdv__badge"
-        src={APP_LOGO.src}
-        alt={alt(decorative, APP_LOGO.alt)}
-        width={APP_LOGO.width}
-        height={APP_LOGO.height}
-        draggable={false}
-      />
     </div>
   )
 }
