@@ -35,7 +35,7 @@ export const ProductsStage = () => (
     <div className="ms-pst__ph" aria-hidden="true">
       <PhoneFrame src={home.src} alt="" width={home.width} height={home.height} />
     </div>
-    <nav className="ms-pst__nav" aria-label="Produtos MS">
+    <nav className="ms-pst__nav" aria-label="Soluções digitais da MS">
       {STAGE_CHIPS.map((chip) => (
         <SiteLink
           className={`ms-pchip ms-pst__chip ms-pst__chip--${chip.slug}`}

@@ -1,5 +1,7 @@
+import { solutionHref } from '../../../shared/config/solutions-catalog'
 import { Icon } from '../../../shared/ui/icon'
 import { Reveal } from '../../../shared/ui/reveal'
+import { SiteLink } from '../../../shared/ui/site-link'
 import { trackPointer } from '../../../shared/ui/spotlight'
 import { TextLink } from '../../../shared/ui/text-link'
 import { MODULE_GROUPS } from '../home-content'
@@ -22,10 +24,19 @@ export const EcosystemSection = () => (
               <span className="ms-eco__n">
                 <Icon name={group.icon} size={24} />
               </span>
-              <h3>{group.title}</h3>
+              <h3>
+                <SiteLink className="ms-eco__open" href={solutionHref(group.slug)}>
+                  {group.title}
+                  <Icon name="arrow-right" size={20} />
+                </SiteLink>
+              </h3>
               <ul>
                 {group.modules.map((module) => (
-                  <li key={module.slug}>{module.label}</li>
+                  <li key={module.slug}>
+                    <SiteLink className="ms-eco__chip" href={solutionHref(module.slug)}>
+                      {module.label}
+                    </SiteLink>
+                  </li>
                 ))}
               </ul>
             </article>

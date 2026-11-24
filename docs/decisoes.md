@@ -449,3 +449,19 @@ O dono do projeto pediu para manter os slides com os três produtos na abertura 
 - O celular de trás ficou mais claro e quase sem sobreposição, para o login aparecer melhor.
 - A tela interna do celular ganhou cantos arredondados, e a tela inicial do app ganhou uma faixa de 44 px no topo, com a cor do cabeçalho, para a logo não encostar na borda.
 - No passeio do MS App, o acesso não é mais só pelo CPF, porque é uma configuração de cada cliente. Os passos agora são "Acesso rápido", "Todos os acessos facilitados" e "Recebe lembretes".
+
+## 043. "Produtos" vira "soluções digitais" e as soluções viram botões
+
+**Data:** 24/11/2026
+
+O dono do projeto lembrou que a MS é uma empresa de software e não tem produtos. SmallBusiness, MS App e MS Dashboard passam a se chamar **soluções digitais**.
+
+- **Nome:**
+  - "Soluções" já é a tela dos 38 módulos (`/solucoes`). Por isso o nome novo é **Soluções digitais**, para não ter dois itens iguais no menu. O texto fica em `DIGITAL_SOLUTIONS` (`shared/config/site-config.ts`), e trocar o nome por ali muda o menu, os títulos e a trilha.
+  - O endereço agora é `/solucoes-digitais` e `/solucoes-digitais/<slug>`. Os endereços antigos `/produtos` e `/produtos/<slug>` redirecionam para os novos.
+  - No código a pasta e os dados continuam com o nome `products` (`features/products`, `shared/config/products.ts`). Só os textos mudaram.
+- **Tela de soluções:**
+  - Todo lugar que cita um módulo ou grupo vira botão para `/solucoes#<slug>`: os quatro grupos e os módulos de "Tudo conectado, do escritório ao campo"; os módulos do SmallBusiness (chips e cartões); e o botão "Ver na tela de soluções" nas páginas do MS App e do MS Dashboard.
+  - A faixa de módulos e os cartões de segmento da Home já levavam para lá. A função `solutionHref` foi para `shared/config/solutions-catalog.ts`.
+- **Menu:** o nome maior quebrava em duas linhas no notebook, então o menu ganhou `nowrap` e espaçamento menor entre 1200 e 1439 px.
+- **Número:** o contador "soluções integradas" da Home estava fixo em 24. Agora usa `SOLUTION_COUNT`, que é a contagem real do catálogo (38).

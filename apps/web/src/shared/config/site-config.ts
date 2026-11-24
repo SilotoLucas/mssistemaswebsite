@@ -15,10 +15,12 @@ export const isPagePublished = (path: string): boolean => !HIDDEN_PAGES.includes
 
 export const DEMO_HREF = '/demonstracao'
 
+export const DIGITAL_SOLUTIONS = { label: 'Soluções digitais', href: '/solucoes-digitais' } as const
+
 const ALL_PAGES: readonly NavigationLink[] = [
   { label: 'Início', href: '/' },
   { label: 'Soluções', href: '/solucoes' },
-  { label: 'Produtos', href: '/produtos' },
+  { label: DIGITAL_SOLUTIONS.label, href: DIGITAL_SOLUTIONS.href },
   { label: 'Vídeos do sistema', href: '/videos' },
   { label: 'Suporte', href: '/suporte' },
   { label: 'Clientes', href: '/clientes' },

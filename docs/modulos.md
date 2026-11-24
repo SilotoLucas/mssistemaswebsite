@@ -209,7 +209,7 @@ Cadastros, operação e controle das áreas administrativas.
 - **Slug:** `dashboard` (tem vídeo)
 - **Resumo:** informações para a tomada de decisão, on-line e com um clique.
 - **Recursos:** fluxo de recebimentos de todos os caixas; visão geral do financeiro; fluxo do plano previsto x realizado; análise de inadimplência; relatórios de recebimento.
-- **No site:** é o produto "MS Dashboard", com página própria em `/produtos/dashboard` (`shared/config/products.ts`).
+- **No site:** é a solução digital "MS Dashboard", com página própria em `/solucoes-digitais/dashboard` (`shared/config/products.ts`).
 
 ### MSCLOUD (tecnologia em nuvem)
 
@@ -294,7 +294,7 @@ Serviços on-line e comunicação com o cliente final.
 
 - **Slug:** `app-do-associado` (módulo novo no site)
 - **Resumo:** aplicativo para Android e iOS com os recursos do portal, mais a consulta de unidades (filiais), com informações e localização.
-- **No site:** é o produto "MS App", com página própria em `/produtos/app`, e aparece na vitrine da abertura e no carrossel de produtos da Home.
+- **No site:** é a solução digital "MS App", com página própria em `/solucoes-digitais/app`, e aparece na vitrine da abertura e no carrossel de soluções digitais da Home.
 
 ### Venda Web
 
@@ -365,7 +365,7 @@ Tecnologia para a recepção, a sala velatória e o cemitério.
 
 ## SmallBusiness (pacote)
 
-Não está na tela Soluções. É um dos produtos: tem página própria em `/produtos/smallbusiness`, um slide na abertura e outro no carrossel de produtos da Home (`shared/config/products.ts` e `shared/config/small-business.ts`).
+Não está na tela Soluções. É uma das soluções digitais: tem página própria em `/solucoes-digitais/smallbusiness`, um slide na abertura e outro no carrossel de produtos da Home (`shared/config/products.ts` e `shared/config/small-business.ts`).
 
 - **Para quem:** pequenas empresas que querem sair de planilhas e controles manuais.
 - **Como é:** 100% on-line, acessado pelo navegador, com visual moderno e hospedagem em data center seguro.

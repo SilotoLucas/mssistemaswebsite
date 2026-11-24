@@ -15,11 +15,10 @@ type ModuleLink = {
 
 export type ModuleGroup = {
   readonly icon: IconName
+  readonly slug: string
   readonly title: string
   readonly modules: readonly ModuleLink[]
 }
-
-export const solutionHref = (slug: string): string => `/solucoes#${slug}`
 
 export const SEGMENTS: readonly Segment[] = [
   {
@@ -55,6 +54,7 @@ export const SEGMENTS: readonly Segment[] = [
 export const MODULE_GROUPS: readonly ModuleGroup[] = [
   {
     icon: 'dashboard',
+    slug: 'gestao',
     title: 'Gestão',
     modules: [
       { label: 'Financeiro', slug: 'controle-financeiro' },
@@ -71,6 +71,7 @@ export const MODULE_GROUPS: readonly ModuleGroup[] = [
   },
   {
     icon: 'phone',
+    slug: 'equipe-em-campo',
     title: 'Equipe em campo',
     modules: [
       { label: 'Cobrança Móvel', slug: 'cobranca-movel' },
@@ -82,6 +83,7 @@ export const MODULE_GROUPS: readonly ModuleGroup[] = [
   },
   {
     icon: 'globe',
+    slug: 'canais-digitais',
     title: 'Canais digitais',
     modules: [
       { label: 'Portal do Associado', slug: 'portal-do-associado' },
@@ -94,6 +96,7 @@ export const MODULE_GROUPS: readonly ModuleGroup[] = [
   },
   {
     icon: 'monitor',
+    slug: 'atendimento-presencial',
     title: 'Atendimento presencial',
     modules: [
       { label: 'Totem de Autoatendimento', slug: 'totem-autoatendimento' },

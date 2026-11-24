@@ -1,6 +1,6 @@
 # MS Sistemas Website
 
-Site institucional da MS Consultoria & Sistemas. Nesta fase existe somente o front-end, com as telas do plano em `docs/plano-telas.md` (Clientes e Contato estão ocultas por enquanto, ver `HIDDEN_PAGES`). Os produtos (SmallBusiness, MS App e MS Dashboard) ficam em `shared/config/products.ts`.
+Site institucional da MS Consultoria & Sistemas. Nesta fase existe somente o front-end, com as telas do plano em `docs/plano-telas.md` (Clientes e Contato estão ocultas por enquanto, ver `HIDDEN_PAGES`). As soluções digitais (SmallBusiness, MS App e MS Dashboard) ficam em `shared/config/products.ts`. A MS não tem "produtos": use "soluções digitais" nos textos. O nome `products` só existe no código.
 
 ## Comandos
 

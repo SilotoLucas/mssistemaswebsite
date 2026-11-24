@@ -12,7 +12,7 @@
 | 8 | Política de Privacidade | `/politica-de-privacidade` | Pronta |
 | 9 | Vídeos | `/videos` | Pronta |
 | 10 | Solicitar demonstração | `/demonstracao` | Pronta |
-| 11 | Produtos | `/produtos` | Pronta |
-| 12 | Página de produto (SmallBusiness, MS App, MS Dashboard) | `/produtos/<slug>` | Pronta |
+| 11 | Soluções digitais | `/solucoes-digitais` | Pronta |
+| 12 | Página de solução digital (SmallBusiness, MS App, MS Dashboard) | `/solucoes-digitais/<slug>` | Pronta |
 
 Conteúdos e artigos ficam para depois, conforme a análise do site legado.

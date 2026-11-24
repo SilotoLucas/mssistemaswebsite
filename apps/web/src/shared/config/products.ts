@@ -1,5 +1,5 @@
 import type { IconName } from '../ui/icon'
-import { whatsappMessageHref } from './site-config'
+import { DIGITAL_SOLUTIONS, whatsappMessageHref } from './site-config'
 import {
   SMALL_BUSINESS_HIGHLIGHTS,
   SMALL_BUSINESS_HREF,
@@ -12,6 +12,7 @@ export type ProductPoint = {
   readonly icon: IconName
   readonly title: string
   readonly text: string
+  readonly solution?: string
 }
 
 type ProductStep = {
@@ -37,12 +38,13 @@ export type Product = {
   readonly stepsTitle?: string
   readonly steps?: readonly ProductStep[]
   readonly videoId?: string
+  readonly solution?: string
   readonly whatsappHref: string
 }
 
-export const productHref = (slug: ProductSlug): string => `/produtos/${slug}`
+export const productHref = (slug: ProductSlug): string => `${DIGITAL_SOLUTIONS.href}/${slug}`
 
-export const PRODUCTS_HREF = '/produtos'
+export const PRODUCTS_HREF: string = DIGITAL_SOLUTIONS.href
 
 export const PRODUCTS: readonly Product[] = [
   {
@@ -63,21 +65,25 @@ export const PRODUCTS: readonly Product[] = [
       {
         icon: 'shield',
         title: 'Plano',
+        solution: 'planos-funerarios',
         text: 'Planos mensais, bimestrais ou por rateio, com carnês, boletos, carteirinhas e comissão de vendas.',
       },
       {
         icon: 'clipboard',
         title: 'Funerária',
+        solution: 'funerarias',
         text: 'Registro do óbito, documentação, ordem de serviço, controle de estoque e comissionamento.',
       },
       {
         icon: 'receipt',
         title: 'Cobrança',
+        solution: 'cobranca-bancaria',
         text: 'Boletos registrados no banco, com arquivo de remessa, baixa automática e rastreamento.',
       },
       {
         icon: 'banknote',
         title: 'Caixa',
+        solution: 'caixa-matriz',
         text: 'Recebimento de taxas, guias, carteirinhas e fechamento de caixa com relatórios.',
       },
     ],
@@ -229,6 +235,7 @@ export const PRODUCTS: readonly Product[] = [
         text: 'O aviso de parcela a vencer chega no app e ajuda a manter o plano em dia.',
       },
     ],
+    solution: 'app-do-associado',
     whatsappHref: whatsappMessageHref('Olá! Quero oferecer o MS App aos meus associados.'),
   },
   {
@@ -300,6 +307,7 @@ export const PRODUCTS: readonly Product[] = [
       'Funerária: óbitos',
     ],
     videoId: 'c_0ZaxRds_o',
+    solution: 'dashboard',
     whatsappHref: whatsappMessageHref('Olá! Quero conhecer o MS Dashboard.'),
   },
 ]

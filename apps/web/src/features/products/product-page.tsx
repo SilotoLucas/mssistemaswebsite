@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import { Navigate, useParams } from 'react-router'
 import { findProduct, PRODUCTS, PRODUCTS_HREF, type Product } from '../../shared/config/products'
-import { DEMO_HREF } from '../../shared/config/site-config'
+import { DEMO_HREF, DIGITAL_SOLUTIONS } from '../../shared/config/site-config'
 import { Icon } from '../../shared/ui/icon'
 import { PageHero } from '../../shared/ui/page-hero'
 import { Reveal } from '../../shared/ui/reveal'
@@ -23,12 +23,12 @@ type LightSection = (product: Product, tone: string) => ReactNode
 const TONES = ['', 'ms-section--mist'] as const
 
 const OtherProducts = ({ product, tone }: { readonly product: Product; readonly tone: string }) => (
-  <section className={`ms-section ${tone}`} id="outros-produtos">
+  <section className={`ms-section ${tone}`} id="outras-solucoes">
     <div className="ms-wrap">
       <Reveal className="ms-pd-head">
-        <p className="ms-eyebrow ms-eyebrow--light">Produtos MS</p>
+        <p className="ms-eyebrow ms-eyebrow--light">{DIGITAL_SOLUTIONS.label}</p>
         <h2 className="ms-h2">
-          Conheça também <span className="ms-grad ms-grad--deep">os outros produtos</span>
+          Conheça também <span className="ms-grad ms-grad--deep">as outras soluções</span>
         </h2>
       </Reveal>
       <ul className="ms-pd-others">
@@ -85,7 +85,7 @@ const ProductContent = ({ product }: { readonly product: Product }) => (
     <title>{`${product.name} | MS Sistemas`}</title>
     <meta name="description" content={`${product.name}: ${product.pitch}`} />
     <PageHero
-      parent={{ label: 'Produtos', href: PRODUCTS_HREF }}
+      parent={{ label: DIGITAL_SOLUTIONS.label, href: PRODUCTS_HREF }}
       crumb={product.name}
       title={product.headline}
       lead={product.lead}

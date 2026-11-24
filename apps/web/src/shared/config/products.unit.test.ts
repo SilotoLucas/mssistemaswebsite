@@ -11,11 +11,11 @@ describe('produtos', () => {
     ])
   })
 
-  test('cada produto tem uma página própria em /produtos', () => {
+  test('cada produto tem uma página própria em /solucoes-digitais', () => {
     expect(PRODUCTS.map((product) => productHref(product.slug))).toEqual([
-      '/produtos/smallbusiness',
-      '/produtos/app',
-      '/produtos/dashboard',
+      '/solucoes-digitais/smallbusiness',
+      '/solucoes-digitais/app',
+      '/solucoes-digitais/dashboard',
     ])
     expect(findProduct('app')?.name).toBe('MS App')
     expect(findProduct('nao-existe')).toBeUndefined()

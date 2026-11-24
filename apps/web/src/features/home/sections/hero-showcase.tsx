@@ -31,7 +31,7 @@ const SHOWCASE_SLIDES: readonly CarouselSlide[] = PRODUCTS.map((product) => ({
 
 export const HeroShowcase = () => (
   <Carousel
-    label="Produtos da MS"
+    label="Soluções digitais da MS"
     slides={SHOWCASE_SLIDES}
     className="ms-hero__car"
     intervalMs={SHOWCASE_INTERVAL_MS}

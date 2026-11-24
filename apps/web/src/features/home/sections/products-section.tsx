@@ -1,4 +1,5 @@
 import { PRODUCTS, PRODUCTS_HREF, type Product, productHref } from '../../../shared/config/products'
+import { DIGITAL_SOLUTIONS } from '../../../shared/config/site-config'
 import { Aurora } from '../../../shared/ui/aurora'
 import { Carousel, type CarouselSlide } from '../../../shared/ui/carousel'
 import { Icon } from '../../../shared/ui/icon'
@@ -9,28 +10,28 @@ import { ProductVisual } from '../../products'
 const PRODUCTS_INTERVAL_MS = 9000
 
 const ProductSlide = ({ product }: { readonly product: Product }) => (
-  <SiteLink className="ms-pdh ms-glass" href={productHref(product.slug)}>
-    <span className="ms-pdh__v">
+  <div className="ms-pdh ms-glass">
+    <div className="ms-pdh__v">
       <ProductVisual slug={product.slug} decorative />
-    </span>
-    <span className="ms-pdh__c">
-      <span className="ms-pdh__tag">{product.audience}</span>
-      <span className="ms-pdh__t">{product.headline}</span>
-      <span className="ms-pdh__p">{product.pitch}</span>
-      <span className="ms-pdh__list">
+    </div>
+    <div className="ms-pdh__c">
+      <p className="ms-pdh__tag">{product.audience}</p>
+      <h3 className="ms-pdh__t">{product.headline}</h3>
+      <p className="ms-pdh__p">{product.pitch}</p>
+      <ul className="ms-pdh__list">
         {product.bullets.map((bullet) => (
-          <span key={bullet}>
+          <li key={bullet}>
             <Icon name="check" size={14} />
             {bullet}
-          </span>
+          </li>
         ))}
-      </span>
-      <span className="ms-btn ms-btn--primary ms-pdh__go">
+      </ul>
+      <SiteLink className="ms-btn ms-btn--primary ms-pdh__go" href={productHref(product.slug)}>
         Conhecer o {product.name}
         <Icon name="arrow-right" size={18} />
-      </span>
-    </span>
-  </SiteLink>
+      </SiteLink>
+    </div>
+  </div>
 )
 
 const PRODUCT_SLIDES: readonly CarouselSlide[] = PRODUCTS.map((product) => ({
@@ -40,22 +41,22 @@ const PRODUCT_SLIDES: readonly CarouselSlide[] = PRODUCTS.map((product) => ({
 }))
 
 export const ProductsSection = () => (
-  <section className="ms-por ms-dark" id="produtos">
+  <section className="ms-por ms-dark" id="solucoes-digitais">
     <Aurora />
     <div className="ms-wrap">
       <Reveal className="ms-por__head">
-        <p className="ms-eyebrow">Produtos MS</p>
+        <p className="ms-eyebrow">{DIGITAL_SOLUTIONS.label}</p>
         <h2>
-          Três produtos para a sua empresa <span className="ms-grad">ir mais longe</span>
+          Três soluções digitais para a sua empresa <span className="ms-grad">ir mais longe</span>
         </h2>
         <p className="ms-por__i">
           O SmallBusiness para começar rápido, o MS App para os seus associados e o MS Dashboard
-          para decidir com números. Clique em um produto para conhecer em detalhes.
+          para decidir com números. Escolha uma solução para conhecer em detalhes.
         </p>
       </Reveal>
       <Reveal>
         <Carousel
-          label="Produtos da MS"
+          label="Soluções digitais da MS"
           slides={PRODUCT_SLIDES}
           className="ms-pdh__car"
           intervalMs={PRODUCTS_INTERVAL_MS}
@@ -64,7 +65,7 @@ export const ProductsSection = () => (
       </Reveal>
       <div className="ms-pdh__all">
         <SiteLink className="ms-btn ms-btn--glass" href={PRODUCTS_HREF}>
-          Ver todos os produtos
+          Ver todas as soluções digitais
         </SiteLink>
       </div>
     </div>

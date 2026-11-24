@@ -46,11 +46,17 @@ a.ms-pchip:hover { border-color: var(--sky); background: var(--ink-raised); }
 
 .ms-page .ms-pd-grid { display: grid; gap: var(--space-4); }
 .ms-pd-cardw { height: 100%; }
-.ms-pd-card { display: grid; align-content: start; gap: var(--space-3); height: 100%; padding: var(--space-6) var(--space-5); border: 1px solid var(--line-light); border-radius: 20px; background: var(--white); box-shadow: var(--shadow-menu); transition: transform var(--duration-base) var(--ease-out-expo), box-shadow var(--duration-base) var(--ease-standard); }
+.ms-pd-card { position: relative; display: grid; align-content: start; gap: var(--space-3); height: 100%; padding: var(--space-6) var(--space-5); border: 1px solid var(--line-light); border-radius: 20px; background: var(--white); box-shadow: var(--shadow-menu); transition: transform var(--duration-base) var(--ease-out-expo), box-shadow var(--duration-base) var(--ease-standard); }
 .ms-pd-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
 .ms-pd-card__i { display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: var(--radius-md); background: linear-gradient(135deg, var(--brand-deep), var(--logo-blue)); color: var(--white); }
 .ms-page .ms-pd-card h3 { font-size: 19px; line-height: 26px; }
 .ms-pd-card p { color: var(--text-muted); }
+.ms-pd-card__open { color: inherit; text-decoration: none; }
+.ms-pd-card__open::after { content: ""; position: absolute; inset: 0; border-radius: 20px; }
+.ms-pd-card__more { display: inline-flex; align-items: center; gap: var(--space-2); margin-top: var(--space-2); color: var(--brand-deep); font-size: var(--fs-small); font-weight: 700; }
+.ms-pd-card__more .ms-icon { transition: transform var(--duration-base) var(--ease-out-expo); }
+.ms-pd-card:hover .ms-pd-card__more .ms-icon { transform: translateX(4px); }
+.ms-pd-facts__panel .ms-link { margin-top: var(--space-5); }
 
 .ms-pd-show { position: relative; isolation: isolate; overflow: clip; background: linear-gradient(160deg, var(--navy), var(--ink) 75%); }
 .ms-page .ms-pd-perks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
@@ -183,6 +189,6 @@ a.ms-pchip:hover { border-color: var(--sky); background: var(--ink-raised); }
 @media (prefers-reduced-motion: reduce) {
   .ms-pst__pc, .ms-pst__ph, .ms-pst__chip, .ms-pdv__chip, .ms-page .ms-pdv__logo { animation: none; transform: none; transition: none; }
   .ms-pd-card, .ms-pd-card:hover, .ms-pd-other, .ms-pd-other:hover, .ms-pd-over__card, .ms-pd-over__card:hover { transform: none; transition: none; }
-  .ms-pd-other:hover .ms-icon, .ms-pd-over__card:hover .ms-pd-over__go .ms-icon { transform: none; }
+  .ms-pd-other:hover .ms-icon, .ms-pd-over__card:hover .ms-pd-over__go .ms-icon, .ms-pd-card:hover .ms-pd-card__more .ms-icon { transform: none; }
   .ms-tour__slot, .ms-tour__slot.is-on { transform: none; transition: none; }
 }

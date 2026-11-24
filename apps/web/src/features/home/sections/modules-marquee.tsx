@@ -1,5 +1,6 @@
+import { solutionHref } from '../../../shared/config/solutions-catalog'
 import { SiteLink } from '../../../shared/ui/site-link'
-import { MODULE_GROUPS, solutionHref } from '../home-content'
+import { MODULE_GROUPS } from '../home-content'
 
 const MODULES = MODULE_GROUPS.flatMap((group) => group.modules)
 

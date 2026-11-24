@@ -2,12 +2,14 @@ import type { CSSProperties, ReactNode } from 'react'
 import type { Product, ProductPoint } from '../../shared/config/products'
 import { DEMO_HREF } from '../../shared/config/site-config'
 import { SMALL_BUSINESS_PERKS } from '../../shared/config/small-business'
+import { solutionHref } from '../../shared/config/solutions-catalog'
 import { Aurora } from '../../shared/ui/aurora'
 import { BrowserFrame } from '../../shared/ui/browser-frame'
 import { Icon } from '../../shared/ui/icon'
 import { Reveal } from '../../shared/ui/reveal'
 import { SiteLink } from '../../shared/ui/site-link'
 import { trackPointer } from '../../shared/ui/spotlight'
+import { TextLink } from '../../shared/ui/text-link'
 import { YoutubeVideo } from '../../shared/ui/youtube-video'
 import { AppTour } from './app-tour'
 import { DASHBOARD_ADDRESS, DASHBOARD_SHOT } from './product-assets'
@@ -69,6 +71,9 @@ export const FactsSection = ({ product }: { readonly product: Product }) => (
     <div className="ms-wrap">
       <Reveal className="ms-pd-facts__panel">
         <Checks items={product.bullets} className="ms-pd-facts__list" />
+        {product.solution ? (
+          <TextLink label="Ver na tela de soluções" href={solutionHref(product.solution)} />
+        ) : null}
       </Reveal>
     </div>
   </section>
@@ -80,8 +85,22 @@ const PointCard = ({ point, index }: { readonly point: ProductPoint; readonly in
       <span className="ms-pd-card__i">
         <Icon name={point.icon} size={24} />
       </span>
-      <h3>{point.title}</h3>
+      <h3>
+        {point.solution ? (
+          <SiteLink className="ms-pd-card__open" href={solutionHref(point.solution)}>
+            {point.title}
+          </SiteLink>
+        ) : (
+          point.title
+        )}
+      </h3>
       <p>{point.text}</p>
+      {point.solution ? (
+        <span className="ms-pd-card__more" aria-hidden="true">
+          Ver na tela de soluções
+          <Icon name="arrow-right" size={16} />
+        </span>
+      ) : null}
     </article>
   </Reveal>
 )

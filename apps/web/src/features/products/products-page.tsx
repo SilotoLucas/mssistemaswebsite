@@ -1,5 +1,5 @@
 import { PRODUCTS, type Product, productHref } from '../../shared/config/products'
-import { DEMO_HREF } from '../../shared/config/site-config'
+import { DEMO_HREF, DIGITAL_SOLUTIONS } from '../../shared/config/site-config'
 import { Icon } from '../../shared/ui/icon'
 import { PageHero } from '../../shared/ui/page-hero'
 import { Reveal } from '../../shared/ui/reveal'
@@ -86,14 +86,14 @@ const Band = ({ product, index }: { readonly product: Product; readonly index: n
 
 export const ProductsPage = () => (
   <main>
-    <title>Produtos | MS Sistemas</title>
+    <title>{`${DIGITAL_SOLUTIONS.label} | MS Sistemas`}</title>
     <meta
       name="description"
-      content="Produtos da MS Sistemas: SmallBusiness, o sistema compacto na nuvem; MS App, o aplicativo para os associados; e MS Dashboard, os indicadores da empresa."
+      content="Soluções digitais da MS Sistemas: SmallBusiness, o sistema compacto na nuvem; MS App, o aplicativo para os associados; e MS Dashboard, os indicadores da empresa."
     />
     <PageHero
-      crumb="Produtos"
-      title="Produtos MS para cada momento da sua empresa"
+      crumb={DIGITAL_SOLUTIONS.label}
+      title="Soluções digitais da MS para cada momento da sua empresa"
       lead="Do sistema compacto para começar rápido ao app que a sua empresa oferece aos associados e aos indicadores para decidir. Conheça cada um em detalhes."
       aside={<ProductsStage />}
     />
@@ -105,7 +105,7 @@ export const ProductsPage = () => (
       <div className="ms-wrap ms-pd-final__in">
         <Reveal className="ms-pd-final__c">
           <h2 className="ms-h2">
-            Não sabe qual produto{' '}
+            Não sabe qual solução{' '}
             <span className="ms-grad ms-grad--deep">combina com a sua empresa?</span>
           </h2>
           <p>Conte como é a sua operação, e um consultor da MS indica o melhor caminho.</p>

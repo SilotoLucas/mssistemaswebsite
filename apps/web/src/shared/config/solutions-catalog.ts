@@ -617,3 +617,5 @@ export const SOLUTION_COUNT = SOLUTION_GROUPS.reduce(
   (total, group) => total + group.solutions.length,
   0,
 )
+
+export const solutionHref = (slug: string): string => `/solucoes#${slug}`

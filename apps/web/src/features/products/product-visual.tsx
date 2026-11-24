@@ -1,9 +1,11 @@
 import type { ComponentType } from 'react'
 import type { ProductSlug } from '../../shared/config/products'
 import { SMALL_BUSINESS_MODULES } from '../../shared/config/small-business'
+import { solutionHref } from '../../shared/config/solutions-catalog'
 import { BrowserFrame } from '../../shared/ui/browser-frame'
 import { Icon } from '../../shared/ui/icon'
 import { PhoneFrame } from '../../shared/ui/phone-frame'
+import { SiteLink } from '../../shared/ui/site-link'
 import {
   APP_SCREENS,
   DASHBOARD_ADDRESS,
@@ -27,13 +29,15 @@ const SmallBusinessVisual = ({ decorative }: VisualProps) => (
       height={SMALL_BUSINESS_LOGO.height}
       draggable={false}
     />
-    <ul className="ms-pdv__mods" aria-hidden={decorative ? true : undefined}>
+    <ul className="ms-pdv__mods">
       {SMALL_BUSINESS_MODULES.map((item) => (
-        <li className="ms-pchip" key={item.label}>
-          <span className="ms-pchip__ico">
-            <Icon name={item.icon} size={16} />
-          </span>
-          {item.label}
+        <li key={item.label}>
+          <SiteLink className="ms-pchip" href={solutionHref(item.solution)}>
+            <span className="ms-pchip__ico">
+              <Icon name={item.icon} size={16} />
+            </span>
+            {item.label}
+          </SiteLink>
         </li>
       ))}
     </ul>

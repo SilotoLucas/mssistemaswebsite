@@ -3,13 +3,15 @@ import { whatsappMessageHref } from './site-config'
 
 export type SmallBusinessItem = { readonly icon: IconName; readonly label: string }
 
+type SmallBusinessModule = SmallBusinessItem & { readonly solution: string }
+
 export const SMALL_BUSINESS_MAX_MACHINES = 5
 
-export const SMALL_BUSINESS_MODULES: readonly SmallBusinessItem[] = [
-  { icon: 'shield', label: 'Plano' },
-  { icon: 'clipboard', label: 'Funerária' },
-  { icon: 'receipt', label: 'Cobrança' },
-  { icon: 'wallet', label: 'Caixa' },
+export const SMALL_BUSINESS_MODULES: readonly SmallBusinessModule[] = [
+  { icon: 'shield', label: 'Plano', solution: 'planos-funerarios' },
+  { icon: 'clipboard', label: 'Funerária', solution: 'funerarias' },
+  { icon: 'receipt', label: 'Cobrança', solution: 'cobranca-bancaria' },
+  { icon: 'wallet', label: 'Caixa', solution: 'caixa-matriz' },
 ]
 
 export const SMALL_BUSINESS_PERKS: readonly SmallBusinessItem[] = [
