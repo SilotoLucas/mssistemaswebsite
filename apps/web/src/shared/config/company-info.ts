@@ -10,4 +10,4 @@ export const COMPANY_ADDRESS_LINES = [
   'Botucatu/SP, CEP 18610-150',
 ] as const
 
-export const COMPANY_WHATSAPP_NUMBER = '14997856833'
+export const COMPANY_WHATSAPP_NUMBER = '14996780173'

@@ -42,4 +42,10 @@ describe('faixa automática', () => {
     fireEvent.click(button)
     expect(onOpen).not.toHaveBeenCalled()
   })
+
+  test('tem setas para passar os cartões sem arrastar', () => {
+    renderRail(() => undefined)
+    expect(screen.getByRole('button', { name: 'Próximo card' })).toBeDefined()
+    expect(screen.getByRole('button', { name: 'Card anterior' })).toBeDefined()
+  })
 })

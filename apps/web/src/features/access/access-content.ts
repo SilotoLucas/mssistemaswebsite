@@ -13,7 +13,7 @@ export const ACCESS_GUIDES: readonly AccessGuide[] = [
     icon: 'headset',
     audience: 'Para quem usa o sistema da MS na empresa.',
     uses: [
-      'Abrir e acompanhar chamados',
+      'Abrir e acompanhar solicitações',
       'Tirar dúvidas com a equipe',
       'Consultar atendimentos anteriores',
     ],

@@ -1,0 +1,9 @@
+.ms-snav { --snav-line: var(--border-subtle); --snav-ink: var(--text-muted); --snav-hover: var(--mist); --snav-hover-ink: var(--brand-deep); display: flex; flex: none; gap: var(--space-2); }
+.ms-dark .ms-snav { --snav-line: var(--glass-border); --snav-ink: var(--text-on-ink-muted); --snav-hover: var(--glass-strong); --snav-hover-ink: var(--white); }
+.ms-snav__b { display: inline-flex; align-items: center; justify-content: center; width: var(--tap-min); height: var(--tap-min); padding: 0; border: 1px solid var(--snav-line); border-radius: var(--radius-full); background: transparent; color: var(--snav-ink); cursor: pointer; opacity: 0.8; transition: opacity var(--duration-fast) var(--ease-standard), background-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard); }
+.ms-snav__b:hover { opacity: 1; background: var(--snav-hover); color: var(--snav-hover-ink); border-color: var(--snav-hover-ink); }
+.ms-snav__b:active { scale: 0.94; }
+.ms-snav__b:focus-visible { opacity: 1; outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+.ms-dark .ms-snav__b:focus-visible { outline-color: var(--focus-ring-on-dark); }
+.ms-snav__b--prev .ms-icon { transform: rotate(90deg); }
+.ms-snav__b--next .ms-icon { transform: rotate(-90deg); }

@@ -1,5 +1,6 @@
 import type { CSSProperties, ReactNode } from 'react'
 import './carousel.css'
+import { SlideNav } from './slide-nav'
 import { type CarouselTransition, useCarousel } from './use-carousel'
 
 export type CarouselSlide = {
@@ -51,8 +52,8 @@ export const Carousel = ({
           </article>
         ))}
       </div>
-      <div className="ms-car__bar" aria-hidden="true">
-        <div className={`ms-car__in ${barClassName}`}>
+      <div className="ms-car__bar">
+        <div className={`ms-car__in ${barClassName}`} aria-hidden="true">
           {slides.map((slide, index) => (
             <span
               className={`ms-car__line${index === carousel.index ? ' is-on' : ''}`}
@@ -62,6 +63,7 @@ export const Carousel = ({
             </span>
           ))}
         </div>
+        {slides.length > 1 ? <SlideNav onMove={carousel.go} /> : null}
       </div>
     </section>
   )

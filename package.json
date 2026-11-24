@@ -10,6 +10,7 @@
   ],
   "scripts": {
     "dev": "bun run --filter @ms/web dev",
+    "dev:rede": "bun run --filter @ms/web dev:rede",
     "build": "bun run --filter @ms/web build",
     "preview": "bun run --filter @ms/web preview",
     "tokens": "bun run tools/quality/src/generate-tokens.ts",

@@ -3,8 +3,8 @@
 .ms-car__track { display: grid; min-width: 0; overflow: clip; touch-action: pan-y; user-select: none; }
 .ms-car__slide { grid-area: 1 / 1; min-width: 0; visibility: hidden; will-change: transform; backface-visibility: hidden; }
 .ms-car__slide.is-on { visibility: visible; }
-.ms-car__bar { pointer-events: none; }
-.ms-car__in { display: flex; align-items: center; gap: var(--space-2); }
+.ms-car__bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); }
+.ms-car__in { display: flex; align-items: center; gap: var(--space-2); pointer-events: none; }
 .ms-car__line { display: block; width: 36px; height: 4px; border-radius: var(--radius-full); background: var(--car-line); overflow: hidden; }
 .ms-car__fill { display: block; height: 100%; background: var(--car-fill); transform: scaleX(0); transform-origin: left; }
 .ms-car__line.is-on .ms-car__fill { animation: ms-car-fill var(--car-interval) linear forwards; }

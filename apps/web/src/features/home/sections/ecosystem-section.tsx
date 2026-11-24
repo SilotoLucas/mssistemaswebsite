@@ -25,7 +25,7 @@ export const EcosystemSection = () => (
               <h3>{group.title}</h3>
               <ul>
                 {group.modules.map((module) => (
-                  <li key={module}>{module}</li>
+                  <li key={module.slug}>{module.label}</li>
                 ))}
               </ul>
             </article>

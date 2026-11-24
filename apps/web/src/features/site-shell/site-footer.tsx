@@ -18,12 +18,15 @@ export const SiteFooter = () => (
           </span>
           <p>Software de gestão para funerárias, planos, cemitérios e crematórios desde 2005.</p>
           <div className="ms-social">
-            <a href="https://www.facebook.com/mssist" aria-label="Facebook da MS Sistemas">
+            <SiteLink href="https://www.facebook.com/mssist" aria-label="Facebook da MS Sistemas">
               <Icon name="facebook" />
-            </a>
-            <a href="https://www.instagram.com/mssistemas5" aria-label="Instagram da MS Sistemas">
+            </SiteLink>
+            <SiteLink
+              href="https://www.instagram.com/mssistemas5"
+              aria-label="Instagram da MS Sistemas"
+            >
               <Icon name="instagram" />
-            </a>
+            </SiteLink>
           </div>
         </div>
         <div className="ms-footer__cols">
@@ -42,7 +45,7 @@ export const SiteFooter = () => (
             <ul className="ms-footer__links">
               {SYSTEM_ACCESS.map((system) => (
                 <li key={system.name}>
-                  <a href={system.href}>{system.name}</a>
+                  <SiteLink href={system.href}>{system.name}</SiteLink>
                 </li>
               ))}
             </ul>

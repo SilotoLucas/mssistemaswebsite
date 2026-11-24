@@ -139,5 +139,5 @@ export const useCarousel = (
     }
   }, [count, go])
 
-  return { index, held, rootRef }
+  return { index, held, rootRef, go }
 }

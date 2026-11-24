@@ -1,19 +1,28 @@
-import { MODULE_GROUPS } from '../home-content'
+import { SiteLink } from '../../../shared/ui/site-link'
+import { MODULE_GROUPS, solutionHref } from '../home-content'
 
-const MODULE_NAMES = MODULE_GROUPS.flatMap((group) => group.modules)
+const MODULES = MODULE_GROUPS.flatMap((group) => group.modules)
 
 export const ModulesMarquee = () => (
-  <div className="ms-marq ms-dark" aria-hidden="true">
+  <nav className="ms-marq ms-dark" aria-label="Módulos do sistema">
     <div className="ms-marq__mask">
       <div className="ms-marq__track">
         {[0, 1].map((copy) => (
-          <ul className="ms-marq__row" key={copy}>
-            {MODULE_NAMES.map((name) => (
-              <li key={name}>{name}</li>
+          <ul className="ms-marq__row" aria-hidden={copy === 1 ? true : undefined} key={copy}>
+            {MODULES.map((module) => (
+              <li key={module.slug}>
+                <SiteLink
+                  className="ms-marq__chip"
+                  href={solutionHref(module.slug)}
+                  tabIndex={copy === 1 ? -1 : undefined}
+                >
+                  {module.label}
+                </SiteLink>
+              </li>
             ))}
           </ul>
         ))}
       </div>
     </div>
-  </div>
+  </nav>
 )

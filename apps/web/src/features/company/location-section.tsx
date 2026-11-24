@@ -4,8 +4,9 @@ import {
   COMPANY_EMAIL,
   COMPANY_PHONES,
 } from '../../shared/config/company-info'
-import { SUPPORT_URL, WHATSAPP_LABEL } from '../../shared/config/site-config'
+import { SUPPORT_URL } from '../../shared/config/site-config'
 import { Icon, type IconName } from '../../shared/ui/icon'
+import { SiteLink } from '../../shared/ui/site-link'
 import { TextLink } from '../../shared/ui/text-link'
 import { WhatsappButton } from '../../shared/ui/whatsapp-button'
 import { MAP_DIRECTIONS_URL, MAP_EMBED_URL } from './company-content'
@@ -54,7 +55,6 @@ export const LocationSection = () => (
             </ul>
           </ContactRow>
           <ContactRow icon="message" label="WhatsApp">
-            <p className="ms-co-wa">{WHATSAPP_LABEL}</p>
             <WhatsappButton />
           </ContactRow>
           <ContactRow icon="mail" label="E-mail">
@@ -65,7 +65,7 @@ export const LocationSection = () => (
           <ContactRow icon="clock" label="Atendimento">
             <p>Dias úteis: telefones fixos ou plantão.</p>
             <p>Fins de semana e feriados: somente plantão.</p>
-            <TextLink label="Abrir chamado" href={SUPPORT_URL} />
+            <TextLink label="Abrir solicitação" href={SUPPORT_URL} />
           </ContactRow>
         </div>
         <div className="ms-co-map">
@@ -75,10 +75,10 @@ export const LocationSection = () => (
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           />
-          <a className="ms-btn ms-btn--primary ms-co-map__go" href={MAP_DIRECTIONS_URL}>
+          <SiteLink className="ms-btn ms-btn--primary ms-co-map__go" href={MAP_DIRECTIONS_URL}>
             <Icon name="pin" size={20} />
             Como chegar
-          </a>
+          </SiteLink>
         </div>
       </div>
     </div>

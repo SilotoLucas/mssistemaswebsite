@@ -8,11 +8,18 @@ export type Segment = {
   readonly topics: readonly string[]
 }
 
+type ModuleLink = {
+  readonly label: string
+  readonly slug: string
+}
+
 export type ModuleGroup = {
   readonly icon: IconName
   readonly title: string
-  readonly modules: readonly string[]
+  readonly modules: readonly ModuleLink[]
 }
+
+export const solutionHref = (slug: string): string => `/solucoes#${slug}`
 
 export const SEGMENTS: readonly Segment[] = [
   {
@@ -49,21 +56,43 @@ export const MODULE_GROUPS: readonly ModuleGroup[] = [
   {
     icon: 'dashboard',
     title: 'Gestão',
-    modules: ['Financeiro', 'Filiais', 'Frota', 'Equipamentos', 'CRM', 'Dashboard'],
+    modules: [
+      { label: 'Financeiro', slug: 'controle-financeiro' },
+      { label: 'Filiais', slug: 'filiais-online' },
+      { label: 'Frota', slug: 'frota' },
+      { label: 'Equipamentos', slug: 'equipamentos' },
+      { label: 'CRM', slug: 'crm' },
+      { label: 'Dashboard', slug: 'dashboard' },
+    ],
   },
   {
     icon: 'phone',
     title: 'Equipe em campo',
-    modules: ['Cobrança Móvel', 'Venda com Tablet', 'P.O.S'],
+    modules: [
+      { label: 'Cobrança Móvel', slug: 'cobranca-movel' },
+      { label: 'Venda com Tablet', slug: 'venda-com-tablet' },
+      { label: 'P.O.S', slug: 'pos' },
+    ],
   },
   {
     icon: 'globe',
     title: 'Canais digitais',
-    modules: ['Portal do Associado', 'Venda Web', 'ChatBot', 'SMS', 'Condolência Online'],
+    modules: [
+      { label: 'Portal do Associado', slug: 'portal-do-associado' },
+      { label: 'Venda Web', slug: 'venda-web' },
+      { label: 'ChatBot', slug: 'chatbot' },
+      { label: 'SMS', slug: 'sms-marketing' },
+      { label: 'Condolência Online', slug: 'condolencia-online' },
+    ],
   },
   {
     icon: 'monitor',
     title: 'Atendimento presencial',
-    modules: ['Totem de Autoatendimento', 'Totem Cemitério', 'QR Code', 'Painel de Velório'],
+    modules: [
+      { label: 'Totem de Autoatendimento', slug: 'totem-autoatendimento' },
+      { label: 'Totem Cemitério', slug: 'totem-cemiterio' },
+      { label: 'QR Code', slug: 'qr-code-cemiterio' },
+      { label: 'Painel de Velório', slug: 'painel-de-velorio' },
+    ],
   },
 ]

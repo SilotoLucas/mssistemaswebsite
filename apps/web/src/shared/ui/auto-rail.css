@@ -4,7 +4,8 @@
 .ms-rail__track > li { flex: none; width: var(--rail-item); scroll-margin-top: calc(var(--header-height) + 76px); }
 .ms-rail__view.is-dragging { user-select: none; cursor: grabbing; }
 .ms-rail__view.is-dragging * { cursor: grabbing; }
-.ms-rail__line { display: block; height: 3px; margin-top: var(--space-5); border-radius: var(--radius-full); background: var(--border-subtle); overflow: hidden; }
+.ms-rail__foot { display: flex; align-items: center; gap: var(--space-4); margin-top: var(--space-5); }
+.ms-rail__line { display: block; flex: 1; min-width: 0; height: 3px; border-radius: var(--radius-full); background: var(--border-subtle); overflow: hidden; }
 .ms-rail__line span { display: block; height: 100%; background: var(--brand-deep); transform: scaleX(0); transform-origin: left; }
 
 @media (pointer: fine) {

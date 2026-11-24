@@ -40,4 +40,18 @@ describe('carrossel de slides', () => {
     fireEvent.pointerUp(root, { pointerId: 1, isPrimary: true, clientX: 150, clientY: 300 })
     expect(visible()).toEqual(['Inovação'])
   })
+
+  test('as setas passam e voltam o slide', () => {
+    render(<Carousel label="Pilares" slides={slides} />)
+    fireEvent.click(screen.getByRole('button', { name: 'Próximo slide' }))
+    expect(visible()).toEqual(['Excelência'])
+    fireEvent.click(screen.getByRole('button', { name: 'Slide anterior' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Slide anterior' }))
+    expect(visible()).toEqual(['Compromisso'])
+  })
+
+  test('com um slide só, não mostra as setas', () => {
+    render(<Carousel label="Pilares" slides={slides.slice(0, 1)} />)
+    expect(screen.queryByRole('button', { name: 'Próximo slide' })).toBeNull()
+  })
 })

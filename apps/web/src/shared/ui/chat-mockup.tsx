@@ -30,8 +30,8 @@ const CONVERSATIONS: readonly Conversation[] = [
         from: 'consultant',
         text: 'Vamos marcar uma conversa para eu entender melhor e desenvolver esse relatório?',
       },
-      { from: 'client', text: 'Pode ser amanhã de manhã.' },
-      { from: 'consultant', text: 'Agendado! Falamos amanhã.' },
+      { from: 'client', text: 'Pode ser amanhã às 10h?' },
+      { from: 'consultant', text: 'Combinado! Agendado para amanhã às 10h.' },
     ],
   },
 ]

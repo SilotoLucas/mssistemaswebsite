@@ -1,5 +1,5 @@
 import { COMPANY_PHONES } from '../../shared/config/company-info'
-import { SUPPORT_URL, WHATSAPP_LABEL, whatsappMessageHref } from '../../shared/config/site-config'
+import { SUPPORT_URL, whatsappMessageHref } from '../../shared/config/site-config'
 import { Aurora } from '../../shared/ui/aurora'
 import { ChatMockups } from '../../shared/ui/chat-mockup'
 import { Icon } from '../../shared/ui/icon'
@@ -15,7 +15,7 @@ export const SupportPage = () => (
     <title>Suporte | MS Sistemas</title>
     <meta
       name="description"
-      content="Suporte rápido da MS Sistemas: fale com um consultor pelo WhatsApp, abra um chamado ou peça acesso remoto."
+      content="Suporte rápido da MS Sistemas: fale com um consultor pelo WhatsApp, abra uma solicitação ou peça acesso remoto."
     />
     <PageHero
       crumb="Suporte"
@@ -25,7 +25,7 @@ export const SupportPage = () => (
         <>
           <WhatsappButton large />
           <SiteLink className="ms-btn ms-btn--glass ms-btn--lg" href={SUPPORT_URL}>
-            Abrir chamado
+            Abrir solicitação
           </SiteLink>
         </>
       }
@@ -80,7 +80,7 @@ export const SupportPage = () => (
         <div className="ms-su-other">
           <p>Prefere outro canal?</p>
           <SiteLink className="ms-btn ms-btn--secondary ms-btn--sm" href={SUPPORT_URL}>
-            Abrir chamado no MS Suporte
+            Abrir solicitação no MS Suporte
           </SiteLink>
           {COMPANY_PHONES.map((phone) => (
             <SiteLink
@@ -140,7 +140,6 @@ export const SupportPage = () => (
         <Reveal className="ms-su-final__c">
           <h2 className="ms-h2">Chame um consultor agora</h2>
           <p>O setor não para. Fale com a equipe da MS pelo WhatsApp.</p>
-          <strong>{WHATSAPP_LABEL}</strong>
           <WhatsappButton large />
         </Reveal>
       </div>

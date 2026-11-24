@@ -160,7 +160,7 @@ O site passa a ter as oito telas do plano. A navegação principal vira Soluçõ
 
 O atendimento rápido dos consultores pelo WhatsApp é o maior trunfo da MS, então passa a guiar o site. A tela Suporte foi refeita: abertura com o botão do WhatsApp e uma conversa ilustrativa, os diferenciais do atendimento, o passo a passo da mensagem até a solução, outros canais (chamado e telefones), downloads oficiais e um fechamento com o WhatsApp. Um botão flutuante "Falar com consultor" aparece em todas as telas, e Suporte sobe para o segundo lugar do menu.
 
-**Cuidado:** o texto fala em atendimento rápido sem prometer prazo, porque a MS ainda não informou um tempo de resposta. O WhatsApp da MS (14) 99785-6833 fica em `shared/config/company-info.ts`, para o build automático não depender de `.env`. A variável `VITE_WHATSAPP_NUMBER` continua valendo como troca opcional. As conversas mostradas são ilustrativas.
+**Cuidado:** o texto fala em atendimento rápido sem prometer prazo, porque a MS ainda não informou um tempo de resposta. O WhatsApp da MS fica em `shared/config/company-info.ts`, para o build automático não depender de `.env`. A variável `VITE_WHATSAPP_NUMBER` continua valendo como troca opcional. As conversas mostradas são ilustrativas.
 
 ## 020. Telas pequenas de desktop
 
@@ -367,3 +367,14 @@ Problemas encontrados e corrigidos:
 - **Painel de números da tela Vídeos:** em telas de até 420 px, o texto "vídeos de apresentação" passava da coluna. Agora a fonte é menor e a palavra pode quebrar.
 
 Nenhuma tela teve rolagem lateral em nenhuma das larguras testadas.
+
+## 038. Setas nos slides, novo WhatsApp e links externos em nova aba
+
+**Data:** 24/11/2026
+
+- **Setas nos slides.** Os carrosséis (`Carousel`) e as faixas de cartões (`AutoRail`) ganharam duas setas discretas ao lado da barra de progresso, pelo componente `SlideNav`. O arraste com o mouse e o gesto no celular continuam valendo.
+- **WhatsApp.** O número passou a ser (14) 99678-0173, em `shared/config/company-info.ts`. O site não escreve mais o número na tela: só o botão "Chamar no WhatsApp" leva a ele.
+- **"Abrir chamado" virou "Abrir solicitação"**, em todos os botões e textos.
+- **Links para outros sites abrem em nova aba.** O `SiteLink` põe `target="_blank"` e `rel="noopener noreferrer"` em todo endereço `http` ou `https`. Páginas do próprio site, telefone e e-mail seguem na mesma aba. Links externos escritos à mão passaram a usar o `SiteLink`.
+- **Suporte.** Na conversa ilustrativa do relatório, o cliente propõe amanhã às 10h e o consultor confirma. O cartão "Plantão em fins de semana e feriados" ficou só com o título, sem texto de apoio.
+- **Faixa de módulos da Home.** Cada módulo da faixa que corre virou um link para o seu cartão na tela Soluções (`/solucoes#<slug>`), que abre já com os detalhes daquele módulo. A faixa para de correr com o mouse em cima ou com o foco do teclado, para dar tempo de clicar.

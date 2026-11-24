@@ -1,14 +1,15 @@
-import { SUPPORT_URL, WHATSAPP_LABEL } from '../../../shared/config/site-config'
+import { SUPPORT_URL } from '../../../shared/config/site-config'
 import { Aurora } from '../../../shared/ui/aurora'
 import { ChatMockups } from '../../../shared/ui/chat-mockup'
 import { Icon, type IconName } from '../../../shared/ui/icon'
 import { Reveal } from '../../../shared/ui/reveal'
+import { SiteLink } from '../../../shared/ui/site-link'
 import { WhatsappButton } from '../../../shared/ui/whatsapp-button'
 
 type SupportItem = {
   readonly icon: IconName
   readonly title: string
-  readonly text: string
+  readonly text?: string
 }
 
 const SUPPORT_ITEMS: readonly SupportItem[] = [
@@ -25,7 +26,6 @@ const SUPPORT_ITEMS: readonly SupportItem[] = [
   {
     icon: 'clock',
     title: 'Plantão em fins de semana e feriados',
-    text: 'Nos dias úteis, fale também pelos telefones fixos.',
   },
 ]
 
@@ -45,19 +45,15 @@ export const SupportSection = () => (
           O setor não para, e o nosso atendimento também não. Fale pelo WhatsApp com uma equipe
           especializada e resolva com rapidez.
         </p>
-        <div className="ms-wanum">
-          <span>WhatsApp da MS</span>
-          <strong>{WHATSAPP_LABEL}</strong>
-        </div>
         <div className="ms-sup__cta">
           <WhatsappButton />
-          <a className="ms-btn ms-btn--glass" href={SUPPORT_URL}>
-            Abrir chamado
-          </a>
+          <SiteLink className="ms-btn ms-btn--glass" href={SUPPORT_URL}>
+            Abrir solicitação
+          </SiteLink>
         </div>
         <ul className="ms-sup__list">
           {SUPPORT_ITEMS.map((item) => (
-            <li key={item.title}>
+            <li className={item.text ? undefined : 'is-title-only'} key={item.title}>
               <span className="ms-sup__i">
                 <Icon name={item.icon} size={22} />
               </span>

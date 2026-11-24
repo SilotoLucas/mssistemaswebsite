@@ -92,6 +92,14 @@ export const useAutoRail = (count: number, held: boolean) => {
     [glideTo],
   )
 
+  const move = useCallback(
+    (direction: 1 | -1) => {
+      const { step } = metrics.current
+      if (step) glideTo(nearestStep(target.current, step) + direction * step)
+    },
+    [glideTo],
+  )
+
   useEffect(() => {
     const track = trackRef.current
     if (!track) return
@@ -266,5 +274,5 @@ export const useAutoRail = (count: number, held: boolean) => {
     }
   }, [glideTo, paint])
 
-  return { viewportRef, trackRef, progressRef, showCard }
+  return { viewportRef, trackRef, progressRef, showCard, move }
 }

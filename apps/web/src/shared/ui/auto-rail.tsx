@@ -1,5 +1,6 @@
 import { type ReactNode, useEffect } from 'react'
 import './auto-rail.css'
+import { SlideNav } from './slide-nav'
 import { useAutoRail } from './use-auto-rail'
 
 type AutoRailProps<Item> = {
@@ -26,7 +27,7 @@ export const AutoRail = <Item,>({
   focusIndex = null,
   className = '',
 }: AutoRailProps<Item>) => {
-  const { viewportRef, trackRef, progressRef, showCard } = useAutoRail(items.length, held)
+  const { viewportRef, trackRef, progressRef, showCard, move } = useAutoRail(items.length, held)
 
   useEffect(() => {
     if (focusIndex !== null) showCard(focusIndex)
@@ -49,9 +50,14 @@ export const AutoRail = <Item,>({
           )}
         </ul>
       </div>
-      <span className="ms-rail__line" aria-hidden="true">
-        <span ref={progressRef} />
-      </span>
+      <div className="ms-rail__foot">
+        <span className="ms-rail__line" aria-hidden="true">
+          <span ref={progressRef} />
+        </span>
+        {items.length > 1 ? (
+          <SlideNav onMove={move} previousLabel="Card anterior" nextLabel="Próximo card" />
+        ) : null}
+      </div>
     </div>
   )
 }

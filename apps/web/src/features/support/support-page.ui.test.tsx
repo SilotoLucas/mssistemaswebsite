@@ -1,23 +1,28 @@
 import { describe, expect, test } from 'bun:test'
 import { screen, within } from '@testing-library/react'
-import { SUPPORT_URL, WHATSAPP_HREF } from '../../shared/config/site-config'
+import { SUPPORT_URL, WHATSAPP_HREF, WHATSAPP_LABEL } from '../../shared/config/site-config'
 import { renderWithRouter } from '../../test/render-with-router'
 import { SUPPORT_DOWNLOADS } from './support-content'
 import { SupportPage } from './support-page'
 
 describe('página de suporte', () => {
-  test('põe o WhatsApp como caminho principal e mantém o chamado como alternativa', () => {
+  test('põe o WhatsApp como caminho principal e mantém a solicitação como alternativa', () => {
     renderWithRouter(<SupportPage />)
     const whatsapp = screen.getAllByRole('link', { name: 'Chamar no WhatsApp' })
     expect(whatsapp.length).toBeGreaterThanOrEqual(2)
     expect(whatsapp.every((link) => link.getAttribute('href') === WHATSAPP_HREF)).toBe(true)
-    const tickets = screen.getAllByRole('link', { name: /Abrir chamado/ })
+    const tickets = screen.getAllByRole('link', { name: /Abrir solicitação/ })
     expect(tickets.every((link) => link.getAttribute('href') === SUPPORT_URL)).toBe(true)
   })
 
   test('mostra os telefones fixos como outro canal', () => {
     renderWithRouter(<SupportPage />)
     expect(screen.getAllByRole('link', { name: /\(14\) 38\d\d-\d{4}/ }).length).toBeGreaterThan(0)
+  })
+
+  test('mostra só o botão do WhatsApp, sem escrever o número na tela', () => {
+    renderWithRouter(<SupportPage />)
+    expect(document.body.textContent).not.toContain(WHATSAPP_LABEL)
   })
 
   test('não promete tempo de resposta', () => {

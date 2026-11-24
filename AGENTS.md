@@ -8,6 +8,7 @@ Site institucional da MS Consultoria & Sistemas. Nesta fase existe somente o fro
 | --- | --- |
 | `bun install` | Instala as dependências com versões fixas |
 | `bun run dev` | Abre o site em `http://127.0.0.1:5173` |
+| `bun run dev:rede` | Abre o site para a rede local na porta 5174 |
 | `bun run build` | Gera o site em `apps/web/dist` |
 | `bun run preview` | Serve o build em `http://127.0.0.1:4173` |
 | `bun run tokens` | Gera `tokens.css` a partir de `tokens.json` |
