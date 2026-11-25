@@ -565,3 +565,9 @@ O dono do projeto não gostou do cabeçalho em barra da decisão 049.
 **Data:** 24/11/2026
 
 A troca para a logo 2D era só para o cabeçalho. O rodapé volta à logo 3D completa, com texto branco (`BrandMark` `full`), e o arquivo 2D com texto branco saiu.
+
+## 052. Topo da tela inicial do MS App sem mancha vermelha
+
+**Data:** 24/11/2026
+
+Ao tirar a barra de status do celular da tela inicial do app (`app-inicio.webp`), o tratamento anterior cortou o topo do selo "7" do sino e deixou uma mancha avermelhada no canto. O topo foi refeito a partir do original (`docs/referencias/ms-app/originais/app-inicio-original.jpg`): a faixa dos ícones de status virou o próprio azul da tela, e o sino e o selo vieram inteiros do original. O resto da imagem não mudou.
