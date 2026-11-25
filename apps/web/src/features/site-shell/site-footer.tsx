@@ -14,7 +14,7 @@ export const SiteFooter = () => (
       <div className="ms-footer__top">
         <div className="ms-footer__brand">
           <span className="ms-footer__logo">
-            <BrandMark variant="full" />
+            <BrandMark variant="dark" />
           </span>
           <p>Software de gestão para funerárias, planos, cemitérios e crematórios desde 2005.</p>
           <div className="ms-social">

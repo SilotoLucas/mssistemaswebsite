@@ -1,0 +1,2 @@
+.ms-shot { margin: 0; overflow: hidden; border: 1px solid var(--glass-border); border-radius: 14px; background: var(--ink-raised); box-shadow: var(--shadow-float); }
+.ms-page .ms-shot img { display: block; width: 100%; height: auto; user-select: none; }

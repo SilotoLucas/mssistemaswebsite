@@ -152,7 +152,7 @@
 .ms-hs__stage { --duo-h: 100cqh; }
 .ms-hs__stage .ms-pdv--dash .ms-pdv__chip--a { left: 0; bottom: 3%; }
 .ms-hs__stage .ms-pdv--dash .ms-pdv__chip--b { right: 0; top: 3%; }
-.ms-hs__stage .ms-pdv--dash .ms-bf { width: min(100cqw, 175cqh); }
+.ms-hs__stage .ms-pdv--dash .ms-shot { width: min(100cqw, 222cqh); }
 .ms-hero__car img { -webkit-user-drag: none; user-select: none; pointer-events: none; }
 .ms-hs__cap { display: grid; gap: 6px; max-width: 52ch; }
 .ms-hs__cap p { margin: 0; }
@@ -184,7 +184,7 @@
 .ms-pdh--dashboard { --pdh-a: var(--sky); }
 .ms-pdh__stage { position: relative; isolation: isolate; display: grid; place-items: center; min-width: 0; min-height: 280px; padding: var(--space-6) var(--space-4); }
 .ms-page .ms-pdh .ms-pdv__glow { inset: 12% 14%; background: radial-gradient(closest-side, color-mix(in srgb, var(--pdh-a) 22%, transparent), transparent); filter: blur(40px); }
-.ms-pdh .ms-bf { box-shadow: 0 24px 48px color-mix(in srgb, var(--ink) 45%, transparent); }
+.ms-pdh .ms-shot { box-shadow: 0 24px 48px color-mix(in srgb, var(--ink) 45%, transparent); }
 .ms-pdh__c { display: grid; justify-items: start; gap: var(--space-4); min-width: 0; padding: var(--space-2) var(--space-2) var(--space-3); }
 .ms-pdh__tag { display: inline-flex; align-items: center; gap: var(--space-2); padding: 4px 14px 4px 4px; border: 1px solid var(--glass-border); border-radius: var(--radius-full); background: var(--glass); color: var(--white); font-family: var(--font-display); font-size: 14px; font-weight: 800; }
 .ms-page .ms-pdh__logo { width: 28px; height: 28px; border-radius: var(--radius-full); }

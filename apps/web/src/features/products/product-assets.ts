@@ -5,8 +5,6 @@ import appLogo from '../../assets/app/ms-app-logo.webp'
 import dashboardShot from '../../assets/ms-dashboard.webp'
 import smallBusinessLogo from '../../assets/smallbusiness-logo.webp'
 
-export const DASHBOARD_ADDRESS = 'indicadores.mssistemas.com.br'
-
 export const DASHBOARD_SHOT = {
   src: dashboardShot,
   width: 1350,

@@ -535,3 +535,17 @@ O dono do projeto pediu uma tela própria para a equipe, que antes ficava como s
   Os textos não trazem números nem prazos que não foram confirmados.
 - **Pessoas:** cada cartão é um botão que abre um modal com o descritivo da pessoa. Como os textos ainda não existem, `memberBio` usa um texto padrão com o nome. Para trocar, basta preencher `bio` da pessoa em `features/team/team-content.ts`.
 - **Empresa:** saiu a seção da equipe e o `TEAM_MEMBERS` foi para `features/team`.
+
+## 049. Cabeçalho novo, logo 2D e Dashboard sem barra de navegador
+
+**Data:** 24/11/2026
+
+Quem está avaliando o projeto não gostou da logo 3D no cabeçalho.
+
+- **Logo:** o site volta à logo 2D original, sem mudar o desenho. Há duas versões, geradas da original de 2000 × 992: `light`, com o texto em azul-marinho, e `dark`, com o texto "consultoria & sistemas" em branco para o rodapé. Os arquivos 3D saíram de `src/assets` e continuam em `docs/referencias/logo-3d`.
+- **Cabeçalho:** a pílula flutuante virou uma barra clara de ponta a ponta, presa no topo.
+  - Tem uma linha fina em degradê azul embaixo, a página atual sublinhada no menu e "Acessar sistemas" com contorno.
+  - Ao rolar, a barra encolhe (de 84 para 70 px no desktop) e ganha sombra.
+  - A logo tem 62 px de altura no desktop, para que "consultoria & sistemas" fique legível.
+- **Dashboard:** a moldura imitava um navegador, mas não se parecia com o Chrome e mostrava o endereço errado (`indicadores`, o certo agora é `gestor`). Ela virou `ScreenFrame`, só a tela com bordas arredondadas e sombra, sem barra nem endereço.
+- **Pendente:** o link "MS Dashboard" em "Acessar sistemas" ainda aponta para `indicadores.mssistemas.com.br`, até o dono do projeto passar o endereço novo.

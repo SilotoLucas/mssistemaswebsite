@@ -59,13 +59,22 @@ body { margin: 0; background: var(--ink); }
 .ms-link--on-dark, .ms-dark .ms-link { color: var(--sky); }
 
 .ms-header { position: sticky; top: 0; z-index: 40; height: 0; }
-.ms-header__shell { position: absolute; top: 12px; left: 0; right: 0; }
-.ms-header__bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); height: 64px; padding: 0 10px 0 16px; border: 1px solid var(--line-light); border-radius: var(--radius-full); background: var(--glass-light); box-shadow: var(--shadow-pill); backdrop-filter: blur(18px) saturate(1.6); }
+.ms-header__shell { position: absolute; top: 0; left: 0; right: 0; }
+.ms-header__bar { position: relative; border-bottom: 1px solid var(--line-light); background: var(--glass-light); backdrop-filter: blur(18px) saturate(1.6); transition: box-shadow var(--duration-base) var(--ease-standard); }
+.ms-header__bar::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: linear-gradient(90deg, transparent, var(--brand) 25%, var(--aqua) 50%, var(--brand) 75%, transparent); opacity: 0.55; pointer-events: none; }
+.ms-header.is-scrolled .ms-header__bar { box-shadow: var(--shadow-pill); }
+.ms-header__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); height: 68px; transition: height var(--duration-base) var(--ease-standard); }
+.ms-header.is-scrolled .ms-header__in { height: 62px; }
 .ms-header__logo { display: flex; flex: none; align-items: center; min-height: var(--tap-min); border-radius: var(--radius-sm); }
-.ms-page .ms-header__logo .ms-mark { width: auto; height: 38px; }
+.ms-page .ms-header__logo .ms-mark { width: auto; height: 46px; transition: height var(--duration-base) var(--ease-standard); }
 .ms-nav { display: none; }
 .ms-nav a, .ms-access__btn { position: relative; display: inline-flex; align-items: center; gap: var(--space-1); min-height: var(--tap-min); padding-inline: var(--space-4); border: 0; border-radius: var(--radius-full); background: none; color: var(--navy); font-family: var(--font-body); font-size: var(--fs-small); line-height: 20px; font-weight: 600; text-decoration: none; cursor: pointer; transition: color var(--duration-fast) var(--ease-standard), background-color var(--duration-fast) var(--ease-standard); }
 .ms-nav a, .ms-access__btn { white-space: nowrap; }
+.ms-nav a::after { content: ""; position: absolute; left: var(--space-4); right: var(--space-4); bottom: 4px; height: 2px; border-radius: var(--radius-full); background: linear-gradient(90deg, var(--brand-deep), var(--aqua)); transform: scaleX(0); transition: transform var(--duration-base) var(--ease-out-expo); }
+.ms-nav a[aria-current="page"] { color: var(--brand-deep); }
+.ms-nav a[aria-current="page"]::after { transform: scaleX(1); }
+.ms-access__btn { border: 1px solid var(--border-subtle); }
+.ms-drawer__nav a[aria-current="page"] { color: var(--brand-deep); }
 .ms-nav a:hover, .ms-access__btn:hover, .ms-access__btn[aria-expanded="true"] { background: color-mix(in srgb, var(--brand) 14%, transparent); color: var(--brand-deep); }
 .ms-header__actions { display: flex; align-items: center; gap: var(--space-2); }
 .ms-access { position: relative; display: none; }
@@ -119,7 +128,10 @@ body { margin: 0; background: var(--ink); }
 @media (min-width: 1200px) {
   .ms-wrap { padding-inline: var(--gutter-desktop); }
   .ms-section { padding-block: var(--section-pad-lg); }
-  .ms-page .ms-header__logo .ms-mark { height: 44px; }
+  .ms-header__in { height: 84px; }
+  .ms-header.is-scrolled .ms-header__in { height: 70px; }
+  .ms-page .ms-header__logo .ms-mark { height: 62px; }
+  .ms-page .ms-header.is-scrolled .ms-header__logo .ms-mark { height: 52px; }
   .ms-nav { display: flex; gap: var(--space-1); }
   .ms-access { display: block; }
   .ms-burger { display: none; }
@@ -129,6 +141,7 @@ body { margin: 0; background: var(--ink); }
 
 @media (min-width: 1200px) and (max-width: 1319px) {
   .ms-nav a, .ms-access__btn { padding-inline: var(--space-3); }
+  .ms-nav a::after { left: var(--space-3); right: var(--space-3); }
 }
 
 @media (max-width: 359px) {

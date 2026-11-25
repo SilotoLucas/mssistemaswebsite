@@ -39,9 +39,9 @@ describe('páginas das soluções', () => {
     expect(tabs[0]?.getAttribute('aria-selected')).toBe('false')
   })
 
-  test('o MS Dashboard mostra a tela do painel em uma moldura de navegador', () => {
+  test('o MS Dashboard mostra a tela do painel em uma moldura simples, sem barra de navegador', () => {
     renderRoute('/dashboard')
-    expect(document.querySelector('#detalhes .ms-bf')).not.toBeNull()
+    expect(document.querySelector('#detalhes .ms-shot')).not.toBeNull()
   })
 
   test('só mostra a seção "para quem é" quando a solução tem passos', () => {

@@ -4,15 +4,15 @@ import { DEMO_HREF } from '../../shared/config/site-config'
 import { SMALL_BUSINESS_PERKS } from '../../shared/config/small-business'
 import { solutionHref } from '../../shared/config/solutions-catalog'
 import { Aurora } from '../../shared/ui/aurora'
-import { BrowserFrame } from '../../shared/ui/browser-frame'
 import { Icon } from '../../shared/ui/icon'
 import { Reveal } from '../../shared/ui/reveal'
+import { ScreenFrame } from '../../shared/ui/screen-frame'
 import { SiteLink } from '../../shared/ui/site-link'
 import { trackPointer } from '../../shared/ui/spotlight'
 import { TextLink } from '../../shared/ui/text-link'
 import { YoutubeVideo } from '../../shared/ui/youtube-video'
 import { AppTour } from './app-tour'
-import { DASHBOARD_ADDRESS, DASHBOARD_SHOT } from './product-assets'
+import { DASHBOARD_SHOT } from './product-assets'
 
 type SectionProps = {
   readonly product: Product
@@ -166,12 +166,11 @@ const DashboardShowcase = ({ product }: { readonly product: Product }) => (
       highlight="cada área da empresa"
     />
     <Reveal className="ms-pd-browser">
-      <BrowserFrame
+      <ScreenFrame
         src={DASHBOARD_SHOT.src}
         alt={DASHBOARD_SHOT.alt}
         width={DASHBOARD_SHOT.width}
         height={DASHBOARD_SHOT.height}
-        address={DASHBOARD_ADDRESS}
         lazy
       />
     </Reveal>

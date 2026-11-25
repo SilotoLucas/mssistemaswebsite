@@ -1,9 +1,9 @@
-import compactUrl from '../../assets/ms-logo-3d.webp'
-import fullUrl from '../../assets/ms-logo-3d-completo.webp'
+import onLightUrl from '../../assets/ms-logo-2d.webp'
+import onDarkUrl from '../../assets/ms-logo-2d-claro.webp'
 
 const ARTWORK = {
-  compact: { src: compactUrl, width: 255, height: 112 },
-  full: { src: fullUrl, width: 640, height: 377 },
+  light: { src: onLightUrl, width: 720, height: 357 },
+  dark: { src: onDarkUrl, width: 720, height: 357 },
 } as const
 
 type BrandMarkProps = { readonly variant: keyof typeof ARTWORK }

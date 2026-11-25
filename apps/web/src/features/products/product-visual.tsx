@@ -2,16 +2,11 @@ import type { ComponentType } from 'react'
 import type { ProductSlug } from '../../shared/config/products'
 import { SMALL_BUSINESS_MODULES } from '../../shared/config/small-business'
 import { solutionHref } from '../../shared/config/solutions-catalog'
-import { BrowserFrame } from '../../shared/ui/browser-frame'
 import { Icon } from '../../shared/ui/icon'
 import { PhoneFrame } from '../../shared/ui/phone-frame'
+import { ScreenFrame } from '../../shared/ui/screen-frame'
 import { SiteLink } from '../../shared/ui/site-link'
-import {
-  APP_SCREENS,
-  DASHBOARD_ADDRESS,
-  DASHBOARD_SHOT,
-  SMALL_BUSINESS_LOGO,
-} from './product-assets'
+import { APP_SCREENS, DASHBOARD_SHOT, SMALL_BUSINESS_LOGO } from './product-assets'
 import './products.css'
 
 type VisualProps = { readonly decorative: boolean }
@@ -72,12 +67,11 @@ const AppVisual = ({ decorative }: VisualProps) => {
 const DashboardVisual = ({ decorative }: VisualProps) => (
   <div className="ms-pdv ms-pdv--dash">
     <span className="ms-pdv__glow" aria-hidden="true" />
-    <BrowserFrame
+    <ScreenFrame
       src={DASHBOARD_SHOT.src}
       alt={alt(decorative, DASHBOARD_SHOT.alt)}
       width={DASHBOARD_SHOT.width}
       height={DASHBOARD_SHOT.height}
-      address={DASHBOARD_ADDRESS}
     />
     <span className="ms-pchip ms-pdv__chip ms-pdv__chip--a" aria-hidden="true">
       <span className="ms-pchip__ico">
