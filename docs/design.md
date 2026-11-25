@@ -132,10 +132,10 @@ Regras de movimento:
 A logo do site é a **2D original** (decisões 049 e 050), pelo componente `BrandMark`:
 
 - `compact` (só o globo e o "MS", com o "MS" centralizado na altura do globo): no cabeçalho, 50 px de altura (42 px abaixo de 1200 px). Arquivo em 960 px de largura para ficar nítido em telas com zoom.
-- `dark` (desenho completo, com "consultoria & sistemas" em branco): só em fundo escuro. No rodapé, 250 px de largura.
+- `full` (a logo 3D completa, com texto branco): só no rodapé, em fundo escuro, com 250 px de largura. É a única que continua 3D, a pedido do dono do projeto (decisão 051).
 - Ícone da aba: só o globo (`public/favicon-32.png` e `public/favicon.png`), que continua legível em 16 px. Na tela inicial do celular, o ícone quadrado completo (`public/apple-touch-icon.png`).
 
-Não ponha a logo em pastilha, selo ou caixa. Mantenha livre ao redor pelo menos metade da altura. Para gerar outro tamanho, parta de `docs/referencias/design-v1/assets/img/ms-logo.webp` (2000 × 992, transparente). Na versão `dark` só o texto abaixo do "MS" muda para branco. A logo 3D continua guardada em `docs/referencias/logo-3d`, mas não é usada no site.
+Não ponha a logo em pastilha, selo ou caixa. Mantenha livre ao redor pelo menos metade da altura. Para gerar outro tamanho, parta de `docs/referencias/design-v1/assets/img/ms-logo.webp` (2000 × 992, transparente). A logo 3D do rodapé e os originais 3D ficam em `docs/referencias/logo-3d`.
 
 ## Checklist antes de entregar uma tela ou ajuste
 

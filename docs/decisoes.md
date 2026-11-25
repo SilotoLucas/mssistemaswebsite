@@ -559,3 +559,9 @@ O dono do projeto não gostou do cabeçalho em barra da decisão 049.
 - **Cabeçalho:** volta a pílula flutuante de antes, sem mudança de layout. Saíram a barra de ponta a ponta, o sublinhado da página atual e o encolhimento ao rolar (`use-scrolled`).
 - **Logo:** a logo do cabeçalho é a 2D original sem "consultoria & sistemas", que não combinava com o fundo branco. Ficou só o globo e o "MS", com o "MS" centralizado na altura do globo, gerada em 960 px de largura a partir da original de 2000 px. Ela tem 50 px de altura no desktop e 42 px abaixo de 1200 px.
 - **Continua da 049:** a logo 2D com texto branco no rodapé e a tela do Dashboard sem barra de navegador.
+
+## 051. O rodapé mantém a logo 3D
+
+**Data:** 24/11/2026
+
+A troca para a logo 2D era só para o cabeçalho. O rodapé volta à logo 3D completa, com texto branco (`BrandMark` `full`), e o arquivo 2D com texto branco saiu.
