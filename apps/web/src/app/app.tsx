@@ -11,6 +11,7 @@ import { ProductPage } from '../features/products'
 import { SiteFooter, SiteHeader } from '../features/site-shell'
 import { SolutionsPage } from '../features/solutions'
 import { SupportPage } from '../features/support'
+import { TeamPage } from '../features/team'
 import { VideosPage } from '../features/videos'
 import { PRODUCTS, productHref } from '../shared/config/products'
 import { isPagePublished } from '../shared/config/site-config'
@@ -46,6 +47,7 @@ export const App = () => (
       <Route path="/clientes" element={publishedOr('/clientes', <ClientsPage />)} />
       <Route path="/suporte" element={<SupportPage />} />
       <Route path="/empresa" element={<CompanyPage />} />
+      <Route path="/equipe" element={<TeamPage />} />
       <Route path="/contato" element={publishedOr('/contato', <ContactPage />)} />
       <Route path="/demonstracao" element={<DemoRequestPage />} />
       <Route path="/acessar-sistemas" element={<AccessPage />} />

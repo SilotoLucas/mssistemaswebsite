@@ -15,5 +15,6 @@
 | 11 | SmallBusiness | `/smallbusiness` | Pronta |
 | 12 | MS App | `/app` | Pronta |
 | 13 | MS Dashboard | `/dashboard` | Pronta |
+| 14 | Equipe | `/equipe` | Pronta |
 
 Conteúdos e artigos ficam para depois, conforme a análise do site legado.

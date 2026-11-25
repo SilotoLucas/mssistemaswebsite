@@ -39,12 +39,6 @@
 .ms-co-values li:hover { border-color: var(--brand); transform: translateY(-3px); }
 .ms-co-values span { display: inline-flex; flex: none; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: var(--radius-full); background: var(--brand-deep); color: var(--white); }
 
-.ms-co-team { --rail-item: 190px; }
-.ms-co-team .ms-rail__line { background: var(--border-on-dark); }
-.ms-co-team .ms-rail__line span { background: var(--sky); }
-.ms-co-person { display: grid; justify-items: center; gap: var(--space-3); height: 100%; padding: var(--space-6) var(--space-4); background: var(--ink); border: 1px solid var(--border-on-dark); border-radius: var(--radius-lg); }
-.ms-co-person span { display: inline-flex; align-items: center; justify-content: center; width: 80px; height: 80px; border: 2px solid var(--sky); border-radius: var(--radius-full); background: var(--navy); color: var(--sky); font-family: var(--font-display); font-size: 30px; line-height: 1; font-weight: 700; }
-.ms-page .ms-co-person h3 { color: var(--white); font-size: 18px; line-height: 26px; }
 
 .ms-co-place { display: grid; gap: var(--space-4); }
 .ms-co-contact { display: grid; padding: var(--space-2) var(--space-5); background: var(--white); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); }
@@ -69,7 +63,6 @@
   .ms-page .ms-co-values { grid-template-columns: repeat(6, minmax(0, 1fr)); }
   .ms-co-values li { grid-column: span 2; }
   .ms-co-values li:nth-child(4), .ms-co-values li:nth-child(5) { grid-column: span 3; }
-  .ms-co-team { --rail-item: 210px; }
   .ms-co-map { min-height: 420px; }
 }
 
@@ -78,7 +71,6 @@
   .ms-co-story { grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--space-8); }
   .ms-page .ms-co-values { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-4); }
   .ms-co-values li, .ms-co-values li:nth-child(4), .ms-co-values li:nth-child(5) { grid-column: auto; flex-direction: column; justify-content: center; padding: var(--space-6) var(--space-3); text-align: center; }
-  .ms-co-team { --rail-item: 226px; }
   .ms-co-place { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-5); }
   .ms-co-map { position: sticky; top: calc(var(--header-height) + var(--space-3)); align-self: start; min-height: 0; height: clamp(380px, calc(100svh - var(--header-height) - var(--space-6)), 640px); }
 }

@@ -517,3 +517,21 @@ O dono do projeto achou a tela Soluções sem vida: todos os grupos eram iguais,
 - **Ritmo:** os grupos alternam claro (branco com brilho da cor) e escuro (azul-marinho com brilho, cartões de vidro), como o resto do site.
 - **Cabeçalho do grupo:** ícone em degradê, número do grupo (01 a 06) com a contagem de soluções, título, descrição e o ícone do grupo grande e apagado ao fundo.
 - **Cartões:** ícone em degradê, luz que segue o mouse, linha de cor no topo e leve subida ao passar o mouse. Com movimento reduzido, não sobem nem giram.
+
+## 048. Nova tela Equipe
+
+**Data:** 24/11/2026
+
+O dono do projeto pediu uma tela própria para a equipe, que antes ficava como seção "Quem faz a MS" na página Empresa.
+
+- **Rota e menu:** a página fica em `/equipe` (`features/team`) e "Equipe" entra no menu e no rodapé, depois de Empresa. Para caber, o menu não quebra linha e usa espaçamento menor entre 1200 e 1319 px.
+- **Conteúdo:**
+  - Abertura com a contagem de pessoas e as iniciais de todos.
+  - "Duas frentes, um só objetivo": suporte qualificado e desenvolvimento próprio, que faz ajustes, melhora o sistema o tempo todo, o mantém atualizado com o mercado e cria soluções específicas a pedido do cliente.
+  - "Quem faz a MS": o trilho com as pessoas.
+  - "O sistema evolui junto com você", em três passos.
+  - Fechamento com o pedido de demonstração.
+
+  Os textos não trazem números nem prazos que não foram confirmados.
+- **Pessoas:** cada cartão é um botão que abre um modal com o descritivo da pessoa. Como os textos ainda não existem, `memberBio` usa um texto padrão com o nome. Para trocar, basta preencher `bio` da pessoa em `features/team/team-content.ts`.
+- **Empresa:** saiu a seção da equipe e o `TEAM_MEMBERS` foi para `features/team`.

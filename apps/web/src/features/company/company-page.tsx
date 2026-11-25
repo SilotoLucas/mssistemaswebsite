@@ -1,15 +1,9 @@
 import { SERVED_STATE_COUNT } from '../../shared/config/brazil-states'
-import { AutoRail } from '../../shared/ui/auto-rail'
 import { Carousel, type CarouselSlide } from '../../shared/ui/carousel'
 import { Icon } from '../../shared/ui/icon'
 import { PageHero } from '../../shared/ui/page-hero'
 import { DemoRequestSection } from '../demo-request'
-import {
-  COMPANY_MILESTONES,
-  COMPANY_PILLARS,
-  COMPANY_VALUES,
-  TEAM_MEMBERS,
-} from './company-content'
+import { COMPANY_MILESTONES, COMPANY_PILLARS, COMPANY_VALUES } from './company-content'
 import { LocationSection } from './location-section'
 import './company.css'
 
@@ -117,27 +111,6 @@ export const CompanyPage = () => (
             </li>
           ))}
         </ul>
-      </div>
-    </section>
-
-    <section className="ms-co ms-co--navy ms-dark" id="equipe">
-      <div className="ms-wrap">
-        <div className="ms-co-head">
-          <p className="ms-co-kicker">Nossa equipe</p>
-          <h2>Quem faz a MS</h2>
-        </div>
-        <AutoRail
-          items={TEAM_MEMBERS}
-          label="Equipe da MS Sistemas"
-          getKey={(member) => member}
-          className="ms-co-team"
-          renderItem={(member) => (
-            <article className="ms-co-person">
-              <span aria-hidden="true">{member.charAt(0)}</span>
-              <h3>{member}</h3>
-            </article>
-          )}
-        />
       </div>
     </section>
 

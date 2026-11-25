@@ -41,24 +41,6 @@ export const COMPANY_VALUES: readonly IconLabel[] = [
   { name: 'Ética', icon: 'check' },
 ]
 
-export const TEAM_MEMBERS = [
-  'Eduardo',
-  'Simone',
-  'Marcello',
-  'Alessandro',
-  'Bill',
-  'Mario',
-  'Neri',
-  'Lucas',
-  'Pedro',
-  'Paulo',
-  'Vinícius',
-  'Marco',
-  'Kaick',
-  'David',
-  'Matheus',
-] as const
-
 const ADDRESS_QUERY = 'Rua Florindo Silva, 51, Botucatu - SP, 18610-150'
 
 export const MAP_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(ADDRESS_QUERY)}&z=16&output=embed`

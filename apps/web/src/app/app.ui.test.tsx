@@ -15,6 +15,7 @@ const ALL_ROUTES = [
   ['/clientes', 'Clientes | MS Sistemas'],
   ['/suporte', 'Suporte | MS Sistemas'],
   ['/empresa', 'Empresa | MS Sistemas'],
+  ['/equipe', 'Equipe | MS Sistemas'],
   ['/contato', 'Contato | MS Sistemas'],
   ['/demonstracao', 'Solicitar demonstração | MS Sistemas'],
   ['/acessar-sistemas', 'Acessar sistemas | MS Sistemas'],

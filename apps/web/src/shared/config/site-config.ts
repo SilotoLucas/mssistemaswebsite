@@ -22,6 +22,7 @@ const ALL_PAGES: readonly NavigationLink[] = [
   { label: 'Suporte', href: '/suporte' },
   { label: 'Clientes', href: '/clientes' },
   { label: 'Empresa', href: '/empresa' },
+  { label: 'Equipe', href: '/equipe' },
   { label: 'Contato', href: '/contato' },
 ]
 
