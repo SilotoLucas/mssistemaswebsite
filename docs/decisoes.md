@@ -577,3 +577,16 @@ Ao tirar a barra de status do celular da tela inicial do app (`app-inicio.webp`)
 **Data:** 24/11/2026
 
 O ícone do MS Dashboard nos atalhos era só um ícone de gráfico pequeno e apagado num quadrado azul, e não parecia uma logo. Agora o `ProductThumb` do Dashboard é um ícone de app desenhado em SVG, ao lado das logos do SmallBusiness e do MS App. Tem fundo em degradê da marca com brilho água no canto, um painel claro, barras brancas, uma linha de tendência em água e um ponto de destaque. As cores vêm dos tokens. Ele aparece nas abas da vitrine da home, na etiqueta do slide e em "Conheça também as outras soluções".
+
+## 054. Revisão de carrosséis e responsividade antes da entrega
+
+**Data:** 24/11/2026
+
+O dono do projeto notou que, em telas menores, os slides automáticos com setas "davam uma travada". Um teste automatizado no Chrome rodou todos os carrosséis e trilhos (abertura da home, vitrine de soluções digitais, abertura de Soluções e de Empresa, trilhos de Soluções e da Equipe) em 390, 768, 1024, 1272×585 e 1366×768. Com o slide passando sozinho, ele tocou as setas com 1,2 s e 0,25 s de intervalo e mediu se o slide andava certo, se havia algo por cima da seta e quantos quadros passavam de 50 ms.
+
+- **Lógica:** o avanço automático e as setas estão certos, sem pular slide nem parar o automático.
+- **Seta coberta:** o botão flutuante "Fale conosco", no canto inferior direito, ficava por cima das setas, que também ficavam à direita. Em 1024 px, tocar na seta acertava o botão do WhatsApp. As setas foram para a esquerda das barras (`ms-car__bar` e `ms-rail__foot` em `row-reverse`).
+- **Seta fora da tela:** no celular, a barra do carrossel de Soluções tinha seis indicadores e não cabia, e a seta "anterior" ficava fora da tela. Os indicadores agora encolhem quando falta espaço.
+- **Travadas:** o desfoque de vidro (`backdrop-filter`) em cartões que se movem obriga o navegador a refazer o desfoque a cada quadro. Ele saiu dos cartões escuros das Soluções, dos cartões da Equipe e das etiquetas dentro dos slides (`ms-pchip`), que ganharam um fundo um pouco mais sólido. Na Equipe, os quadros lentos caíram de cerca de 66 para 15 por teste e, nas Soluções, de cerca de 60 para cerca de 33. Regra: não usar `backdrop-filter` em nada que se mova ou troque de slide.
+- **Números da home no celular:** "Desde 2005" encostava no número ao lado em 360 px. A fonte agora acompanha a largura e pode quebrar linha abaixo de 768 px.
+- **Cabeçalho no celular:** o logo novo é um pouco mais largo, e o menu (☰) saía da pílula entre 360 e 420 px. O botão usa a forma curta "Demonstração" até 419 px, e abaixo de 360 px o logo e o botão ficam um pouco menores.

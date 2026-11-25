@@ -62,7 +62,7 @@ body { margin: 0; background: var(--ink); }
 .ms-header__shell { position: absolute; top: 12px; left: 0; right: 0; }
 .ms-header__bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); height: 64px; padding: 0 10px 0 16px; border: 1px solid var(--line-light); border-radius: var(--radius-full); background: var(--glass-light); box-shadow: var(--shadow-pill); backdrop-filter: blur(18px) saturate(1.6); }
 .ms-header__logo { display: flex; flex: none; align-items: center; min-height: var(--tap-min); border-radius: var(--radius-sm); }
-.ms-page .ms-header__logo .ms-mark { width: auto; height: 42px; }
+.ms-page .ms-header__logo .ms-mark { width: auto; height: 36px; }
 .ms-nav { display: none; }
 .ms-nav a, .ms-access__btn { position: relative; display: inline-flex; align-items: center; gap: var(--space-1); min-height: var(--tap-min); padding-inline: var(--space-4); border: 0; border-radius: var(--radius-full); background: none; color: var(--navy); font-family: var(--font-body); font-size: var(--fs-small); line-height: 20px; font-weight: 600; text-decoration: none; cursor: pointer; transition: color var(--duration-fast) var(--ease-standard), background-color var(--duration-fast) var(--ease-standard); }
 .ms-nav a, .ms-access__btn { white-space: nowrap; }
@@ -116,6 +116,10 @@ body { margin: 0; background: var(--ink); }
   .ms-footer__bottom { grid-template-columns: 1fr auto; align-items: center; }
 }
 
+@media (min-width: 480px) {
+  .ms-page .ms-header__logo .ms-mark { height: 42px; }
+}
+
 @media (min-width: 1200px) {
   .ms-wrap { padding-inline: var(--gutter-desktop); }
   .ms-section { padding-block: var(--section-pad-lg); }
@@ -131,9 +135,14 @@ body { margin: 0; background: var(--ink); }
   .ms-nav a, .ms-access__btn { padding-inline: var(--space-3); }
 }
 
-@media (max-width: 359px) {
+@media (max-width: 419px) {
   .ms-cta-full { display: none; }
   .ms-cta-short { display: inline; }
+}
+
+@media (max-width: 359px) {
+  .ms-page .ms-header__logo .ms-mark { height: 32px; }
+  .ms-header__actions .ms-btn--sm { padding-inline: 14px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

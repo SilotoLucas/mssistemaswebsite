@@ -45,7 +45,7 @@
 .ms-sol:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--sg-a, var(--brand)) 60%, transparent); box-shadow: var(--shadow-lift); }
 .ms-sol:hover::after { transform: scaleX(1); }
 .ms-sg .ms-sol.ms-spot::before { background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 0%), color-mix(in srgb, var(--sg-a) 16%, transparent), transparent 60%); }
-.ms-sg--dark .ms-sol { background: var(--glass); border-color: var(--glass-border); color: var(--text-on-ink-muted); box-shadow: none; backdrop-filter: blur(10px); }
+.ms-sg--dark .ms-sol { background: color-mix(in srgb, var(--ink-raised) 72%, transparent); border-color: var(--glass-border); color: var(--text-on-ink-muted); box-shadow: none; }
 .ms-sg--dark .ms-sol:hover { background: var(--glass-strong); box-shadow: 0 20px 44px color-mix(in srgb, var(--ink) 50%, transparent); }
 .ms-sg--dark .ms-sol.ms-spot::before { background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 0%), color-mix(in srgb, var(--sg-a) 26%, transparent), transparent 60%); }
 .ms-sol:has(.ms-sol__btn:focus-visible) { outline: 2px solid var(--focus-ring); outline-offset: 2px; }

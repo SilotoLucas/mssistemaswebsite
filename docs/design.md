@@ -110,6 +110,7 @@ Regras de movimento:
 - Três layouts: mobile (menos de 768 px), tablet (768 a 1199 px) e desktop (1200 px ou mais). Abaixo de 1200 px o menu vira gaveta e as seções ficam em coluna única.
 - Escreva o CSS mobile primeiro e suba com `@media (min-width: 768px)` e `@media (min-width: 1200px)`.
 - Confira sempre em 390, 768, 1024, 1366 (monitor pequeno, é o da apresentação), 1536 e 1920 de largura. Sem rolagem lateral em nenhuma. Na abertura, os botões precisam caber na primeira tela em 1366×768 e em 1272×585 (notebook em 150% de escala). Confira também 1280×720 e 1440×900.
+- Setas de carrossel e de trilho ficam à **esquerda** da barra, para o botão flutuante "Fale conosco" nunca ficar por cima. Nunca use `backdrop-filter` em algo que se move ou troca de slide, porque trava a animação em notebooks e celulares (decisão 054).
 
 ## Convenções de CSS
 
