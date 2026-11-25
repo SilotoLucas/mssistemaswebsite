@@ -1,5 +1,11 @@
 .ms-pthumb { flex: none; width: 40px; height: 40px; border-radius: 12px; object-fit: contain; }
-.ms-pthumb--icon { display: inline-flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--brand-deep), var(--logo-blue)); color: var(--white); }
+.ms-pthumb--dash { display: inline-flex; overflow: hidden; background: radial-gradient(120% 90% at 100% 0%, color-mix(in srgb, var(--aqua) 45%, transparent), transparent 60%), linear-gradient(145deg, var(--brand-deep), var(--logo-blue)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--white) 18%, transparent); }
+.ms-pthumb--dash svg { display: block; width: 100%; height: 100%; }
+.ms-pthumb__card { fill: color-mix(in srgb, var(--white) 14%, transparent); stroke: color-mix(in srgb, var(--white) 35%, transparent); stroke-width: 1; }
+.ms-pthumb__bar { fill: var(--white); }
+.ms-pthumb__bar.is-top { fill: var(--sky); }
+.ms-pthumb__line { fill: none; stroke: var(--aqua); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.ms-pthumb__dot { fill: var(--white); stroke: var(--aqua); stroke-width: 1.6; }
 .ms-pchip { display: flex; align-items: center; gap: var(--space-3); padding: 8px 16px 8px 8px; border: 1px solid var(--glass-border); border-radius: var(--radius-full); background: color-mix(in srgb, var(--ink-raised) 84%, transparent); backdrop-filter: blur(14px); box-shadow: var(--shadow-float); color: var(--text-on-dark); font-size: var(--fs-small); font-weight: 600; line-height: 20px; text-decoration: none; transition: border-color var(--duration-fast) var(--ease-standard), background-color var(--duration-fast) var(--ease-standard); }
 a.ms-pchip:hover { border-color: var(--sky); background: var(--ink-raised); }
 .ms-pchip__ico { display: inline-flex; flex: none; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: var(--radius-full); background: linear-gradient(135deg, var(--brand-deep), var(--logo-blue)); color: var(--white); }

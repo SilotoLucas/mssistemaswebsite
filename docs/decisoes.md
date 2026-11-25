@@ -571,3 +571,9 @@ A troca para a logo 2D era só para o cabeçalho. O rodapé volta à logo 3D com
 **Data:** 24/11/2026
 
 Ao tirar a barra de status do celular da tela inicial do app (`app-inicio.webp`), o tratamento anterior cortou o topo do selo "7" do sino e deixou uma mancha avermelhada no canto. O topo foi refeito a partir do original (`docs/referencias/ms-app/originais/app-inicio-original.jpg`): a faixa dos ícones de status virou o próprio azul da tela, e o sino e o selo vieram inteiros do original. O resto da imagem não mudou.
+
+## 053. Ícone próprio para o MS Dashboard
+
+**Data:** 24/11/2026
+
+O ícone do MS Dashboard nos atalhos era só um ícone de gráfico pequeno e apagado num quadrado azul, e não parecia uma logo. Agora o `ProductThumb` do Dashboard é um ícone de app desenhado em SVG, ao lado das logos do SmallBusiness e do MS App. Tem fundo em degradê da marca com brilho água no canto, um painel claro, barras brancas, uma linha de tendência em água e um ponto de destaque. As cores vêm dos tokens. Ele aparece nas abas da vitrine da home, na etiqueta do slide e em "Conheça também as outras soluções".
