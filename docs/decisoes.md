@@ -549,3 +549,13 @@ Quem está avaliando o projeto não gostou da logo 3D no cabeçalho.
   - A logo tem 62 px de altura no desktop, para que "consultoria & sistemas" fique legível.
 - **Dashboard:** a moldura imitava um navegador, mas não se parecia com o Chrome e mostrava o endereço errado (`indicadores`, o certo agora é `gestor`). Ela virou `ScreenFrame`, só a tela com bordas arredondadas e sombra, sem barra nem endereço.
 - **Pendente:** o link "MS Dashboard" em "Acessar sistemas" ainda aponta para `indicadores.mssistemas.com.br`, até o dono do projeto passar o endereço novo.
+
+## 050. Volta o cabeçalho flutuante, com a logo 2D compacta
+
+**Data:** 24/11/2026
+
+O dono do projeto não gostou do cabeçalho em barra da decisão 049.
+
+- **Cabeçalho:** volta a pílula flutuante de antes, sem mudança de layout. Saíram a barra de ponta a ponta, o sublinhado da página atual e o encolhimento ao rolar (`use-scrolled`).
+- **Logo:** a logo do cabeçalho é a 2D original sem "consultoria & sistemas", que não combinava com o fundo branco. Ficou só o globo e o "MS", com o "MS" centralizado na altura do globo, gerada em 960 px de largura a partir da original de 2000 px. Ela tem 50 px de altura no desktop e 42 px abaixo de 1200 px.
+- **Continua da 049:** a logo 2D com texto branco no rodapé e a tela do Dashboard sem barra de navegador.

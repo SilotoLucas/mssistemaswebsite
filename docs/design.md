@@ -16,7 +16,7 @@ Site de software moderno: abertura escura com degradês animados e telas do prod
 
 Toda página segue esta alternância, de cima para baixo:
 
-1. **Cabeçalho:** barra clara de ponta a ponta (`glass-light` com desfoque), presa no topo e sobre o conteúdo, com a logo 2D, uma linha fina em degradê embaixo e a página atual sublinhada no menu. Ao rolar, a barra encolhe e ganha sombra.
+1. **Cabeçalho flutuante:** pílula clara (`glass-light` com desfoque), sempre sobre o conteúdo, com a logo 2D compacta (globo e "MS", sem texto).
 2. **Abertura escura (`ink`)** com `Aurora`. Na home é `hero-section`. Nas telas internas use sempre o `PageHero` (`shared/ui/page-hero.tsx`): trilha de navegação, `h1`, subtítulo, botões e, à direita, um `aside` com mockup ou cartão de vidro.
 3. **Seções que alternam `white` e `mist`** (classe `ms-section` e `ms-section--mist`), cada uma com cabeçalho de seção: `ms-eyebrow ms-eyebrow--light`, depois `h2.ms-h2` com uma palavra em `ms-grad ms-grad--deep`.
 4. **Seções escuras pontuais** (`ms-section--dark` ou `ink`) para o que merece destaque: Área do Cliente, atendimento, fechamento.
@@ -129,10 +129,10 @@ Regras de movimento:
 
 ## Logo
 
-A logo do site voltou a ser a **2D original** (decisão 049), pelo componente `BrandMark`:
+A logo do site é a **2D original** (decisões 049 e 050), pelo componente `BrandMark`:
 
-- `light` (texto "consultoria & sistemas" em azul-marinho): em fundo claro. No cabeçalho, 62 px de altura (52 px ao rolar e 46 px abaixo de 1200 px).
-- `dark` (mesmo desenho, com o texto em branco): em fundo escuro. No rodapé, 250 px de largura.
+- `compact` (só o globo e o "MS", com o "MS" centralizado na altura do globo): no cabeçalho, 50 px de altura (42 px abaixo de 1200 px). Arquivo em 960 px de largura para ficar nítido em telas com zoom.
+- `dark` (desenho completo, com "consultoria & sistemas" em branco): só em fundo escuro. No rodapé, 250 px de largura.
 - Ícone da aba: só o globo (`public/favicon-32.png` e `public/favicon.png`), que continua legível em 16 px. Na tela inicial do celular, o ícone quadrado completo (`public/apple-touch-icon.png`).
 
 Não ponha a logo em pastilha, selo ou caixa. Mantenha livre ao redor pelo menos metade da altura. Para gerar outro tamanho, parta de `docs/referencias/design-v1/assets/img/ms-logo.webp` (2000 × 992, transparente). Na versão `dark` só o texto abaixo do "MS" muda para branco. A logo 3D continua guardada em `docs/referencias/logo-3d`, mas não é usada no site.

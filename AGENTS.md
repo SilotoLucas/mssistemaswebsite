@@ -45,7 +45,7 @@ Uma porta só nasce quando existe um segundo implementador real, um teste sem I/
 - `docs/referencias/design-v1` serve só de base de identidade e conteúdo. O estilo claro e minimalista dele foi substituído (decisão 016).
 - Reaproveite componentes e classes que já existem (`PageHero`, `Reveal`, `Aurora`, `ms-btn`, `ms-eyebrow`, `ms-glass`). Não crie estilo novo quando existir um equivalente.
 - Cores, espaçamentos e fontes vêm de `packages/design-tokens/tokens.json`.
-- A logo é a 2D original, pelo componente `BrandMark`: `light` em fundo claro e `dark` (texto branco) em fundo escuro. A fonte é `docs/referencias/design-v1/assets/img/ms-logo.webp`. A logo 3D (`docs/referencias/logo-3d`) não é mais usada.
+- A logo é a 2D original, pelo componente `BrandMark`: `compact` (só globo e "MS") no cabeçalho e `dark` (com "consultoria & sistemas" em branco) no rodapé. A fonte é `docs/referencias/design-v1/assets/img/ms-logo.webp`. A logo 3D (`docs/referencias/logo-3d`) não é mais usada.
 - Textos em português do Brasil, com WCAG 2.1 AA e áreas de toque de pelo menos 44 px.
 - As telas e o ícone do MS App ficam em `apps/web/src/assets/app`. Os originais enviados, sem tratamento, ficam em `docs/referencias/ms-app/originais` (ver o `README.md` da pasta).
 - O descritivo dos módulos do sistema fica em `docs/modulos.md`. Consulte-o antes de escrever sobre um módulo e mantenha-o igual ao catálogo `shared/config/solutions-catalog.ts`.
